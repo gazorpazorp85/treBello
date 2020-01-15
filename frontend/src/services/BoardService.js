@@ -2,12 +2,17 @@ import HttpService from './HttpService';
 
 export default {
   // add,
-  query
+  query,
+  get
   // remove
 };
 
 function query() {
   return HttpService.get('board');
+}
+
+function get(boardId) {
+  return HttpService.get(`board/${boardId}`);
 }
 
 // function remove(reviewId) {

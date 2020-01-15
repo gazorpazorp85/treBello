@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 
-import BoardList from '../cmps/BoardList';
+import BoardsList from '../cmps/BoardsList';
 
 import { loadBoards } from '../actions/BoardActions'
 
@@ -25,7 +25,7 @@ class Home extends Component {
           TREBELLO
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, laborum!</p>
           <Link to='/board'>Start</Link>
-          <BoardList boards={this.props.boards} />
+          <BoardsList boards={this.props.boards} />
         </div>
       </section>
     </div>

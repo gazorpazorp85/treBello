@@ -4,10 +4,9 @@ import BoardPreview from "./BoardPreview";
 
 import { Link } from 'react-router-dom';
 
-function BoardList({ boards, history }) {
+function BoardsList({boards}) {
     return (
         <section>
-            {console.log(boards)}
             <h1>boards</h1>
             <ul>
                 {boards.map(board => (
@@ -23,4 +22,4 @@ function BoardList({ boards, history }) {
     )
 }
 
-export default withRouter(BoardList)
+export default withRouter(BoardsList)

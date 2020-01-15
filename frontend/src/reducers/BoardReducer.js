@@ -1,13 +1,14 @@
 const initialState = {
   boards: [],
+  board: {}
 };
 
-export default function(state = initialState, action = {}) {
+export default function (state = initialState, action = {}) {
   switch (action.type) {
     case 'SET_BOARDS':
       return { ...state, boards: action.boards };
-    // case 'REVIEW_ADD':
-    //   return { ...state, reviews: [...state.reviews, action.review] };
+    case 'SET_BOARD':
+      return { ...state, board: action.board }
     // case 'REVIEW_UPDATE':
     //   return {
     //     ...state,
