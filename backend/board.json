@@ -1,0 +1,53 @@
+{ "board": [{
+    "id": "jfghdiugu3747",
+    "teamMembers": [
+        {"userName" : "gazorpa"},
+        {"userName" : "vlad"},
+        {"userName" : "margad"}
+    ],
+    "columns": [
+        {
+            "id": "jio35rh7i",
+            "title": "active",
+            "tasks": [
+                {
+                    "id": "i5ytkrrorr679y",
+                    "title": "todo list",
+                    "createdAt": 19664654343543,
+                    "dueDate": 19664654343543454,
+                    "importance": 3,
+                    "labels": ["red"],
+                    "creator": {"userName": "gazorpa"},
+                    "taskTeamMembers": [{"userName": "vlad"},{"userName": "margad"}]
+                }
+            ]
+        }
+    ]
+},
+{
+    "id": "jfreyrthrh7",
+    "teamMembers": [
+        {"userName" : "gazorpa"},
+        {"userName" : "vlad"},
+        {"userName" : "margad"}
+    ],
+    "columns": [
+        {
+            "id": "jio35rh7i",
+            "title": "active",
+            "tasks": [
+                {
+                    "id": "i5ytkrrorr679y",
+                    "title": "todo list 2",
+                    "createdAt": 19664654343543,
+                    "dueDate": 19664654343543454,
+                    "importance": 3,
+                    "labels": ["red"],
+                    "creator": {"userName": "gazorpa"},
+                    "taskTeamMembers": [{"userName": "vlad"},{"userName": "margad"}]
+                }
+            ]
+        }
+    ]
+}]
+}

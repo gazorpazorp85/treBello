@@ -1,45 +1,27 @@
 .home {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-
-    .hello {
-        flex: 1;
-    }
-}
-
-.logo {
-    padding: rem(20px);
-    width: 140px;
-
-    @include for-normal-layout {
-        width: auto;
-    }
-}
-header {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-
-    @include for-normal-layout {
-        height: 86vh;
-    }
-}
-
-#nav {
-    a {
-        background: green;
-
-        &:first-child {
-            background-color: red;
-        }
-
-        body.homepage & {
-            color: gold;
+    &-login {
+        padding: 5px 10px;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        color: aliceblue;
+        transition: 0.3s;
+        &:hover{
+            background-color:  rgba(184, 184, 184, 0.151)
         }
     }
-}
 
-body.homepage #nav a {
-    
+    &-header-container {
+        background-image: url(../imags/header-bg.jpg);
+        background-size: cover;
+        background-position-x: center;
+        height: 75vh;
+
+        &-logo {
+            background-image: url(../imags/logo.png);
+            height: 500px;
+            width: 500px;
+        }
+    }
 }

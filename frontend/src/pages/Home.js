@@ -6,27 +6,26 @@ import { Link } from 'react-router-dom';
 import BoardsList from '../cmps/BoardsList';
 
 import { loadBoards } from '../actions/BoardActions'
-
 class Home extends Component {
 
   componentDidMount() {
     this.props.loadBoards();
-}
+  }
 
   render() {
     return <div className="home">
       <section>
-        <div className="home img">
-          <div>
-            <p>
-              login
-            </p>
+        <div className="home-header-container">
+          <p className="home-login">LOGIN</p>
+          <div className=" flex align-center justify-center">
+            <div className="home-header-container-logo">
+            </div>
           </div>
-          TREBELLO
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, laborum!</p>
-          <Link to='/board'>Start</Link>
-          <BoardsList boards={this.props.boards} />
+          <div className="fill flex justify-center">
+            <Link to='/board'><button>GET STARTED</button></Link>
+          </div>
         </div>
+        <BoardsList boards={this.props.boards} />
       </section>
     </div>
   }
