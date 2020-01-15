@@ -1,0 +1,20 @@
+.board-list-container {
+
+    margin-bottom: 20px;
+    padding: 20px;
+
+
+    &.grid-container {
+        display: grid;
+        grid-row-gap: 26px;
+        grid-column-gap: 26px;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
+        justify-content: center;
+    }
+
+    .board-list-item {
+        min-height: 300px;
+        border: 1px solid;
+    }
+
+}

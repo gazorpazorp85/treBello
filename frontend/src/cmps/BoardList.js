@@ -7,18 +7,15 @@ import { Link } from 'react-router-dom';
 function BoardList({ boards, history }) {
     return (
         <section>
-            {console.log(boards)}
-            <h1>boards</h1>
-            <ul>
-                {boards.map(board => (
-                    <li key={board.id}>
-                        <Link to={`/board/${board.id}`}><BoardPreview board={board} /></Link>
-                        {board.id}
-                    </li>
+            <div className="board-list-container grid-container">
+                    {boards.map(board => (
+                        <div  className="board-list-item grid-item" key={board.id}>
+                            <Link to={`/board/${board.id}`}><BoardPreview board={board} /></Link>
+                            {board.id}
+                        </div>
 
-                ))}
-            </ul>
-
+                    ))}
+            </div>
         </section>
     )
 }

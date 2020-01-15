@@ -1,3 +1,20 @@
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: #262626;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-image: linear-gradient(-86deg, #999999 0%, #474747 100%);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -16,7 +33,6 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: caveat, serif;
     margin-top: 0;
     font-weight: normal;
 }

@@ -27,6 +27,20 @@
     }
 }
 
+
+//grid helpers
+
+.grid-item{
+    display: grid;
+}
+
+
+//size helpers 
+
+.fill{
+    width: 100%;
+}
+
 // Media helpers
 
 .square-ratio {

@@ -9,8 +9,12 @@
 @import "basics/base.scss";
 @import "basics/links.scss";
 @import "basics/buttons.scss";
-@import "basics/typography.scss";
 
-// Components
-@import "components/main-header.scss";
-@import "components/cat-card.scss";
+//Component
+@import "components/BoardList.scss";
+
+//views
+@import "views/_home-page.scss";
+
+
+
