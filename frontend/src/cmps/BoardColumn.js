@@ -7,14 +7,13 @@ import TasksList from './TasksList';
 function BoardColumn({columns}) {
     return (
         <section>
-            <ul>
+            <div>
                 {columns.map(column => (
-                    <li key={column.id}>
+                    <div key={column.id}>
                         <TasksList tasks={column.tasks} />
-                    </li>
+                    </div>
                 ))}
-            </ul>
-
+            </div>
         </section>
     )
 }

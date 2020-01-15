@@ -3,16 +3,16 @@ import { withRouter } from 'react-router';
 
 import TaskPreview from './TaskPreview'
 
-function TasksList(tasks) {
+function TasksList({tasks}) {
     return (
         <section>
-            <ul>
+            <div>
                 {tasks.map(task => (
-                    <li key={task.id}>
+                    <div key={task.id}>
                         <TaskPreview task={task} />
-                    </li>
+                    </div>
                 ))}
-            </ul>
+            </div>
 
         </section>
     )
