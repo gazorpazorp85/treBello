@@ -1,13 +1,12 @@
 @import "./typography.scss";
 
 ::-webkit-scrollbar {
-    width: 5px;
-    height: 20px;
+    width: 2px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background-color: #262626;
+    background-color: #b3b3b39d;
 }
 
 /* Handle */
