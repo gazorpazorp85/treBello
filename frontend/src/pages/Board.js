@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 // import SocketService from '../services/SocketService';
 
+import Button from '@material-ui/core/Button';
+
 import { loadBoard } from '../actions/BoardActions';
 
 import BoardColumns from '../cmps/BoardColumns'
@@ -50,16 +52,20 @@ class Board extends Component {
 
     return (
       <div className="board-page fill-height flex column">
+        <Button className="board-page-back-btn" variant="outlined" onClick={this.goBack}>Back</Button>
         <div className="board-page-nav-bar flex justify-center align-center">
           <div className="board-page-nav-bar-logo"> </div>
         </div>
         <div>
           <div>
-            <button onClick={this.toggleAddForm}>Add</button>
-            {(this.state.showForm) ? <ColumnAddForm board={this.props.board} toggleAddForm={this.toggleAddForm} /> : ''}
+            <div className="flex">
+
+              <button onClick={this.toggleAddForm}>Add</button>
+              {(this.state.showForm) ? <ColumnAddForm board={this.props.board} toggleAddForm={this.toggleAddForm} /> : ''}
+
+            </div>
             <BoardColumns columns={this.props.board.columns} onEdit={this.onEdit} />
           </div>
-          <button onClick={this.goBack}>Back</button>
         </div>
       </div>
     )

@@ -10,8 +10,8 @@ function BoardColumns({ columns }) {
         <div className="board-columns grid-container">
 
             {columns.map(column => (
-                <div className="board-columns-grid-item" key={column.id}>
-                    <div className="board-columns-grid-item-header flex align-center space-between">
+                <div className="board-columns-item" key={column.id}>
+                    <div className="board-columns-item-header flex align-center space-between">
                         <h2>{column.title}</h2>
                         <p>
                             X
