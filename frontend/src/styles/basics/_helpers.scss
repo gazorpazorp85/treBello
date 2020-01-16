@@ -27,6 +27,12 @@
     }
 }
 
+//text helpers 
+
+.text-center{
+    text-align: center;
+}
+
 
 //grid helpers
 
@@ -37,9 +43,14 @@
 
 //size helpers 
 
-.fill{
+.fill-width{
     width: 100%;
 }
+
+.fill-height{
+    height: 100%;
+}
+
 
 // Media helpers
 
