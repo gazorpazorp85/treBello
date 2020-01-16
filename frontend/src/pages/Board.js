@@ -46,7 +46,6 @@ class Board extends Component {
   }
 
   render() {
-    // const classes = useStyles();
 
     if (!this.props.board.columns) return <div>Loading...</div>
 
@@ -58,13 +57,9 @@ class Board extends Component {
         </div>
         <div>
           <div>
-            <div className="flex">
-
-              <button onClick={this.toggleAddForm}>Add</button>
+            <button onClick={this.toggleAddForm}>Add</button>
               {(this.state.showForm) ? <ColumnAddForm board={this.props.board} toggleAddForm={this.toggleAddForm} /> : ''}
-
-            </div>
-            <BoardColumns columns={this.props.board.columns} onEdit={this.onEdit} />
+              <BoardColumns columns={this.props.board.columns} />
           </div>
         </div>
       </div>

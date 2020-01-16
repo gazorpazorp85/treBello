@@ -1,16 +1,20 @@
 .board-columns {
+    align-items: flex-start;
+
     &-item {
         min-width: 150px;
         min-height: 60px;
         margin: 2px;
-        
+
         border: 1px solid rgba(131, 131, 131, 0.336);
         border-radius: 10px;
         box-shadow: black;
+
         h2 {
             text-align: center;
         }
-        &-header{
+
+        &-header {
             padding: 0px 10px;
         }
     }

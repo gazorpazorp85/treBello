@@ -42,7 +42,6 @@ class ColumnAddForm extends Component {
     }
 
     saveColumn = (ev) => {
-        console.log(this.props);
         ev.preventDefault();
         let board = {...this.props.board};
         board.columns.push(this.state.column);

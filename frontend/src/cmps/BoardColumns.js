@@ -1,29 +1,54 @@
-import React from 'react';
-import { withRouter } from 'react-router';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { updateBoard } from '../actions/BoardActions'
+
 import TasksList from './TasksList';
-// import Card from '@material-ui/core/Card';
 
-// import { Link } from 'react-router-dom';
+class BoardColumns extends Component {
 
-function BoardColumns({ columns }) {
-    return (
-        <div className="board-columns grid-container">
+    onDelete = (id) => {
+        let board = {...this.props.board};
+        let filteredColumns = board.columns.filter(column => column.id !== id);
+        board.columns = (filteredColumns);
+        this.props.updateBoard(board);
+    }
 
-            {columns.map(column => (
-                <div className="board-columns-item" key={column.id}>
-                    <div className="board-columns-item-header flex align-center space-between">
-                        <h2>{column.title}</h2>
-                        <p>
-                            X
-                           </p>
+    render() {
+
+        // {columns.map(column => (
+        //     <div className="board-columns-item" key={column.id}>
+        //         <div className="board-columns-item-header flex align-center space-between">
+        //             <h2>{column.title}</h2>
+        //             <p>
+        //                 X
+        //                </p>
+
+        return (
+            <div className="board-columns flex">
+                {this.props.board.columns.map(column => (
+                    <div className="board-columns-item" key={column.id}>
+                        <div className="board-columns-item-header flex align-center space-between">
+                            <h2>{column.title}</h2>
+                            <div onClick={() => this.onDelete(column.id)}>X</div>
+                        </div>
+                        <TasksList tasks={column.tasks} />
                     </div>
-                    <TasksList tasks={column.tasks} />
-                    {/* <button onClick={props.onEditColumn}>Edit Column</button> */}
-                </div>
-            ))}
+                ))}
 
-        </div >
-    )
+            </div >
+        )
+    }
 }
 
-export default withRouter(BoardColumns)
+const mapStateToProps = state => {
+    return {
+        board: state.boards.board
+    };
+};
+
+const mapDispatchToProps = {
+    updateBoard
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BoardColumns);
