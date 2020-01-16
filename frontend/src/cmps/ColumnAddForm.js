@@ -1,33 +1,77 @@
-import React from 'react';
-import { Formik } from 'formik';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-const ColumnAddForm = () => (
-    <div>
-      <h1>Add Column</h1>
-      <Formik
-        initialValues={{ title: ''}}
-        onSubmit={this.addColumn}>
-  
-        {({
-          values,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-        }) => (
-            <form onSubmit={handleSubmit}>
-              <input
-                type="title"
-                name="title"
-                placeholder="Column Title"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.title}
-              />
-              <button type="submit">Submit</button>
+import { updateBoard } from '../actions/BoardActions'
+
+import utils from '../services/utils'
+
+class ColumnAddForm extends Component {
+
+    state = {
+        column: {
+            id: utils.getRandomId(),
+            title: '',
+            tasks: []
+        }
+    }
+
+    componentDidMount() {
+        this.setFormDataForEdit();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.column !== this.props.column) {
+            this.setFormDataForEdit();
+        }
+    }
+
+    setFormDataForEdit() {
+        const { column } = this.props;
+        if (column) {
+            this.setState({
+                id: column.id,
+                title: column.title,
+            })
+        }
+    }
+
+    inputChange = (ev) => {
+        let fieldName = ev.target.name;
+        let value = ev.target.value;
+        this.setState({ column: { ...this.state.column, [fieldName]: value } })
+    }
+
+    saveColumn = (ev) => {
+        console.log(this.props);
+        ev.preventDefault();
+        let board = {...this.props.board};
+        board.columns.push(this.state.column);
+        this.props.updateBoard(board);
+        this.setState({column: {id: utils.getRandomId(),
+                       title: '',
+                       tasks: []}})
+        this.props.toggleAddForm();
+    }
+
+    render() {
+        return <div>
+            <form onSubmit={this.saveColumn}>
+            <span>Column Name:</span><input type='text' placeholder='Column Name' name='title'
+                onChange={this.inputChange} value={this.state.column.title} />
+            <button>Save</button>
             </form>
-          )}
-      </Formik>
-    </div>
-  );
+        </div>
+    }
+}
+
+const mapStateToProps = state => {
+    return {
+      board: state.boards.board
+    };
+  };
   
-export default ColumnAddForm;
+  const mapDispatchToProps = {
+    updateBoard
+  };
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(ColumnAddForm);

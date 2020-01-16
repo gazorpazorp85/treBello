@@ -8,7 +8,9 @@ export default function (state = initialState, action = {}) {
     case 'SET_BOARDS':
       return { ...state, boards: action.boards };
     case 'SET_BOARD':
-      return { ...state, board: action.board }
+      return { ...state, board: action.board };
+    case 'UPDATE_BOARD':
+      return { ...state, board: action.board };
     // case 'REVIEW_UPDATE':
     //   return {
     //     ...state,

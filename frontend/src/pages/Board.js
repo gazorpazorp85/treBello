@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import { loadBoard } from '../actions/BoardActions';
 
-import BoardColumn from '../cmps/BoardColumn'
+import BoardColumns from '../cmps/BoardColumns'
 import ColumnAddForm from '../cmps/ColumnAddForm'
 
 class Board extends Component {
@@ -39,10 +39,6 @@ class Board extends Component {
     this.setState((prevState) => ({showForm: !prevState.showForm}))
   }
 
-  addColumn = () => {
-    console.log();
-  }
-
   goBack = () => {
     this.props.history.push('/');
   }
@@ -53,8 +49,8 @@ class Board extends Component {
       <div>
         <div>
           <button onClick={this.toggleAddForm}>Add</button>
-          {(this.state.showForm) ? <ColumnAddForm addColumn={this.state.addColumn}/> : ''}
-          <BoardColumn columns={this.props.board.columns} onEdit={this.onEdit}/>
+          {(this.state.showForm) ? <ColumnAddForm board={this.props.board} toggleAddForm={this.toggleAddForm}/> : ''}
+          <BoardColumns columns={this.props.board.columns} onEdit={this.onEdit} />
         </div>
         <button onClick={this.goBack}>Back</button>
       </div>
@@ -69,8 +65,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  loadBoard,
-  // addColumn
+  loadBoard
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board);

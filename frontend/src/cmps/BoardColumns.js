@@ -4,14 +4,15 @@ import TasksList from './TasksList';
 
 // import { Link } from 'react-router-dom';
 
-function BoardColumn({ columns }, props) {
+function BoardColumns({ columns }) {
     return (
         < section >
             <div>
                 {columns.map(column => (
                     <div key={column.id}>
+                        {column.title}
                         <TasksList tasks={column.tasks} />
-                        <button onClick={props.onEditColumn}>Edit Column</button>
+                        {/* <button onClick={props.onEditColumn}>Edit Column</button> */}
                     </div>
             ))}
             </div>
@@ -20,4 +21,4 @@ function BoardColumn({ columns }, props) {
     )
 }
 
-export default withRouter(BoardColumn)
+export default withRouter(BoardColumns)

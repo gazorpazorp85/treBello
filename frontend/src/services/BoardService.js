@@ -3,7 +3,8 @@ import HttpService from './HttpService';
 export default {
   // add,
   query,
-  get
+  get,
+  put
   // remove
 };
 
@@ -13,6 +14,10 @@ function query() {
 
 function get(boardId) {
   return HttpService.get(`board/${boardId}`);
+}
+
+function put(board) {
+  return HttpService.put(`board/${board.id}`, board);
 }
 
 // function remove(reviewId) {
