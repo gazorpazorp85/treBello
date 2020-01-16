@@ -7,14 +7,16 @@ import TasksList from './TasksList';
 function BoardColumns({ columns }) {
     return (
         < section >
-            <div>
+            <div className="board-columns grid-container">
                 {columns.map(column => (
-                    <div key={column.id}>
-                        {column.title}
+                    <div className="board-columns-grid-item" key={column.id}>
+                        <div>
+                            <h2>{column.title}</h2>
+                        </div>
                         <TasksList tasks={column.tasks} />
                         {/* <button onClick={props.onEditColumn}>Edit Column</button> */}
                     </div>
-            ))}
+                ))}
             </div>
 
         </section >
