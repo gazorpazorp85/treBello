@@ -13,9 +13,15 @@
 //Component
 @import "components/BoardList.scss";
 @import "components/BoardPreview.scss";
+@import "components/TasksList.scss";
+@import "components/TaskPreview.scss";
+@import "components/BoardColumns.scss";
+
 
 //views
 @import "views/_home-page.scss";
+@import "views/Board.scss";
+
 
 
 

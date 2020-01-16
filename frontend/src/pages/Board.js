@@ -5,17 +5,19 @@ import { connect } from 'react-redux';
 
 import { loadBoard } from '../actions/BoardActions';
 
-import BoardColumn from '../cmps/BoardColumn'
+// import GridList from '@material-ui/core/GridList';
+
+import BoardColumns from '../cmps/BoardColumns'
 import ColumnAddForm from '../cmps/ColumnAddForm'
 
 class Board extends Component {
 
   state = {
-    showForm : false
+    showForm: false
   }
 
   componentDidMount() {
-    const boardId  = this.props.match.params.id;
+    const boardId = this.props.match.params.id;
     this.props.loadBoard(boardId);
     // SocketService.setup();
     // SocketService.emit('chat topic', this.state.topic);
@@ -36,7 +38,7 @@ class Board extends Component {
   }
 
   toggleAddForm = () => {
-    this.setState((prevState) => ({showForm: !prevState.showForm}))
+    this.setState((prevState) => ({ showForm: !prevState.showForm }))
   }
 
   addColumn = () => {
@@ -48,17 +50,24 @@ class Board extends Component {
   }
 
   render() {
+    // const classes = useStyles();
+
     if (!this.props.board.columns) return <div>Loading...</div>
-    return (
+
+    return <div className="board-page fill-height flex column">
+      <div className="board-page-nav-bar flex justify-center align-center">
+        <div className="board-page-nav-bar-logo"> </div>
+      </div>
       <div>
-        <div>
-          <button onClick={this.toggleAddForm}>Add</button>
-          {(this.state.showForm) ? <ColumnAddForm addColumn={this.state.addColumn}/> : ''}
-          <BoardColumn columns={this.props.board.columns} onEdit={this.onEdit}/>
-        </div>
         <button onClick={this.goBack}>Back</button>
       </div>
-    );
+      <div className="root">
+        {/* <button onClick={this.toggleAddForm}>Add</button> */}
+        {(this.state.showForm) ? <ColumnAddForm addColumn={this.state.addColumn} /> : ''}
+        <BoardColumns columns={this.props.board.columns} onEdit={this.onEdit} />
+      </div>
+    </div>
+
   }
 }
 
