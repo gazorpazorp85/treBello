@@ -10,7 +10,7 @@ import BoardColumn from '../cmps/BoardColumn'
 class Board extends Component {
 
   componentDidMount() {
-    const  boardId  = this.props.match.params.id;
+    const boardId  = this.props.match.params.id;
     this.props.loadBoard(boardId);
     // SocketService.setup();
     // SocketService.emit('chat topic', this.state.topic);
@@ -36,6 +36,7 @@ class Board extends Component {
   }
 
   render() {
+    if (!this.props.board.columns) return <div>Loading...</div>
     return (
       <div>
         <div>
