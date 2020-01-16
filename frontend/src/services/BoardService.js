@@ -4,8 +4,8 @@ export default {
   // add,
   query,
   get,
-  put
-  // remove
+  put,
+  remove
 };
 
 function query() {
@@ -20,9 +20,9 @@ function put(board) {
   return HttpService.put(`board/${board.id}`, board);
 }
 
-// function remove(reviewId) {
-//   return HttpService.delete(`review/${reviewId}`);
-// }
+function remove(boardId) {
+  return HttpService.delete(`board/${boardId}`);
+}
 // async function add(review) {
 //   const addedReview  = await HttpService.post(`review`, review);
 //   return  addedReview
