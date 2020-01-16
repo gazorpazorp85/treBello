@@ -1,15 +1,15 @@
 .home-page {
 
     h2 {
-        padding: 20px 5px;
         font-size: 2.2rem;
-        background-color: rgba(245, 245, 245, 0.664);
+        color: white;
     }
 
     .MuiButton-root {
         position: absolute;
+        width: 0;
         top: 20px;
-        right: 20px;
+        right: 10px;
         border: 0px;
         color: rgba(250, 250, 250, 0.932);
     }
@@ -36,7 +36,8 @@
         .MuiFab-root {
             background: none;
             color: white;
-            &:hover{
+
+            &:hover {
                 background: rgba(145, 145, 145, 0.37);
             }
         }
@@ -46,7 +47,17 @@
         }
     }
 
-    &-footer{
+    &-boards-list-inspiration {
+        background: rgba(0, 0, 0, 0.842);
+        padding:20px 0px;
+
+        .MuiSvgIcon-root{
+            background-color: none;
+            color: white;
+        }
+    }
+
+    &-footer {
         min-height: 100px;
         background-color: rgba(145, 145, 145, 0.37);
     }

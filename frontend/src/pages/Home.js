@@ -7,6 +7,8 @@ import BoardsList from '../cmps/BoardsList';
 import Button from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Fab';
 
+import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
+
 import { loadBoards } from '../actions/BoardActions'
 class Home extends Component {
 
@@ -16,12 +18,12 @@ class Home extends Component {
 
   render() {
     return <div className="home-page">
+      <Button variant="outlined" className="home-page-login">
+        <p>LOGIN</p>
+      </Button>
 
       <section className="home-page-header">
         <div className="home-page-header-container">
-          <Button variant="outlined" className="home-page-login">
-            <p>LOGIN</p>
-          </Button>
           <div className="fill-height flex column align-center justify-center">
             <div className="home-page-header-container-logo">
               <div className="home-page-header-container-logo-img fill-width fill-height">
@@ -39,7 +41,10 @@ class Home extends Component {
       </section>
 
       <section className="home-page-boards-list">
-        <h2 className="text-center">GET SOME INSPIRATION</h2>
+        <div className="home-page-boards-list-inspiration text-center flex column align-center justify-center">
+          <h2 >GET SOME INSPIRATION</h2>
+            <ArrowDropDownCircleIcon />
+        </div>
         <BoardsList boards={this.props.boards} />
       </section>
 

@@ -1,5 +1,6 @@
-.boards-grid-list-main-container{
-background-color: rgba(218, 218, 218, 0.432);
+.boards-grid-list-main-container {
+    padding: 40px 0px;
+    background-color: rgba(218, 218, 218, 0.432);
 }
 
 .boards-grid-list-inner-container {
@@ -7,5 +8,7 @@ background-color: rgba(218, 218, 218, 0.432);
 }
 
 .MuiGridListTile-tile {
-    border: 1px solid;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.623), 0 3px 10px 0 rgba(0, 0, 0, 0.685);
+    border-radius: 5px;
+    cursor: pointer;
 }
