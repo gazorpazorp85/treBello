@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 // import SocketService from '../services/SocketService';
 
 import Button from '@material-ui/core/Button';
+import HomeIcon from '@material-ui/icons/Home';
 
 import { loadBoard } from '../actions/BoardActions';
 
@@ -51,15 +52,30 @@ class Board extends Component {
 
     return (
       <div className="board-page fill-height flex column">
-        <Button className="board-page-back-btn" variant="outlined" onClick={this.goBack}>Back</Button>
+        <Button className="board-page-back-btn" variant="outlined" onClick={this.goBack} >
+          <HomeIcon className="board-page-back-btn-icon" />
+        </Button>
+
         <div className="board-page-nav-bar flex justify-center align-center">
           <div className="board-page-nav-bar-logo"> </div>
         </div>
+
+        <div className="board-page-nav-bar-filters flex align-center">
+          <h2> [USERsNAMEs] [SEARCHandFILTERS] [FEATURES]  </h2>
+        </div>
         <div>
           <div>
+            {/* <div className="flex">
             <button onClick={this.toggleAddForm}>Add</button>
-              {(this.state.showForm) ? <ColumnAddForm board={this.props.board} toggleAddForm={this.toggleAddForm} /> : ''}
+            {(this.state.showForm) ? <ColumnAddForm board={this.props.board} toggleAddForm={this.toggleAddForm} /> : ''}
+            </div> */}
+            <div className="flex align-start">
               <BoardColumns columns={this.props.board.columns} />
+              <div className="flex column align-center">
+                <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}> + Add another list..  </button>
+                {(this.state.showForm) ? <ColumnAddForm board={this.props.board} toggleAddForm={this.toggleAddForm} /> : ''}
+              </div>
+            </div>
           </div>
         </div>
       </div>

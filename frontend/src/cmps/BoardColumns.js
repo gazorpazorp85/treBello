@@ -26,13 +26,16 @@ class BoardColumns extends Component {
     }
 
     render() {
-
         return (
             <div className="board-columns flex">
                 {this.props.board.columns.map(column => (
                     <div className="board-columns-item" key={column.id}>
                         <div className="board-columns-item-header flex align-center space-between">
                             <h2>{column.title}</h2>
+                            <div className="flex">
+                                <h2> ... </h2>
+                                <div onClick={() => this.onDelete(column.id)}>X</div>
+                            </div>
                             <div onClick={() => this.toggleAddForm(column.id)}>Edit</div>
                             {(this.state.showForm && this.state.currColumnId === column.id) ? 
                               <ColumnAddForm board={this.props.board} toggleAddForm={this.toggleAddForm} column={column}/> : ''}
@@ -41,7 +44,6 @@ class BoardColumns extends Component {
                         <TasksList tasks={column.tasks} />
                     </div>
                 ))}
-
             </div >
         )
     }

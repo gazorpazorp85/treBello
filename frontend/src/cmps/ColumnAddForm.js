@@ -50,7 +50,7 @@ class ColumnAddForm extends Component {
         let id = this.state.column.id;
         let idx = board.columns.findIndex(column => column.id === id);
         (idx === -1) ? board.columns.push(this.state.column) :
-        board.columns.splice(idx, 1, this.state.column);
+            board.columns.splice(idx, 1, this.state.column);
         this.props.updateBoard(board);
         this.setState({
             column: {
@@ -65,7 +65,7 @@ class ColumnAddForm extends Component {
     render() {
         return <div>
             <form onSubmit={this.saveColumn}>
-                <span>Column Name:</span><input type='text' placeholder='Column Name' name='title'
+                <input type='text' placeholder='Column Name' name='title'
                     onChange={this.inputChange} value={this.state.column.title} />
                 <button>Save</button>
             </form>
