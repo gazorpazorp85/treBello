@@ -39,7 +39,6 @@ class ColumnAddForm extends Component {
     }
 
     inputChange = (ev) => {
-        console.log(this.state);
         let fieldName = ev.target.name;
         let value = ev.target.value;
         this.setState({ column: { ...this.state.column, [fieldName]: value } })
