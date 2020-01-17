@@ -1,5 +1,5 @@
 import React from "react";
-import moment from 'moment';
+// import moment from 'moment';
 import Card from '@material-ui/core/Card';
 
 // import 'moment/locale/es'
@@ -11,11 +11,11 @@ export default function TaskPreview({ task }) {
         <section>
                 <Card className="task-container">
 
-                    <h5>Title: {task.title}</h5>
-                    <h5>Created at: {moment(createdAtFormat).calendar()}</h5>
-                    <h5>Expires: {moment(dueDateFormat).calendar()}</h5>
-                    <h5>Importance: {task.importance}</h5>
-                    <h5>created by: {task.creator.userName}</h5>
+                    <p>{task.title}</p>
+                    {/* <small>Created at: {moment(createdAtFormat).calendar()}</small>
+                    <small>Expires: {moment(dueDateFormat).calendar()}</small>
+                    <small>Importance: {task.importance}</small>
+                    <small>created by: {task.creator.userName}</small> */}
 
                 </Card>
         </section>

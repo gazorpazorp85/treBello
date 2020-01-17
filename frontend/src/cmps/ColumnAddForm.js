@@ -55,7 +55,7 @@ class ColumnAddForm extends Component {
     render() {
         return <div>
             <form onSubmit={this.saveColumn}>
-            <span>Column Name:</span><input type='text' placeholder='Column Name' name='title'
+            <input type='text' placeholder='Column Name' name='title'
                 onChange={this.inputChange} value={this.state.column.title} />
             <button>Save</button>
             </form>

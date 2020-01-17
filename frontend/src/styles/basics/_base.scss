@@ -38,20 +38,32 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    // margin: 0px;
     font-weight: normal;
 }
+h1{
+    font-family: montserratBold , 'sans-sarif';
+}
 
-h1 {
-    font-size: rem(60px);
-    margin-bottom: rem(20px);
+h2,h3,h4{
+    font-family: montserratRegular , 'sans-sarif';
 }
 
 h2{
-    font-family: sansProRegular;
+    font-size: rem(16px);
+    line-height: 24px;
 }
 
 p {
+    font-size: rem(12px);
     margin: 0;
-    font-family: openSansRegular;
+    font-family: montserratLight , 'sans-sarif';
+}
+
+small{
+    margin: 0;
+    font-size: rem(8px);
+    font-family: montserratExtraLight , 'sans-sarif';
 }
