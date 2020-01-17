@@ -32,16 +32,12 @@ class BoardColumns extends Component {
                     <div className="board-columns-item" key={column.id}>
                         <div className="board-columns-item-header flex align-center space-between">
                             <h2>{column.title}</h2>
-                            <div className="flex">
-                                <h2> ... </h2>
-                                <div onClick={() => this.onDelete(column.id)}>X</div>
-                            </div>
                             <div onClick={() => this.toggleAddForm(column.id)}>Edit</div>
                             {(this.state.showForm && this.state.currColumnId === column.id) ? 
                               <ColumnAddForm board={this.props.board} toggleAddForm={this.toggleAddForm} column={column}/> : ''}
                             <div onClick={() => this.onDelete(column.id)}>X</div>
                         </div>
-                        <TasksList tasks={column.tasks} />
+                        <TasksList tasks={column.tasks} column={column}/>
                     </div>
                 ))}
             </div >
