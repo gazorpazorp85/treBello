@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-
-import { updateBoard } from '../actions/BoardActions';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 
 import TasksList from './TasksList';
 import ColumnAddForm from '../cmps/ColumnAddForm';
@@ -10,8 +8,7 @@ import MenuOpenIcon from '@material-ui/icons/MenuOpen';
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 
-
-class BoardColumns extends Component {
+export default class BoardColumns extends Component {
 
     state = {
         showForm: false,
@@ -21,13 +18,11 @@ class BoardColumns extends Component {
     }
 
     toggleAddForm = (id) => {
-        this.setState({ currColumnId: id });
-        this.setState((prevState) => ({ showForm: !prevState.showForm }));
+        this.setState((prevState) => ({ showForm: !prevState.showForm, currColumnId: id }));
     }
 
     toggleTopMenuOptions = (id) => {
-        this.setState({ currColumnId: id });
-        this.setState(prevState => ({ showTopMenuOptions: !prevState.showTopMenuOptions }));
+        this.setState(prevState => ({ showTopMenuOptions: !prevState.showTopMenuOptions, currColumnId: id }));
     }
 
     onDelete = (id) => {
@@ -38,63 +33,64 @@ class BoardColumns extends Component {
         this.handleOptionsMenuClose();
     }
 
-    handleOptionsMenuClick = event => {
-        this.setState(({ anchorEl: event.currentTarget }));
+    handleOptionsMenuClick = (event, id) => {
+        this.setState(({ currColumnId: id, anchorEl: event.currentTarget }));
     };
 
-    handleOptionsMenuClose = () => {
-        this.setState({ anchorEl: null })
+    handleOptionsMenuClose = _ => {
+        this.setState({ anchorEl: null });
     };
+
+    onDragEnd = results => {
+        //todo: reorder
+    }
 
     render() {
         return (
-            <div className="board-columns flex">
-                {this.props.board.columns.map(column => (
-                    <div className="board-columns-item" key={column.id}>
-                        <div className="board-columns-item-header flex align-center space-between">
-                            <h2>{column.title}</h2>
-                            <MenuOpenIcon onClick={this.handleOptionsMenuClick} />
-                        </div>
+            <DragDropContext onDragEnd={this.onDragEnd}>
+                <div className="board-columns flex">
+                    {this.props.board.columnOrder.map(columnKey => {
+                        const column = this.props.board.columns[columnKey];
+                        const tasks = column.taskIds.map(currId => this.props.board.tasks[currId]);
 
-                        <Menu
-                            anchorEl={this.state.anchorEl}
-                            open={Boolean(this.state.anchorEl)}
-                            onClose={this.handleOptionsMenuClose}
-                        >
+                        return <div className="board-columns-item" key={column.id}>
+                            <div className="board-columns-item-header flex align-center space-between">
+                                <h2>{column.title}</h2>
+                                <MenuOpenIcon onClick={ev => this.handleOptionsMenuClick(ev, column.id)} />
+                            </div>
 
-                            {/* {(this.state.showTopMenuOptions && this.state.currColumnId === column.id) ? */}
-                            {/* <div className="board-columns-item-header-top-menu-options flex"> */}
-                                <MenuItem onClick={() => this.onDelete(column.id)}>
-                                    X
+                            <Menu
+                                anchorEl={this.state.anchorEl}
+                                open={Boolean(this.state.anchorEl)}
+                                onClose={this.handleOptionsMenuClose}
+                            >
+                                <MenuItem onClick={_ => this.onDelete(this.state.currColumnId)}>
+                                    Delete
                                 </MenuItem>
-                                <MenuItem onClick={() => this.toggleAddForm(column.id)}>
+                                <MenuItem onClick={_ => this.toggleAddForm(this.state.currColumnId)}>
                                     Edit
                                 </MenuItem>
-                            {/* </div> */}
-                            {/* : '' */}
-
-
-                        </Menu>
-
-
-                        {(this.state.showForm && this.state.currColumnId === column.id) ?
-                            <ColumnAddForm board={this.props.board} toggleAddForm={this.toggleAddForm} column={column} /> : ''}
-                        <TasksList tasks={column.tasks} />
-                    </div>
-                ))}
-            </div >
-        )
+                            </Menu>
+                            {(this.state.showForm && this.state.currColumnId === column.id)
+                                ? <ColumnAddForm
+                                    board={this.props.board}
+                                    toggleAddForm={this.toggleAddForm}
+                                    column={column} /> : ''}
+                            <Droppable droppableId={column.id}>
+                                {provided => (
+                                    <TasksList
+                                        innerRef={provided.innerRef}
+                                        provided={provided}
+                                        tasks={tasks}
+                                    >
+                                        {/* {provided.placeholder} */}
+                                    </TasksList>
+                                )}
+                            </Droppable>
+                        </div>
+                    })}
+                </div >
+            </DragDropContext>
+        );
     }
 }
-
-const mapStateToProps = state => {
-    return {
-        board: state.boards.board
-    };
-};
-
-const mapDispatchToProps = {
-    updateBoard
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(BoardColumns);

@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import HomeIcon from '@material-ui/icons/Home';
 
-import { loadBoard } from '../actions/BoardActions';
+import { loadBoard, updateBoard } from '../actions/BoardActions';
 
 import BoardColumns from '../cmps/BoardColumns'
 import ColumnAddForm from '../cmps/ColumnAddForm'
@@ -53,7 +53,7 @@ class Board extends Component {
     return (
       <div className="board-page fill-height flex column">
         <Button className="board-page-back-btn" variant="outlined" onClick={this.goBack} >
-          <HomeIcon className="board-page-back-btn-icon" /> 
+          <HomeIcon className="board-page-back-btn-icon" />
         </Button>
 
         <div className="board-page-nav-bar flex justify-center align-center">
@@ -67,7 +67,7 @@ class Board extends Component {
         <div className="board-page-columns-container fill-height">
           <div>
             <div className="flex align-start">
-              <BoardColumns columns={this.props.board.columns}/>
+              <BoardColumns board={this.props.board} updateBoard={this.props.updateBoard} />
               <div className="flex column align-center">
                 <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}> + Add another list..  </button>
                 {(this.state.showForm) ? <ColumnAddForm board={this.props.board} toggleAddForm={this.toggleAddForm} /> : ''}
@@ -87,7 +87,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  loadBoard
+  loadBoard,
+  updateBoard
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board);
