@@ -53,7 +53,7 @@ class Board extends Component {
     return (
       <div className="board-page fill-height flex column">
         <Button className="board-page-back-btn" variant="outlined" onClick={this.goBack} >
-          <HomeIcon className="board-page-back-btn-icon" />
+          <HomeIcon className="board-page-back-btn-icon" /> 
         </Button>
 
         <div className="board-page-nav-bar flex justify-center align-center">
@@ -63,14 +63,11 @@ class Board extends Component {
         <div className="board-page-nav-bar-filters flex align-center">
           <h2> [USERsNAMEs] [SEARCHandFILTERS] [FEATURES]  </h2>
         </div>
-        <div>
+
+        <div className="board-page-columns-container fill-height">
           <div>
-            {/* <div className="flex">
-            <button onClick={this.toggleAddForm}>Add</button>
-            {(this.state.showForm) ? <ColumnAddForm board={this.props.board} toggleAddForm={this.toggleAddForm} /> : ''}
-            </div> */}
             <div className="flex align-start">
-              <BoardColumns columns={this.props.board.columns} />
+              <BoardColumns columns={this.props.board.columns}/>
               <div className="flex column align-center">
                 <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}> + Add another list..  </button>
                 {(this.state.showForm) ? <ColumnAddForm board={this.props.board} toggleAddForm={this.toggleAddForm} /> : ''}
