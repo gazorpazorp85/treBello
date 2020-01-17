@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { updateBoard } from '../actions/BoardActions'
+import { updateBoard } from '../actions/BoardActions';
 
 import TasksList from './TasksList';
+import ColumnAddForm from '../cmps/ColumnAddForm';
 
 class BoardColumns extends Component {
+
+    state = {
+        showForm: false,
+        currColumnId: ''
+    }
+
+    toggleAddForm = (id) => {
+        this.setState({currColumnId: id});
+        this.setState((prevState) => ({ showForm: !prevState.showForm }));
+    }
 
     onDelete = (id) => {
         let board = { ...this.props.board };
         let filteredColumns = board.columns.filter(column => column.id !== id);
-        board.columns = (filteredColumns);
+        board.columns = filteredColumns;
         this.props.updateBoard(board);
     }
 
@@ -25,6 +36,10 @@ class BoardColumns extends Component {
                                 <h2> ... </h2>
                                 <div onClick={() => this.onDelete(column.id)}>X</div>
                             </div>
+                            <div onClick={() => this.toggleAddForm(column.id)}>Edit</div>
+                            {(this.state.showForm && this.state.currColumnId === column.id) ? 
+                              <ColumnAddForm board={this.props.board} toggleAddForm={this.toggleAddForm} column={column}/> : ''}
+                            <div onClick={() => this.onDelete(column.id)}>X</div>
                         </div>
                         <TasksList tasks={column.tasks} />
                     </div>
