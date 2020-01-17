@@ -1,9 +1,21 @@
 .board-columns {
     align-items: flex-start;
 
+    .MuiSvgIcon-root {
+        cursor: pointer;
+        border-radius: 3px;
+        margin-bottom: 5px;
+        font-size: 1rem;
+        transition: 0.3s;
+
+        &:hover {
+            color: rgba(0, 0, 0, 0.788);
+            background: rgba(177, 177, 177, 0.5)
+        }
+    }
 
     &-item {
-        
+
         width: 270px;
         min-height: 78px;
         margin: 2px;
@@ -18,6 +30,14 @@
 
         &-header {
             padding: 0px 10px;
+
+            &-top-menu-options {
+                background: rgba(255, 255, 255, 0.829);
+                position: relative;
+                left: 240px;
+                display: block;
+                padding: 2px;
+            }
         }
     }
 }

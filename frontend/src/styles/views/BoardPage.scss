@@ -1,4 +1,5 @@
 .board-page {
+    overflow: hidden;
     background-image: url(../imags/board-bg.jpg);
     background-size: cover;
     background-position-x: center;
@@ -61,4 +62,7 @@
         }
     }
 
+    &-columns-container{
+        overflow: auto;
+    }
 }

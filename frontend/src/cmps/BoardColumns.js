@@ -6,16 +6,28 @@ import { updateBoard } from '../actions/BoardActions';
 import TasksList from './TasksList';
 import ColumnAddForm from '../cmps/ColumnAddForm';
 
+import MenuOpenIcon from '@material-ui/icons/MenuOpen';
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+
+
 class BoardColumns extends Component {
 
     state = {
         showForm: false,
-        currColumnId: ''
+        showTopMenuOptions: false,
+        currColumnId: '',
+        anchorEl: null
     }
 
     toggleAddForm = (id) => {
-        this.setState({currColumnId: id});
+        this.setState({ currColumnId: id });
         this.setState((prevState) => ({ showForm: !prevState.showForm }));
+    }
+
+    toggleTopMenuOptions = (id) => {
+        this.setState({ currColumnId: id });
+        this.setState(prevState => ({ showTopMenuOptions: !prevState.showTopMenuOptions }));
     }
 
     onDelete = (id) => {
@@ -23,7 +35,16 @@ class BoardColumns extends Component {
         let filteredColumns = board.columns.filter(column => column.id !== id);
         board.columns = filteredColumns;
         this.props.updateBoard(board);
+        this.handleOptionsMenuClose();
     }
+
+    handleOptionsMenuClick = event => {
+        this.setState(({ anchorEl: event.currentTarget }));
+    };
+
+    handleOptionsMenuClose = () => {
+        this.setState({ anchorEl: null })
+    };
 
     render() {
         return (
@@ -32,12 +53,25 @@ class BoardColumns extends Component {
                     <div className="board-columns-item" key={column.id}>
                         <div className="board-columns-item-header flex align-center space-between">
                             <h2>{column.title}</h2>
-                            <div onClick={() => this.toggleAddForm(column.id)}>Edit</div>
-                            {(this.state.showForm && this.state.currColumnId === column.id) ? 
-                              <ColumnAddForm board={this.props.board} toggleAddForm={this.toggleAddForm} column={column}/> : ''}
-                            <div onClick={() => this.onDelete(column.id)}>X</div>
+                            <MenuOpenIcon onClick={this.handleOptionsMenuClick} />
                         </div>
-                        <TasksList tasks={column.tasks} column={column}/>
+
+                        <Menu
+                            anchorEl={this.state.anchorEl}
+                            open={Boolean(this.state.anchorEl)}
+                            onClose={this.handleOptionsMenuClose}
+                        >
+                                <MenuItem onClick={() => this.onDelete(column.id)}>
+                                    X
+                                </MenuItem>
+                                <MenuItem onClick={() => this.toggleAddForm(column.id)}>
+                                    Edit
+                                </MenuItem>
+                        </Menu>
+
+                        {(this.state.showForm && this.state.currColumnId === column.id) ?
+                            <ColumnAddForm board={this.props.board} toggleAddForm={this.toggleAddForm} column={column} /> : ''}
+                        <TasksList tasks={column.tasks} />
                     </div>
                 ))}
             </div >
