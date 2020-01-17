@@ -61,21 +61,13 @@ class BoardColumns extends Component {
                             open={Boolean(this.state.anchorEl)}
                             onClose={this.handleOptionsMenuClose}
                         >
-
-                            {/* {(this.state.showTopMenuOptions && this.state.currColumnId === column.id) ? */}
-                            {/* <div className="board-columns-item-header-top-menu-options flex"> */}
                                 <MenuItem onClick={() => this.onDelete(column.id)}>
                                     X
                                 </MenuItem>
                                 <MenuItem onClick={() => this.toggleAddForm(column.id)}>
                                     Edit
                                 </MenuItem>
-                            {/* </div> */}
-                            {/* : '' */}
-
-
                         </Menu>
-
 
                         {(this.state.showForm && this.state.currColumnId === column.id) ?
                             <ColumnAddForm board={this.props.board} toggleAddForm={this.toggleAddForm} column={column} /> : ''}
