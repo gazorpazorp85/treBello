@@ -10,15 +10,15 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
 const authRoutes = require('./api/auth/auth.routes')
-const userRoutes = require('./api/user/user.routes')
-const reviewRoutes = require('./api/review/review.routes')
+// const userRoutes = require('./api/user/user.routes')
+const boardRoutes = require('./api/board/board.routes')
 const connectSockets = require('./api/socket/socket.routes')
 
 
 app.use(cookieParser())
 app.use(bodyParser.json());
 app.use(session({
-    secret: 'keyboard cat',
+    secret: 'sxjbijxixszaixsax76x87a6sxbash',
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false }
@@ -36,8 +36,8 @@ if (process.env.NODE_ENV === 'production') {
 
 // routes
 app.use('/api/auth', authRoutes)
-app.use('/api/user', userRoutes)
-app.use('/api/review', reviewRoutes)
+// app.use('/api/user', userRoutes)
+app.use('/api/board', boardRoutes)
 connectSockets(io)
 
 

@@ -1,11 +1,11 @@
 
 const dbService = require('../../services/db.service')
-const reviewService = require('../review/review.service')
+// const boardService = require('../board/board.service')
 const ObjectId = require('mongodb').ObjectId
 
 module.exports = {
     query,
-    getById,
+    // getById,
     getByEmail,
     remove,
     update,
@@ -26,25 +26,25 @@ async function query(filterBy = {}) {
     }
 }
 
-async function getById(userId) {
-    const collection = await dbService.getCollection('user')
-    try {
-        const user = await collection.findOne({"_id":ObjectId(userId)})
-        delete user.password
+// async function getById(userId) {
+//     const collection = await dbService.getCollection('user')
+//     try {
+//         const user = await collection.findOne({"_id":ObjectId(userId)})
+//         delete user.password
 
-        user.givenReviews = await reviewService.query({byUserId: ObjectId(user._id) })
-        user.givenReviews = user.givenReviews.map(review => {
-            delete review.byUser
-            return review
-        })
+//         user.givenReviews = await reviewService.query({byUserId: ObjectId(user._id) })
+//         user.givenReviews = user.givenReviews.map(review => {
+//             delete review.byUser
+//             return review
+//         })
 
 
-        return user
-    } catch (err) {
-        console.log(`ERROR: while finding user ${userId}`)
-        throw err;
-    }
-}
+//         return user
+//     } catch (err) {
+//         console.log(`ERROR: while finding user ${userId}`)
+//         throw err;
+//     }
+// }
 async function getByEmail(email) {
     const collection = await dbService.getCollection('user')
     try {
