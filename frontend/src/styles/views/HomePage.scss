@@ -61,12 +61,72 @@
         padding: 10px;
         min-height: 100px;
         background-color: rgb(8, 8, 8);
+        color: seashell;
+
+        .MuiSvgIcon-root {
+            cursor: pointer;
+            transition: 0.7s;
+
+            &.faceBookIcon {
+                &:hover {
+                    color: slateblue;
+                }
+            }
+
+            &.linkedInIcon {
+                &:hover {
+                    color: tan;
+                }
+            }
+        }
+
+        h2 {
+            padding: 10px;
+        }
 
         &-team-member-card {
-            background-color: red;
-            width: 100px;
-            height: 100px;
-            margin: auto;
+            margin: 0 10px;
+
+
+            &-member-img {
+                height: 100px;
+                width: 90px;
+                border-radius: 100%;
+                transition: 0.7s;
+
+                &.vlad {
+                    background-image: url(../imags/team/Vlad.jpg);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+
+                    &:hover {
+                        height: 120px;
+                        width: 110px;
+                    }
+                }
+
+                &.margad {
+                    background-image: url(../imags/team/Margad.jpg);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+
+                    &:hover {
+                        height: 120px;
+                        width: 110px;
+                    }
+                }
+
+                &.paolo {
+                    background-image: url(../imags/team/Paolo.jpg);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+
+                    &:hover {
+                        height: 120px;
+                        width: 110px;
+                    }
+                }
+            }
         }
     }
 }

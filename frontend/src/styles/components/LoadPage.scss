@@ -1,0 +1,13 @@
+.loading-page {
+    height: 100vh;
+    background-color: black;
+    color: whitesmoke;
+
+    .MuiCircularProgress-root {
+        color: rgb(255, 255, 255);
+    }
+
+    .MuiCircularProgress-indeterminate {
+        animation: MuiCircularProgress-keyframes-circular-rotate 0.9s linear infinite;
+    }
+}
