@@ -37,8 +37,9 @@ export default class BoardColumns extends Component {
         this.setState(({ currColumnId: id, anchorEl: event.currentTarget }));
     };
 
-    handleOptionsMenuClose = _ => {
-        this.setState({ anchorEl: null });
+    handleOptionsMenuClose = () => {
+        this.setState({ anchorEl: null })
+        // setAnchorEl(null);
     };
 
     onDragEnd = result => {

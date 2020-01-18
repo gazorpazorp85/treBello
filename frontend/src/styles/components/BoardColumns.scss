@@ -15,14 +15,21 @@
     }
 
     &-item {
+        display: inline-block;
+        vertical-align: top;
+        white-space: nowrap;
+        
+        margin: 0 4px;
+        margin-right: 8px;
 
-        width: 270px;
-        min-height: 78px;
-        margin: 2px;
+        width: 210px;
+        min-height: 40px;
+        
         background-color: #ebecf0;
         border: 1px solid rgba(131, 131, 131, 0.336);
         border-radius: 2px;
         box-shadow: black;
+        box-sizing: border-box;
 
         h2 {
             text-align: center;
@@ -30,14 +37,6 @@
 
         &-header {
             padding: 0px 10px;
-
-            &-top-menu-options {
-                background: rgba(255, 255, 255, 0.829);
-                position: relative;
-                left: 240px;
-                display: block;
-                padding: 2px;
-            }
         }
     }
 }

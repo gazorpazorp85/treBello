@@ -14,6 +14,7 @@ import ColumnAddForm from '../cmps/ColumnAddForm'
 class Board extends Component {
 
   state = {
+    showAddColumn: true,
     showForm: false
   }
 
@@ -39,7 +40,10 @@ class Board extends Component {
   }
 
   toggleAddForm = () => {
-    this.setState((prevState) => ({ showForm: !prevState.showForm }))
+    this.setState((prevState) => ({
+      showForm: !prevState.showForm,
+      showAddColumn: !prevState.showAddColumn
+    }))
   }
 
   goBack = () => {
@@ -69,8 +73,12 @@ class Board extends Component {
             <div className="flex align-start">
               <BoardColumns board={this.props.board} updateBoard={this.props.updateBoard} />
               <div className="flex column align-center">
-                <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}> + Add another list..  </button>
-                {(this.state.showForm) ? <ColumnAddForm board={this.props.board} toggleAddForm={this.toggleAddForm} /> : ''}
+                {(this.state.showAddColumn) ?
+                  <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}>
+                    + Add another list..  </button> : ''
+                }
+                {(this.state.showForm) ? <ColumnAddForm board={this.props.board}
+                  toggleAddForm={this.toggleAddForm} /> : ''}
               </div>
             </div>
           </div>
