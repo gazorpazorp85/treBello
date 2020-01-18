@@ -2,11 +2,8 @@ import history from '../history';
 import Axios from 'axios';
 
 const BASE_URL = process.env.NODE_ENV === 'production'
-    // ? '/api/'
-    // : '//localhost:3030/api/'
-    ? '/'
-    : 'http://localhost:3000/'
-
+    ? '/api/'
+    : '//localhost:3030/api/'
 
 var axios = Axios.create({
     withCredentials: true

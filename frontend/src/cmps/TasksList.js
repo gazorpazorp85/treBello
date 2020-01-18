@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import { Draggable } from 'react-beautiful-dnd'
 import { updateBoard } from '../actions/BoardActions';
 
 import TaskPreview from './TaskPreview';
@@ -31,22 +31,40 @@ class TasksList extends Component {
     }
 
     render() {
+        const { tasks, provided, innerRef, isDraggingOver } = this.props;
         return (
-            <section className="board-column">
+            <section
+                className={"board-column" + (isDraggingOver ? " isDraggingOver" : "")}
+                {...provided.droppableProps}
+                ref={innerRef}
+            >
                 <div>
-                    {this.props.tasks.map(task => (
+                    {tasks.map((task, idx) => (
                         <div key={task.id}>
-                            <div onClick={() => this.toggleUpdateForm(task.id)}>
-                                <TaskPreview task={task} />
-                            </div>
-                            <div>
-                                {(this.state.showEditForm && this.state.currTaskId === task.id) ?
-                                    <TaskForm column={this.props.column} task={task} toggleUpdateForm={this.toggleUpdateForm} />
-                                    : ''}
-                            </div>
-                            <div onClick={() => this.onDelete(task.id)}>X</div>
+                            <Draggable draggableId={task.id} index={idx}>
+                                {(provided, snapshot) => (
+                                    <div>
+                                        <div onClick={() => this.toggleUpdateForm(task.id)}>
+                                            <TaskPreview
+                                                provided={provided}
+                                                innerRef={provided.innerRef}
+                                                task={task}
+                                                isDragging={snapshot.isDragging}
+                                            >
+                                            </TaskPreview>
+                                        </div>
+                                        <div>
+                                            {(this.state.showEditForm && this.state.currTaskId === task.id) ?
+                                                <TaskForm column={this.props.column} task={task} toggleUpdateForm={this.toggleUpdateForm} />
+                                                : ''}
+                                        </div>
+                                        <div onClick={() => this.onDelete(task.id)}>X</div>
+                                    </div>
+                                )}
+                            </Draggable>
                         </div>
                     ))}
+                    {provided.placeholder}
                     <div className="board-column-footer">
                         <p onClick={() => this.toggleUpdateForm('')}> + Add task </p>
                         {(this.state.showAddForm) ? <TaskForm column={this.props.column} toggleUpdateForm={this.toggleUpdateForm} /> : ''}

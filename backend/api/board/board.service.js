@@ -3,12 +3,12 @@ const ObjectId = require('mongodb').ObjectId;
 
 const logger = require('../../services/logger.service')
 
-async function query(filterBy ={}) {
+async function query() {
     // const criteria = _buildCriteria(filterBy)
     const collection = await dbService.getCollection('board');
 
     try {
-        const boards = await collection.toArray();
+        const boards = await collection.find().toArray();
         return boards;
     } catch (err) {
         logger.error('ERROR: Cannot find boards');

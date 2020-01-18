@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import HomeIcon from '@material-ui/icons/Home';
 
-import { loadBoard } from '../actions/BoardActions';
+import { loadBoard, updateBoard } from '../actions/BoardActions';
 
 import BoardColumns from '../cmps/BoardColumns'
 import ColumnAddForm from '../cmps/ColumnAddForm'
@@ -71,7 +71,7 @@ class Board extends Component {
         <div className="board-page-columns-container fill-height">
           <div>
             <div className="flex align-start">
-              <BoardColumns columns={this.props.board.columns} />
+              <BoardColumns board={this.props.board} updateBoard={this.props.updateBoard} />
               <div className="flex column align-center">
                 {(this.state.showAddColumn) ?
                   <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}>
@@ -95,7 +95,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  loadBoard
+  loadBoard,
+  updateBoard
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board);
