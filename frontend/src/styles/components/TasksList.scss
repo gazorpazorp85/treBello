@@ -3,4 +3,8 @@
         cursor: pointer;
         padding-left: 5px;
     }
+    &.isDraggingOver{
+        transition: background-color 0.2 ease;
+        background-color: skyblue;
+    }
 }
