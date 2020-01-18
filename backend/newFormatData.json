@@ -140,30 +140,30 @@
           "id": "5e21f19e5e341397659b553a",
           "title": "commodo",
           "taskIds": [
-            "task-2"
+            "task-0",
+            "task-3"
           ]
         },
         "5e21f19ec9be6c868e78748a": {
           "id": "5e21f19ec9be6c868e78748a",
           "title": "adipisicing",
           "taskIds": [
-            "task-1",
-            "task-4",
-            "task-0"
+            "task-2",
+            "task-1"
           ]
         },
         "5e21f19ee5a1c1dbf335df61": {
           "id": "5e21f19ee5a1c1dbf335df61",
           "title": "sunt",
           "taskIds": [
-            "task-3"
+            "task-4"
           ]
         }
       },
       "columnOrder": [
-        "5e21f19ee5a1c1dbf335df61",
         "5e21f19e5e341397659b553a",
-        "5e21f19ec9be6c868e78748a"
+        "5e21f19ec9be6c868e78748a",
+        "5e21f19ee5a1c1dbf335df61"
       ]
     }
   ]
