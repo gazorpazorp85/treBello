@@ -11,7 +11,7 @@ class ColumnAddForm extends Component {
         column: {
             id: utils.getRandomId(),
             title: '',
-            tasks: []
+            taskIds: []
         }
     }
 
@@ -32,7 +32,7 @@ class ColumnAddForm extends Component {
                 column: {
                     id: column.id,
                     title: column.title,
-                    tasks: column.tasks
+                    taskIds: column.taskIds
                 }
             })
         }
@@ -47,18 +47,12 @@ class ColumnAddForm extends Component {
     saveColumn = (ev) => {
         ev.preventDefault();
         let board = { ...this.props.board };
+        let columns = board.columns;
         let id = this.state.column.id;
-        let idx = board.columns.findIndex(column => column.id === id);
-        (idx === -1) ? board.columns.push(this.state.column) :
-            board.columns.splice(idx, 1, this.state.column);
+        columns[id] = this.state.column;
+        const columnOrder = board.columnOrder;
+        if (!columnOrder.includes(id)) columnOrder.push(id);
         this.props.updateBoard(board);
-        this.setState({
-            column: {
-                id: '',
-                title: '',
-                tasks: []
-            }
-        })
         this.props.toggleAddForm();
     }
 

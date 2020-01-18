@@ -25,8 +25,9 @@ class TasksList extends Component {
     onDelete = (id) => {
         let board = { ...this.props.board };
         let column = this.props.column;
-        let filteredTasks = column.tasks.filter(task => task.id !== id);
-        column.tasks = filteredTasks;
+        let taskIds = column.taskIds
+        let idx = taskIds.findIndex(taskId => taskId === id);
+        taskIds.splice(idx, 1);
         this.props.updateBoard(board);
     }
 

@@ -27,8 +27,10 @@ export default class BoardColumns extends Component {
 
     onDelete = (id) => {
         let board = { ...this.props.board };
-        let filteredColumns = board.columns.filter(column => column.id !== id);
-        board.columns = filteredColumns;
+        delete board.columns[id];
+        let columnOrder = board.columnOrder;
+        let idx = columnOrder.findIndex(column => column === id);
+        columnOrder.splice(idx,1);
         this.props.updateBoard(board);
         this.handleOptionsMenuClose();
     }
@@ -168,6 +170,7 @@ export default class BoardColumns extends Component {
                                                         provided={provided}
                                                         tasks={tasks}
                                                         isDraggingOver={snapshot.isDraggingOver}
+                                                        column={column}
                                                     >
                                                     </TasksList>
                                                 }}
