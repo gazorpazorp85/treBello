@@ -42,13 +42,14 @@ class BoardColumns extends Component {
 
     handleOptionsMenuClose = () => {
         this.setState({ anchorEl: null })
+        // setAnchorEl(null);
     };
 
     render() {
         return (
             <div className="board-columns flex">
                 {this.props.board.columns.map(column => {
-                    return <div className="board-columns-item" key={column.id}>
+                    return <div className="board-columns-item flex column space-between" key={column.id}>
                         <div className="board-columns-item-header flex align-center space-between">
                             <h2>{column.title}</h2>
                             <MenuOpenIcon onClick={event => this.handleOptionsMenuClick(event, column.id)} />

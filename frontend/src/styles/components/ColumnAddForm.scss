@@ -1,0 +1,49 @@
+.board-page {
+
+    .add-column {
+        &-form-container {
+            margin: 0 4px;
+            padding: 4px;
+            min-width: 210px;
+            min-height: 52px;
+            background-color: #ebecf0;
+            border-radius: 3px;
+            transition: background 85ms ease-in, opacity 40ms ease-in, border-color 85ms ease-in;
+            transition-property: background, opacity, border-color;
+            transition-duration: 85ms, 40ms, 85ms;
+            transition-timing-function: ease-in, ease-in, ease-in;
+            transition-delay: 0s, 0s, 0s;
+
+            input {
+                padding: 4px;
+                outline: auto;
+                outline-color: #0e0e0c91;
+            }
+        }
+
+        &-back-to-board {
+            cursor: pointer;
+            padding-left: 5px;
+        }
+
+        &-save-btn {
+            font-size: rem(10px);
+            padding: 5px 10px;
+            margin-top: 3px;
+            color: white;
+            font-weight: 600;
+            background-color: #5aac44;
+
+            &:hover {
+                background-color: #5bac44d5;
+            }
+        }
+
+        &-back-btn {
+            font-size: 1rem;
+            margin-top: 2px;
+            font-family: montserratBold, 'sans-sarif';
+        }
+
+    }
+}

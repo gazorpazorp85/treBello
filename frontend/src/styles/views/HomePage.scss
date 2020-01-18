@@ -49,16 +49,24 @@
 
     &-boards-list-inspiration {
         background: rgba(0, 0, 0, 0.842);
-        padding:20px 0px;
+        padding: 20px 0px;
 
-        .MuiSvgIcon-root{
+        .MuiSvgIcon-root {
             background-color: none;
             color: white;
         }
     }
 
     &-footer {
+        padding: 10px;
         min-height: 100px;
         background-color: rgb(8, 8, 8);
+
+        &-team-member-card {
+            background-color: red;
+            width: 100px;
+            height: 100px;
+            margin: auto;
+        }
     }
 }

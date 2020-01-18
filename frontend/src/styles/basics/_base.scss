@@ -67,3 +67,10 @@ small{
     font-size: rem(8px);
     font-family: montserratExtraLight , 'sans-sarif';
 }
+
+button{
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    font-family: montserratRegular , 'sans-sarif';
+}

@@ -15,82 +15,13 @@
       ],
       "columns": [
         {
-          "id": "jio35rhkjriqu83277i",
-          "title": "active",
-          "tasks": [
-            {
-              "id": "i5ytkrrkkhfkjahkjorr679y",
-              "title": "todo list",
-              "createdAt": 19664654343543,
-              "dueDate": 19664654343543456,
-              "importance": 3,
-              "labels": [
-                "red"
-              ],
-              "creator": {
-                "userName": "gazorpa"
-              },
-              "taskTeamMembers": [
-                {
-                  "userName": "vlad"
-                },
-                {
-                  "userName": "margad"
-                }
-              ]
-            },
-            {
-              "id": "i5ytkrrkkhfkjahk334jorr679y",
-              "title": "todo list",
-              "createdAt": 19664654343543,
-              "dueDate": 19664654343543456,
-              "importance": 3,
-              "labels": [
-                "red"
-              ],
-              "creator": {
-                "userName": "gazorpa"
-              },
-              "taskTeamMembers": [
-                {
-                  "userName": "vlad"
-                },
-                {
-                  "userName": "margad"
-                }
-              ]
-            },
-            {
-              "id": "i5ytkrrkkhfkja2hkjorr679y",
-              "title": "todo list",
-              "createdAt": 19664654343543,
-              "dueDate": 19664654343543456,
-              "importance": 3,
-              "labels": [
-                "red"
-              ],
-              "creator": {
-                "userName": "gazorpa"
-              },
-              "taskTeamMembers": [
-                {
-                  "userName": "vlad"
-                },
-                {
-                  "userName": "margad"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "jxgc8m8tp2",
-          "title": "Margad",
+          "id": "chkf7grh6p",
+          "title": "vlad",
           "tasks": []
         },
         {
-          "id": "buy1rx9gs4",
-          "title": "active",
+          "id": "rrfsx29gx2",
+          "title": "duduu",
           "tasks": []
         }
       ]

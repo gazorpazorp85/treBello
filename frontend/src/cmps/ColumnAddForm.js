@@ -64,10 +64,15 @@ class ColumnAddForm extends Component {
 
     render() {
         return <div>
-            <form onSubmit={this.saveColumn}>
+            <form className="add-column-form-container flex column space-between" onSubmit={this.saveColumn}>
                 <input type='text' placeholder='Column Name' name='title'
                     onChange={this.inputChange} value={this.state.column.title} />
-                <button>Save</button>
+                <div className="add-column flex">
+                    <button className="add-column-save-btn"
+                        variant="contained">SAVE</button>
+                    <p className="add-column-back-to-board flex align-center"
+                        onClick={this.props.toggleAddForm}>X</p>
+                </div>
             </form>
         </div>
     }
