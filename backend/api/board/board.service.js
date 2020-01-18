@@ -34,7 +34,7 @@ async function update(id, board) {
     delete board._id;
 
     try {
-        await collection.updateOne({ "_id": ObjectId(id) }, { $set: toy });
+        await collection.updateOne({ "_id": ObjectId(id) }, { $set: board });
         board._id = id;
         return board;
     } catch (err) {

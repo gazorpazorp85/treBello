@@ -17,7 +17,7 @@ function get(boardId) {
 }
 
 function put(board) {
-  return HttpService.put(`board/${board.id}`, board);
+  return HttpService.put(`board/${board._id}`, board);
 }
 
 function remove(boardId) {

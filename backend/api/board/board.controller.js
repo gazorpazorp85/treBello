@@ -46,6 +46,7 @@ async function deleteBoard(req, res) {
 async function updateBoard(req, res) {
 
     const id = req.params.id;
+    console.log(id);
     try {
         const board = await boardService.update(id, req.body);
         res.send(board);
