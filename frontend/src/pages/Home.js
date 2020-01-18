@@ -49,6 +49,9 @@ class Home extends Component {
       </section>
 
       <section className="home-page-footer">
+        <div className="home-page-footer-team-member-card">
+
+        </div>
       </section>
     </div>
   }

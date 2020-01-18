@@ -38,22 +38,25 @@ class BoardColumns extends Component {
         this.handleOptionsMenuClose();
     }
 
-    handleOptionsMenuClick = event => {
-        this.setState(({ anchorEl: event.currentTarget }));
+    handleOptionsMenuClick = (event, id) => {
+        this.setState(({ currColumnId: id, anchorEl: event.currentTarget }));
     };
 
     handleOptionsMenuClose = () => {
         this.setState({ anchorEl: null })
+        // setAnchorEl(null);
     };
 
     render() {
         return (
             <div className="board-columns flex">
-                {this.props.board.columns.map(column => (
-                    <div className="board-columns-item" key={column.id}>
+                {this.props.board.columns.map(column => {
+                   const colId = column.id;
+                   return <div className="board-columns-item flex column space-between" key={column.id}>
                         <div className="board-columns-item-header flex align-center space-between">
                             <h2>{column.title}</h2>
-                            <MenuOpenIcon onClick={this.handleOptionsMenuClick} />
+                            <MenuOpenIcon value={column.id}
+                                onClick={ev => this.handleOptionsMenuClick(ev, column.Id)} />
                         </div>
 
                         <Menu
@@ -61,27 +64,19 @@ class BoardColumns extends Component {
                             open={Boolean(this.state.anchorEl)}
                             onClose={this.handleOptionsMenuClose}
                         >
-
-                            {/* {(this.state.showTopMenuOptions && this.state.currColumnId === column.id) ? */}
-                            {/* <div className="board-columns-item-header-top-menu-options flex"> */}
-                                <MenuItem onClick={() => this.onDelete(column.id)}>
-                                    X
+                            <MenuItem onClick={() => this.onDelete(column.id)}>
+                                X
                                 </MenuItem>
-                                <MenuItem onClick={() => this.toggleAddForm(column.id)}>
-                                    Edit
+                            <MenuItem onClick={() => this.toggleAddForm(column.id)}>
+                                Edit
                                 </MenuItem>
-                            {/* </div> */}
-                            {/* : '' */}
-
-
                         </Menu>
-
 
                         {(this.state.showForm && this.state.currColumnId === column.id) ?
                             <ColumnAddForm board={this.props.board} toggleAddForm={this.toggleAddForm} column={column} /> : ''}
                         <TasksList tasks={column.tasks} />
                     </div>
-                ))}
+                })}
             </div >
         )
     }
