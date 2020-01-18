@@ -3,14 +3,12 @@ import { connect } from 'react-redux'
 
 import { loadColumn } from '../actions/ColumnActions';
 
-// import TodoForm from '../cmps/TodoForm';
 
 class ColumnEdit extends Component {
 
     componentDidMount() {
         const boardId = this.props.match.params.boardId;
         const columnId = this.props.match.params.columnId;
-        // if (!todoId) return;
         this.props.loadColumn(boardId, columnId);
     }
 
