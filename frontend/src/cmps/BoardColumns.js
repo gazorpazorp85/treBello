@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { DragDropContext, Droppable } from 'react-beautiful-dnd'
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 import TasksList from './TasksList';
 import ColumnAddForm from '../cmps/ColumnAddForm';
@@ -41,55 +41,144 @@ export default class BoardColumns extends Component {
         this.setState({ anchorEl: null });
     };
 
-    onDragEnd = results => {
-        //todo: reorder
+    onDragEnd = result => {
+        const { destination, source, draggableId, type } = result;
+
+        if (!destination) {
+            return;
+        };
+
+        if (destination.droppableId === source.droppableId &&
+            destination.index === source.index) {
+            return;
+        };
+
+        if (type === 'column') {
+            const newColumnOrder = this.props.board.columnOrder.slice();
+            newColumnOrder.splice(source.index, 1);
+            newColumnOrder.splice(destination.index, 0, draggableId);
+
+            const newBoard = {
+                ...this.props.board,
+                columnOrder: newColumnOrder
+            }
+
+            return this.props.updateBoard(newBoard);
+        };
+
+        const start = this.props.board.columns[source.droppableId];
+        const finish = this.props.board.columns[destination.droppableId];
+
+        if (start === finish) {
+            const newTaskIds = start.taskIds.slice();
+            newTaskIds.splice(source.index, 1);
+            newTaskIds.splice(destination.index, 0, draggableId);
+
+            const newColumn = {
+                ...start,
+                taskIds: newTaskIds
+            };
+
+            const newBoard = {
+                ...this.props.board,
+                columns: {
+                    ...this.props.board.columns,
+                    [newColumn.id]: newColumn
+                }
+            };
+            return this.props.updateBoard(newBoard);
+        };
+
+        const startTaskIds = start.taskIds.slice();
+        startTaskIds.splice(source.index, 1);
+        const newStart = {
+            ...start,
+            taskIds: startTaskIds
+        };
+
+        const finishTaskIds = finish.taskIds.slice();
+        finishTaskIds.splice(destination.index, 0, draggableId);
+        const newFinish = {
+            ...finish,
+            taskIds: finishTaskIds
+        };
+
+        const newBoard = {
+            ...this.props.board,
+            columns: {
+                ...this.props.board.columns,
+                [newStart.id]: newStart,
+                [newFinish.id]: newFinish
+            }
+        };
+        this.props.updateBoard(newBoard);
     }
 
     render() {
         return (
             <DragDropContext onDragEnd={this.onDragEnd}>
-                <div className="board-columns flex">
-                    {this.props.board.columnOrder.map(columnKey => {
-                        const column = this.props.board.columns[columnKey];
-                        const tasks = column.taskIds.map(currId => this.props.board.tasks[currId]);
+                <Droppable droppableId="all-columns" direction="horizontal" type="column">
+                    {provided => (
+                        <div
+                            className="board-columns flex"
+                            {...provided.droppableProps}
+                            ref={provided.innerRef}
+                        >
+                            {this.props.board.columnOrder.map((columnKey, idx) => {
+                                const column = this.props.board.columns[columnKey];
+                                const tasks = column.taskIds.map(currId => this.props.board.tasks[currId]);
 
-                        return <div className="board-columns-item" key={column.id}>
-                            <div className="board-columns-item-header flex align-center space-between">
-                                <h2>{column.title}</h2>
-                                <MenuOpenIcon onClick={ev => this.handleOptionsMenuClick(ev, column.id)} />
-                            </div>
+                                return <Draggable draggableId={columnKey} key={column.id} index={idx}>
+                                    {provided => (
+                                        <div
+                                            className={"board-columns-item"}
+                                            {...provided.draggableProps}
+                                            ref={provided.innerRef}
+                                        >
+                                            <div
+                                                className="board-columns-item-header flex align-center space-between"
+                                                {...provided.dragHandleProps}
+                                            >
+                                                <h2>{column.title}</h2>
+                                                <MenuOpenIcon onClick={ev => this.handleOptionsMenuClick(ev, column.id)} />
+                                            </div>
 
-                            <Menu
-                                anchorEl={this.state.anchorEl}
-                                open={Boolean(this.state.anchorEl)}
-                                onClose={this.handleOptionsMenuClose}
-                            >
-                                <MenuItem onClick={_ => this.onDelete(this.state.currColumnId)}>
-                                    Delete
-                                </MenuItem>
-                                <MenuItem onClick={_ => this.toggleAddForm(this.state.currColumnId)}>
-                                    Edit
-                                </MenuItem>
-                            </Menu>
-                            {(this.state.showForm && this.state.currColumnId === column.id)
-                                ? <ColumnAddForm
-                                    board={this.props.board}
-                                    toggleAddForm={this.toggleAddForm}
-                                    column={column} /> : ''}
-                            <Droppable droppableId={column.id}>
-                                {provided => (
-                                    <TasksList
-                                        innerRef={provided.innerRef}
-                                        provided={provided}
-                                        tasks={tasks}
-                                    >
-                                        {/* {provided.placeholder} */}
-                                    </TasksList>
-                                )}
-                            </Droppable>
-                        </div>
-                    })}
-                </div >
+                                            <Menu
+                                                anchorEl={this.state.anchorEl}
+                                                open={Boolean(this.state.anchorEl)}
+                                                onClose={this.handleOptionsMenuClose}
+                                            >
+                                                <MenuItem onClick={_ => this.onDelete(this.state.currColumnId)}>
+                                                    Delete
+                                                </MenuItem>
+                                                <MenuItem onClick={_ => this.toggleAddForm(this.state.currColumnId)}>
+                                                    Edit
+                                                 </MenuItem>
+                                            </Menu>
+                                            {(this.state.showForm && this.state.currColumnId === column.id)
+                                                ? <ColumnAddForm
+                                                    board={this.props.board}
+                                                    toggleAddForm={this.toggleAddForm}
+                                                    column={column} /> : ''}
+                                            <Droppable droppableId={column.id} type="task">
+                                                {(provided, snapshot) => {
+                                                    return <TasksList
+                                                        innerRef={provided.innerRef}
+                                                        provided={provided}
+                                                        tasks={tasks}
+                                                        isDraggingOver={snapshot.isDraggingOver}
+                                                    >
+                                                    </TasksList>
+                                                }}
+                                            </Droppable>
+                                        </div>
+                                    )}
+                                </Draggable>
+                            })}
+                            {provided.placeholder}
+                        </div >
+                    )}
+                </Droppable>
             </DragDropContext>
         );
     }

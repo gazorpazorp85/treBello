@@ -136,34 +136,34 @@
         }
       },
       "columns": {
-        "column-0": {
+        "5e21f19e5e341397659b553a": {
           "id": "5e21f19e5e341397659b553a",
           "title": "commodo",
-          "taskIds": [
-            "task-0",
-            "task-1"
-          ]
-        },
-        "column-1": {
-          "id": "5e21f19ec9be6c868e78748a",
-          "title": "adipisicing",
           "taskIds": [
             "task-2"
           ]
         },
-        "column-2": {
+        "5e21f19ec9be6c868e78748a": {
+          "id": "5e21f19ec9be6c868e78748a",
+          "title": "adipisicing",
+          "taskIds": [
+            "task-1",
+            "task-4",
+            "task-0"
+          ]
+        },
+        "5e21f19ee5a1c1dbf335df61": {
           "id": "5e21f19ee5a1c1dbf335df61",
           "title": "sunt",
           "taskIds": [
-            "task-3",
-            "task-4"
+            "task-3"
           ]
         }
       },
       "columnOrder": [
-        "column-0",
-        "column-1",
-        "column-2"
+        "5e21f19ee5a1c1dbf335df61",
+        "5e21f19e5e341397659b553a",
+        "5e21f19ec9be6c868e78748a"
       ]
     }
   ]
