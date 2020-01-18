@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import Button from '@material-ui/core/Button';
 import HomeIcon from '@material-ui/icons/Home';
+import pageLoading  from '../cmps/LoadPage'
 
 import { loadBoard, updateBoard } from '../actions/BoardActions';
 
@@ -19,11 +20,11 @@ class Board extends Component {
   }
 
   componentDidMount() {
-    const boardId = this.props.match.params.id;
-    this.props.loadBoard(boardId);
-    // SocketService.setup();
-    // SocketService.emit('chat topic', this.state.topic);
-    // SocketService.on('chat addMsg', this.addMsg);
+      const boardId = this.props.match.params.id;
+      this.props.loadBoard(boardId);
+      // SocketService.setup();
+      // SocketService.emit('chat topic', this.state.topic);
+      // SocketService.on('chat addMsg', this.addMsg);
   }
 
   componentDidUpdate(prevProps) {
@@ -52,7 +53,7 @@ class Board extends Component {
 
   render() {
 
-    if (!this.props.board.columns) return <div>Loading...</div>
+    if (!this.props.board.columns) return pageLoading();
 
     return (
       <div className="board-page fill-height flex column">

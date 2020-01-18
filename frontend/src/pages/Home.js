@@ -7,6 +7,9 @@ import BoardsList from '../cmps/BoardsList';
 import Button from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Fab';
 
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import FacebookIcon from '@material-ui/icons/Facebook';
+
 import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
 
 import { loadBoards } from '../actions/BoardActions'
@@ -43,13 +46,44 @@ class Home extends Component {
       <section className="home-page-boards-list">
         <div className="home-page-boards-list-inspiration text-center flex column align-center justify-center">
           <h2 >GET SOME INSPIRATION</h2>
-            <ArrowDropDownCircleIcon />
+          <ArrowDropDownCircleIcon />
         </div>
         <BoardsList boards={this.props.boards} />
       </section>
 
-      <section className="home-page-footer">
-        <div className="home-page-footer-team-member-card">
+      <section className="home-page-footer flex column align-center justify-center">
+        <h2> OUR TEAM </h2>
+        <div className="home-pagge-footer-team-members-cards-container flex justify-center">
+
+          <div className="home-page-footer-team-member-card flex column align-center justify-center">
+            <div className="home-page-footer-team-member-card-member-img vlad"></div>
+            <p>Vlad Batalin</p>
+            <small>Design and overall technical support</small>
+            <div className="flex">
+              <LinkedInIcon className="linkedInIcon"></LinkedInIcon>
+              <FacebookIcon  className="faceBookIcon"></FacebookIcon>
+            </div>
+          </div>
+
+          <div className="home-page-footer-team-member-card flex column align-center justify-center">
+            <div className="home-page-footer-team-member-card-member-img margad"></div>
+            <p>Margad T.</p>
+            <small>High functionality backend support</small>
+            <div className="flex">
+              <LinkedInIcon className="linkedInIcon"></LinkedInIcon>
+              <FacebookIcon  className="faceBookIcon"></FacebookIcon>
+            </div>
+          </div>
+
+          <div className="home-page-footer-team-member-card flex column align-center justify-center">
+            <div className="home-page-footer-team-member-card-member-img paolo"></div>
+            <p>Paolo</p>
+            <small>High functionality and backend</small>
+            <div className="flex">
+              <LinkedInIcon className="linkedInIcon"></LinkedInIcon>
+              <FacebookIcon className="faceBookIcon"></FacebookIcon>
+            </div>
+          </div>
 
         </div>
       </section>

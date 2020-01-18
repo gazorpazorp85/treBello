@@ -86,29 +86,7 @@
         {
           "id": "jio123131dasda35rh7i",
           "title": "active",
-          "tasks": [
-            {
-              "id": "i5ytkrrozxczczcz3424rr679y",
-              "title": "todo list",
-              "createdAt": 19664654343543,
-              "dueDate": 19664654343543456,
-              "importance": 3,
-              "labels": [
-                "red"
-              ],
-              "creator": {
-                "userName": "gazorpa"
-              },
-              "taskTeamMembers": [
-                {
-                  "userName": "vlad"
-                },
-                {
-                  "userName": "margad"
-                }
-              ]
-            }
-          ]
+          "tasks": []
         }
       ]
     },
@@ -129,29 +107,7 @@
         {
           "id": "jio12312313aasa3eqw5rh7i",
           "title": "active",
-          "tasks": [
-            {
-              "id": "i5asdadazzzzytkrrorr679y",
-              "title": "todo list 2",
-              "createdAt": 19664654343543,
-              "dueDate": 19664654343543456,
-              "importance": 3,
-              "labels": [
-                "red"
-              ],
-              "creator": {
-                "userName": "gazorpa"
-              },
-              "taskTeamMembers": [
-                {
-                  "userName": "vlad"
-                },
-                {
-                  "userName": "margad"
-                }
-              ]
-            }
-          ]
+          "tasks": []
         }
       ]
     },
@@ -172,29 +128,7 @@
         {
           "id": "jio31111adaaaa5rh7i",
           "title": "active",
-          "tasks": [
-            {
-              "id": "i5ytkrror444443333r679y",
-              "title": "todo list",
-              "createdAt": 19664654343543,
-              "dueDate": 19664654343543456,
-              "importance": 3,
-              "labels": [
-                "red"
-              ],
-              "creator": {
-                "userName": "gazorpa"
-              },
-              "taskTeamMembers": [
-                {
-                  "userName": "vlad"
-                },
-                {
-                  "userName": "margad"
-                }
-              ]
-            }
-          ]
+          "tasks": []
         }
       ]
     },

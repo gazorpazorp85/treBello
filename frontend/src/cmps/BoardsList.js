@@ -47,10 +47,10 @@ function BoardsList({ boards }) {
                 <div className="boards-grid-list-inner-container">
                     <GridList cellHeight={300} spacing={13} className={classes.gridList} >
                         {boards.map(board => (
-                            <GridListTile key={board.id} cols={board.featured ? 2 : 1} rows={board.featured ? 2 : 1}>
+                            <GridListTile key={board._id} cols={board.featured ? 2 : 1} rows={board.featured ? 2 : 1}>
 
-                                <Link to={`/board/${board.id}`}>
-                                    <BoardPreview key={board.id} board={board} />
+                                <Link to={`/board/${board._id}`}>
+                                    <BoardPreview key={board._id} board={board} />
                                 </Link>
 
                                 <GridListTileBar
