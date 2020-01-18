@@ -65,20 +65,7 @@ class TaskForm extends Component {
         (tasksIdx === -1) ? column.tasks.push(this.state.task) :
             column.tasks.splice(tasksIdx, 1, this.state.task);
         this.props.updateBoard(board);
-        console.log(this.state.task);
-        this.setState({
-            column: {
-                id: '',
-                title: '',
-                createdAt: '',
-                dueDate: '',
-                importance: '',
-                labels: [],
-                creator: {},
-                taskTeamMembers: []
-            }
-        })
-        this.props.toggleUpdateForm(this.state.task.id);
+        this.props.toggleUpdateForm();
     }
 
     render() {

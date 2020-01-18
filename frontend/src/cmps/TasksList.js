@@ -16,8 +16,7 @@ class TasksList extends Component {
 
     toggleUpdateForm = (id) => {
         if (id) {
-            this.setState({ currTaskId: id });
-            this.setState((prevState) => ({ showEditForm: !prevState.showEditForm }))
+            this.setState((prevState) => ({ showEditForm: !prevState.showEditForm, currTaskId: id }))
         } else {
             this.setState((prevState) => ({ showAddForm: !prevState.showAddForm }))
         }
