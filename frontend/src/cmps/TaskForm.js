@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-
-import { updateBoard } from '../actions/BoardActions'
 import CloseIcon from '@material-ui/icons/Close';
 
 import utils from '../services/utils'
 
-class TaskForm extends Component {
+export default class TaskForm extends Component {
 
     state = {
         task: {
             id: utils.getRandomId(),
             title: '',
-            description: '',
-            type: 'text',
             createdAt: Date.now(),
             dueDate: '',
             importance: '',
+            description: '',
+            type: 'text',
             labels: [],
             creator: {},
             taskTeamMembers: []
@@ -35,17 +32,17 @@ class TaskForm extends Component {
     }
 
     setFormDataForEdit() {
-        const task = this.props.task;
-        if (task) {
+        if (this.props.task) {
+            const task = this.props.task;
             this.setState({
                 task: {
                     id: task.id,
                     title: task.title,
-                    description: task.description,
-                    type: task.type,
                     createdAt: task.createdAt,
                     dueDate: task.dueDate,
                     importance: task.importance,
+                    description: this.props.description,
+                    type: task.type,
                     labels: task.labels,
                     creator: task.creator,
                     taskTeamMembers: task.taskTeamMembers
@@ -55,21 +52,27 @@ class TaskForm extends Component {
     }
 
     inputChange = (ev) => {
-        let fieldName = ev.target.name;
-        let value = ev.target.value;
+        const fieldName = ev.target.name;
+        const value = ev.target.value;
         this.setState({ task: { ...this.state.task, [fieldName]: value } })
     }
 
     saveTask = (ev) => {
         ev.preventDefault();
-        let board = { ...this.props.board };
-        let column = this.props.column;
-        let task = this.state.task;
-        let id = task.id;
-        board.tasks[id] = task;
-        if (!column.taskIds.includes(id)) column.taskIds.push(id);
-        this.props.updateBoard(board);
-        this.props.toggleUpdateForm();
+        this.setState(prevState => ({ task: { ...prevState.task, description: this.props.description } }), _ => {
+            const newBoard = {
+                ...this.props.board,
+                tasks: {
+                    ...this.props.board.tasks,
+                    [this.state.task.id]: this.state.task
+                }
+            };
+            const column = this.props.column;
+            const id = this.state.task.id;
+            if (!column.taskIds.includes(id)) column.taskIds.push(id);
+            this.props.updateBoard(newBoard);
+            this.props.toggleTaskDetails();
+        });
     }
 
     textAreaAdjust = ev => {
@@ -114,15 +117,3 @@ class TaskForm extends Component {
         </div>
     }
 }
-
-const mapStateToProps = state => {
-    return {
-        board: state.boards.board
-    };
-};
-
-const mapDispatchToProps = {
-    updateBoard
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TaskForm);

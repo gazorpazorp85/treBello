@@ -5,17 +5,17 @@ import NaturalDragAnimation from 'natural-drag-animation-rbdnd';
 
 import { updateBoard } from '../actions/BoardActions';
 
-
 import TaskPreview from './TaskPreview';
 import TaskForm from './TaskForm';
+import TaskDetails from './TaskDetails';
 
 class TasksList extends Component {
 
     state = {
         showAddForm: false,
         showEditForm: false,
-        showAddFormButton: true,
-        currTaskId: ''
+        currTaskId: '',
+        showTaskDetails: false
     }
 
     toggleUpdateForm = (id) => {
@@ -47,6 +47,11 @@ class TasksList extends Component {
         );
     }
 
+    toggleTaskDetails = id => {
+        if (!id) id = this.state.currTaskId;
+        this.setState(prevState => ({ showTaskDetails: !prevState.showTaskDetails, currTaskId: id }));
+    }
+
     render() {
         const { tasks, provided, innerRef, isDraggingOver } = this.props;
         return (
@@ -67,22 +72,37 @@ class TasksList extends Component {
                                     >
                                         {style => (
                                             <div>
-                                                <div onClick={() => this.toggleUpdateForm(task.id)}>
+                                                {/* <div onClick={_ => this.toggleUpdateForm(task.id)}> */}
+                                                <div onClick={_ => this.toggleTaskDetails(task.id)}>
                                                     <TaskPreview
                                                         provided={provided}
                                                         innerRef={provided.innerRef}
                                                         task={task}
-                                                        isDragging={snapshot.isDragging}                                                        
+                                                        isDragging={snapshot.isDragging}
                                                         style={style}
                                                         onDelete={(ev) => this.onDelete(ev, task.id)}
                                                     >
                                                     </TaskPreview>
                                                 </div>
-                                                <div>
+                                                {(this.state.showTaskDetails && this.state.currTaskId === task.id) &&
+                                                    <TaskDetails
+                                                        taskId={this.state.currTaskId}
+                                                        board={this.props.board}
+                                                        column={this.props.column}
+                                                        updateBoard={this.props.updateBoard}
+                                                        toggleTaskDetails={this.toggleTaskDetails}
+                                                    />
+                                                }
+                                                {/* <div>
                                                     {(this.state.showEditForm && this.state.currTaskId === task.id) ?
-                                                        <TaskForm column={this.props.column} task={task} toggleUpdateForm={this.toggleUpdateForm} />
+                                                        <TaskForm
+                                                            column={this.props.column}
+                                                            task={task}
+                                                            toggleUpdateForm={this.toggleUpdateForm}
+                                                            updateBoard={this.props.updateBoard}
+                                                        />
                                                         : ''}
-                                                </div>
+                                                </div> */}
                                                 {/* <div onClick={() => this.onDelete(task.id)}>X</div> */}
                                             </div>
                                         )}
@@ -93,14 +113,14 @@ class TasksList extends Component {
                     ))}
                     {provided.placeholder}
                     <div className="board-column-footer">
-
-                        {(this.state.showAddFormButton) ?
-                            <p className="board-column-footer-add-task"
-                                onClick={() => this.toggleUpdateForm('')}> + Add task </p>
-                            : ''}
-
-                        {(this.state.showAddForm) ? <TaskForm column={this.props.column} toggleUpdateForm={this.toggleUpdateForm} /> : ''}
-
+                        <p onClick={() => this.toggleUpdateForm('')}> + Add task </p>
+                        {(this.state.showAddForm) &&
+                            <TaskForm
+                                board={this.props.board}
+                                column={this.props.column}
+                                toggleUpdateForm={this.toggleUpdateForm}
+                                updateBoard={this.props.updateBoard} />
+                        }
                     </div>
                 </div>
             </section>
