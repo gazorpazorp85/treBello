@@ -16,7 +16,8 @@ class Board extends Component {
 
   state = {
     showAddColumn: true,
-    showForm: false
+    showForm: false,
+    isTaskDetailsOccupied: false
   }
 
   componentDidMount() {
@@ -51,6 +52,10 @@ class Board extends Component {
     this.props.history.push('/');
   }
 
+  toggleTaskDetailsOccupied = _ => {
+    this.setState(prevState => ({isTaskDetailsOccupied: !prevState.isTaskDetailsOccupied}));
+  }
+
   render() {
 
     if (!this.props.board.columns) return pageLoading();
@@ -72,14 +77,17 @@ class Board extends Component {
         <div className="board-page-columns-container fill-height">
           <div>
             <div className="flex align-start">
-              <BoardColumns board={this.props.board} updateBoard={this.props.updateBoard} />
+              <BoardColumns 
+              board={this.props.board} 
+              updateBoard={this.props.updateBoard} 
+              />
               <div className="flex column align-center">
                 {(this.state.showAddColumn) ?
                   <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}>
                     + Add another list..  </button> : ''
                 }
-                {(this.state.showForm) && <ColumnAddForm board={this.props.board}
-                  toggleAddForm={this.toggleAddForm} />}
+                {(this.state.showForm) && <ColumnAddForm board={this.props.board} updateBoard={this.props.updateBoard}
+                  toggleAddForm={this.toggleAddForm} /> }
               </div>
             </div>
           </div>

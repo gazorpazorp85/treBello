@@ -11,6 +11,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 export default class BoardColumns extends Component {
 
     state = {
+        chacked: false,
         showForm: false,
         showTopMenuOptions: false,
         currColumnId: '',
@@ -41,7 +42,6 @@ export default class BoardColumns extends Component {
 
     handleOptionsMenuClose = () => {
         this.setState({ anchorEl: null })
-        // setAnchorEl(null);
     };
 
     onDragEnd = result => {
@@ -117,6 +117,27 @@ export default class BoardColumns extends Component {
         this.props.updateBoard(newBoard);
     }
 
+    handleCheck = (board) => {
+        // Clears running timer and starts a new one each time the user types
+        clearTimeout(this.timer);
+        this.timer = setTimeout(() => {
+            this.toggleCheck();
+            this.props.updateBoard(board);
+        }, 1000);
+    }
+
+    toggleCheck = () => {
+        this.setState(prevState => ({ checked: !prevState.checked }));
+    }
+
+    emitChange = (ev, id) => {
+        ev.preventDefault();
+        let board = { ...this.props.board };
+        board.columns[id].title = ev.target.innerHTML;
+        this.handleCheck(board)
+    }
+
+
     render() {
         return (
             <DragDropContext onDragEnd={this.onDragEnd}>
@@ -128,10 +149,12 @@ export default class BoardColumns extends Component {
                             ref={provided.innerRef}
                         >
                             {this.props.board.columnOrder.map((columnKey, idx) => {
+
                                 const column = this.props.board.columns[columnKey];
                                 const tasks = column.taskIds.map(currId => this.props.board.tasks[currId]);
 
                                 return <Draggable draggableId={columnKey} key={column.id} index={idx}>
+
                                     {(provided, snapshot) => (
                                         <NaturalDragAnimation
                                             style={provided.draggableProps.style}
@@ -139,20 +162,32 @@ export default class BoardColumns extends Component {
                                             rotationMultiplier={1}
                                         >
                                             {style => (
-                                                <div
-                                                    className={"board-columns-item"}
-                                                    {...provided.draggableProps}
-                                                    ref={provided.innerRef}
-                                                    style={style}
-                                                >
+                                                // <div className="board-columns-item-wrapper">
                                                     <div
-                                                        className="board-columns-item-header flex align-center space-between"
-                                                        {...provided.dragHandleProps}
+                                                        className="board-columns-item"
+                                                        {...provided.draggableProps}
+                                                        ref={provided.innerRef}
+                                                        style={style}
                                                     >
-                                                        <h2>{column.title}</h2>
-                                                        <div className="board-columns-item-header-menu-btn" onClick={ev => this.handleOptionsMenuClick(ev, column.id)}>
-                                                            <h2 className="board-columns-item-header-menu-btn-icon"> ... </h2>
-                                                        </div>
+                                                        <div
+                                                            className="board-columns-item-header flex align-center space-between"
+                                                            {...provided.dragHandleProps}
+                                                        >
+                                                            <div className="board-columns-item-header-h2-wrapper">
+                                                                <h2
+                                                                    contentEditable='true'
+                                                                    spellCheck="false"
+                                                                    onInput={(ev) => this.emitChange(ev, column.id)}
+                                                                    suppressContentEditableWarning={true}>
+                                                                    {column.title}
+                                                                </h2>
+                                                            </div>
+
+                                                            <div className="board-columns-item-header-menu-btn"
+                                                                onClick={ev => this.handleOptionsMenuClick(ev, column.id)}>
+                                                                <h2 className="board-columns-item-header-menu-btn-icon"> ... </h2>
+                                                            </div>
+                                                        {/* </div> */}
                                                     </div>
 
                                                     <Menu
@@ -175,6 +210,7 @@ export default class BoardColumns extends Component {
                                                     <Droppable droppableId={column.id} type="task">
                                                         {(provided, snapshot) => {
                                                             return <TasksList
+
                                                                 innerRef={provided.innerRef}
                                                                 provided={provided}
                                                                 tasks={tasks}

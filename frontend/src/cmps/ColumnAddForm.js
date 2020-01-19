@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-
-import { updateBoard } from '../actions/BoardActions'
-
-import utils from '../services/utils'
-
 import CloseIcon from '@material-ui/icons/Close';
 
-class ColumnAddForm extends Component {
+import utils from '../services/utils';
+
+export default class ColumnAddForm extends Component {
 
     state = {
         column: {
@@ -18,6 +14,7 @@ class ColumnAddForm extends Component {
     }
 
     componentDidMount() {
+        this.nameInput.focus();
         this.setFormDataForEdit();
     }
 
@@ -28,8 +25,8 @@ class ColumnAddForm extends Component {
     }
 
     setFormDataForEdit() {
-        const column = this.props.column;
-        if (column) {
+        if (this.props.column) {
+            const column = this.props.column;
             this.setState({
                 column: {
                     id: column.id,
@@ -48,21 +45,31 @@ class ColumnAddForm extends Component {
 
     saveColumn = (ev) => {
         ev.preventDefault();
-        let board = { ...this.props.board };
-        let columns = board.columns;
-        let id = this.state.column.id;
-        columns[id] = this.state.column;
-        const columnOrder = board.columnOrder;
+        const newBoard = {
+            ...this.props.board,
+            columns: {
+                ...this.props.board.columns,
+                [this.state.column.id]: this.state.column
+            }
+        };
+        const id = this.state.column.id;
+        const columnOrder = newBoard.columnOrder;
         if (!columnOrder.includes(id)) columnOrder.push(id);
-        this.props.updateBoard(board);
+        this.props.updateBoard(newBoard);
         this.props.toggleAddForm();
     }
 
     render() {
         return <div>
             <form className="add-column-form-container flex column space-between" onSubmit={this.saveColumn}>
-                <input type='text' placeholder='Column Name' name='title'
-                    onChange={this.inputChange} value={this.state.column.title} />
+                <input
+                    ref={(input) => { this.nameInput = input; }}
+                    // defaultValue="will focus"
+                    type='text'
+                    placeholder='Column Name'
+                    name='title'
+                    onChange={this.inputChange}
+                    value={this.state.column.title} />
                 <div className="add-column flex">
                     <button className="add-column-save-btn"
                         variant="contained">SAVE</button>
@@ -75,15 +82,3 @@ class ColumnAddForm extends Component {
         </div>
     }
 }
-
-const mapStateToProps = state => {
-    return {
-        board: state.boards.board
-    };
-};
-
-const mapDispatchToProps = {
-    updateBoard
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ColumnAddForm);

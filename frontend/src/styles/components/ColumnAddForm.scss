@@ -2,7 +2,7 @@
 
     .add-column {
         &-form-container {
-            margin: 0 4px;
+            margin: 0;
             padding: 4px;
             min-width: 190px;
             min-height: 52px;
@@ -16,8 +16,12 @@
 
             input {
                 padding: 4px;
-                outline: auto;
-                outline-color: #0e0e0c91;
+                max-height: 140px;
+
+                &:focus {
+                    outline: 2px solid #0079bf;
+                    max-height: 140px;
+                }
             }
         }
 
@@ -41,7 +45,7 @@
         }
 
         &-back-btn {
-           
+
             margin-top: 2px;
             font-family: montserratBold, 'sans-sarif';
         }
