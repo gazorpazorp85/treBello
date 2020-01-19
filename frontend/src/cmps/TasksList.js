@@ -14,6 +14,7 @@ class TasksList extends Component {
     state = {
         showAddForm: false,
         showEditForm: false,
+        showEditBtn: false,
         currTaskId: '',
         showTaskDetails: false
     }
@@ -52,6 +53,14 @@ class TasksList extends Component {
         this.setState(prevState => ({ showTaskDetails: !prevState.showTaskDetails, currTaskId: id }));
     }
 
+    showEditBtn = () => {
+        this.setState({ showEditBtn: true })
+    }
+
+    hideEditBtn = () => {
+        this.setState({ showEditBtn: false })
+    }
+
     render() {
         const { tasks, provided, innerRef, isDraggingOver } = this.props;
         return (
@@ -72,15 +81,17 @@ class TasksList extends Component {
                                     >
                                         {style => (
                                             <div>
-                                                {/* <div onClick={_ => this.toggleUpdateForm(task.id)}> */}
                                                 <div onClick={_ => this.toggleTaskDetails(task.id)}>
                                                     <TaskPreview
+                                                        // onMouseEnter={this.showEditBtn}
+                                                        // onMouseLeave={this.hideEditBtn}
                                                         provided={provided}
                                                         innerRef={provided.innerRef}
                                                         task={task}
                                                         isDragging={snapshot.isDragging}
                                                         style={style}
                                                         onDelete={(ev) => this.onDelete(ev, task.id)}
+                                                        // showEditBtn={this.showEditBtn}
                                                     >
                                                     </TaskPreview>
                                                 </div>
@@ -93,17 +104,6 @@ class TasksList extends Component {
                                                         toggleTaskDetails={this.toggleTaskDetails}
                                                     />
                                                 }
-                                                {/* <div>
-                                                    {(this.state.showEditForm && this.state.currTaskId === task.id) ?
-                                                        <TaskForm
-                                                            column={this.props.column}
-                                                            task={task}
-                                                            toggleUpdateForm={this.toggleUpdateForm}
-                                                            updateBoard={this.props.updateBoard}
-                                                        />
-                                                        : ''}
-                                                </div> */}
-                                                {/* <div onClick={() => this.onDelete(task.id)}>X</div> */}
                                             </div>
                                         )}
                                     </NaturalDragAnimation>

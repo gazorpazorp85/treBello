@@ -131,7 +131,6 @@ export default class BoardColumns extends Component {
     }
 
     emitChange = (ev, id) => {
-        // debugger
         ev.preventDefault();
         let board = { ...this.props.board };
         board.columns[id].title = ev.target.innerHTML;
