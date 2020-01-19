@@ -49,8 +49,16 @@ class TasksList extends Component {
     }
 
     toggleTaskDetails = id => {
-        if (!id) id = this.state.currTaskId;
-        this.setState(prevState => ({ showTaskDetails: !prevState.showTaskDetails, currTaskId: id }));
+        if (id) {
+            this.setState(prevState => ({ showTaskDetails: !prevState.showTaskDetails, currTaskId: id }));
+        } else {
+            this.setState(prevState => ({ showTaskDetails: !prevState.showTaskDetails }));
+        }
+
+    }
+
+    canOpenTaskDetails = taskId => {
+        return (this.state.showTaskDetails && this.state.currTaskId === taskId)
     }
 
     showEditBtn = () => {
@@ -95,7 +103,7 @@ class TasksList extends Component {
                                                     >
                                                     </TaskPreview>
                                                 </div>
-                                                {(this.state.showTaskDetails && this.state.currTaskId === task.id) &&
+                                                {this.canOpenTaskDetails(task.id) &&
                                                     <TaskDetails
                                                         taskId={this.state.currTaskId}
                                                         board={this.props.board}
@@ -119,7 +127,9 @@ class TasksList extends Component {
                                 board={this.props.board}
                                 column={this.props.column}
                                 toggleUpdateForm={this.toggleUpdateForm}
-                                updateBoard={this.props.updateBoard} />
+                                updateBoard={this.props.updateBoard}
+                                toggleTaskDetails={this.toggleTaskDetails}
+                            />
                         }
                     </div>
                 </div>

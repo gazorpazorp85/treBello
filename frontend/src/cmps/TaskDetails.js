@@ -4,7 +4,7 @@ import TaskForm from './TaskForm';
 export default class TaskDetails extends Component {
     state = {
         description: '',
-        saveBtnHidden: true
+        // saveBtnHidden: true
     }
 
     componentDidMount() {
@@ -16,23 +16,23 @@ export default class TaskDetails extends Component {
         this.setState({ description: targetValue });
     }
 
-    onToggleSaveBtn = _ => {
-        this.setState({ saveBtnHidden: false })
-    }
+    // onToggleSaveBtn = _ => {
+    //     this.setState({ saveBtnHidden: false })
+    // }
 
-    onSave = _ => {
-        this.setState({ saveBtnHidden: true }, _ => {
-            const newTask = { ...this.props.task, description: this.state.description };
-            const newBoard = {
-                ...this.props.board,
-                tasks: {
-                    ...this.props.board.tasks,
-                    [newTask.id]: newTask
-                }
-            }
-            this.props.updateBoard(newBoard);
-        })
-    }
+    // onSave = _ => {
+    //     this.setState({ saveBtnHidden: true }, _ => {
+    //         const newTask = { ...this.props.task, description: this.state.description };
+    //         const newBoard = {
+    //             ...this.props.board,
+    //             tasks: {
+    //                 ...this.props.board.tasks,
+    //                 [newTask.id]: newTask
+    //             }
+    //         }
+    //         this.props.updateBoard(newBoard);
+    //     })
+    // }
 
     render() {
         const task = this.props.board.tasks[this.props.taskId];

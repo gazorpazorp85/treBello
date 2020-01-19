@@ -72,6 +72,7 @@ export default class TaskForm extends Component {
             if (!column.taskIds.includes(id)) column.taskIds.push(id);
             this.props.updateBoard(newBoard);
             this.props.toggleTaskDetails();
+            if (this.props.toggleUpdateForm) this.props.toggleUpdateForm();
         });
     }
 
@@ -110,7 +111,7 @@ export default class TaskForm extends Component {
                 </div> */}
                     <div className="flex align-center">
                         <button className="task-form-save-btn">SAVE</button>
-                        <CloseIcon className="task-form-back-btn" onClick={() => this.props.toggleUpdateForm()} />
+                        <CloseIcon className="task-form-back-btn" onClick={() => { this.props.toggleUpdateForm ? this.props.toggleUpdateForm() : this.props.toggleTaskDetails() }} />
                     </div>
                 </div>
             </form>
