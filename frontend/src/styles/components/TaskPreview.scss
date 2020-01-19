@@ -1,13 +1,21 @@
-.task-container{
+.task-container {
     cursor: pointer;
-    padding: 5px;
+    padding: 3px 1px 3px 3px;
     margin-bottom: 10px;
     margin: 5px;
     transition: 0.3s;
-    &:hover{
+
+    &:hover {
         background-color: rgba(255, 255, 255, 0.637);
     }
-    &.isDragging{
+
+    &.isDragging {
         background-color: lightgreen;
+    }
+
+    &-open-menu {
+        .MuiSvgIcon-root {
+            margin: 0;
+        }
     }
 }

@@ -5,6 +5,8 @@ import { updateBoard } from '../actions/BoardActions'
 
 import utils from '../services/utils'
 
+import CloseIcon from '@material-ui/icons/Close';
+
 class ColumnAddForm extends Component {
 
     state = {
@@ -64,8 +66,10 @@ class ColumnAddForm extends Component {
                 <div className="add-column flex">
                     <button className="add-column-save-btn"
                         variant="contained">SAVE</button>
-                    <p className="add-column-back-to-board flex align-center"
-                        onClick={this.props.toggleAddForm}>X</p>
+
+                    <CloseIcon className="add-column-back-to-board flex align-center"
+                        onClick={this.props.toggleAddForm} />
+
                 </div>
             </form>
         </div>

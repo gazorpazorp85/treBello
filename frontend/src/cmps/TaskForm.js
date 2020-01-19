@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { updateBoard } from '../actions/BoardActions'
+import CloseIcon from '@material-ui/icons/Close';
 
 import utils from '../services/utils'
 
@@ -67,24 +68,34 @@ class TaskForm extends Component {
     }
 
     render() {
-        return <div>
+        return <div className="task-form" >
             <form onSubmit={this.saveTask}>
+                <div className="flex column" >
+
+                    <textarea type="text" placeholder="+ Add a title for this card..." name="content"
+                        onChange={this.inputChange} value={this.state.task.title} />
+
+                    {/* <input type='datetime-local' placeholder='task Name' name='dueDate'
                 <input type='text' placeholder='task content' name='content'
                     onChange={this.inputChange} value={this.state.task.content} />
                 <input type='datetime-local' placeholder='task Name' name='dueDate'
                     onChange={this.inputChange} value={this.state.task.dueDate} />
-                <div>Importance:
+                    <div>Importance:
                     <select name='importance' value={this.state.task.importance} onChange={this.inputChange}>
-                        <option value='1'>1</option>
-                        <option value='2'>2</option>
-                        <option value='3'>3</option>
-                        <option value='4'>4</option>
-                        <option value='5'>5</option>
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option>
                     </select>
+                    </div>
+                    <div>Labels:
+                </div> */}
+                <div className="flex align-center">
+                    <button className="task-form-save-btn">SAVE</button>
+                    <CloseIcon className="task-form-back-btn" onClick={() => this.props.toggleUpdateForm()} />
                 </div>
-                <div>Labels:
                 </div>
-                <button>Save</button>
             </form>
         </div>
     }
