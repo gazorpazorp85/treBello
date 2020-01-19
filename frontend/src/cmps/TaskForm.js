@@ -10,7 +10,7 @@ class TaskForm extends Component {
     state = {
         task: {
             id: utils.getRandomId(),
-            title: '',
+            content: '',
             createdAt: Date.now(),
             dueDate: '',
             importance: '',
@@ -36,7 +36,7 @@ class TaskForm extends Component {
             this.setState({
                 task: {
                     id: task.id,
-                    title: task.title,
+                    content: task.content,
                     createdAt: task.createdAt,
                     dueDate: task.dueDate,
                     importance: task.importance,
@@ -57,13 +57,11 @@ class TaskForm extends Component {
     saveTask = (ev) => {
         ev.preventDefault();
         let board = { ...this.props.board };
-        let id = this.props.column.id;
-        let idx = board.columns.findIndex(column => column.id === id);
-        let column = board.columns[idx];
-        let taskId = this.state.task.id;
-        let tasksIdx = column.tasks.findIndex(task => task.id === taskId);
-        (tasksIdx === -1) ? column.tasks.push(this.state.task) :
-            column.tasks.splice(tasksIdx, 1, this.state.task);
+        let column = this.props.column;
+        let task = this.state.task;
+        let id = task.id;
+        board.tasks[id] = task;
+        if (!column.taskIds.includes(id)) column.taskIds.push(id);
         this.props.updateBoard(board);
         this.props.toggleUpdateForm();
     }
@@ -71,8 +69,8 @@ class TaskForm extends Component {
     render() {
         return <div>
             <form onSubmit={this.saveTask}>
-                <input type='text' placeholder='task Name' name='title'
-                    onChange={this.inputChange} value={this.state.task.title} />
+                <input type='text' placeholder='task content' name='content'
+                    onChange={this.inputChange} value={this.state.task.content} />
                 <input type='datetime-local' placeholder='task Name' name='dueDate'
                     onChange={this.inputChange} value={this.state.task.dueDate} />
                 <div>Importance:
