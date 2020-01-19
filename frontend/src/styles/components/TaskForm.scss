@@ -1,0 +1,19 @@
+.task-form {
+
+
+    padding: 4px;
+
+    textarea {
+        resize: none;
+    }
+
+    &-save-btn {
+        width: 48px;
+        font-size: 0.625rem;
+        padding: 5px 10px;
+        margin-top: 3px;
+        color: white;
+        font-weight: 600;
+        background-color: #5aac44;
+    }
+}

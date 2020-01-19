@@ -66,7 +66,7 @@ class TasksList extends Component {
                     ))}
                     {provided.placeholder}
                     <div className="board-column-footer">
-                        <p onClick={() => this.toggleUpdateForm('')}> + Add task </p>
+                        <p className="board-column-footer-add-task" onClick={() => this.toggleUpdateForm('')}> + Add task </p>
                         {(this.state.showAddForm) ? <TaskForm column={this.props.column} toggleUpdateForm={this.toggleUpdateForm} /> : ''}
                     </div>
                 </div>
