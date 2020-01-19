@@ -80,6 +80,8 @@ class Board extends Component {
               <BoardColumns 
               board={this.props.board} 
               updateBoard={this.props.updateBoard} 
+              isTaskDetailsOccupied={this.state.isTaskDetailsOccupied}
+              toggleTaskDetailsOccupied={this.toggleTaskDetailsOccupied}
               />
               <div className="flex column align-center">
                 {(this.state.showAddColumn) ?

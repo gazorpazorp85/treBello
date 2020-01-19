@@ -207,12 +207,13 @@ export default class BoardColumns extends Component {
                                                     <Droppable droppableId={column.id} type="task">
                                                         {(provided, snapshot) => {
                                                             return <TasksList
-
                                                                 innerRef={provided.innerRef}
                                                                 provided={provided}
                                                                 tasks={tasks}
                                                                 isDraggingOver={snapshot.isDraggingOver}
                                                                 column={column}
+                                                                isTaskDetailsOccupied={this.props.isTaskDetailsOccupied}
+                                                                toggleTaskDetailsOccupied={this.props.toggleTaskDetailsOccupied}
                                                             >
                                                             </TasksList>
                                                         }}
