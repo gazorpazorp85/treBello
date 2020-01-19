@@ -6,6 +6,7 @@
     textarea {
         resize: none;
         overflow-x: hidden;
+        max-height: 120px;
     }
 
     &-back-btn {
