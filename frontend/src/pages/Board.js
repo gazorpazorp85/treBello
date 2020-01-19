@@ -78,8 +78,8 @@ class Board extends Component {
                   <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}>
                     + Add another list..  </button> : ''
                 }
-                {(this.state.showForm) ? <ColumnAddForm board={this.props.board}
-                  toggleAddForm={this.toggleAddForm} /> : ''}
+                {(this.state.showForm) && <ColumnAddForm board={this.props.board} updateBoard={this.props.updateBoard}
+                  toggleAddForm={this.toggleAddForm} /> }
               </div>
             </div>
           </div>

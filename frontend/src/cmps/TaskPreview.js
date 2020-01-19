@@ -16,7 +16,7 @@ export default function TaskPreview({ task, provided, innerRef, isDragging, styl
                 ref={innerRef}
                 style={style}
             >
-                <p>{task.content}</p>
+                <p>{task.title}</p>
                 {/* <small>Created at: {moment(createdAtFormat).calendar()}</small>
                     <small>Expires: {moment(dueDateFormat).calendar()}</small>
                     <small>Importance: {task.importance}</small>
