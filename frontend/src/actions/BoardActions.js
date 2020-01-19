@@ -39,8 +39,8 @@ function _setBoard(board) {
 export function updateBoard(board) {
   return async dispatch => {
     try {
-      await BoardService.put(board);
       dispatch(_boardUpdate(board));
+      await BoardService.put(board);
     } catch (err) {
       console.log('BoardActions: err in loadBoard', err);
     }

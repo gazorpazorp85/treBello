@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Draggable } from 'react-beautiful-dnd'
+import { Draggable } from 'react-beautiful-dnd';
+import NaturalDragAnimation from 'natural-drag-animation-rbdnd';
+
 import { updateBoard } from '../actions/BoardActions';
+
 
 import TaskPreview from './TaskPreview';
 import TaskForm from './TaskForm';
@@ -57,24 +60,33 @@ class TasksList extends Component {
                         <div key={task.id}>
                             <Draggable draggableId={task.id} index={idx}>
                                 {(provided, snapshot) => (
-                                    <div>
-                                        <div onClick={() => this.toggleUpdateForm(task.id)}>
-                                            <TaskPreview
-                                                provided={provided}
-                                                innerRef={provided.innerRef}
-                                                task={task}
-                                                isDragging={snapshot.isDragging}
-                                                onDelete={(ev) => this.onDelete(ev, task.id)}
-                                            >
-                                            </TaskPreview>
-                                        </div>
-                                        <div>
-                                            {(this.state.showEditForm && this.state.currTaskId === task.id) ?
-                                                <TaskForm column={this.props.column} task={task} toggleUpdateForm={this.toggleUpdateForm} />
-                                                : ''}
-                                        </div>
-                                        {/* <div onClick={() => this.onDelete(task.id)}>X</div> */}
-                                    </div>
+                                    <NaturalDragAnimation
+                                        style={provided.draggableProps.style}
+                                        snapshot={snapshot}
+                                        rotationMultiplier={1}
+                                    >
+                                        {style => (
+                                            <div>
+                                                <div onClick={() => this.toggleUpdateForm(task.id)}>
+                                                    <TaskPreview
+                                                        provided={provided}
+                                                        innerRef={provided.innerRef}
+                                                        task={task}
+                                                        isDragging={snapshot.isDragging}                                                        
+                                                        style={style}
+                                                        onDelete={(ev) => this.onDelete(ev, task.id)}
+                                                    >
+                                                    </TaskPreview>
+                                                </div>
+                                                <div>
+                                                    {(this.state.showEditForm && this.state.currTaskId === task.id) ?
+                                                        <TaskForm column={this.props.column} task={task} toggleUpdateForm={this.toggleUpdateForm} />
+                                                        : ''}
+                                                </div>
+                                                {/* <div onClick={() => this.onDelete(task.id)}>X</div> */}
+                                            </div>
+                                        )}
+                                    </NaturalDragAnimation>
                                 )}
                             </Draggable>
                         </div>

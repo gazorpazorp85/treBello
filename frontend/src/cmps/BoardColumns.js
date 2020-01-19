@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import NaturalDragAnimation from 'natural-drag-animation-rbdnd';
 
 import TasksList from './TasksList';
 import ColumnAddForm from '../cmps/ColumnAddForm';
@@ -30,7 +31,7 @@ export default class BoardColumns extends Component {
         delete board.columns[id];
         let columnOrder = board.columnOrder;
         let idx = columnOrder.findIndex(column => column === id);
-        columnOrder.splice(idx,1);
+        columnOrder.splice(idx, 1);
         this.props.updateBoard(board);
         this.handleOptionsMenuClose();
     }
@@ -132,52 +133,61 @@ export default class BoardColumns extends Component {
                                 const tasks = column.taskIds.map(currId => this.props.board.tasks[currId]);
 
                                 return <Draggable draggableId={columnKey} key={column.id} index={idx}>
-                                    {provided => (
-                                        <div
-                                            className={"board-columns-item"}
-                                            {...provided.draggableProps}
-                                            ref={provided.innerRef}
+                                    {(provided, snapshot) => (
+                                        <NaturalDragAnimation
+                                            style={provided.draggableProps.style}
+                                            snapshot={snapshot}
+                                            rotationMultiplier={1}
                                         >
-                                            <div
-                                                className="board-columns-item-header flex align-center space-between"
-                                                {...provided.dragHandleProps}
-                                            >
-                                                <h2>{column.title}</h2>
-                                                <div className="board-columns-item-header-menu-btn" onClick={ev => this.handleOptionsMenuClick(ev, column.id)}>
-                                                <h2 className="board-columns-item-header-menu-btn-icon"> ... </h2> 
-                                                </div>
-                                            </div>
-
-                                            <Menu
-                                                anchorEl={this.state.anchorEl}
-                                                open={Boolean(this.state.anchorEl)}
-                                                onClose={this.handleOptionsMenuClose}
-                                            >
-                                                <MenuItem onClick={_ => this.onDelete(this.state.currColumnId)}>
-                                                    Delete
-                                                </MenuItem>
-                                                <MenuItem onClick={_ => this.toggleAddForm(this.state.currColumnId)}>
-                                                    Edit
-                                                 </MenuItem>
-                                            </Menu>
-                                            {(this.state.showForm && this.state.currColumnId === column.id)
-                                                ? <ColumnAddForm
-                                                    board={this.props.board}
-                                                    toggleAddForm={this.toggleAddForm}
-                                                    column={column} /> : ''}
-                                            <Droppable droppableId={column.id} type="task">
-                                                {(provided, snapshot) => {
-                                                    return <TasksList
-                                                        innerRef={provided.innerRef}
-                                                        provided={provided}
-                                                        tasks={tasks}
-                                                        isDraggingOver={snapshot.isDraggingOver}
-                                                        column={column}
+                                            {style => (
+                                                <div
+                                                    className={"board-columns-item"}
+                                                    {...provided.draggableProps}
+                                                    ref={provided.innerRef}
+                                                    style={style}
+                                                >
+                                                    <div
+                                                        className="board-columns-item-header flex align-center space-between"
+                                                        {...provided.dragHandleProps}
                                                     >
-                                                    </TasksList>
-                                                }}
-                                            </Droppable>
-                                        </div>
+                                                        <h2>{column.title}</h2>
+                                                        <div className="board-columns-item-header-menu-btn" onClick={ev => this.handleOptionsMenuClick(ev, column.id)}>
+                                                            <h2 className="board-columns-item-header-menu-btn-icon"> ... </h2>
+                                                        </div>
+                                                    </div>
+
+                                                    <Menu
+                                                        anchorEl={this.state.anchorEl}
+                                                        open={Boolean(this.state.anchorEl)}
+                                                        onClose={this.handleOptionsMenuClose}
+                                                    >
+                                                        <MenuItem onClick={_ => this.onDelete(this.state.currColumnId)}>
+                                                            Delete
+                                                </MenuItem>
+                                                        <MenuItem onClick={_ => this.toggleAddForm(this.state.currColumnId)}>
+                                                            Edit
+                                                 </MenuItem>
+                                                    </Menu>
+                                                    {(this.state.showForm && this.state.currColumnId === column.id)
+                                                        ? <ColumnAddForm
+                                                            board={this.props.board}
+                                                            toggleAddForm={this.toggleAddForm}
+                                                            column={column} /> : ''}
+                                                    <Droppable droppableId={column.id} type="task">
+                                                        {(provided, snapshot) => {
+                                                            return <TasksList
+                                                                innerRef={provided.innerRef}
+                                                                provided={provided}
+                                                                tasks={tasks}
+                                                                isDraggingOver={snapshot.isDraggingOver}
+                                                                column={column}
+                                                            >
+                                                            </TasksList>
+                                                        }}
+                                                    </Droppable>
+                                                </div>
+                                            )}
+                                        </NaturalDragAnimation>
                                     )}
                                 </Draggable>
                             })}
