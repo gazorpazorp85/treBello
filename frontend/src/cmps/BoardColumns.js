@@ -4,7 +4,7 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import TasksList from './TasksList';
 import ColumnAddForm from '../cmps/ColumnAddForm';
 
-import MenuOpenIcon from '@material-ui/icons/MenuOpen';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 
@@ -27,8 +27,10 @@ export default class BoardColumns extends Component {
 
     onDelete = (id) => {
         let board = { ...this.props.board };
-        let filteredColumns = board.columns.filter(column => column.id !== id);
-        board.columns = filteredColumns;
+        delete board.columns[id];
+        let columnOrder = board.columnOrder;
+        let idx = columnOrder.findIndex(column => column === id);
+        columnOrder.splice(idx,1);
         this.props.updateBoard(board);
         this.handleOptionsMenuClose();
     }
@@ -141,7 +143,9 @@ export default class BoardColumns extends Component {
                                                 {...provided.dragHandleProps}
                                             >
                                                 <h2>{column.title}</h2>
-                                                <MenuOpenIcon onClick={ev => this.handleOptionsMenuClick(ev, column.id)} />
+                                                <div className="board-columns-item-header-menu-btn" onClick={ev => this.handleOptionsMenuClick(ev, column.id)}>
+                                                <h2 className="board-columns-item-header-menu-btn-icon"> ... </h2> 
+                                                </div>
                                             </div>
 
                                             <Menu
@@ -168,6 +172,7 @@ export default class BoardColumns extends Component {
                                                         provided={provided}
                                                         tasks={tasks}
                                                         isDraggingOver={snapshot.isDraggingOver}
+                                                        column={column}
                                                     >
                                                     </TasksList>
                                                 }}

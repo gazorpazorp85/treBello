@@ -7,6 +7,12 @@
         resize: none;
     }
 
+    &-back-btn {
+        &.MuiSvgIcon-root {
+            margin: 0 3px;
+        }
+    }
+
     &-save-btn {
         width: 48px;
         font-size: 0.625rem;

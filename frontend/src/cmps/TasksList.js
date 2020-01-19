@@ -11,23 +11,37 @@ class TasksList extends Component {
     state = {
         showAddForm: false,
         showEditForm: false,
+        showAddFormButton: true,
         currTaskId: ''
     }
 
     toggleUpdateForm = (id) => {
         if (id) {
-            this.setState((prevState) => ({ showEditForm: !prevState.showEditForm, currTaskId: id }))
+            this.setState((prevState) => ({
+                showEditForm: !prevState.showEditForm, currTaskId: id,
+                showAddFormButton: !prevState.showAddFormButton
+            }))
         } else {
-            this.setState((prevState) => ({ showAddForm: !prevState.showAddForm }))
+            this.setState((prevState) => ({
+                showAddForm: !prevState.showAddForm,
+                showAddFormButton: !prevState.showAddFormButton
+            }))
         }
     }
 
-    onDelete = (id) => {
+    onDelete = (ev, id) => {
+        ev.stopPropagation();
         let board = { ...this.props.board };
         let column = this.props.column;
-        let filteredTasks = column.tasks.filter(task => task.id !== id);
-        column.tasks = filteredTasks;
-        this.props.updateBoard(board);
+        let taskIds = column.taskIds
+        let idx = taskIds.findIndex(taskId => taskId === id);
+        taskIds.splice(idx, 1);
+        this.setState({
+            showAddFormButton: true,
+            showEditForm: false
+        }, () =>
+            this.props.updateBoard(board)
+        );
     }
 
     render() {
@@ -50,6 +64,7 @@ class TasksList extends Component {
                                                 innerRef={provided.innerRef}
                                                 task={task}
                                                 isDragging={snapshot.isDragging}
+                                                onDelete={(ev) => this.onDelete(ev, task.id)}
                                             >
                                             </TaskPreview>
                                         </div>
@@ -58,7 +73,7 @@ class TasksList extends Component {
                                                 <TaskForm column={this.props.column} task={task} toggleUpdateForm={this.toggleUpdateForm} />
                                                 : ''}
                                         </div>
-                                        <div onClick={() => this.onDelete(task.id)}>X</div>
+                                        {/* <div onClick={() => this.onDelete(task.id)}>X</div> */}
                                     </div>
                                 )}
                             </Draggable>
@@ -66,8 +81,14 @@ class TasksList extends Component {
                     ))}
                     {provided.placeholder}
                     <div className="board-column-footer">
-                        <p className="board-column-footer-add-task" onClick={() => this.toggleUpdateForm('')}> + Add task </p>
+
+                        {(this.state.showAddFormButton) ?
+                            <p className="board-column-footer-add-task"
+                                onClick={() => this.toggleUpdateForm('')}> + Add task </p>
+                            : ''}
+
                         {(this.state.showAddForm) ? <TaskForm column={this.props.column} toggleUpdateForm={this.toggleUpdateForm} /> : ''}
+
                     </div>
                 </div>
             </section>
