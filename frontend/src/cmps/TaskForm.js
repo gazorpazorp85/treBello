@@ -94,8 +94,8 @@ export default class TaskForm extends Component {
                         onChange={this.inputChange} value={this.state.task.title} />
 
                     {/* <input type='datetime-local' placeholder='task Name' name='dueDate'
-                <input type='text' placeholder='task content' name='content'
-                    onChange={this.inputChange} value={this.state.task.content} />
+                <input type='text' placeholder='task title' name='title'
+                    onChange={this.inputChange} value={this.state.task.title} />
                 <input type='datetime-local' placeholder='task Name' name='dueDate'
                     onChange={this.inputChange} value={this.state.task.dueDate} />
                     <div>Importance:
