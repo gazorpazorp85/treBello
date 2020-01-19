@@ -77,6 +77,7 @@ class TasksList extends Component {
                 {...provided.droppableProps}
                 ref={innerRef}
             >
+                {(Object.keys(tasks).length !== 0) ? 
                 <div>
                     {tasks.map((task, idx) => (
                         <div key={task.id}>
@@ -132,7 +133,19 @@ class TasksList extends Component {
                             />
                         }
                     </div>
-                </div>
+                </div> :
+                <div className="board-column-footer">
+                        <p onClick={() => this.toggleUpdateForm('')}> + Add task </p>
+                        {(this.state.showAddForm) &&
+                            <TaskForm
+                                board={this.props.board}
+                                column={this.props.column}
+                                toggleUpdateForm={this.toggleUpdateForm}
+                                updateBoard={this.props.updateBoard}
+                                toggleTaskDetails={this.toggleTaskDetails}
+                            />
+                        }
+                </div>}
             </section>
         )
     }

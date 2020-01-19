@@ -28,8 +28,16 @@ export default class BoardColumns extends Component {
 
     onDelete = (id) => {
         let board = { ...this.props.board };
-        delete board.columns[id];
         let columnOrder = board.columnOrder;
+        let column = board.columns[id];
+        for (const taskId of column.taskIds) {
+            for (const taskKey in board.tasks){
+                if (taskId === taskKey) {
+                    delete board.tasks[taskKey];
+                }
+            }
+        }
+        delete board.columns[id];
         let idx = columnOrder.findIndex(column => column === id);
         columnOrder.splice(idx, 1);
         this.props.updateBoard(board);

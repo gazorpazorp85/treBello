@@ -1,7 +1,7 @@
 import HttpService from './HttpService';
 
 export default {
-  // add,
+  add,
   query,
   get,
   put,
@@ -23,7 +23,8 @@ function put(board) {
 function remove(boardId) {
   return HttpService.delete(`board/${boardId}`);
 }
-// async function add(review) {
-//   const addedReview  = await HttpService.post(`review`, review);
-//   return  addedReview
-// }
+
+async function add(board) {
+  const addedBoard  = await HttpService.post('board', board);
+  return  addedBoard
+}
