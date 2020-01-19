@@ -13,7 +13,6 @@ export default class TaskDetails extends Component {
 
     emitChange = (ev) => {
         const targetValue = ev.target.value;
-        console.log('des', targetValue)
         this.setState({ description: targetValue });
     }
 

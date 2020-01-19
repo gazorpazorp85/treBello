@@ -21,7 +21,6 @@ export default class TaskForm extends Component {
 
     componentDidMount() {
         this.setFormDataForEdit();
-        // console.log('props', this.props)
     }
 
     componentDidUpdate(prevProps) {
