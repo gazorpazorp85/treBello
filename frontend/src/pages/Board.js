@@ -5,12 +5,14 @@ import { connect } from 'react-redux';
 
 import Button from '@material-ui/core/Button';
 import HomeIcon from '@material-ui/icons/Home';
-import pageLoading  from '../cmps/LoadPage'
 
-import { loadBoard, updateBoard } from '../actions/BoardActions';
-
+import pageLoading  from '../cmps/LoadPage';
 import BoardColumns from '../cmps/BoardColumns'
 import ColumnAddForm from '../cmps/ColumnAddForm'
+import Login from '../cmps/Login';
+
+import { loadBoard, updateBoard } from '../actions/BoardActions';
+import {logout} from '../actions/UserActions'
 
 class Board extends Component {
 
@@ -56,9 +58,20 @@ class Board extends Component {
     this.setState(prevState => ({isTaskDetailsOccupied: !prevState.isTaskDetailsOccupied}));
   }
 
+  toggleLogin = () => {
+    this.setState((prevState) => ({ toggleLogin: !prevState.toggleLogin }))
+  }
+
   render() {
 
     if (!this.props.board.columns) return pageLoading();
+    let button;
+    if (this.props.loggedInUser) {
+      button = <span onClick={this.props.logout}>LOGOUT</span>
+
+    } else {
+      button = <span onClick={this.toggleLogin}>LOGIN</span>
+    }
 
     return (
       <div className="board-page fill-height flex column">
@@ -71,9 +84,9 @@ class Board extends Component {
         </div>
 
         <div className="board-page-nav-bar-filters flex align-center">
-          <h2> [USERsNAMEs] [SEARCHandFILTERS] [FEATURES]  </h2>
+          <h2> {this.props.loggedInUser && this.props.loggedInUser.username} {button}[SEARCHandFILTERS] [FEATURES]  </h2>
         </div>
-
+        {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
         <div className="board-page-columns-container fill-height">
           <div>
             <div className="flex align-start">
@@ -101,13 +114,15 @@ class Board extends Component {
 
 const mapStateToProps = state => {
   return {
-    board: state.boards.board
+    board: state.boards.board,
+    loggedInUser: state.user.loggedInUser
   };
 };
 
 const mapDispatchToProps = {
   loadBoard,
-  updateBoard
+  updateBoard,
+  logout
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board);

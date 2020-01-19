@@ -2,28 +2,50 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 
-import BoardsList from '../cmps/BoardsList';
-
 import Button from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Fab';
-
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import FacebookIcon from '@material-ui/icons/Facebook';
-
 import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
 
+import BoardsList from '../cmps/BoardsList';
+import Login from '../cmps/Login';
+
 import { loadBoards } from '../actions/BoardActions'
+import {logout} from '../actions/UserActions'
+
 class Home extends Component {
+
+  state = {
+    toggleLogin: false,
+  }
 
   componentDidMount() {
     this.props.loadBoards();
   }
 
+  toggleLogin = () => {
+    this.setState((prevState) => ({ toggleLogin: !prevState.toggleLogin }))
+  }
+
   render() {
+    let button;
+        if (this.props.loggedInUser) {
+          button = <Button variant="outlined" className="home-page-login">
+            <div onClick={this.props.logout}>LOGOUT</div>
+          </Button>
+        } else {
+          button = <Button variant="outlined" className="home-page-login">
+            <div onClick={this.toggleLogin}>LOGIN</div>
+          </Button>
+        }
+
     return <div className="home-page">
-      <Button variant="outlined" className="home-page-login">
-        <p>LOGIN</p>
-      </Button>
+      <div variant="outlined" className="home-page-login">
+        {(this.props.loggedInUser) && this.props.loggedInUser.username}
+        {button}
+      </div>
+      {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
 
       <section className="home-page-header">
         <div className="home-page-header-container">
@@ -61,7 +83,7 @@ class Home extends Component {
             <small>Design and overall technical support</small>
             <div className="flex">
               <LinkedInIcon className="linkedInIcon"></LinkedInIcon>
-              <FacebookIcon  className="faceBookIcon"></FacebookIcon>
+              <FacebookIcon className="faceBookIcon"></FacebookIcon>
             </div>
           </div>
 
@@ -71,17 +93,17 @@ class Home extends Component {
             <small>High functionality backend support</small>
             <div className="flex">
               <LinkedInIcon className="linkedInIcon"></LinkedInIcon>
-              <FacebookIcon  className="faceBookIcon"></FacebookIcon>
+              <FacebookIcon className="faceBookIcon"></FacebookIcon>
             </div>
           </div>
 
           <div className="home-page-footer-team-member-card flex column align-center justify-center">
             <div className="home-page-footer-team-member-card-member-img paolo"></div>
-            <p>Paolo</p>
+            <p>Paolo Groppi</p>
             <small>High functionality and backend</small>
             <div className="flex">
-              <LinkedInIcon className="linkedInIcon"></LinkedInIcon>
-              <FacebookIcon className="faceBookIcon"></FacebookIcon>
+              <a href="https://www.linkedin.com/in/paolo-groppi-6ba84117b" target="blank"><LinkedInIcon className="linkedInIcon"></LinkedInIcon></a>
+              <a href="https://www.facebook.com/karma.tova" target="blank"><FacebookIcon className="faceBookIcon"></FacebookIcon></a>
             </div>
           </div>
 
@@ -94,12 +116,13 @@ class Home extends Component {
 const mapStateToProps = state => {
   return {
     boards: state.boards.boards,
-    //     users: state.user.users,
-    //     loggedInUser: state.user.loggedInUser
+    // users: state.user.users,
+    loggedInUser: state.user.loggedInUser
   };
 };
 const mapDispatchToProps = {
-  loadBoards
+  loadBoards,
+  logout
   //   loadUsers,
   //   addReview
 };

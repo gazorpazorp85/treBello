@@ -1,4 +1,6 @@
 .board-columns {
+    height: 87vh;
+    // overflow: hidden;
     align-items: flex-start;
 
     .MuiSvgIcon-root {
@@ -16,6 +18,10 @@
     }
 
     &-item {
+        position: relative;
+        max-height: 100%;
+        overflow: auto;
+
         display: inline-block;
         vertical-align: top;
         white-space: nowrap;
@@ -35,6 +41,7 @@
         h2 {
             max-width: 100%;
 
+
             &:focus {
                 outline: 2px solid #0079bf;
             }
@@ -53,6 +60,9 @@
             &-menu-btn {
 
                 &-icon {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
                     transition: 0.3s;
                     cursor: pointer;
                     margin-bottom: 10px;
