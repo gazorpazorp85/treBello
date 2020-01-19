@@ -11,7 +11,9 @@ class TaskForm extends Component {
     state = {
         task: {
             id: utils.getRandomId(),
-            content: '',
+            title: '',
+            description: '',
+            type: 'text',
             createdAt: Date.now(),
             dueDate: '',
             importance: '',
@@ -37,7 +39,9 @@ class TaskForm extends Component {
             this.setState({
                 task: {
                     id: task.id,
-                    content: task.content,
+                    title: task.title,
+                    description: '',
+                    type: 'text',
                     createdAt: task.createdAt,
                     dueDate: task.dueDate,
                     importance: task.importance,
@@ -72,12 +76,12 @@ class TaskForm extends Component {
             <form onSubmit={this.saveTask}>
                 <div className="flex column" >
 
-                    <textarea type="text" placeholder="+ Add a title for this card..." name="content"
+                    <textarea type="text" placeholder="+ Add a title for this card..." name="title"
                         onChange={this.inputChange} value={this.state.task.title} />
 
                     {/* <input type='datetime-local' placeholder='task Name' name='dueDate'
-                <input type='text' placeholder='task content' name='content'
-                    onChange={this.inputChange} value={this.state.task.content} />
+                <input type='text' placeholder='task title' name='title'
+                    onChange={this.inputChange} value={this.state.task.title} />
                 <input type='datetime-local' placeholder='task Name' name='dueDate'
                     onChange={this.inputChange} value={this.state.task.dueDate} />
                     <div>Importance:
@@ -91,10 +95,10 @@ class TaskForm extends Component {
                     </div>
                     <div>Labels:
                 </div> */}
-                <div className="flex align-center">
-                    <button className="task-form-save-btn">SAVE</button>
-                    <CloseIcon className="task-form-back-btn" onClick={() => this.props.toggleUpdateForm()} />
-                </div>
+                    <div className="flex align-center">
+                        <button className="task-form-save-btn">SAVE</button>
+                        <CloseIcon className="task-form-back-btn" onClick={() => this.props.toggleUpdateForm()} />
+                    </div>
                 </div>
             </form>
         </div>

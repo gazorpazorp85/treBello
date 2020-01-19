@@ -10,6 +10,39 @@ export default {
     // update
 }
 
+async function login(userCred) {
+    try {
+        const user = await HttpService.post('auth/login', userCred);
+        return _handleLogin(user);
+    } catch (err) {
+        console.log('UserService: err in login', err);
+    }
+}
+
+async function signup(userCred) {
+    try {
+        const user = await HttpService.post('auth/signup', userCred);
+        return _handleLogin(user);
+    } catch (err) {
+        console.log('UserService: err in signup', err);
+    }
+}
+
+async function logout() {
+    try {
+        await HttpService.post('auth/logout');
+        sessionStorage.clear();
+    } catch (err) {
+        console.log('UserService: err in logout', err);
+    }
+}
+
+function _handleLogin(user) {
+    sessionStorage.setItem('user', JSON.stringify(user))
+    return user;
+}
+
+
 // function getUsers() {
 //     return HttpService.get('user')
 // }
@@ -24,20 +57,3 @@ export default {
 // function update(user) {
 //     return HttpService.put(`user/${user._id}`, user)
 // }
-
-async function login(userCred) {
-    const user = await HttpService.post('auth/login', userCred)
-    return _handleLogin(user)
-}
-async function signup(userCred) {
-    const user = await HttpService.post('auth/signup', userCred)
-    return _handleLogin(user)
-}
-async function logout() {
-    await HttpService.post('auth/logout');
-    sessionStorage.clear();
-}
-function _handleLogin(user) {
-    sessionStorage.setItem('user', JSON.stringify(user))
-    return user;
-}

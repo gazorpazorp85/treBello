@@ -5,7 +5,6 @@ import NaturalDragAnimation from 'natural-drag-animation-rbdnd';
 import TasksList from './TasksList';
 import ColumnAddForm from '../cmps/ColumnAddForm';
 
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 

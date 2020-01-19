@@ -27,5 +27,5 @@ async function signup(email, password, username) {
 
 module.exports = {
     signup,
-    login,
+    login
 }

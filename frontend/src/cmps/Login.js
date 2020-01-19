@@ -23,6 +23,10 @@ class Login extends Component {
     }
   };
 
+  componentDidMount() {
+    if (this.props.loggedInUser) this.props.logout();
+  }
+
   loginHandleChange = ev => {
     const { name, value } = ev.target;
     this.setState(prevState => ({
@@ -52,6 +56,7 @@ class Login extends Component {
     const userCreds = { email, password };
     this.props.login(userCreds);
     this.setState({ loginCred: { email: '', password: '' } });
+    this.props.toggleLogin();
   };
 
   doSignup = async ev => {
@@ -63,11 +68,16 @@ class Login extends Component {
     const signupCreds = { email, password, username };
     this.props.signup(signupCreds);
     this.setState({ signupCred: { email: '', password: '', username: '' } });
+    this.props.toggleLogin();
   };
 
-  removeUser = userId => {
-    this.props.removeUser(userId);
-  };
+  doLogout = () => {
+    this.props.logout();
+  }
+
+  // removeUser = userId => {
+  //   this.props.removeUser(userId);
+  // };
   render() {
     let signupSection = (
       <form onSubmit={this.doSignup}>
@@ -131,7 +141,7 @@ class Login extends Component {
         {loggedInUser && (
           <div>
             <h2>Welcome: {loggedInUser.username} </h2>
-            <button onClick={this.props.logout}>Logout</button>
+            <button onClick={this.doLogout}>Logout</button>
           </div>
         )}
         {!loggedInUser && loginSection}
@@ -172,10 +182,11 @@ const mapStateToProps = state => {
     isLoading: state.system.isLoading
   };
 };
+
 const mapDispatchToProps = {
   login,
   logout,
-  signup,
+  signup
   // removeUser,
   // loadUsers
 };

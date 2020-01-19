@@ -1,5 +1,5 @@
 import UserService from '../services/UserService';
-import { loading, doneLoading } from './SystemActions';
+// import { loading, doneLoading } from './SystemActions';
 // import history from './../history';
 
 // THUNK
@@ -20,33 +20,47 @@ import { loading, doneLoading } from './SystemActions';
 //   };
 // }
 // THUNK
-export function removeUser(userId) {
+// export function removeUser(userId) {
+//   return async dispatch => {
+//     try {
+//       await UserService.remove(userId);
+//       dispatch(_removeUser(userId));
+//     } catch (err) {
+//       console.log('UserActions: err in removeUser', err);
+//     }
+//   };
+// }
+
+export function login(userCreds) {
   return async dispatch => {
     try {
-      await UserService.remove(userId);
-      dispatch(_removeUser(userId));
+      const user = await UserService.login(userCreds);
+      dispatch(setUser(user));
     } catch (err) {
-      console.log('UserActions: err in removeUser', err);
+      console.log('UserActions: err in login', err);
     }
   };
 }
-// THUNK
-export function login(userCreds) {
-  return async dispatch => {
-    const user = await UserService.login(userCreds);
-    dispatch(setUser(user));
-  };
-}
+
 export function signup(userCreds) {
   return async dispatch => {
-    const user = await UserService.signup(userCreds);
-    dispatch(setUser(user));
+    try {
+      const user = await UserService.signup(userCreds);
+      dispatch(setUser(user));
+    } catch (err) {
+      console.log('UserActions: err in signup', err);
+    }
   };
 }
+
 export function logout() {
   return async dispatch => {
-    await UserService.logout();
-    dispatch(setUser(null));
+    try {
+      await UserService.logout();
+      dispatch(setUser(null));
+    } catch (err) {
+      console.log('UserActions: err in logout', err);
+    }
   };
 }
 
@@ -63,9 +77,9 @@ export function setUser(user) {
 //   };
 // }
 
-function _removeUser(userId) {
-  return {
-    type: 'USER_REMOVE',
-    userId
-  };
-}
+// function _removeUser(userId) {
+//   return {
+//     type: 'USER_REMOVE',
+//     userId
+//   };
+// }
