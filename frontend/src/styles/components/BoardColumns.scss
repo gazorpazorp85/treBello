@@ -4,9 +4,10 @@
     .MuiSvgIcon-root {
         cursor: pointer;
         border-radius: 3px;
-        margin-bottom: 5px;
+        // margin-bottom: 5px;
         font-size: 1rem;
         transition: 0.3s;
+        // padding: 3px;
 
         &:hover {
             color: rgba(0, 0, 0, 0.788);
@@ -32,11 +33,37 @@
         box-sizing: border-box;
 
         h2 {
-            text-align: center;
+            max-width: 100%;
+
+            &:focus {
+                outline: 2px solid #0079bf;
+            }
         }
 
         &-header {
-            padding: 0px 10px;
+            padding-left: 5px;
+
+            &-h2-wrapper {
+                width: 80%;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                white-space: normal;
+            }
+
+            &-menu-btn {
+
+                &-icon {
+                    transition: 0.3s;
+                    cursor: pointer;
+                    margin-bottom: 10px;
+                    padding: 0 10px;
+                }
+
+                &:hover {
+                    color: rgba(0, 0, 0, 0.788);
+                    background: rgba(177, 177, 177, 0.5)
+                }
+            }
         }
     }
 }

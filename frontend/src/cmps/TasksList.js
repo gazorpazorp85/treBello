@@ -20,24 +20,36 @@ class TasksList extends Component {
 
     toggleUpdateForm = (id) => {
         if (id) {
-            this.setState((prevState) => ({ showEditForm: !prevState.showEditForm, currTaskId: id }))
+            this.setState((prevState) => ({
+                showEditForm: !prevState.showEditForm, currTaskId: id,
+                showAddFormButton: !prevState.showAddFormButton
+            }))
         } else {
-            this.setState((prevState) => ({ showAddForm: !prevState.showAddForm }))
+            this.setState((prevState) => ({
+                showAddForm: !prevState.showAddForm,
+                showAddFormButton: !prevState.showAddFormButton
+            }))
         }
     }
 
-    onDelete = (id) => {
+    onDelete = (ev, id) => {
+        ev.stopPropagation();
         let board = { ...this.props.board };
         let column = this.props.column;
         let taskIds = column.taskIds
         let idx = taskIds.findIndex(taskId => taskId === id);
         taskIds.splice(idx, 1);
-        this.props.updateBoard(board);
+        this.setState({
+            showAddFormButton: true,
+            showEditForm: false
+        }, () =>
+            this.props.updateBoard(board)
+        );
     }
 
     toggleTaskDetails = id => {
-        if(!id) id = this.state.currTaskId;
-        this.setState(prevState => ({showTaskDetails: !prevState.showTaskDetails, currTaskId: id}));
+        if (!id) id = this.state.currTaskId;
+        this.setState(prevState => ({ showTaskDetails: !prevState.showTaskDetails, currTaskId: id }));
     }
 
     render() {
@@ -68,16 +80,17 @@ class TasksList extends Component {
                                                         task={task}
                                                         isDragging={snapshot.isDragging}
                                                         style={style}
+                                                        onDelete={(ev) => this.onDelete(ev, task.id)}
                                                     >
                                                     </TaskPreview>
                                                 </div>
-                                                {(this.state.showTaskDetails && this.state.currTaskId === task.id) && 
+                                                {(this.state.showTaskDetails && this.state.currTaskId === task.id) &&
                                                     <TaskDetails
-                                                    taskId={this.state.currTaskId}
-                                                    board={this.props.board}
-                                                    column={this.props.column}
-                                                    updateBoard={this.props.updateBoard}
-                                                    toggleTaskDetails={this.toggleTaskDetails}
+                                                        taskId={this.state.currTaskId}
+                                                        board={this.props.board}
+                                                        column={this.props.column}
+                                                        updateBoard={this.props.updateBoard}
+                                                        toggleTaskDetails={this.toggleTaskDetails}
                                                     />
                                                 }
                                                 {/* <div>
@@ -90,7 +103,7 @@ class TasksList extends Component {
                                                         />
                                                         : ''}
                                                 </div> */}
-                                                <div onClick={() => this.onDelete(task.id)}>X</div>
+                                                {/* <div onClick={() => this.onDelete(task.id)}>X</div> */}
                                             </div>
                                         )}
                                     </NaturalDragAnimation>

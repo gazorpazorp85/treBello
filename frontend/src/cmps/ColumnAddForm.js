@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CloseIcon from '@material-ui/icons/Close';
 
 import utils from '../services/utils';
 
@@ -13,6 +14,7 @@ export default class ColumnAddForm extends Component {
     }
 
     componentDidMount() {
+        this.nameInput.focus();
         this.setFormDataForEdit();
     }
 
@@ -60,13 +62,21 @@ export default class ColumnAddForm extends Component {
     render() {
         return <div>
             <form className="add-column-form-container flex column space-between" onSubmit={this.saveColumn}>
-                <input type='text' placeholder='Column Name' name='title'
-                    onChange={this.inputChange} value={this.state.column.title} />
+                <input
+                    ref={(input) => { this.nameInput = input; }}
+                    // defaultValue="will focus"
+                    type='text'
+                    placeholder='Column Name'
+                    name='title'
+                    onChange={this.inputChange}
+                    value={this.state.column.title} />
                 <div className="add-column flex">
                     <button className="add-column-save-btn"
                         variant="contained">SAVE</button>
-                    <p className="add-column-back-to-board flex align-center"
-                        onClick={this.props.toggleAddForm}>X</p>
+
+                    <CloseIcon className="add-column-back-to-board flex align-center"
+                        onClick={this.props.toggleAddForm} />
+
                 </div>
             </form>
         </div>
