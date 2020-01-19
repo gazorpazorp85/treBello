@@ -46,7 +46,7 @@ class Home extends Component {
       <section className="home-page-boards-list">
         <div className="home-page-boards-list-inspiration text-center flex column align-center justify-center">
           <h2 >GET SOME INSPIRATION</h2>
-          <ArrowDropDownCircleIcon />
+          <ArrowDropDownCircleIcon  className="home-page-list-inspiration-go-down-btn"/>
         </div>
         <BoardsList boards={this.props.boards} />
       </section>
