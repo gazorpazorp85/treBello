@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import {
-  loadUsers,
-  removeUser,
+  // loadUsers,
+  // removeUser,
   login,
   logout,
   signup
 } from '../actions/UserActions';
 
-class Test extends Component {
+class Login extends Component {
   state = {
     msg: '',
     loginCred: {
@@ -71,6 +71,7 @@ class Test extends Component {
   render() {
     let signupSection = (
       <form onSubmit={this.doSignup}>
+        <div>Not a member yet? Sign up!</div>
         <input
           type="text"
           name="email"
@@ -124,7 +125,7 @@ class Test extends Component {
     return (
       <div className="test">
         <h1>
-          This is a testing page for working with the Production Ready Server
+          Welcome to TreBello. Please login:
         </h1>
         <h2>{this.state.msg}</h2>
         {loggedInUser && (
@@ -142,7 +143,7 @@ class Test extends Component {
         <form></form> */}
 
         <hr />
-        <button onClick={this.props.loadUsers}>Get All Users</button>
+        {/* <button onClick={this.props.loadUsers}>Get All Users</button>
         {this.props.isLoading && 'Loading...' }
         {this.props.users && <ul>
 
@@ -158,7 +159,7 @@ class Test extends Component {
               </button>
             </li>
           ))}
-        </ul>}
+        </ul>} */}
       </div>
     );
   }
@@ -175,8 +176,8 @@ const mapDispatchToProps = {
   login,
   logout,
   signup,
-  removeUser,
-  loadUsers
+  // removeUser,
+  // loadUsers
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Test);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

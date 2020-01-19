@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import BoardsList from '../cmps/BoardsList';
 
@@ -22,7 +22,7 @@ class Home extends Component {
   render() {
     return <div className="home-page">
       <Button variant="outlined" className="home-page-login">
-        <p>LOGIN</p>
+        <Link to={'/login'}><p>LOGIN</p></Link>
       </Button>
 
       <section className="home-page-header">

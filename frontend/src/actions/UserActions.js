@@ -3,22 +3,22 @@ import { loading, doneLoading } from './SystemActions';
 // import history from './../history';
 
 // THUNK
-export function loadUsers() {
-  return async dispatch => {
-    try {
-      // example for loading
-      dispatch(loading());
-      const users = await UserService.getUsers();
-      dispatch(setUsers(users));
-    } catch (err) {
-      console.log('UserActions: err in loadUsers', err);
-      // example for rerouting - after changing the store
-      // history.push('/some/path');
-    } finally {
-      dispatch(doneLoading());
-    }
-  };
-}
+// export function loadUsers() {
+//   return async dispatch => {
+//     try {
+//       // example for loading
+//       dispatch(loading());
+//       const users = await UserService.getUsers();
+//       dispatch(setUsers(users));
+//     } catch (err) {
+//       console.log('UserActions: err in loadUsers', err);
+//       // example for rerouting - after changing the store
+//       // history.push('/some/path');
+//     } finally {
+//       dispatch(doneLoading());
+//     }
+//   };
+// }
 // THUNK
 export function removeUser(userId) {
   return async dispatch => {
@@ -56,12 +56,12 @@ export function setUser(user) {
     user
   };
 }
-function setUsers(users) {
-  return {
-    type: 'SET_USERS',
-    users
-  };
-}
+// function setUsers(users) {
+//   return {
+//     type: 'SET_USERS',
+//     users
+//   };
+// }
 
 function _removeUser(userId) {
   return {
