@@ -6,7 +6,6 @@ import '../src/styles/global.scss'
 
 import Home from './pages/Home.js';
 import Board from './pages/Board.js';
-import EmptyBoard from './pages/EmptyBoard.js';
 // import Login from './pages/Login.js';
 // import About from './pages/About.js';
 
@@ -17,7 +16,6 @@ function App() {
       <Router history={history}>
         <Switch>
           <Route path="/" component={Home} exact />
-          <Route path="/board" component={EmptyBoard} exact />
           <Route path="/board/:id" component={Board} exact />
         </Switch>
       </Router>

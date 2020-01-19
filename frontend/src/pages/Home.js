@@ -55,7 +55,7 @@ class Home extends Component {
               </div>
             </div>
             <div className="fill-width flex justify-center get-started-btn">
-              <Link to='/board'>
+              <Link to={'/board/5e24bed01c9d44000081366b'}>
               <Fab variant="extended">
                 <p>GET STARTED</p>
               </Fab>
