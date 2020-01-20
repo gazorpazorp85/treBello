@@ -63,11 +63,12 @@ class Home extends Component {
           }
           {button}
         </div>
-        {(this.state.toggleLogin) &&
+        
           <Login style={styleForLogin}
             variant="outlined"
             className="home-page-login"
-            toggleLogin={this.toggleLogin} />}
+            toggleLogin={this.toggleLogin}
+            toggleState={this.state.toggleLogin} />
 
         <div className="home-page-header-container">
           <div className="fill-height flex column align-center justify-center">

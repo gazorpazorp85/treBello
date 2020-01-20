@@ -81,8 +81,8 @@ class Login extends Component {
 
   render() {
     let signupSection = (
-      <form className="text-center" onSubmit={this.doSignup}>
-        <div>Not a member yet? Sign up!</div>
+      <form className="login-container-signup text-center" onSubmit={this.doSignup}>
+        <p>Not a member yet? Sign up!</p>
         <input
           type="text"
           name="email"
@@ -107,11 +107,12 @@ class Login extends Component {
           placeholder="Username"
         />
         <br />
-        <button>Signup</button>
+        <button className="login-container-signup-btn">Signup</button>
       </form>
     );
     let loginSection = (
-      <form className="text-center" onSubmit={this.doLogin}>
+      <form className="login-container-login text-center" onSubmit={this.doLogin}>
+        <p> login: </p>
         <input
           type="text"
           name="email"
@@ -128,7 +129,7 @@ class Login extends Component {
           placeholder="Password"
         />
         <br />
-        <button>Login</button>
+        <button className="login-container-login-btn">Login</button>
       </form>
     );
 
@@ -137,19 +138,27 @@ class Login extends Component {
     return (
 
 
-      <div className="login-container flex column align-center" style={this.props.style} onClick={this.doStopPropagation}>
-        <h2 className="text-center">
-          LOGIN 
-        </h2>
+      <div className= { "login-container flex column align-center" 
+      + (this.props.toggleState ? ' translateLeft' : '' )}
+      style={this.props.style} 
+      onClick={this.doStopPropagation}>
+      
+      
+        <div className="login-container-logo">
+        </div>
         <h2>{this.state.msg}</h2>
-        {loggedInUser && (
-          <div>
-            <h2>Welcome: {loggedInUser.username} </h2>
-            <button onClick={this.doLogout}>Logout</button>
-          </div>
-        )}
-        {!loggedInUser && loginSection}
-        {!loggedInUser && signupSection}
+        <div className={ "login-container-form-container" }>
+          {loggedInUser && (
+            <div>
+              <h2>Welcome: {loggedInUser.username} </h2>
+              <button onClick={this.doLogout}>Logout</button>
+            </div>
+          )}
+
+          {loginSection}
+          <hr />
+          {signupSection}
+        </div>
       </div>
 
 

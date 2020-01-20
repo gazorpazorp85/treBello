@@ -141,7 +141,7 @@ export default class BoardColumns extends Component {
     emitChange = (ev, id) => {
         ev.preventDefault();
         let board = { ...this.props.board };
-        board.columns[id].title = ev.target.innerHTML;
+        board.columns[id].title = ev.target.innerText;
         this.handleCheck(board)
     }
 
@@ -186,7 +186,8 @@ export default class BoardColumns extends Component {
                                                                 contentEditable='true'
                                                                 spellCheck="false"
                                                                 onInput={(ev) => this.emitChange(ev, column.id)}
-                                                                suppressContentEditableWarning={true}>
+                                                                suppressContentEditableWarning={true}
+                                                                >
                                                                 {column.title}
                                                             </h2>
                                                         </div>

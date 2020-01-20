@@ -104,8 +104,7 @@ class Board extends Component {
               <BoardColumns
                 board={this.props.board}
                 updateBoard={this.props.updateBoard}
-                toggleTaskDetails={this.toggleTaskDetails} />}
-              />
+                toggleTaskDetails={this.toggleTaskDetails} />
               <div className="flex column align-center">
                 {(this.state.showAddColumn) ?
                   <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}>
