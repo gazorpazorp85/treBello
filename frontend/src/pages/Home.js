@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Button from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Fab';
@@ -76,11 +76,11 @@ class Home extends Component {
               </div>
             </div>
             <div className="fill-width flex justify-center get-started-btn">
-              {/* <Link to='/board'> */}
+              <Link to={'/board/getstarted'}>
               <Fab variant="extended">
                 <p>GET STARTED</p>
               </Fab>
-              {/* </Link> */}
+              </Link>
             </div>
           </div>
         </div>

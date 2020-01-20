@@ -11,23 +11,25 @@ import BoardColumns from '../cmps/BoardColumns'
 import ColumnAddForm from '../cmps/ColumnAddForm'
 import Login from '../cmps/Login';
 
-import { loadBoard, updateBoard } from '../actions/BoardActions';
+import { loadBoard, updateBoardOffline } from '../actions/BoardActions';
 import { logout } from '../actions/UserActions'
-import TaskDetails from '../cmps/TaskDetails';
 
-class Board extends Component {
+class EmptyBoard extends Component {
 
   state = {
     showAddColumn: true,
     showForm: false,
-    isTaskDetailsOccupied: false,
-    showTaskDetails: false,
-    currTaskId: ''
+    isTaskDetailsOccupied: false
   }
 
   componentDidMount() {
-    const boardId = this.props.match.params.id;
-    this.props.loadBoard(boardId);
+    let sessionBoard = JSON.parse(sessionStorage.getItem('board'));
+    if (sessionBoard) {
+      this.props.updateBoardOffline(sessionBoard);
+    } else {
+      const boardId = '5e24d21b1c9d440000023b90';
+      this.props.loadBoard(boardId);
+    }
     // SocketService.setup();
     // SocketService.emit('chat topic', this.state.topic);
     // SocketService.on('chat addMsg', this.addMsg);
@@ -55,10 +57,6 @@ class Board extends Component {
 
   goBack = () => {
     this.props.history.push('/');
-  }
-
-  toggleTaskDetailsOccupied = _ => {
-    this.setState(prevState => ({ isTaskDetailsOccupied: !prevState.isTaskDetailsOccupied }));
   }
 
   toggleLogin = () => {
@@ -103,26 +101,20 @@ class Board extends Component {
             <div className="flex align-start">
               <BoardColumns
                 board={this.props.board}
-                updateBoard={this.props.updateBoard}
-                toggleTaskDetails={this.toggleTaskDetails} />}
+                updateBoard={this.props.updateBoardOffline}
+                toggleTaskDetails={this.toggleTaskDetails}
               />
               <div className="flex column align-center">
                 {(this.state.showAddColumn) ?
                   <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}>
                     + Add another list..  </button> : ''
                 }
-                {(this.state.showForm) && <ColumnAddForm board={this.props.board} updateBoard={this.props.updateBoard}
+                {(this.state.showForm) && <ColumnAddForm board={this.props.board} updateBoard={this.props.updateBoardOffline}
                   toggleAddForm={this.toggleAddForm} />}
               </div>
             </div>
           </div>
         </div>
-        {this.state.showTaskDetails && <TaskDetails
-          taskId={this.state.currTask.id}
-          board={this.props.board}
-          column={this.state.currTask.column}
-          updateBoard={this.props.updateBoard}
-          toggleTaskDetails={this.toggleTaskDetails} />}
       </div>
     )
   }
@@ -137,8 +129,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   loadBoard,
-  updateBoard,
+  updateBoardOffline,
   logout
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Board);
+export default connect(mapStateToProps, mapDispatchToProps)(EmptyBoard);

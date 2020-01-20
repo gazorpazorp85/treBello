@@ -28,8 +28,16 @@ export default class BoardColumns extends Component {
 
     onDelete = (id) => {
         let board = { ...this.props.board };
-        delete board.columns[id];
         let columnOrder = board.columnOrder;
+        let column = board.columns[id];
+        for (const taskId of column.taskIds) {
+            for (const taskKey in board.tasks) {
+                if (taskId === taskKey) {
+                    delete board.tasks[taskKey];
+                }
+            }
+        }
+        delete board.columns[id];
         let idx = columnOrder.findIndex(column => column === id);
         columnOrder.splice(idx, 1);
         this.props.updateBoard(board);
@@ -162,6 +170,7 @@ export default class BoardColumns extends Component {
                                             rotationMultiplier={1}
                                         >
                                             {style => (
+
                                                 <div
                                                     className="board-columns-item"
                                                     {...provided.draggableProps}
@@ -186,6 +195,7 @@ export default class BoardColumns extends Component {
                                                             onClick={ev => this.handleOptionsMenuClick(ev, column.id)}>
                                                             <h2 className="board-columns-item-header-menu-btn-icon"> ... </h2>
                                                         </div>
+
                                                     </div>
 
                                                     <Menu
@@ -208,12 +218,14 @@ export default class BoardColumns extends Component {
                                                     <Droppable droppableId={column.id} type="task">
                                                         {(provided, snapshot) => {
                                                             return <TasksList
-
+                                                                board={this.props.board}
                                                                 innerRef={provided.innerRef}
                                                                 provided={provided}
                                                                 tasks={tasks}
                                                                 isDraggingOver={snapshot.isDraggingOver}
                                                                 column={column}
+                                                                toggleTaskDetails={this.props.toggleTaskDetails}
+                                                                updateBoard={this.props.updateBoard}
                                                             >
                                                             </TasksList>
                                                         }}

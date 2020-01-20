@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Draggable } from 'react-beautiful-dnd';
 import NaturalDragAnimation from 'natural-drag-animation-rbdnd';
 
-import { updateBoard } from '../actions/BoardActions';
-
 import TaskPreview from './TaskPreview';
 import TaskForm from './TaskForm';
-import TaskDetails from './TaskDetails';
 
-class TasksList extends Component {
+export default class TasksList extends Component {
 
     state = {
         showAddForm: false,
@@ -49,21 +45,8 @@ class TasksList extends Component {
         );
     }
 
-    toggleTaskDetails = id => {
-        if (id) {
-            this.setState(prevState => ({ showTaskDetails: !prevState.showTaskDetails, currTaskId: id }));
-        } else {
-            this.setState(prevState => ({ showTaskDetails: !prevState.showTaskDetails }));
-        }
-
-    }
-
-    canOpenTaskDetails = taskId => {
-        return (this.state.showTaskDetails && this.state.currTaskId === taskId)
-    }
-
-    showEditBtn = (id) => {
-        this.setState({ showEditBtn: true, onTaskId: id })
+    showEditBtn = () => {
+        this.setState({ showEditBtn: true })
     }
 
     hideEditBtn = () => {
@@ -78,22 +61,19 @@ class TasksList extends Component {
                 {...provided.droppableProps}
                 ref={innerRef}
             >
-                <div>
-                    {tasks.map((task, idx) => (
-                        <div key={task.id}>
-                            <Draggable draggableId={task.id} index={idx}>
-                                {(provided, snapshot) => (
-                                    <NaturalDragAnimation
-                                        style={provided.draggableProps.style}
-                                        snapshot={snapshot}
-                                        rotationMultiplier={1}
-                                    >
-                                        {style => (
-                                            <div>
-                                                <div onClick={_ => this.toggleTaskDetails(task.id)}
-                                                    onMouseEnter={() => this.showEditBtn(task.id)}
-                                                    onMouseLeave={() => this.hideEditBtn()}
-                                                >
+                {(Object.keys(tasks).length !== 0) ?
+                    <div>
+                        {tasks.map((task, idx) => (
+                            <div key={task.id}>
+                                <Draggable draggableId={task.id} index={idx}>
+                                    {(provided, snapshot) => (
+                                        <NaturalDragAnimation
+                                            style={provided.draggableProps.style}
+                                            snapshot={snapshot}
+                                            rotationMultiplier={1}
+                                        >
+                                            {style => (
+                                                <div onClick={_ => this.props.toggleTaskDetails({ id: task.id, column: this.props.column })}>
                                                     <TaskPreview
                                                         provided={provided}
                                                         innerRef={provided.innerRef}
@@ -101,28 +81,30 @@ class TasksList extends Component {
                                                         isDragging={snapshot.isDragging}
                                                         style={style}
                                                         onDelete={(ev) => this.onDelete(ev, task.id)}
-                                                        onTaskId={this.state.onTaskId}
-                                                        showEditBtn={this.state.showEditBtn}
+
                                                     >
                                                     </TaskPreview>
                                                 </div>
-                                                {this.canOpenTaskDetails(task.id) &&
-                                                    <TaskDetails
-                                                        taskId={this.state.currTaskId}
-                                                        board={this.props.board}
-                                                        column={this.props.column}
-                                                        updateBoard={this.props.updateBoard}
-                                                        toggleTaskDetails={this.toggleTaskDetails}
-                                                    />
-                                                }
-                                            </div>
-                                        )}
-                                    </NaturalDragAnimation>
-                                )}
-                            </Draggable>
+                                            )}
+                                        </NaturalDragAnimation>
+                                    )}
+                                </Draggable>
+                            </div>
+                        ))}
+                        {provided.placeholder}
+                        <div className="board-column-footer">
+                            <p onClick={() => this.toggleUpdateForm('')}> + Add task </p>
+                            {(this.state.showAddForm) &&
+                                <TaskForm
+                                    board={this.props.board}
+                                    column={this.props.column}
+                                    toggleUpdateForm={this.toggleUpdateForm}
+                                    updateBoard={this.props.updateBoard}
+                                    toggleTaskDetails={this.props.toggleTaskDetails}
+                                />
+                            }
                         </div>
-                    ))}
-                    {provided.placeholder}
+                    </div> :
                     <div className="board-column-footer">
                         <p className="board-column-footer-add-task"
                             onClick={() => this.toggleUpdateForm('')}>
@@ -134,24 +116,11 @@ class TasksList extends Component {
                                 column={this.props.column}
                                 toggleUpdateForm={this.toggleUpdateForm}
                                 updateBoard={this.props.updateBoard}
-                                toggleTaskDetails={this.toggleTaskDetails}
+                                toggleTaskDetails={this.props.toggleTaskDetails}
                             />
                         }
-                    </div>
-                </div>
+                    </div>}
             </section>
         )
     }
 }
-
-const mapStateToProps = state => {
-    return {
-        board: state.boards.board
-    };
-};
-
-const mapDispatchToProps = {
-    updateBoard
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TasksList);

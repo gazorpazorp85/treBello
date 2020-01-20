@@ -40,13 +40,14 @@ const useStyles = makeStyles(theme => ({
 function BoardsList({ boards }) {
 
     const classes = useStyles();
+    const newBoards = boards.filter(board => board._id !== '5e24d21b1c9d440000023b90');
 
     return (
         <section className="boards-grid-list-main-container">
             <div className={classes.root}>
                 <div className="boards-grid-list-inner-container">
                     <GridList cellHeight={300} spacing={13} className={classes.gridList} >
-                        {boards.map(board => (
+                        {newBoards.map(board => (
                             <GridListTile key={board._id} cols={board.featured ? 2 : 1} rows={board.featured ? 2 : 1}>
 
                                 <Link to={`/board/${board._id}`}>

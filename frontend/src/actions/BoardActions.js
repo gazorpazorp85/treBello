@@ -53,3 +53,32 @@ function _boardUpdate(board) {
     board
   }
 }
+
+export function updateBoardOffline(board) {
+  return async dispatch => {
+    try {
+      dispatch(_boardUpdate(board));
+      sessionStorage.setItem('board', JSON.stringify(board));
+    } catch (err) {
+      console.log('BoardActions: err in loadBoard', err);
+    }
+  };
+}
+
+export function createBoard(board) {
+  return async dispatch => {
+    try {
+      const addedBoard = await BoardService.add(board);
+      dispatch(_addBoard(addedBoard));
+    } catch (err) {
+      console.log('BoardActions: err in createBoard', err);
+    }
+  }
+
+  function _addBoard(addedBoard) {
+    return {
+      type: 'ADD_BOARD',
+      addedBoard
+    };
+  }
+}
