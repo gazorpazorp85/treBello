@@ -212,10 +212,12 @@ export default class BoardColumns extends Component {
                                                  </MenuItem>
                                                     </Menu>
                                                     {(this.state.showForm && this.state.currColumnId === column.id)
-                                                        ? <ColumnAddForm
+                                                        && <ColumnAddForm
                                                             board={this.props.board}
                                                             toggleAddForm={this.toggleAddForm}
-                                                            column={column} /> : ''}
+                                                            column={column}
+                                                            updateBoard={this.props.updateBoard}
+                                                        />}
                                                     <Droppable droppableId={column.id} type="task">
                                                         {(provided, snapshot) => {
                                                             return <TasksList
@@ -238,8 +240,7 @@ export default class BoardColumns extends Component {
                                 </Draggable>
                             })}
                             {provided.placeholder}
-                        </div >
-                    )}
+                        </div >)}
                 </Droppable>
             </DragDropContext>
         );

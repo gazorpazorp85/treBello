@@ -20,7 +20,6 @@ class Board extends Component {
   state = {
     showAddColumn: true,
     showForm: false,
-    isTaskDetailsOccupied: false,
     showTaskDetails: false,
     currTaskId: ''
   }
@@ -57,19 +56,17 @@ class Board extends Component {
     this.props.history.push('/');
   }
 
-  toggleTaskDetailsOccupied = _ => {
-    this.setState(prevState => ({ isTaskDetailsOccupied: !prevState.isTaskDetailsOccupied }));
-  }
-
   toggleLogin = () => {
     this.setState((prevState) => ({ toggleLogin: !prevState.toggleLogin }))
   }
 
   toggleTaskDetails = (currTask) => {
-    if (!(currTask === undefined)) {
-      this.setState(prevState => ({ showTaskDetails: !prevState.showTaskDetails, currTask }));
-    } else {
+    if (currTask === undefined) {
       this.setState(prevState => ({ showTaskDetails: !prevState.showTaskDetails }));
+    } else if (this.state.showTaskDetails && currTask.id !== this.state.currTask.id) {
+      this.setState({ currTask });
+    } else {
+      this.setState(prevState => ({ showTaskDetails: !prevState.showTaskDetails, currTask }));
     }
   }
 

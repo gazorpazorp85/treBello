@@ -18,19 +18,12 @@ export default function TaskPreview({ task, provided, innerRef, isDragging, styl
                 style={style}
             >
                 <p>{task.title}</p>
-                {/* <small>Created at: {moment(createdAtFormat).calendar()}</small>
-                    <small>Expires: {moment(dueDateFormat).calendar()}</small>
-                    <small>Importance: {task.importance}</small>
-                    <small>created by: {task.creator.userName}</small> */}
-                {/* <div className="task-container-open-menu" > */}
                 {(showEditBtn && (onTaskId === task.id)) ?
                     <div className="task-container-open-menu-wrapper flex align-center justify-center">
                         <CreateIcon className="task-container-open-menu"
                             onClick={onDelete} />
                     </div>
                     : ''}
-
-                {/* </div> */}
             </Card>
         </section>
     )

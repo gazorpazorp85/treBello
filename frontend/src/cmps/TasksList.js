@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import NaturalDragAnimation from 'natural-drag-animation-rbdnd';
 
-import TaskPreview from './TaskPreview';
+import DynamicComponent from './dynamics/DynamicComponent';
 import TaskForm from './TaskForm';
 
 export default class TasksList extends Component {
@@ -30,8 +30,7 @@ export default class TasksList extends Component {
         }
     }
 
-    onDelete = (ev, id) => {
-        ev.stopPropagation();
+    onDelete = (id) => {
         let board = { ...this.props.board };
         let column = this.props.column;
         let taskIds = column.taskIds
@@ -87,9 +86,10 @@ export default class TasksList extends Component {
                                         >
                                             {style => (
                                                 <div onClick={_ => this.props.toggleTaskDetails({ id: task.id, column: this.props.column })}
-                                                    onMouseEnter={() => this.showEditBtn(task.id)}
-                                                    onMouseLeave={() => this.hideEditBtn()}>
-                                                    <TaskPreview
+                                                    onMouseEnter={this.showEditBtn}
+                                                    onMouseLeave={this.hideEditBtn}
+                                                >
+                                                    <DynamicComponent
                                                         provided={provided}
                                                         innerRef={provided.innerRef}
                                                         task={task}
@@ -99,7 +99,7 @@ export default class TasksList extends Component {
                                                         onTaskId={this.state.onTaskId}
                                                         showEditBtn={this.state.showEditBtn}
                                                     >
-                                                    </TaskPreview>
+                                                    </DynamicComponent>
                                                 </div>
                                             )}
                                         </NaturalDragAnimation>
@@ -124,7 +124,7 @@ export default class TasksList extends Component {
                     <div className="board-column-footer">
                         <p className="board-column-footer-add-task"
                             onClick={() => this.toggleUpdateForm('')}>
-                            + Add task </p>
+                            + Add task or youtube URL  </p>
 
                         {(this.state.showAddForm) &&
                             <TaskForm
