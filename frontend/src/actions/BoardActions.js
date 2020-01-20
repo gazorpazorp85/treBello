@@ -54,6 +54,17 @@ function _boardUpdate(board) {
   }
 }
 
+export function updateBoardOffline(board) {
+  return async dispatch => {
+    try {
+      dispatch(_boardUpdate(board));
+      sessionStorage.setItem('board', JSON.stringify(board));
+    } catch (err) {
+      console.log('BoardActions: err in loadBoard', err);
+    }
+  };
+}
+
 export function createBoard(board) {
   return async dispatch => {
     try {

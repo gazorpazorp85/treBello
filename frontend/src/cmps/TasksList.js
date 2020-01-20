@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Draggable } from 'react-beautiful-dnd';
 import NaturalDragAnimation from 'natural-drag-animation-rbdnd';
-
-import { updateBoard } from '../actions/BoardActions';
 
 import TaskPreview from './TaskPreview';
 import TaskForm from './TaskForm';
 
-class TasksList extends Component {
+export default class TasksList extends Component {
 
     state = {
         showAddForm: false,
@@ -104,7 +101,7 @@ class TasksList extends Component {
                                     column={this.props.column}
                                     toggleUpdateForm={this.toggleUpdateForm}
                                     updateBoard={this.props.updateBoard}
-                                    toggleTaskDetails={this.toggleTaskDetails}
+                                    toggleTaskDetails={this.props.toggleTaskDetails}
                                 />
                             }
                         </div>
@@ -125,15 +122,3 @@ class TasksList extends Component {
         )
     }
 }
-
-const mapStateToProps = state => {
-    return {
-        board: state.boards.board
-    };
-};
-
-const mapDispatchToProps = {
-    updateBoard
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TasksList);
