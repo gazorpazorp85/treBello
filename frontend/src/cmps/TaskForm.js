@@ -57,23 +57,52 @@ export default class TaskForm extends Component {
         this.setState({ task: { ...this.state.task, [fieldName]: value } })
     }
 
-    saveTask = (ev) => {
+
+
+    save = (ev) => {
         ev.preventDefault();
-        this.setState(prevState => ({ task: { ...prevState.task, description: this.props.description } }), _ => {
-            const newBoard = {
-                ...this.props.board,
-                tasks: {
-                    ...this.props.board.tasks,
-                    [this.state.task.id]: this.state.task
-                }
-            };
-            const column = this.props.column;
-            const id = this.state.task.id;
-            if (!column.taskIds.includes(id)) column.taskIds.push(id);
-            this.props.updateBoard(newBoard);
-            this.props.toggleTaskDetails();
-            if (this.props.toggleUpdateForm) this.props.toggleUpdateForm();
-        });
+        const youtubeURL = this.matchYoutubeUrl(this.state.task.title);
+        if(youtubeURL){
+            this.saveVideo(youtubeURL);
+        }else{
+            this.saveTask();
+        }
+    }
+
+    saveTask = _ => {
+        const newBoard = {
+            ...this.props.board,
+            tasks: {
+                ...this.props.board.tasks,
+                [this.state.task.id]: this.state.task
+            }
+        };
+        const column = this.props.column;
+        const id = this.state.task.id;
+        if (!column.taskIds.includes(id)) column.taskIds.push(id);
+        this.props.updateBoard(newBoard);
+        if (this.props.toggleUpdateForm) this.props.toggleUpdateForm();
+    }
+
+    saveVideo = url => {
+        const newVideoTask = {
+            ...this.state.task,
+            title: 'Video',
+            type: 'video',
+            url
+        }
+        const newBoard = {
+            ...this.props.board,
+            tasks: {
+                ...this.props.board.tasks,
+                [newVideoTask.id]: newVideoTask
+            }
+        };
+        const column = this.props.column;
+        const id = this.state.task.id;
+        if (!column.taskIds.includes(id)) column.taskIds.push(id);
+        this.props.updateBoard(newBoard);
+        if (this.props.toggleUpdateForm) this.props.toggleUpdateForm();
     }
 
     textAreaAdjust = ev => {
@@ -81,14 +110,23 @@ export default class TaskForm extends Component {
         ev.target.style.height = (25 + ev.target.scrollHeight) + "px";
     }
 
+    matchYoutubeUrl = (url) => {
+        const p = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+        if(url.match(p)){
+            const newUrl = url.replace('watch?v=', 'embed/');
+            return newUrl;
+        }
+        return false;
+    }
+
     render() {
         return <div className="task-form" >
-            <form onSubmit={this.saveTask}>
+            <form onSubmit={this.save}>
                 <div className="flex column" >
 
                     <textarea type="text"
                         onKeyUp={this.textAreaAdjust}
-                        placeholder="+ Add a title for this card..."
+                        placeholder="+ Add a task title or youtube URL"
                         name="title"
                         ref={(input) => { this.nameInput = input; }}
                         onChange={this.inputChange} value={this.state.task.title} />
