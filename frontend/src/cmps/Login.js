@@ -56,7 +56,7 @@ class Login extends Component {
     const userCreds = { email, password };
     this.props.login(userCreds);
     this.setState({ loginCred: { email: '', password: '' } });
-    this.props.toggleLogin();
+    // this.props.toggleLogin();
   };
 
   doSignup = async ev => {
@@ -75,12 +75,13 @@ class Login extends Component {
     this.props.logout();
   }
 
-  // removeUser = userId => {
-  //   this.props.removeUser(userId);
-  // };
+  doStopPropagation = (ev) => {
+    ev.stopPropagation();
+  }
+
   render() {
     let signupSection = (
-      <form onSubmit={this.doSignup}>
+      <form className="text-center" onSubmit={this.doSignup}>
         <div>Not a member yet? Sign up!</div>
         <input
           type="text"
@@ -110,7 +111,7 @@ class Login extends Component {
       </form>
     );
     let loginSection = (
-      <form onSubmit={this.doLogin}>
+      <form className="text-center" onSubmit={this.doLogin}>
         <input
           type="text"
           name="email"
@@ -132,11 +133,14 @@ class Login extends Component {
     );
 
     const { loggedInUser } = this.props;
+
     return (
-      <div className="test">
-        <h1>
-          Welcome to TreBello. Please login:
-        </h1>
+
+
+      <div className="login-container flex column align-center" style={this.props.style} onClick={this.doStopPropagation}>
+        <h2 className="text-center">
+          LOGIN 
+        </h2>
         <h2>{this.state.msg}</h2>
         {loggedInUser && (
           <div>
@@ -146,31 +150,9 @@ class Login extends Component {
         )}
         {!loggedInUser && loginSection}
         {!loggedInUser && signupSection}
-        {/* <h2>Login</h2>
-        <form>div</form>
-
-        <h2>Signup</h2>
-        <form></form> */}
-
-        <hr />
-        {/* <button onClick={this.props.loadUsers}>Get All Users</button>
-        {this.props.isLoading && 'Loading...' }
-        {this.props.users && <ul>
-
-          {this.props.users.map(user => (
-            <li key={user._id}>
-              <pre>{JSON.stringify(user, null, 2)}</pre>
-              <button
-                onClick={() => {
-                  this.removeUser(user._id);
-                }}
-              >
-                Remove {user.username}
-              </button>
-            </li>
-          ))}
-        </ul>} */}
       </div>
+
+
     );
   }
 }

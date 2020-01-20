@@ -1,6 +1,9 @@
 .board-column {
     &-footer {
         &-add-task {
+            cursor: pointer;
+            padding-left: 5px;
+            transform: 0.3s;
             &:hover {
                 background: rgba(124, 124, 124, 0.288);
             }

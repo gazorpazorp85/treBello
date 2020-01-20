@@ -1,0 +1,18 @@
+.login-container {
+    position: fixed;
+    height: 100vh;
+    top: 0px;
+    right: -270px;
+    width: 270px;
+    background: #050505e3;
+    color: white;
+    border-left: 3px solid rgba(207, 207, 207, 0.226);
+    transform: translate(100%, 0);
+    transition: 13s;
+}
+
+.home-page {
+    .login-container {
+        transform: translate(0, 0);
+    }
+}

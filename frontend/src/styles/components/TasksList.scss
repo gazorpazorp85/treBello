@@ -1,10 +1,11 @@
 .board-column {
     &-footer {
-        
+
         &-add-task {
             margin: 3px;
             cursor: pointer;
             border-radius: 2px;
+            transition: 0.3s;
 
             &:hover {
                 background: rgba(124, 124, 124, 0.288);
