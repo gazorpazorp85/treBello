@@ -14,6 +14,8 @@ export default class ColumnAddForm extends Component {
     }
 
     componentDidMount() {
+        console.log('props', this.props);
+        
         this.nameInput.focus();
         this.setFormDataForEdit();
     }
