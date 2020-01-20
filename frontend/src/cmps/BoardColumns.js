@@ -223,8 +223,7 @@ export default class BoardColumns extends Component {
                                                                 tasks={tasks}
                                                                 isDraggingOver={snapshot.isDraggingOver}
                                                                 column={column}
-                                                                isTaskDetailsOccupied={this.props.isTaskDetailsOccupied}
-                                                                toggleTaskDetailsOccupied={this.props.toggleTaskDetailsOccupied}
+                                                                toggleTaskDetails={this.props.toggleTaskDetails}
                                                             >
                                                             </TasksList>
                                                         }}
