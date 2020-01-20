@@ -11,7 +11,7 @@ import BoardColumns from '../cmps/BoardColumns'
 import ColumnAddForm from '../cmps/ColumnAddForm'
 import Login from '../cmps/Login';
 
-import { loadBoard, updateBoardOffline } from '../actions/BoardActions';
+import { loadBoard, createBoard, updateBoardOffline } from '../actions/BoardActions';
 import { logout } from '../actions/UserActions'
 
 class EmptyBoard extends Component {
@@ -25,6 +25,7 @@ class EmptyBoard extends Component {
   componentDidMount() {
     let sessionBoard = JSON.parse(sessionStorage.getItem('board'));
     if (sessionBoard) {
+      delete sessionBoard._id;
       this.props.updateBoardOffline(sessionBoard);
     } else {
       const boardId = '5e24d21b1c9d440000023b90';
@@ -33,14 +34,6 @@ class EmptyBoard extends Component {
     // SocketService.setup();
     // SocketService.emit('chat topic', this.state.topic);
     // SocketService.on('chat addMsg', this.addMsg);
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.match.params.id
-      !== this.props.match.params.id) {
-      const boardId = this.props.match.params.id;
-      this.props.loadBoard(boardId);
-    }
   }
 
   componentWillUnmount() {
@@ -71,15 +64,22 @@ class EmptyBoard extends Component {
     }
   }
 
+  saveBoard = async () => {
+    let board = this.props.board;
+    board.createdBy = this.props.loggedInUser;
+    const newBoard = await this.props.createBoard(board);
+    this.props.history.push(`/board/${newBoard._id}`);
+  }
+
   render() {
 
     if (!this.props.board.columns) return pageLoading();
-    let button;
+    let loginButton, saveBoardButton;
     if (this.props.loggedInUser) {
-      button = <span onClick={this.props.logout}>LOGOUT</span>
-
+      loginButton = <span onClick={this.props.logout}>LOGOUT</span>
+      saveBoardButton = <span onClick={this.saveBoard}>SAVE BOARD</span>
     } else {
-      button = <span onClick={this.toggleLogin}>LOGIN</span>
+      loginButton = <span onClick={this.toggleLogin}>LOGIN</span>
     }
 
     return (
@@ -93,7 +93,7 @@ class EmptyBoard extends Component {
         </div>
 
         <div className="board-page-nav-bar-filters flex align-center">
-          <h2> {this.props.loggedInUser && this.props.loggedInUser.username} {button}[SEARCHandFILTERS] [FEATURES]  </h2>
+          <h2> {this.props.loggedInUser && this.props.loggedInUser.username} {loginButton} {saveBoardButton} [SEARCHandFILTERS] [FEATURES]  </h2>
         </div>
         {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
         <div className="board-page-columns-container fill-height">
@@ -130,6 +130,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   loadBoard,
   updateBoardOffline,
+  createBoard,
   logout
 };
 

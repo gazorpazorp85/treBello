@@ -25,7 +25,7 @@ async function getBoard(req, res) {
 async function addBoard(req, res) {
 
     try {
-        const board = boardService.add(req.body);
+        const board = await boardService.add(req.body);
         res.send(board);
     } catch (err) {
         logger.error('Cannot create board', err);

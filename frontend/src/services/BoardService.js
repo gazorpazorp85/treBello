@@ -24,7 +24,6 @@ function remove(boardId) {
   return HttpService.delete(`board/${boardId}`);
 }
 
-async function add(board) {
-  const addedBoard  = await HttpService.post('board', board);
-  return  addedBoard
+function add(board) {
+  return HttpService.post('board', board);
 }

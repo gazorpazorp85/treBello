@@ -41,6 +41,7 @@ export function updateBoard(board) {
     try {
       dispatch(_boardUpdate(board));
       await BoardService.put(board);
+      return board;
     } catch (err) {
       console.log('BoardActions: err in loadBoard', err);
     }
@@ -70,6 +71,7 @@ export function createBoard(board) {
     try {
       const addedBoard = await BoardService.add(board);
       dispatch(_addBoard(addedBoard));
+      return addedBoard;
     } catch (err) {
       console.log('BoardActions: err in createBoard', err);
     }
