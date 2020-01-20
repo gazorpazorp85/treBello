@@ -12,7 +12,7 @@ import BoardsList from '../cmps/BoardsList';
 import Login from '../cmps/Login';
 
 import { loadBoards } from '../actions/BoardActions'
-import {logout} from '../actions/UserActions'
+import { logout } from '../actions/UserActions'
 
 class Home extends Component {
 
@@ -30,15 +30,15 @@ class Home extends Component {
 
   render() {
     let button;
-        if (this.props.loggedInUser) {
-          button = <Button variant="outlined" className="home-page-login">
-            <div onClick={this.props.logout}>LOGOUT</div>
-          </Button>
-        } else {
-          button = <Button variant="outlined" className="home-page-login">
-            <div onClick={this.toggleLogin}>LOGIN</div>
-          </Button>
-        }
+    if (this.props.loggedInUser) {
+      button = <Button variant="outlined" className="home-page-login">
+        <div onClick={this.props.logout}>LOGOUT</div>
+      </Button>
+    } else {
+      button = <Button variant="outlined" className="home-page-login">
+        <div onClick={this.toggleLogin}>LOGIN</div>
+      </Button>
+    }
 
     return <div className="home-page">
       <div variant="outlined" className="home-page-login">
@@ -56,9 +56,9 @@ class Home extends Component {
             </div>
             <div className="fill-width flex justify-center get-started-btn">
               <Link to={'/board/getstarted'}>
-              <Fab variant="extended">
-                <p>GET STARTED</p>
-              </Fab>
+                <Fab variant="extended">
+                  <p>GET STARTED</p>
+                </Fab>
               </Link>
             </div>
           </div>

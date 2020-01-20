@@ -28,7 +28,7 @@ class EmptyBoard extends Component {
       delete sessionBoard._id;
       this.props.updateBoardOffline(sessionBoard);
     } else {
-      const boardId = '5e24d21b1c9d440000023b90';
+      const boardId = '5e2581b51c9d44000081af2a';
       this.props.loadBoard(boardId);
     }
     // SocketService.setup();
@@ -66,6 +66,7 @@ class EmptyBoard extends Component {
 
   saveBoard = async () => {
     let board = this.props.board;
+    delete board._id;
     board.createdBy = this.props.loggedInUser;
     const newBoard = await this.props.createBoard(board);
     this.props.history.push(`/board/${newBoard._id}`);

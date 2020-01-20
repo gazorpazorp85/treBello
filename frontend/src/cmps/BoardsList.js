@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
 function BoardsList({ boards }) {
 
     const classes = useStyles();
-    const newBoards = boards.filter(board => board._id !== '5e24d21b1c9d440000023b90');
+    const newBoards = boards.filter(board => board._id !== '5e2581b51c9d44000081af2a');
 
     return (
         <section className="boards-grid-list-main-container">

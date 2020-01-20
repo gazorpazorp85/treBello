@@ -41,7 +41,6 @@ export function updateBoard(board) {
     try {
       dispatch(_boardUpdate(board));
       await BoardService.put(board);
-      return board;
     } catch (err) {
       console.log('BoardActions: err in loadBoard', err);
     }

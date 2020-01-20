@@ -12,7 +12,7 @@ export default function (state = initialState, action = {}) {
     case 'UPDATE_BOARD':
       return { ...state, board: action.board };
     case 'ADD_BOARD':
-      return { ...state, boards: [...state.boards, action.board] };
+      return { ...state, boards: [...state.boards, action.addedBoard] };
     default:
       return state;
   }
