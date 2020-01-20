@@ -77,7 +77,7 @@ class Board extends Component {
     let button;
     if (this.props.loggedInUser) {
       button = <Button className="empty-board-login-btn">
-        <div onClick={this.toggleLogin}>LOGOUT</div>
+        <div onClick={this.props.logout}>LOGOUT</div>
       </Button>
     } else {
       button = <button className="empty-board-login-btn">

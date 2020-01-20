@@ -85,7 +85,7 @@ class EmptyBoard extends Component {
     let loginButton, saveBoardButton;
     if (this.props.loggedInUser) {
       loginButton = <button className="empty-board-login-btn">
-        <div onClick={this.toggleLogin}>LOGOUT</div>
+        <div onClick={this.props.logout}>LOGOUT</div>
       </button>
       saveBoardButton = <span onClick={this.saveBoard}>SAVE BOARD</span>
     } else {
