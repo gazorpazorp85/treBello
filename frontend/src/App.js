@@ -16,7 +16,6 @@ function App() {
       <Router history={history}>
         <Switch>
           <Route path="/" component={Home} exact />
-          {/* <Route path="/login" component={Login} exact /> */}
           <Route path="/board/:id" component={Board} exact />
         </Switch>
       </Router>
