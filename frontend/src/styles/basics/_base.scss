@@ -1,7 +1,8 @@
 @import "./typography.scss";
 
 ::-webkit-scrollbar {
-    width: 2px;
+    width: 5px;
+    height: 5px;
 }
 
 /* Track */
@@ -52,8 +53,7 @@ h2,h3,h4{
 }
 
 h2{
-    font-size: rem(14px);
-    line-height: 24px;
+    font-size: rem(12px);
 }
 
 p {
@@ -68,6 +68,7 @@ small{
     font-family: montserratExtraLight , 'sans-sarif';
 }
 
+
 button{
     cursor: pointer;
     border: none;
@@ -78,4 +79,8 @@ button{
 textarea{
     font-size: rem(12px);
     font-family: montserratLight , 'sans-sarif';
+}
+
+a{
+    text-decoration: none;
 }

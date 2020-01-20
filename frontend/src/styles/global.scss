@@ -12,6 +12,7 @@
 
 //Component
 @import "components/LoadPage.scss";
+@import "components/Login.scss";
 @import "components/BoardList.scss";
 @import "components/BoardPreview.scss";
 @import "components/TasksList.scss";
@@ -27,6 +28,8 @@
 //views
 @import "views/HomePage.scss";
 @import "views/BoardPage.scss";
+@import "views/EmptyBoard.scss";
+
 
 
 

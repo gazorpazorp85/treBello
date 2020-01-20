@@ -23,13 +23,16 @@ export default class DynamicComponent extends Component {
     render() {
         const Cmp = this.getComponent();
         return <React.Fragment>
+            
             <Cmp
                 provided={this.props.provided}
                 innerRef={this.props.innerRef}
                 task={this.props.task}
                 isDragging={this.props.isDragging}
                 style={this.props.style}
-                onDelete={this.onDelete}
+                onDelete={this.onDelete}                                                       
+                onTaskId={this.props.onTaskId}
+                showEditBtn={this.props.showEditBtn}
             >
             </Cmp>
         </React.Fragment>

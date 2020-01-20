@@ -21,7 +21,8 @@ class Board extends Component {
     showAddColumn: true,
     showForm: false,
     showTaskDetails: false,
-    currTaskId: ''
+    currTaskId: '',
+    toggleLogin: false
   }
 
   componentDidMount() {
@@ -75,14 +76,17 @@ class Board extends Component {
     if (!this.props.board.columns) return pageLoading();
     let button;
     if (this.props.loggedInUser) {
-      button = <span onClick={this.props.logout}>LOGOUT</span>
-
+      button = <Button className="empty-board-login-btn">
+        <div onClick={this.toggleLogin}>LOGOUT</div>
+      </Button>
     } else {
-      button = <span onClick={this.toggleLogin}>LOGIN</span>
+      button = <button className="empty-board-login-btn">
+        <div  onClick={this.toggleLogin}>LOGIN</div>
+      </button>
     }
 
     return (
-      <div className="board-page fill-height flex column">
+      <div className="board-page fill-height flex column" onClick={this.closeLogin}>
         <Button className="board-page-back-btn" variant="outlined" onClick={this.goBack} >
           <HomeIcon className="board-page-back-btn-icon" />
         </Button>
@@ -92,7 +96,7 @@ class Board extends Component {
         </div>
 
         <div className="board-page-nav-bar-filters flex align-center">
-          <h2> {this.props.loggedInUser && this.props.loggedInUser.username} {button}[SEARCHandFILTERS] [FEATURES]  </h2>
+          {/* {this.props.loggedInUser && this.props.loggedInUser.username} {button} */}
         </div>
         {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
         <div className="board-page-columns-container fill-height">

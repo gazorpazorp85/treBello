@@ -24,30 +24,47 @@ class Home extends Component {
     this.props.loadBoards();
   }
 
-  toggleLogin = () => {
+  toggleLogin = (ev) => {
+    if (ev) ev.stopPropagation();
     this.setState((prevState) => ({ toggleLogin: !prevState.toggleLogin }))
+  }
+
+  closeLogin = (ev) => {
+    ev.stopPropagation()
+    this.setState({ toggleLogin: false })
   }
 
   render() {
     let button;
     if (this.props.loggedInUser) {
-      button = <Button variant="outlined" className="home-page-login">
+      button = <Button variant="outlined" className="home-page-login-btn">
         <div onClick={this.props.logout}>LOGOUT</div>
       </Button>
     } else {
-      button = <Button variant="outlined" className="home-page-login">
+      button = <Button variant="outlined" className="home-page-login-btn">
         <div onClick={this.toggleLogin}>LOGIN</div>
       </Button>
     }
 
-    return <div className="home-page">
-      <div variant="outlined" className="home-page-login">
-        {(this.props.loggedInUser) && this.props.loggedInUser.username}
-        {button}
-      </div>
-      {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
-
+    return <div className="home-page" onClick={this.closeLogin}>
       <section className="home-page-header">
+
+        <div variant="outlined" className="home-page-login flex justify-end align-center">
+          {(this.props.loggedInUser) &&
+            <p className="flex column">
+              <small>welcome!</small>
+              {this.props.loggedInUser.username}
+            </p>
+          }
+          {button}
+        </div>
+        
+          <Login 
+            variant="outlined"
+            className="home-page-login"
+            toggleLogin={this.toggleLogin}
+            toggleState={this.state.toggleLogin} />
+
         <div className="home-page-header-container">
           <div className="fill-height flex column align-center justify-center">
             <div className="home-page-header-container-logo">
@@ -68,7 +85,7 @@ class Home extends Component {
       <section className="home-page-boards-list">
         <div className="home-page-boards-list-inspiration text-center flex column align-center justify-center">
           <h2 >GET SOME INSPIRATION</h2>
-          <ArrowDropDownCircleIcon />
+          <ArrowDropDownCircleIcon className="home-page-list-inspiration-go-down-btn" />
         </div>
         <BoardsList boards={this.props.boards} />
       </section>

@@ -13,7 +13,7 @@ export default class ColumnAddForm extends Component {
         }
     }
 
-    componentDidMount() {        
+    componentDidMount() {
         this.nameInput.focus();
         this.setFormDataForEdit();
     }

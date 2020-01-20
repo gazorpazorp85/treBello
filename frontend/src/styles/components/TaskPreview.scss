@@ -23,7 +23,33 @@
 
     &-open-menu {
         position: absolute;
-        top: 2px;
-        right: 2px;
+        font-size: 10px;
+        color: rgb(0, 0, 0);
+        transition: 0.3s;
+
+        &.MuiSvgIcon-root {
+            width: 13px;
+            height: 13px;
+            color: rgb(129, 129, 129);
+        }
+
+        &-wrapper {
+            position: absolute;
+            top: 1px;
+            right: 1px;
+            width: 23px;
+            height: 23px;
+            border-top-right-radius: 2px;
+            border-bottom-right-radius: 2px;
+
+            &:hover {
+                background-color: rgba(100, 100, 100, 0.288);
+
+                .MuiSvgIcon-root {
+                    color: rgb(255, 255, 255);
+                }
+            }
+        }
+
     }
 }

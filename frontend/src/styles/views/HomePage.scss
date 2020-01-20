@@ -1,18 +1,32 @@
 .home-page {
 
+    &-login {
+        color: whitesmoke;
+        background: #00000047;
+        position: absolute;
+        width: 100%;
+        top: 0px;
+        right: 0px;
+        padding: 4px;
+        
+        .MuiButtonBase-root {
+            font-size: rem(10px);
+            width: auto;
+            color: rgba(250, 250, 250, 0.932);
+            transition: 0.3s;
+            margin-left: 5px;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.185);
+            }
+        }
+    }
+
     h2 {
         font-size: 2.2rem;
         color: white;
     }
 
-    .MuiButton-root {
-        position: absolute;
-        width: 0;
-        top: 20px;
-        right: 10px;
-        border: 0px;
-        color: rgba(250, 250, 250, 0.932);
-    }
 
     &-header-container {
         background-image: url(../imags/header-bg.jpg);
@@ -52,6 +66,7 @@
         padding: 20px 0px;
 
         .MuiSvgIcon-root {
+            margin-top: 15px;
             background-color: none;
             color: white;
         }
@@ -66,6 +81,7 @@
         .MuiSvgIcon-root {
             cursor: pointer;
             transition: 0.7s;
+
 
             &.faceBookIcon {
                 &:hover {
@@ -86,6 +102,10 @@
 
         &-team-member-card {
             margin: 0 10px;
+
+            a {
+                color: inherit;
+            }
 
 
             &-member-img {

@@ -141,7 +141,7 @@ export default class BoardColumns extends Component {
     emitChange = (ev, id) => {
         ev.preventDefault();
         let board = { ...this.props.board };
-        board.columns[id].title = ev.target.innerHTML;
+        board.columns[id].title = ev.target.innerText;
         this.handleCheck(board)
     }
 
@@ -170,7 +170,7 @@ export default class BoardColumns extends Component {
                                             rotationMultiplier={1}
                                         >
                                             {style => (
-                                                // <div className="board-columns-item-wrapper">
+
                                                 <div
                                                     className="board-columns-item"
                                                     {...provided.draggableProps}
@@ -186,7 +186,8 @@ export default class BoardColumns extends Component {
                                                                 contentEditable='true'
                                                                 spellCheck="false"
                                                                 onInput={(ev) => this.emitChange(ev, column.id)}
-                                                                suppressContentEditableWarning={true}>
+                                                                suppressContentEditableWarning={true}
+                                                                >
                                                                 {column.title}
                                                             </h2>
                                                         </div>
@@ -195,7 +196,7 @@ export default class BoardColumns extends Component {
                                                             onClick={ev => this.handleOptionsMenuClick(ev, column.id)}>
                                                             <h2 className="board-columns-item-header-menu-btn-icon"> ... </h2>
                                                         </div>
-                                                        {/* </div> */}
+
                                                     </div>
 
                                                     <Menu

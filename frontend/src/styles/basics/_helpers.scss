@@ -1,11 +1,31 @@
 // Font Sizes
-.fs12 { font-size: rem(12px); }
-.fs14 { font-size: rem(14px); }
-.fs18 { font-size: rem(18px); }
-.fs20 { font-size: rem(20px); }
-.fs24 { font-size: rem(24px); }
-.fs28 { font-size: rem(28px); }
-.fs30 { font-size: rem(30px); }
+.fs12 {
+    font-size: rem(12px);
+}
+
+.fs14 {
+    font-size: rem(14px);
+}
+
+.fs18 {
+    font-size: rem(18px);
+}
+
+.fs20 {
+    font-size: rem(20px);
+}
+
+.fs24 {
+    font-size: rem(24px);
+}
+
+.fs28 {
+    font-size: rem(28px);
+}
+
+.fs30 {
+    font-size: rem(30px);
+}
 
 // flex helpers
 
@@ -13,49 +33,57 @@
 
     display: flex;
 
-    > *.full {
+    >*.full {
         flex: 1;
     }
+
     &.column {
         flex-direction: column;
     }
+
     &.justify-center {
         justify-content: center;
     }
+
+    &.justify-end {
+        justify-content: flex-end;
+    }
+
     &.align-center {
         align-items: center;
     }
+
     &.space-between {
-        justify-content:space-between;
+        justify-content: space-between;
     }
 
-    &.align-start{
+    &.align-start {
         align-items: flex-start;
     }
-    
+
 }
 
 //text helpers 
 
-.text-center{
+.text-center {
     text-align: center;
 }
 
 
 //grid helpers
 
-.grid-item{
+.grid-item {
     display: grid;
 }
 
 
 //size helpers 
 
-.fill-width{
+.fill-width {
     width: 100%;
 }
 
-.fill-height{
+.fill-height {
     height: 100%;
 }
 

@@ -62,9 +62,9 @@ export default class TaskForm extends Component {
     save = (ev) => {
         ev.preventDefault();
         const youtubeURL = this.matchYoutubeUrl(this.state.task.title);
-        if(youtubeURL){
+        if (youtubeURL) {
             this.saveVideo(youtubeURL);
-        }else{
+        } else {
             this.saveTask();
         }
     }
@@ -82,6 +82,7 @@ export default class TaskForm extends Component {
         if (!column.taskIds.includes(id)) column.taskIds.push(id);
         this.props.updateBoard(newBoard);
         if (this.props.toggleUpdateForm) this.props.toggleUpdateForm();
+        if (this.props.toggleTaskDetails) this.props.toggleTaskDetails();
     }
 
     saveVideo = url => {
@@ -103,6 +104,7 @@ export default class TaskForm extends Component {
         if (!column.taskIds.includes(id)) column.taskIds.push(id);
         this.props.updateBoard(newBoard);
         if (this.props.toggleUpdateForm) this.props.toggleUpdateForm();
+        if (this.props.toggleTaskDetails) this.props.toggleTaskDetails();
     }
 
     textAreaAdjust = ev => {
@@ -112,7 +114,7 @@ export default class TaskForm extends Component {
 
     matchYoutubeUrl = (url) => {
         const p = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
-        if(url.match(p)){
+        if (url.match(p)) {
             const newUrl = url.replace('watch?v=', 'embed/');
             return newUrl;
         }

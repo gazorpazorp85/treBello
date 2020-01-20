@@ -19,7 +19,8 @@ class EmptyBoard extends Component {
   state = {
     showAddColumn: true,
     showForm: false,
-    isTaskDetailsOccupied: false
+    isTaskDetailsOccupied: false,
+    toggleLogin: false
   }
 
   componentDidMount() {
@@ -52,8 +53,14 @@ class EmptyBoard extends Component {
     this.props.history.push('/');
   }
 
-  toggleLogin = () => {
+  toggleLogin = (ev) => {
+    if (ev) ev.stopPropagation();
     this.setState((prevState) => ({ toggleLogin: !prevState.toggleLogin }))
+  }
+
+  closeLogin = (ev) => {
+    ev.stopPropagation()
+    this.setState({ toggleLogin: false })
   }
 
   toggleTaskDetails = (currTask) => {
@@ -77,14 +84,18 @@ class EmptyBoard extends Component {
     if (!this.props.board.columns) return pageLoading();
     let loginButton, saveBoardButton;
     if (this.props.loggedInUser) {
-      loginButton = <span onClick={this.props.logout}>LOGOUT</span>
+      loginButton = <button className="empty-board-login-btn">
+        <div onClick={this.toggleLogin}>LOGOUT</div>
+      </button>
       saveBoardButton = <span onClick={this.saveBoard}>SAVE BOARD</span>
     } else {
-      loginButton = <span onClick={this.toggleLogin}>LOGIN</span>
+      loginButton = <button className="empty-board-login-btn">
+        <div onClick={this.toggleLogin}>LOGIN</div>
+      </button>
     }
 
     return (
-      <div className="board-page fill-height flex column">
+      <div className="board-page fill-height flex column" onClick={this.closeLogin}>
         <Button className="board-page-back-btn" variant="outlined" onClick={this.goBack} >
           <HomeIcon className="board-page-back-btn-icon" />
         </Button>
@@ -94,12 +105,21 @@ class EmptyBoard extends Component {
         </div>
 
         <div className="board-page-nav-bar-filters flex align-center">
-          <h2> {this.props.loggedInUser && this.props.loggedInUser.username} {loginButton} {saveBoardButton} [SEARCHandFILTERS] [FEATURES]  </h2>
+          {this.props.loggedInUser && this.props.loggedInUser.username}
+          <div>
+            {loginButton}
+            {saveBoardButton}
+          </div>
         </div>
         {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
         <div className="board-page-columns-container fill-height">
           <div>
             <div className="flex align-start">
+              <Login
+                variant="outlined"
+                className="home-page-login"
+                toggleLogin={this.toggleLogin}
+                toggleState={this.state.toggleLogin} />
               <BoardColumns
                 board={this.props.board}
                 updateBoard={this.props.updateBoardOffline}

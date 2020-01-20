@@ -10,8 +10,9 @@ export default class TasksList extends Component {
     state = {
         showAddForm: false,
         showEditForm: false,
-        showEditBtn: false,
+        showEditBtn: true,
         currTaskId: '',
+        onTaskId: '',
         showTaskDetails: false
     }
 
@@ -43,8 +44,21 @@ export default class TasksList extends Component {
         );
     }
 
-    showEditBtn = () => {
-        this.setState({ showEditBtn: true })
+    toggleTaskDetails = id => {
+        if (id) {
+            this.setState(prevState => ({ showTaskDetails: !prevState.showTaskDetails, currTaskId: id }));
+        } else {
+            this.setState(prevState => ({ showTaskDetails: !prevState.showTaskDetails }));
+        }
+
+    }
+
+    canOpenTaskDetails = taskId => {
+        return (this.state.showTaskDetails && this.state.currTaskId === taskId)
+    }
+
+    showEditBtn = (id) => {
+        this.setState({ showEditBtn: true, onTaskId: id })
     }
 
     hideEditBtn = () => {
@@ -71,17 +85,19 @@ export default class TasksList extends Component {
                                             rotationMultiplier={1}
                                         >
                                             {style => (
-                                                <div onClick={_ => this.props.toggleTaskDetails({ id: task.id, column: this.props.column })}>
+                                                <div onClick={_ => this.props.toggleTaskDetails({ id: task.id, column: this.props.column })}
+                                                    onMouseEnter={() => this.showEditBtn(task.id)}
+                                                    onMouseLeave={() => this.hideEditBtn()}
+                                                >
                                                     <DynamicComponent
-                                                        // onMouseEnter={this.showEditBtn}
-                                                        // onMouseLeave={this.hideEditBtn}
                                                         provided={provided}
                                                         innerRef={provided.innerRef}
                                                         task={task}
                                                         isDragging={snapshot.isDragging}
                                                         style={style}
                                                         onDelete={(ev) => this.onDelete(ev, task.id)}
-                                                    // showEditBtn={this.showEditBtn}
+                                                        onTaskId={this.state.onTaskId}
+                                                        showEditBtn={this.state.showEditBtn}
                                                     >
                                                     </DynamicComponent>
                                                 </div>
@@ -93,27 +109,28 @@ export default class TasksList extends Component {
                         ))}
                         {provided.placeholder}
                         <div className="board-column-footer">
-                            <p onClick={() => this.toggleUpdateForm('')}> + Add task </p>
+                            <p className="board-column-footer-add-task" onClick={() => this.toggleUpdateForm('')}> + Add task or youtube URL </p>
                             {(this.state.showAddForm) &&
                                 <TaskForm
                                     board={this.props.board}
                                     column={this.props.column}
                                     toggleUpdateForm={this.toggleUpdateForm}
                                     updateBoard={this.props.updateBoard}
-                                    toggleTaskDetails={this.props.toggleTaskDetails}
                                 />
                             }
                         </div>
                     </div> :
                     <div className="board-column-footer">
-                        <p onClick={() => this.toggleUpdateForm('')}> + Add task or youtube URL </p>
+                        <p className="board-column-footer-add-task"
+                            onClick={() => this.toggleUpdateForm('')}>
+                            + Add task or youtube URL  </p>
+
                         {(this.state.showAddForm) &&
                             <TaskForm
                                 board={this.props.board}
                                 column={this.props.column}
                                 toggleUpdateForm={this.toggleUpdateForm}
                                 updateBoard={this.props.updateBoard}
-                                toggleTaskDetails={this.props.toggleTaskDetails}
                             />
                         }
                     </div>}
