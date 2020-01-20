@@ -31,7 +31,7 @@ export default class BoardColumns extends Component {
         let columnOrder = board.columnOrder;
         let column = board.columns[id];
         for (const taskId of column.taskIds) {
-            for (const taskKey in board.tasks){
+            for (const taskKey in board.tasks) {
                 if (taskId === taskKey) {
                     delete board.tasks[taskKey];
                 }
@@ -171,30 +171,30 @@ export default class BoardColumns extends Component {
                                         >
                                             {style => (
                                                 // <div className="board-columns-item-wrapper">
+                                                <div
+                                                    className="board-columns-item"
+                                                    {...provided.draggableProps}
+                                                    ref={provided.innerRef}
+                                                    style={style}
+                                                >
                                                     <div
-                                                        className="board-columns-item"
-                                                        {...provided.draggableProps}
-                                                        ref={provided.innerRef}
-                                                        style={style}
+                                                        className="board-columns-item-header flex align-center space-between"
+                                                        {...provided.dragHandleProps}
                                                     >
-                                                        <div
-                                                            className="board-columns-item-header flex align-center space-between"
-                                                            {...provided.dragHandleProps}
-                                                        >
-                                                            <div className="board-columns-item-header-h2-wrapper">
-                                                                <h2
-                                                                    contentEditable='true'
-                                                                    spellCheck="false"
-                                                                    onInput={(ev) => this.emitChange(ev, column.id)}
-                                                                    suppressContentEditableWarning={true}>
-                                                                    {column.title}
-                                                                </h2>
-                                                            </div>
+                                                        <div className="board-columns-item-header-h2-wrapper">
+                                                            <h2
+                                                                contentEditable='true'
+                                                                spellCheck="false"
+                                                                onInput={(ev) => this.emitChange(ev, column.id)}
+                                                                suppressContentEditableWarning={true}>
+                                                                {column.title}
+                                                            </h2>
+                                                        </div>
 
-                                                            <div className="board-columns-item-header-menu-btn"
-                                                                onClick={ev => this.handleOptionsMenuClick(ev, column.id)}>
-                                                                <h2 className="board-columns-item-header-menu-btn-icon"> ... </h2>
-                                                            </div>
+                                                        <div className="board-columns-item-header-menu-btn"
+                                                            onClick={ev => this.handleOptionsMenuClick(ev, column.id)}>
+                                                            <h2 className="board-columns-item-header-menu-btn-icon"> ... </h2>
+                                                        </div>
                                                         {/* </div> */}
                                                     </div>
 
@@ -218,12 +218,13 @@ export default class BoardColumns extends Component {
                                                     <Droppable droppableId={column.id} type="task">
                                                         {(provided, snapshot) => {
                                                             return <TasksList
-
+                                                                board={this.props.board}
                                                                 innerRef={provided.innerRef}
                                                                 provided={provided}
                                                                 tasks={tasks}
                                                                 isDraggingOver={snapshot.isDraggingOver}
                                                                 column={column}
+                                                                updateBoard={this.props.updateBoard}
                                                             >
                                                             </TasksList>
                                                         }}
