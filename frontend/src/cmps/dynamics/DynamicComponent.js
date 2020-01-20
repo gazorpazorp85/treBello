@@ -30,7 +30,9 @@ export default class DynamicComponent extends Component {
                 task={this.props.task}
                 isDragging={this.props.isDragging}
                 style={this.props.style}
-                onDelete={this.onDelete}
+                onDelete={this.onDelete}                                                       
+                onTaskId={this.props.onTaskId}
+                showEditBtn={this.props.showEditBtn}
             >
             </Cmp>
         </React.Fragment>
