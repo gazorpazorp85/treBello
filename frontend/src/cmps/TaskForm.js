@@ -61,12 +61,7 @@ export default class TaskForm extends Component {
 
     save = (ev) => {
         ev.preventDefault();
-        const youtubeURL = this.matchYoutubeUrl(this.state.task.title);
-        if (youtubeURL) {
-            this.saveVideo(youtubeURL);
-        } else {
-            this.saveTask();
-        }
+        this.checkIfUrlAndSave(this.state.task.title);
     }
 
     saveTask = _ => {
@@ -85,40 +80,25 @@ export default class TaskForm extends Component {
         if (this.props.toggleTaskDetails) this.props.toggleTaskDetails();
     }
 
-    saveVideo = url => {
-        const newVideoTask = {
-            ...this.state.task,
-            title: 'Video',
-            type: 'video',
-            url
-        }
-        const newBoard = {
-            ...this.props.board,
-            tasks: {
-                ...this.props.board.tasks,
-                [newVideoTask.id]: newVideoTask
-            }
-        };
-        const column = this.props.column;
-        const id = this.state.task.id;
-        if (!column.taskIds.includes(id)) column.taskIds.push(id);
-        this.props.updateBoard(newBoard);
-        if (this.props.toggleUpdateForm) this.props.toggleUpdateForm();
-        if (this.props.toggleTaskDetails) this.props.toggleTaskDetails();
-    }
-
     textAreaAdjust = ev => {
         ev.target.style.height = "1px"
         ev.target.style.height = (25 + ev.target.scrollHeight) + "px";
     }
 
-    matchYoutubeUrl = (url) => {
-        const p = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
-        if (url.match(p)) {
+    checkIfUrlAndSave = (url) => {
+        const youtubeREGEX = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+        const imgREGEX = /.(jpg|jpeg|png|gif)\/?$/;
+        if (url.match(youtubeREGEX)) {
             const newUrl = url.replace('watch?v=', 'embed/');
-            return newUrl;
+            return this.setState(prevState => ({ task: { ...prevState.task, title: 'Video', type: 'video', url: newUrl } }), _ => {
+                this.saveTask();
+            });
+        } else if (url.match(imgREGEX)) {
+            return this.setState(prevState => ({ task: { ...prevState.task, title: 'Image', type: 'image', url } }), _ => {
+                this.saveTask();
+            });
         }
-        return false;
+        this.saveTask();
     }
 
     render() {
