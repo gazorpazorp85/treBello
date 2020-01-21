@@ -61,18 +61,18 @@ h4 {
 }
 
 h2 {
-    font-size: rem(16px);
+    font-size: rem(20px);
 }
 
 p {
-    font-size: rem(14px);
+    font-size: rem(16px);
     margin: 0;
     font-family: montserratLight, 'sans-sarif';
 }
 
 small {
     margin: 0;
-    font-size: rem(12px);
+    font-size: rem(14px);
     font-family: montserratExtraLight, 'sans-sarif';
 }
 
@@ -85,7 +85,8 @@ button {
 }
 
 textarea {
-    font-size: rem(12px);
+    resize: none;
+    font-size: rem(16px);
     font-family: montserratLight, 'sans-sarif';
 }
 

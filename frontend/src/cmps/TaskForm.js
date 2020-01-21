@@ -112,23 +112,6 @@ export default class TaskForm extends Component {
                         name="title"
                         ref={(input) => { this.nameInput = input; }}
                         onChange={this.inputChange} value={this.state.task.title} />
-
-                    {/* <input type='datetime-local' placeholder='task Name' name='dueDate'
-                <input type='text' placeholder='task title' name='title'
-                    onChange={this.inputChange} value={this.state.task.title} />
-                <input type='datetime-local' placeholder='task Name' name='dueDate'
-                    onChange={this.inputChange} value={this.state.task.dueDate} />
-                    <div>Importance:
-                    <select name='importance' value={this.state.task.importance} onChange={this.inputChange}>
-                    <option value='1'>1</option>
-                    <option value='2'>2</option>
-                    <option value='3'>3</option>
-                    <option value='4'>4</option>
-                    <option value='5'>5</option>
-                    </select>
-                    </div>
-                    <div>Labels:
-                </div> */}
                     <div className="flex align-center">
                         <button className="task-form-save-btn">SAVE</button>
                         <CloseIcon className="task-form-back-btn" onClick={() => { this.props.toggleUpdateForm ? this.props.toggleUpdateForm() : this.props.toggleTaskDetails() }} />

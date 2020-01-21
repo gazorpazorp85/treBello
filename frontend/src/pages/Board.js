@@ -22,6 +22,8 @@ class Board extends Component {
     showForm: false,
     showTaskDetails: false,
     currTaskId: '',
+    toggleUploadBgImg: false,
+    isUploading: false,
     toggleLogin: false
   }
 
@@ -71,6 +73,36 @@ class Board extends Component {
     }
   }
 
+  toggleUploadBgImg = () => {
+    debugger
+    this.setState(prevState => ({ toggleUploadBgImg: !prevState.toggleUploadBgImg }))
+  }
+
+  onAddImg = (ev) => {
+    debugger
+    const file = ev.target.files[0];
+    // this.setState({ isUploading: true }, () => {
+    // utils.uploadImg(file).then(res => {
+    // const board = { ...this.props.board.columns }
+    // const newBoard = {
+    //     ...this.props.board,
+    //     columns: {
+    //         ...this.props.board.columns,
+
+    //         [this.state.column.id]: this.state.column
+    // .imgUrl = res we need to update the board
+    //     }
+    // };
+    // const id = this.state.column.id;
+    // const columnOrder = newBoard.columnOrder;
+    // if (!columnOrder.includes(id)) columnOrder.push(id);
+    // this.props.updateBoard(newBoard);
+
+    // this.setState({ isUploading: false })
+    // })
+    // })
+  }
+
   render() {
 
     if (!this.props.board.columns) return pageLoading();
@@ -81,7 +113,7 @@ class Board extends Component {
       </Button>
     } else {
       button = <button className="empty-board-login-btn">
-        <div  onClick={this.toggleLogin}>LOGIN</div>
+        <div onClick={this.toggleLogin}>LOGIN</div>
       </button>
     }
 
@@ -121,7 +153,18 @@ class Board extends Component {
           board={this.props.board}
           column={this.state.currTask.column}
           updateBoard={this.props.updateBoard}
-          toggleTaskDetails={this.toggleTaskDetails} />}
+          toggleTaskDetails={this.toggleTaskDetails}
+        />}
+
+        {!this.state.toggleUploadBgImg ?
+          <button className="add-bg-photo" onClick={this.toggleUploadBgImg}>ADD BG PHOTO</button>
+          :
+          <div className="upload-img-container">
+            add image:<input type="file" id="upload-img" onChange={this.onAddImg}></input>
+          </div>
+        }
+
+
       </div>
     )
   }
