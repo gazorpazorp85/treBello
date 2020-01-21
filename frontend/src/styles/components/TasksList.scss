@@ -3,8 +3,9 @@
 
         &-add-task {
             margin: 3px;
+            padding: 10px 0;
             cursor: pointer;
-            border-radius: 2px;
+            border-radius: 4px;
             transition: 0.3s;
 
             &:hover {
@@ -15,6 +16,6 @@
 
     &.isDraggingOver {
         transition: background-color 0.2 ease;
-        background-color: skyblue;
+        background-color: rgb(212, 212, 212);
     }
 }
