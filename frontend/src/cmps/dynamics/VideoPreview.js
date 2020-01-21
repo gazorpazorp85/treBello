@@ -49,8 +49,8 @@ export default class VideoPreview extends Component {
                     ref={innerRef}
                     style={style}
                 >
-                    <p>{task.title}</p>
                     <iframe title={task.id} type='text/html' width="240" height="135" src={task.url}></iframe>
+                    <p>{task.title}</p>
                     {(showEditBtn && (onTaskId === task.id)) ?
                         <div className="task-container-open-menu-wrapper flex align-center justify-center">
                             <CreateIcon className="task-container-open-menu"

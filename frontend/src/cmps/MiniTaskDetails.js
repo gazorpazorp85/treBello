@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import ScreenFilter from './ScreenFilter';
 
 export default class MiniTaskDetails extends Component {
+    state = {
+        title: '',
+    }
 
     componentDidMount() {
         this.refs.textarea.focus();
@@ -10,6 +13,24 @@ export default class MiniTaskDetails extends Component {
 
     handleFocus = ev => {
         ev.target.select();
+    }
+
+    emitChange = (ev) => {
+        const targetValue = ev.target.value;
+        this.setState({ title: targetValue });
+    }
+
+    onSave = _ => {
+        const newTask = { ...this.props.miniTask.task, title: this.state.title };
+        const newBoard = {
+            ...this.props.board,
+            tasks: {
+                ...this.props.board.tasks,
+                [newTask.id]: newTask
+            }
+        }
+        this.props.updateBoard(newBoard);
+        this.props.onToggle();
     }
 
     render() {
@@ -23,13 +44,14 @@ export default class MiniTaskDetails extends Component {
                     height: miniTask.height + 'px'
                 }}
             >
-                <img title={miniTask.task.id} alt="task" width="90%" src={miniTask.task.url} />
-
                 <textarea
+                    name="title"
                     className="text-area"
                     defaultValue={miniTask.task.title}
                     ref="textarea"
                     onFocus={this.handleFocus}
+                    onInput={this.emitChange}
+                    placeholder="Add a task title..."
                 >
                 </textarea>
             </div>
@@ -39,6 +61,7 @@ export default class MiniTaskDetails extends Component {
                     left: miniTask.left + 'px',
                     top: (miniTask.top + 10) + 'px'
                 }}
+                onClick={this.onSave}
             >SAVE</button>
             <ScreenFilter onToggle={this.props.onToggle} />
         </div >
