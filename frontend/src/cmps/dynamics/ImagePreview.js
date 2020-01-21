@@ -53,22 +53,21 @@ export default class ImagePreview extends Component {
 
     toggleMiniDetails = ev => {
         ev.stopPropagation();
-
-        // const pos = { left: ev.clientX, top: ev.clientY };
-        // const pos = {left: this.state.left, top: this.state.top}
-        const pos = {
+        const miniTask = {
+            task: this.props.task,
             left: this.state.elLeft,
             top: this.state.elTop,
             height: this.state.elHeight
-        }
-        this.props.toggleMiniDetails(pos);
+        };
+        this.props.toggleMiniDetails(miniTask);
     }
+
 
 
     render() {
         // const createdAtFormat = new Date(task.createdAt).toString();
         // const dueDateFormat = new Date(task.dueDate).toString();
-        const { task, provided, innerRef, isDragging, style, onDelete, showEditBtn, onTaskId } = this.props;
+        const { task, provided, innerRef, isDragging, style, showEditBtn, onTaskId } = this.props;
         return (
             <section ref="ref">
                 <Card
@@ -78,8 +77,8 @@ export default class ImagePreview extends Component {
                     ref={innerRef}
                     style={style}
                 >
-                    <p>{task.title}</p>
                     <img title={task.id} alt="task" width={this.state.imgWidth} height={this.state.imgHeight} src={task.url} />
+                    <p>{task.title}</p>
                     {(showEditBtn && (onTaskId === task.id)) ?
                         <div className="task-container-open-menu-wrapper flex align-center justify-center">
                             <CreateIcon className="task-container-open-menu"

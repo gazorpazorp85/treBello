@@ -24,7 +24,8 @@ class Board extends Component {
     showTaskDetails: false,
     showMiniTaskDetails: false,
     currTaskId: '',
-    toggleLogin: false
+    toggleLogin: false,
+    miniTaskDetails: {}
   }
 
   componentDidMount() {
@@ -73,9 +74,9 @@ class Board extends Component {
     }
   }
 
-  toggleMiniDetails = pos => {
-    if(pos){
-      return this.setState(prevState => ({ showMiniTaskDetails: !prevState.showMiniTaskDetails, miniTaskDetailsPos: pos }));
+  toggleMiniDetails = miniTask => {
+    if(miniTask){
+      return this.setState(prevState => ({ showMiniTaskDetails: !prevState.showMiniTaskDetails, miniTaskDetails: miniTask }));
     }
     this.setState(prevState => ({ showMiniTaskDetails: !prevState.showMiniTaskDetails}));
   }
@@ -133,7 +134,7 @@ class Board extends Component {
           column={this.state.currTask.column}
           updateBoard={this.props.updateBoard}
           toggleTaskDetails={this.toggleTaskDetails}/>}
-        {this.state.showMiniTaskDetails && <MiniTaskDetails pos={this.state.miniTaskDetailsPos} 
+        {this.state.showMiniTaskDetails && <MiniTaskDetails miniTask={this.state.miniTaskDetails} 
         onToggle={this.toggleMiniDetails} />}
       </div>
     )

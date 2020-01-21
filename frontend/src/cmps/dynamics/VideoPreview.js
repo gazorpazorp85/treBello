@@ -28,16 +28,18 @@ export default class VideoPreview extends Component {
 
     toggleMiniDetails = ev => {
         ev.stopPropagation();
-        const pos = {
+        const miniTask = {
+            task: this.props.task,
             left: this.state.elLeft,
             top: this.state.elTop,
             height: this.state.elHeight
         };
-        this.props.toggleMiniDetails(pos);
+        this.props.toggleMiniDetails(miniTask);
     }
 
+
     render() {
-        const { task, provided, innerRef, isDragging, style, onDelete, showEditBtn, onTaskId } = this.props;
+        const { task, provided, innerRef, isDragging, style, showEditBtn, onTaskId } = this.props;
         return (
             <section ref="ref">
                 <Card
