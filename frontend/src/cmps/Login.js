@@ -138,26 +138,28 @@ class Login extends Component {
     return (
 
 
-      <div className= { "login-container flex column align-center" 
-      + (this.props.toggleState ? ' translateLeft' : '' )}
-      style={this.props.style} 
-      onClick={this.doStopPropagation}>
-      
-      
+      <div className={"login-container flex column align-center"
+        + (this.props.toggleState ? ' translateLeft' : '')}
+        style={this.props.style}
+        onClick={this.doStopPropagation}>
+
+
         <div className="login-container-logo">
         </div>
         <h2>{this.state.msg}</h2>
-        <div className={ "login-container-form-container" }>
+        <div className={"login-container-form-container"}>
           {loggedInUser && (
             <div>
-              <h2>Welcome: {loggedInUser.username} </h2>
-              <button onClick={this.doLogout}>Logout</button>
+              <h2 className="login-container-loggedin-username"> <p>Welcome!</p> {loggedInUser.username} </h2>
+              <div className="fill-width flex">
+                <button className="login-container-form-container-logout" onClick={this.doLogout}>Logout</button>
+              </div>
             </div>
           )}
 
-          {loginSection}
+          {!this.props.loggedInUser && loginSection}
           <hr />
-          {signupSection}
+          {!this.props.loggedInUser && signupSection}
         </div>
       </div>
 

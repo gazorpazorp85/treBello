@@ -91,12 +91,11 @@ class Board extends Component {
           <HomeIcon className="board-page-back-btn-icon" />
         </Button>
 
-        <div className="board-page-nav-bar flex justify-center align-center">
+        <div className="board-page-nav-bar flex justify-center">
           <div className="board-page-nav-bar-logo"> </div>
         </div>
 
         <div className="board-page-nav-bar-filters flex align-center">
-          {/* {this.props.loggedInUser && this.props.loggedInUser.username} {button} */}
         </div>
         {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
         <div className="board-page-columns-container fill-height">
