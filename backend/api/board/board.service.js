@@ -17,10 +17,34 @@ async function query() {
 }
 
 async function getById(boardId, filterBy = {}) {
+
     const collection = await dbService.getCollection('board');
-   
+
     try {
-        const board = await collection.find({ "_id": {"$in" : ObjectId(boardId), "$eq": filterBy}})
+        const board = await collection.findOne({ "_id": ObjectId(boardId) });
+        const tasks = board.tasks;
+        const filteredTasks = {};
+        const unmatchedIds = [];
+        if (filterBy.title) {
+            for (const task in tasks) {
+                if (tasks[task].title.includes(filterBy.title)) {
+                    filteredTasks[task] = tasks[task];
+                }
+                else {
+                    unmatchedIds.push(task);
+                }
+            }
+            for (const column in board.columns) {
+                for (const unmatchedId of unmatchedIds) {
+                    
+                    // if (column.taskIds.includes(unmatchedId))
+                    // column.taskIds = column.taskIds.filter(id => id !== unmatchedId);
+                }
+            }
+            delete board.tasks;
+            board.tasks = filteredTasks;
+            console.log(board.tasks);
+        }
         return board;
     } catch (err) {
         logger.error('ERROR: Cannot find board');

@@ -10,11 +10,12 @@ import pageLoading from '../cmps/LoadPage';
 import BoardColumns from '../cmps/BoardColumns'
 import ColumnAddForm from '../cmps/ColumnAddForm'
 import Login from '../cmps/Login';
-import Filter from '../cmps/Filter'
+import Filter from '../cmps/Filter';
+import TaskDetails from '../cmps/TaskDetails';
 
 import { loadBoard, updateBoard } from '../actions/BoardActions';
-import { logout } from '../actions/UserActions'
-import TaskDetails from '../cmps/TaskDetails';
+import { logout } from '../actions/UserActions';
+
 
 class Board extends Component {
 
@@ -30,9 +31,7 @@ class Board extends Component {
   }
 
   componentDidMount() {
-    const boardId = this.props.match.params.id;
-    const filterBy = this.state.filterBy;
-    this.props.loadBoard(boardId, filterBy);
+    this.loadBoard();
     // SocketService.setup();
     // SocketService.emit('chat topic', this.state.topic);
     // SocketService.on('chat addMsg', this.addMsg);
@@ -49,6 +48,12 @@ class Board extends Component {
   componentWillUnmount() {
     // SocketService.off('chat addMsg', this.addMsg);
     // SocketService.terminate();
+  }
+
+  loadBoard = () => {
+    const boardId = this.props.match.params.id;
+    const filterBy = this.state.filterBy;
+    this.props.loadBoard(boardId, filterBy);
   }
 
   toggleAddForm = () => {
@@ -77,8 +82,9 @@ class Board extends Component {
   }
 
   onFilter = (filterBy) => {
-    let boardId = this.props.board._id;
-    this.setState({ filterBy }, this.props.loadBoard(boardId, filterBy));
+    // this.setState({ filterBy }, this.loadBoard);
+    const boardId = this.props.match.params.id;
+    this.props.loadBoard(boardId, filterBy);
   }
 
   render() {
@@ -114,6 +120,11 @@ class Board extends Component {
         <div className="board-page-columns-container fill-height">
           <div>
             <div className="flex align-start">
+            <Login
+                variant="outlined"
+                className="home-page-login"
+                toggleLogin={this.toggleLogin}
+                toggleState={this.state.toggleLogin} />
               <BoardColumns
                 board={this.props.board}
                 updateBoard={this.props.updateBoard}

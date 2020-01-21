@@ -10,9 +10,11 @@ import pageLoading from '../cmps/LoadPage';
 import BoardColumns from '../cmps/BoardColumns'
 import ColumnAddForm from '../cmps/ColumnAddForm'
 import Login from '../cmps/Login';
+import Filter from '../cmps/Filter';
+import TaskDetails from '../cmps/TaskDetails';
 
 import { loadBoard, createBoard, updateBoardOffline } from '../actions/BoardActions';
-import { logout } from '../actions/UserActions'
+import { logout } from '../actions/UserActions';
 
 class EmptyBoard extends Component {
 
@@ -109,6 +111,7 @@ class EmptyBoard extends Component {
           <div>
             {loginButton}
             {saveBoardButton}
+            <Filter onFilter={this.onFilter}/>
           </div>
         </div>
         {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
@@ -136,6 +139,12 @@ class EmptyBoard extends Component {
             </div>
           </div>
         </div>
+        {this.state.showTaskDetails && <TaskDetails
+          taskId={this.state.currTask.id}
+          board={this.props.board}
+          column={this.state.currTask.column}
+          updateBoard={this.props.updateBoard}
+          toggleTaskDetails={this.toggleTaskDetails} />}
       </div>
     )
   }

@@ -15,7 +15,7 @@ export default class Filter extends Component {
     }
 
     onFilterClick = () => {
-        this.props.onFilter(this.state.filterBy)
+        this.props.onFilter(this.state.filterBy);
     }
 
     render() {
