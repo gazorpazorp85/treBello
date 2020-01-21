@@ -50,7 +50,7 @@ export default class TaskDetails extends Component {
                     <textarea
                         name="description"
                         rows="10"
-                        cols="60"
+                        cols="40"
                         onInput={this.emitChange}
                         // onClick={this.onToggleSaveBtn}
                         defaultValue={task.description}

@@ -82,7 +82,7 @@ export default class TasksList extends Component {
                                         <NaturalDragAnimation
                                             style={provided.draggableProps.style}
                                             snapshot={snapshot}
-                                            rotationMultiplier={1}
+                                            rotationMultiplier={2}
                                         >
                                             {style => (
                                                 <div onClick={_ => this.props.toggleTaskDetails({ id: task.id, column: this.props.column })}
