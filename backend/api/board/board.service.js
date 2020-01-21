@@ -16,11 +16,11 @@ async function query() {
     }
 }
 
-async function getById(boardId) {
+async function getById(boardId, filterBy = {}) {
     const collection = await dbService.getCollection('board');
-
+   
     try {
-        const board = await collection.findOne({ "_id": ObjectId(boardId) })
+        const board = await collection.find({ "_id": {"$in" : ObjectId(boardId), "$eq": filterBy}})
         return board;
     } catch (err) {
         logger.error('ERROR: Cannot find board');

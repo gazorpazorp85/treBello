@@ -10,6 +10,7 @@ import pageLoading from '../cmps/LoadPage';
 import BoardColumns from '../cmps/BoardColumns'
 import ColumnAddForm from '../cmps/ColumnAddForm'
 import Login from '../cmps/Login';
+import Filter from '../cmps/Filter'
 
 import { loadBoard, updateBoard } from '../actions/BoardActions';
 import { logout } from '../actions/UserActions'
@@ -22,12 +23,16 @@ class Board extends Component {
     showForm: false,
     showTaskDetails: false,
     currTaskId: '',
-    toggleLogin: false
+    toggleLogin: false,
+    filterBy: {
+      title: ''
+    }
   }
 
   componentDidMount() {
     const boardId = this.props.match.params.id;
-    this.props.loadBoard(boardId);
+    const filterBy = this.state.filterBy;
+    this.props.loadBoard(boardId, filterBy);
     // SocketService.setup();
     // SocketService.emit('chat topic', this.state.topic);
     // SocketService.on('chat addMsg', this.addMsg);
@@ -71,6 +76,11 @@ class Board extends Component {
     }
   }
 
+  onFilter = (filterBy) => {
+    let boardId = this.props.board._id;
+    this.setState({ filterBy }, this.props.loadBoard(boardId, filterBy));
+  }
+
   render() {
 
     if (!this.props.board.columns) return pageLoading();
@@ -81,7 +91,7 @@ class Board extends Component {
       </Button>
     } else {
       button = <button className="empty-board-login-btn">
-        <div  onClick={this.toggleLogin}>LOGIN</div>
+        <div onClick={this.toggleLogin}>LOGIN</div>
       </button>
     }
 
@@ -96,7 +106,9 @@ class Board extends Component {
         </div>
 
         <div className="board-page-nav-bar-filters flex align-center">
-          {/* {this.props.loggedInUser && this.props.loggedInUser.username} {button} */}
+          {this.props.loggedInUser && this.props.loggedInUser.username}
+          {button}
+          <Filter onFilter={this.onFilter}/>
         </div>
         {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
         <div className="board-page-columns-container fill-height">

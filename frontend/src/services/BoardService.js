@@ -12,8 +12,8 @@ function query() {
   return HttpService.get('board');
 }
 
-function get(boardId) {
-  return HttpService.get(`board/${boardId}`);
+function get(boardId, filterBy) {
+  return HttpService.get(`board/${boardId}?title=${filterBy.title}`);
 }
 
 function put(board) {
