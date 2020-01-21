@@ -167,7 +167,7 @@ export default class BoardColumns extends Component {
                                         <NaturalDragAnimation
                                             style={provided.draggableProps.style}
                                             snapshot={snapshot}
-                                            rotationMultiplier={2}
+                                            rotationMultiplier={1.3}
                                         >
                                             {style => (
 
