@@ -229,6 +229,7 @@ export default class BoardColumns extends Component {
                                                                 column={column}
                                                                 toggleTaskDetails={this.props.toggleTaskDetails}
                                                                 updateBoard={this.props.updateBoard}
+                                                                toggleMiniDetails = {this.props.toggleMiniDetails}
                                                             >
                                                             </TasksList>
                                                         }}

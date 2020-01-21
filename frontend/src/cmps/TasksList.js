@@ -98,6 +98,7 @@ export default class TasksList extends Component {
                                                         onDelete={(ev) => this.onDelete(ev, task.id)}
                                                         onTaskId={this.state.onTaskId}
                                                         showEditBtn={this.state.showEditBtn}
+                                                        toggleMiniDetails = {this.props.toggleMiniDetails}
                                                     >
                                                     </DynamicComponent>
                                                 </div>
