@@ -2,7 +2,6 @@ import React from "react";
 import { withRouter } from "react-router";
 import { Link } from 'react-router-dom';
 
-
 import BoardPreview from "./BoardPreview";
 
 function BoardsList({ boards }) {

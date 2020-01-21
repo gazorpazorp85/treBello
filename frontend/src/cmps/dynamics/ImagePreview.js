@@ -7,8 +7,8 @@ import Card from '@material-ui/core/Card';
 
 export default class ImagePreview extends Component {
     state = {
-        width: 250,
-        height: 250
+        width: 220,
+        height: 220
     }
 
     componentDidMount() {
@@ -16,18 +16,21 @@ export default class ImagePreview extends Component {
     }
 
     setImageRatio = _ => {
-        const maxWidth = 250; // Max width for the image
-        const maxHeight = 250; // Max height for the image
-        let ratio = 0;  // Used for aspect ratio
+        const maxWidth = 220; // Max width for the image
+        const maxHeight = 220; // Max height for the image
         const img = new Image();
         img.onload = _ => {
             // Check if the current width is larger than the max
             if (img.width > img.height) {
-                ratio = maxWidth / img.width;   // get ratio for scaling image
-                this.setState({ width: maxWidth, height: img.height * ratio });
+                const heightRatio = maxHeight / img.height;   // get ratio for scaling image
+                const widthRatio = maxWidth / img.width;
+                const newWidth = img.width > maxWidth ? img.width * widthRatio : img.width;
+                this.setState({ width: newWidth, height: img.height * heightRatio });
             } else {  // Check if current height is larger than max
-                ratio = maxHeight / img.height; // get ratio for scaling image
-                this.setState({ width: img.width * ratio, height: maxHeight });
+                const heightRatio = maxHeight / img.height;   // get ratio for scaling image
+                const widthRatio = maxWidth / img.width;
+                const newHeight = img.height > maxHeight ? img.height * heightRatio : img.height;
+                this.setState({ width: img.width * widthRatio, height: newHeight });
             }
         }
         img.src = this.props.task.url;
