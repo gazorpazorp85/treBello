@@ -23,9 +23,6 @@ class EmptyBoard extends Component {
     showForm: false,
     isTaskDetailsOccupied: false,
     toggleLogin: false,
-    filterBy: {
-      title: ''
-    }
   }
 
   componentDidMount() {
@@ -78,7 +75,6 @@ class EmptyBoard extends Component {
   }
 
   onFilter = (filterBy) => {
-    // this.setState({ filterBy }, this.loadBoard);
     const boardId = this.props.match.params.id;
     this.props.loadBoard(boardId, filterBy);
   }
