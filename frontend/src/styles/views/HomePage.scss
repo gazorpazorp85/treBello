@@ -2,19 +2,23 @@
 
     &-login {
         color: whitesmoke;
-        background: #00000047;
+        background: #00000099;
         position: absolute;
         width: 100%;
         top: 0px;
         right: 0px;
-        padding: 4px;
-        
+        padding: 10px 20px;
+
         .MuiButtonBase-root {
-            font-size: rem(10px);
+            font-size: rem(16px);
             width: auto;
             color: rgba(250, 250, 250, 0.932);
             transition: 0.3s;
             margin-left: 5px;
+
+            .MuiButton-outlined {
+                padding: 15px 25px;
+            }
 
             &:hover {
                 background: rgba(255, 255, 255, 0.185);
@@ -27,6 +31,7 @@
         color: white;
     }
 
+    //header -----------------------
 
     &-header-container {
         background-image: url(../imags/header-bg.jpg);
@@ -34,7 +39,33 @@
         background-position-x: center;
         height: 75vh;
 
+        &-inner-container {
+            padding: 85px 100px 0px 90px;
+        }
+
+
+        &-about-compony-container {
+            &-logo {
+                width: 50%;
+            }
+
+            margin-left: 20px;
+
+            h1 {
+                text-shadow: 2px 2px 4px #000000;
+            }
+
+            p {
+                font-size: 1.3rem;
+                font-weight: 600;
+                font-family: montserratBold, 'sans-sarif';
+                color: white;
+                text-shadow: 2px 2px 4px #000000;
+            }
+        }
+
         &-logo {
+            margin-top: 30px;
             height: 150px;
             width: 370px;
 
@@ -48,27 +79,76 @@
         }
 
         .MuiFab-root {
-            background: none;
             color: white;
+            background: #1f1e1eb4;
+            box-shadow: rgba(255, 255, 255, 0.185);
+            transition: 0.4s;
+            padding: 15px 30px;
+
+            p{
+                font-size: 1.1rem;
+                font-weight: 600;
+            }
 
             &:hover {
-                background: rgba(145, 145, 145, 0.37);
+                background: #1f1e1ed7;
             }
         }
 
+        .MuiFab-extended {
+            height: auto;
+        }
+
         .get-started-btn {
-            padding-top: 35px;
+            padding-top: 50px;
         }
     }
 
-    &-boards-list-inspiration {
-        background: rgba(0, 0, 0, 0.842);
-        padding: 20px 0px;
+    // boards list -------------------------
 
-        .MuiSvgIcon-root {
-            margin-top: 15px;
-            background-color: none;
-            color: white;
+
+    &-boards-list {
+        background: rgba(0, 0, 0, 0.91);
+
+        &-start-new-board {
+            width: 60%;
+            margin: auto;
+            padding: 60px 30px;
+
+            &-card {
+                width: 250px;
+                height: 200px;
+                border: 3px dashed white;
+                border-radius: 4px;
+                margin: 10px;
+
+                h2 {
+                    font-weight: 600;
+                }
+            }
+
+            &-right-text {
+                margin-left: 20px;
+                font-size: 1.3rem;
+                font-weight: 600;
+                color: white;
+                width: 60%;
+
+            }
+        }
+
+
+
+
+        &-inspiration {
+            background: rgba(0, 0, 0, 0.842);
+            padding: 20px 0px;
+
+            .MuiSvgIcon-root {
+                margin-top: 15px;
+                background-color: none;
+                color: white;
+            }
         }
     }
 

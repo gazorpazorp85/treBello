@@ -4,7 +4,7 @@ const ObjectId = require('mongodb').ObjectId;
 const logger = require('../../services/logger.service')
 
 async function query() {
-    // const criteria = _buildCriteria(filterBy)
+
     const collection = await dbService.getCollection('board');
 
     try {
@@ -27,23 +27,24 @@ async function getById(boardId, filterBy = {}) {
         const unmatchedIds = [];
         if (filterBy.title) {
             for (const task in tasks) {
-                if (tasks[task].title.includes(filterBy.title)) {
-                    filteredTasks[task] = tasks[task];
-                }
-                else {
+                let title = tasks[task];
+                let lowerCaseFilterTitle = filterBy.title.toLowerCase();
+                let lowerCaseTitle = title.title.toLowerCase();
+                (lowerCaseTitle.includes(lowerCaseFilterTitle)) ?
+                    filteredTasks[task] = tasks[task] :
                     unmatchedIds.push(task);
-                }
             }
             for (const column in board.columns) {
                 for (const unmatchedId of unmatchedIds) {
-                    
-                    // if (column.taskIds.includes(unmatchedId))
-                    // column.taskIds = column.taskIds.filter(id => id !== unmatchedId);
+                    if (board.columns[column].taskIds.includes(unmatchedId))
+                    board.columns[column].taskIds = board.columns[column].taskIds.filter(id => id !== unmatchedId);
                 }
             }
-            delete board.tasks;
-            board.tasks = filteredTasks;
-            console.log(board.tasks);
+            console.log('board is the error');
+            console.log(board);
+            console.log('error');
+            // delete board.tasks;
+            // board.tasks = filteredTasks;
         }
         return board;
     } catch (err) {

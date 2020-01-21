@@ -58,36 +58,54 @@ class Home extends Component {
           }
           {button}
         </div>
-        
-          <Login 
-            variant="outlined"
-            className="home-page-login"
-            toggleLogin={this.toggleLogin}
-            toggleState={this.state.toggleLogin} />
+
+        <Login
+          variant="outlined"
+          className="home-page-login"
+          toggleLogin={this.toggleLogin}
+          toggleState={this.state.toggleLogin} />
 
         <div className="home-page-header-container">
-          <div className="fill-height flex column align-center justify-center">
+          <div className="home-page-header-container-inner-container fill-height fill-width flex column align-center">
+
             <div className="home-page-header-container-logo">
-              <div className="home-page-header-container-logo-img fill-width fill-height">
-              </div>
+              <div className="home-page-header-container-logo-img fill-width fill-height"> </div>
             </div>
-            <div className="fill-width flex justify-center get-started-btn">
+            <div className="get-started-btn">
               <Link to={'/board/getstarted'}>
                 <Fab variant="extended">
-                  <p>GET STARTED</p>
+                  <p>
+                    GET STARTED
+                    </p>
                 </Fab>
               </Link>
             </div>
+
           </div>
         </div>
+
       </section>
 
       <section className="home-page-boards-list">
+
+        <div className="home-page-boards-list-start-new-board flex justify-center">
+          <Link to={'/board/getstarted'}>
+            <div className="home-page-boards-list-start-new-board-card flex align-center justify-center">
+              <h2>+ ADD LIST</h2>
+            </div>
+          </Link>
+          <p className="home-page-boards-list-start-new-board-right-text">
+            We, in Trebello, believe that simplicity and style must go together,  
+            that's why we made our brand simple and <br /> easy to use for everyone.<br />
+            Organize your team and take them one step a head.</p>
+        </div>
+
         <div className="home-page-boards-list-inspiration text-center flex column align-center justify-center">
           <h2 >GET SOME INSPIRATION</h2>
           <ArrowDropDownCircleIcon className="home-page-list-inspiration-go-down-btn" />
         </div>
         <BoardsList boards={this.props.boards} />
+
       </section>
 
       <section className="home-page-footer flex column align-center justify-center">
@@ -126,7 +144,7 @@ class Home extends Component {
 
         </div>
       </section>
-    </div>
+    </div >
   }
 }
 

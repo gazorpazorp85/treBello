@@ -1,14 +1,22 @@
-.boards-grid-list-main-container {
-    padding: 40px 0px;
-    background-color: rgba(218, 218, 218, 0.432);
-}
+.boards-list {
 
-.boards-grid-list-inner-container {
-    padding: 15px 0px;
-}
+    background-color: rgba(0, 0, 0, 0.842);
 
-.MuiGridListTile-tile {
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.623), 0 3px 10px 0 rgba(0, 0, 0, 0.685);
-    border-radius: 2px;
-    cursor: pointer;
+    &-main-container {
+        overflow-x: auto;
+        padding: 30px 0;
+    }
+
+    &-main-inner-container {
+        padding: 30px 15px;
+
+        &-item {
+            width: 250px;
+            height: 200px;
+            border-radius: 4px;
+            margin: 0 10px;
+            padding: 5px;
+        }
+    }
+
 }

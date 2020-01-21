@@ -75,7 +75,6 @@ export default class TasksList extends Component {
             >
                 {(Object.keys(tasks).length !== 0) ?
                     <div>
-                        {console.log(tasks)}
                         {tasks.map((task, idx) => (
                             <div key={task.id}>
                                 <Draggable draggableId={task.id} index={idx}>
@@ -83,7 +82,7 @@ export default class TasksList extends Component {
                                         <NaturalDragAnimation
                                             style={provided.draggableProps.style}
                                             snapshot={snapshot}
-                                            rotationMultiplier={2}
+                                            rotationMultiplier={1.3}
                                         >
                                             {style => (
                                                 <div onClick={_ => this.props.toggleTaskDetails({ id: task.id, column: this.props.column })}

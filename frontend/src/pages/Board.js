@@ -107,7 +107,7 @@ class Board extends Component {
           <HomeIcon className="board-page-back-btn-icon" />
         </Button>
 
-        <div className="board-page-nav-bar flex justify-center align-center">
+        <div className="board-page-nav-bar flex justify-center">
           <div className="board-page-nav-bar-logo"> </div>
         </div>
 

@@ -22,7 +22,10 @@ class EmptyBoard extends Component {
     showAddColumn: true,
     showForm: false,
     isTaskDetailsOccupied: false,
-    toggleLogin: false
+    toggleLogin: false,
+    filterBy: {
+      title: ''
+    }
   }
 
   componentDidMount() {
@@ -32,7 +35,8 @@ class EmptyBoard extends Component {
       this.props.updateBoardOffline(sessionBoard);
     } else {
       const boardId = '5e2581b51c9d44000081af2a';
-      this.props.loadBoard(boardId);
+      const filterBy = this.state.filterBy;
+      this.props.loadBoard(boardId, filterBy);
     }
     // SocketService.setup();
     // SocketService.emit('chat topic', this.state.topic);
@@ -72,6 +76,13 @@ class EmptyBoard extends Component {
       this.setState(prevState => ({ showTaskDetails: !prevState.showTaskDetails }));
     }
   }
+
+  onFilter = (filterBy) => {
+    // this.setState({ filterBy }, this.loadBoard);
+    const boardId = this.props.match.params.id;
+    this.props.loadBoard(boardId, filterBy);
+  }
+
 
   saveBoard = async () => {
     let board = this.props.board;
