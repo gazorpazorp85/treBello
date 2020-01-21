@@ -1,8 +1,16 @@
 
 .task-details-container{
-    background-color: white;
     position: absolute;
-    width: 70vw;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & .task-details{
+      background-color: white;
+      position: absolute;
+      width: 70vw;  
+      z-index: 1;
+    }
 }
-
-

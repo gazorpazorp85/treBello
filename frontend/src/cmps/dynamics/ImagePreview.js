@@ -1,39 +1,67 @@
 import React, { Component } from "react";
-// import moment from 'moment';
 import CreateIcon from '@material-ui/icons/Create';
 import Card from '@material-ui/core/Card';
 
+// import moment from 'moment';
 // import 'moment/locale/es'
 
 export default class ImagePreview extends Component {
     state = {
-        width: 220,
-        height: 220
+        imgWidth: 220,
+        imgHeight: 220,
+        isMiniDetailsOn: false,
+        elTop: 0,
+        elLeft: 0,
+        elHeight: 0,
     }
 
     componentDidMount() {
-        this.setImageRatio();
+        this.setNewState();
     }
 
-    setImageRatio = _ => {
+    setNewState = _ => {
         const maxWidth = 220; // Max width for the image
         const maxHeight = 220; // Max height for the image
+        // const ref = this.props.task.id;
         const img = new Image();
         img.onload = _ => {
             // Check if the current width is larger than the max
             if (img.width > img.height) {
                 const heightRatio = maxHeight / img.height;   // get ratio for scaling image
-                const widthRatio = maxWidth / img.width;
-                const newWidth = img.width > maxWidth ? img.width * widthRatio : img.width;
-                this.setState({ width: newWidth, height: img.height * heightRatio });
+                const newWidth = img.width > maxWidth ? maxWidth : img.width;
+                this.setState({
+                    imgWidth: newWidth,
+                    imgHeight: img.height * heightRatio,
+                    elTop: this.refs.ref.getBoundingClientRect().top + 1,
+                    elLeft: this.refs.ref.getBoundingClientRect().left,
+                    elHeight: this.refs.ref.getBoundingClientRect().height - 1
+                });
             } else {  // Check if current height is larger than max
-                const heightRatio = maxHeight / img.height;   // get ratio for scaling image
                 const widthRatio = maxWidth / img.width;
-                const newHeight = img.height > maxHeight ? img.height * heightRatio : img.height;
-                this.setState({ width: img.width * widthRatio, height: newHeight });
+                const newHeight = img.height > maxHeight ? maxHeight : img.height;
+                this.setState({
+                    imgWidth: img.width * widthRatio,
+                    imgHeight: newHeight,
+                    elTop: this.refs.ref.getBoundingClientRect().top + 1,
+                    elLeft: this.refs.ref.getBoundingClientRect().left,
+                    elHeight: this.refs.ref.getBoundingClientRect().height - 1
+                });
             }
         }
         img.src = this.props.task.url;
+    }
+
+    toggleMiniDetails = ev => {
+        ev.stopPropagation();
+
+        // const pos = { left: ev.clientX, top: ev.clientY };
+        // const pos = {left: this.state.left, top: this.state.top}
+        const pos = {
+            left: this.state.elLeft,
+            top: this.state.elTop,
+            height: this.state.elHeight
+        }
+        this.props.toggleMiniDetails(pos);
     }
 
 
@@ -42,7 +70,7 @@ export default class ImagePreview extends Component {
         // const dueDateFormat = new Date(task.dueDate).toString();
         const { task, provided, innerRef, isDragging, style, onDelete, showEditBtn, onTaskId } = this.props;
         return (
-            <section>
+            <section ref="ref">
                 <Card
                     className={"task-container" + (isDragging ? " isDragging" : "")}
                     {...provided.draggableProps}
@@ -51,11 +79,11 @@ export default class ImagePreview extends Component {
                     style={style}
                 >
                     <p>{task.title}</p>
-                    <img title={task.id} alt="task" width={this.state.width} height={this.state.height} src={task.url} />
+                    <img title={task.id} alt="task" width={this.state.imgWidth} height={this.state.imgHeight} src={task.url} />
                     {(showEditBtn && (onTaskId === task.id)) ?
                         <div className="task-container-open-menu-wrapper flex align-center justify-center">
                             <CreateIcon className="task-container-open-menu"
-                                onClick={onDelete} />
+                                onClick={e => this.toggleMiniDetails(e)} />
                         </div>
                         : ''}
                 </Card>

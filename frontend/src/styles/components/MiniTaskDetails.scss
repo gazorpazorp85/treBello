@@ -1,0 +1,18 @@
+.mini-task-details-container{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    & .mini-task-details{
+        background-color: white;
+        width: 256px;
+        position: relative;
+        border-radius: 4px;
+        border: 1px solid #d5d5d5c9;
+        z-index: 1;
+
+        &-save-btn{
+            position: relative;
+            z-index: 1;
+        }
+    }
+}

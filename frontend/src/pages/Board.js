@@ -12,6 +12,7 @@ import ColumnAddForm from '../cmps/ColumnAddForm'
 import Login from '../cmps/Login';
 import Filter from '../cmps/Filter';
 import TaskDetails from '../cmps/TaskDetails';
+import MiniTaskDetails from '../cmps/MiniTaskDetails';
 
 import { loadBoard, updateBoard } from '../actions/BoardActions';
 import { logout } from '../actions/UserActions';
@@ -23,6 +24,7 @@ class Board extends Component {
     showAddColumn: true,
     showForm: false,
     showTaskDetails: false,
+    showMiniTaskDetails: false,
     currTaskId: '',
     toggleLogin: false,
     filterBy: {
@@ -82,10 +84,17 @@ class Board extends Component {
   }
 
   onFilter = (filterBy) => {
-    // this.setState({ filterBy }, this.loadBoard);
     const boardId = this.props.match.params.id;
     this.props.loadBoard(boardId, filterBy);
   }
+
+  toggleMiniDetails = pos => {
+    if(pos){
+      return this.setState(prevState => ({ showMiniTaskDetails: !prevState.showMiniTaskDetails, miniTaskDetailsPos: pos }));
+    }
+    this.setState(prevState => ({ showMiniTaskDetails: !prevState.showMiniTaskDetails}));
+  }
+
 
   render() {
 
@@ -128,7 +137,8 @@ class Board extends Component {
               <BoardColumns
                 board={this.props.board}
                 updateBoard={this.props.updateBoard}
-                toggleTaskDetails={this.toggleTaskDetails} />
+                toggleTaskDetails={this.toggleTaskDetails}
+                toggleMiniDetails = {this.toggleMiniDetails} />
               <div className="flex column align-center">
                 {(this.state.showAddColumn) ?
                   <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}>
@@ -145,7 +155,9 @@ class Board extends Component {
           board={this.props.board}
           column={this.state.currTask.column}
           updateBoard={this.props.updateBoard}
-          toggleTaskDetails={this.toggleTaskDetails} />}
+          toggleTaskDetails={this.toggleTaskDetails}/>}
+        {this.state.showMiniTaskDetails && <MiniTaskDetails pos={this.state.miniTaskDetailsPos} 
+        onToggle={this.toggleMiniDetails} />}
       </div>
     )
   }

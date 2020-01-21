@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+
 import TaskForm from './TaskForm';
+import ScreenFilter from './ScreenFilter';
 
 export default class TaskDetails extends Component {
     state = {
@@ -39,39 +41,40 @@ export default class TaskDetails extends Component {
         const { column } = this.props;
 
         return (
-                <div className="task-details-container">
-                    <header className="task-details-container-header">
-                        <h2>{task.title}</h2>
-                        <p>in list {column.title}</p>
-                    </header>
+            <div className="task-details-container">
+                <header className="task-details-container-header">
+                    <h2>{task.title}</h2>
+                    <p>in list {column.title}</p>
+                </header>
 
-                    <div className="task-details-container-level">
-                        <p>lebels</p>
-                    </div>
-
-                    <main>
-                        <h3>Description</h3>
-                        <textarea
-                            name="description"
-                            rows="10"
-                            cols="40"
-                            onInput={this.emitChange}
-                            // onClick={this.onToggleSaveBtn}
-                            defaultValue={task.description}
-                            placeholder="Add a more detailed description...">
-                        </textarea>
-                        {/* {!this.state.saveBtnHidden && <button onClick={this.onSave}>Save</button>} */}
-                    </main>
-
-                    <TaskForm
-                        board={this.props.board}
-                        column={column}
-                        task={task}
-                        updateBoard={this.props.updateBoard}
-                        toggleTaskDetails={this.props.toggleTaskDetails}
-                        description={this.state.description}
-                    />
+                <div className="task-details-container-level">
+                    <p>labels</p>
                 </div>
+
+                <main>
+                    <h3>Description</h3>
+                    <textarea
+                        name="description"
+                        rows="10"
+                        cols="40"
+                        onInput={this.emitChange}
+                        // onClick={this.onToggleSaveBtn}
+                        defaultValue={task.description}
+                        placeholder="Add a more detailed description...">
+                    </textarea>
+                    {/* {!this.state.saveBtnHidden && <button onClick={this.onSave}>Save</button>} */}
+                </main>
+
+                <TaskForm
+                    board={this.props.board}
+                    column={column}
+                    task={task}
+                    updateBoard={this.props.updateBoard}
+                    toggleTaskDetails={this.props.toggleTaskDetails}
+                    description={this.state.description}
+                />
+                <ScreenFilter onToggle={this.props.toggleTaskDetails} />
+            </div>
         )
     }
 }
