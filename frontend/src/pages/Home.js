@@ -68,18 +68,18 @@ class Home extends Component {
         <div className="home-page-header-container">
           <div className="home-page-header-container-inner-container fill-height fill-width flex column align-center">
 
-              <div className="home-page-header-container-logo">
-                <div className="home-page-header-container-logo-img fill-width fill-height"> </div>
-              </div>
-              <div className="get-started-btn">
-                <Link to={'/board/getstarted'}>
-                  <Fab variant="extended">
-                    <p>
-                      GET STARTED
+            <div className="home-page-header-container-logo">
+              <div className="home-page-header-container-logo-img fill-width fill-height"> </div>
+            </div>
+            <div className="get-started-btn">
+              <Link to={'/board/getstarted'}>
+                <Fab variant="extended">
+                  <p>
+                    GET STARTED
                     </p>
-                  </Fab>
-                </Link>
-              </div>
+                </Fab>
+              </Link>
+            </div>
 
           </div>
         </div>
@@ -95,9 +95,9 @@ class Home extends Component {
             </div>
           </Link>
           <p className="home-page-boards-list-start-new-board-right-text">
-            we are in Trebello , belive that simplicity and style must go together ,
-          so made our brand simple and easy to use , with the style of grey relax colors ,
-                take your team by orginize one step a head now .</p>
+            We, in Trebello, believe that simplicity and style must go together,  
+            that's why we made our brand simple and <br /> easy to use for everyone.<br />
+            Organize your team and take them one step a head.</p>
         </div>
 
         <div className="home-page-boards-list-inspiration text-center flex column align-center justify-center">
