@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import CreateIcon from '@material-ui/icons/Create';
-// import moment from 'moment';
-// import 'moment/locale/es'
-// import Card from '@material-ui/core/Card';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 
 export default class TaskPreview extends Component {

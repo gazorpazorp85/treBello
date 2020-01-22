@@ -37,6 +37,8 @@
         background-image: url(../images/header-bg.jpg);
         background-size: cover;
         background-position-x: center;
+        background-blend-mode: multiply;
+        background-color: #0000002e;
         height: 75vh;
 
         &-inner-container {
@@ -108,11 +110,11 @@
 
 
     &-boards-list {
-        background: rgba(0, 0, 0, 0.91);
+        background: rgb(0, 0, 0);
+        padding-bottom: 50px;
 
         &-start-new-board {
             max-width: 660px;
-            margin: auto;
             padding: 60px 0px;
 
             &-card {
@@ -136,7 +138,7 @@
             &-right-text {
                 text-align: justify;
                 margin-left: 20px;
-                font-size: 1.1rem;
+                font-size: 1rem;
                 color: white;
                 width: 60%;
             }
@@ -198,7 +200,7 @@
             &-member-img {
                 height: 150px;
                 width: 150px;
-                border-radius: 100%;
+                border-radius: 50%;
                 transition: 0.2s;
 
                 &.vlad {
