@@ -19,6 +19,7 @@ export default class DynamicComponent extends Component {
         const Cmp = this.getComponent();
         return <React.Fragment>
             <Cmp
+                column={this.props.column}
                 provided={this.props.provided}
                 innerRef={this.props.innerRef}
                 task={this.props.task}

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import Labels from './Labels'
-import TaskForm from './TaskForm';
-import ScreenFilter from './ScreenFilter'
+// import TaskForm from './TaskForm';
+// import ScreenFilter from './ScreenFilter'
 
 // icons 
 import TitleIcon from '@material-ui/icons/Title';
@@ -151,7 +151,7 @@ export default class TaskDetails extends Component {
                             <p className="text-center">ADD TO CARD</p>
                             <div className="task-details-container-add-to-card-options flex column">
                                 <button className="task-details-container-add-to-card-options-btn btn" >Members</button>
-                                <button className="task-details-container-add-to-card-options-btn btn" onClick={(ev) => this.toggleChooseLabels(ev)} >Lebels</button>
+                                <button className="task-details-container-add-to-card-options-btn btn" onClick={(ev) => this.toggleChooseLabels(ev)} >Labels</button>
                                 <button className="task-details-container-add-to-card-options-btn btn" >Check List</button>
                                 <button className="task-details-container-add-to-card-options-btn btn" >Due date</button>
                                 <button className="task-details-container-add-to-card-options-btn btn" >Img</button>

@@ -98,7 +98,7 @@ class Board extends Component {
 
   onAddImg = (ev) => {
     debugger
-    const file = ev.target.files[0];
+    // const file = ev.target.files[0];
     // this.setState({ isUploading: true }, () => {
     // utils.uploadImg(file).then(res => {
     // const board = { ...this.props.board.columns }

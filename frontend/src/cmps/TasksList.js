@@ -93,6 +93,7 @@ export default class TasksList extends Component {
                                                         provided={provided}
                                                         innerRef={provided.innerRef}
                                                         task={task}
+                                                        column={this.props.column}
                                                         isDragging={snapshot.isDragging}
                                                         style={style}
                                                         onTaskId={this.state.onTaskId}

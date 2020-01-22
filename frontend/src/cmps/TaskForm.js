@@ -108,7 +108,7 @@ export default class TaskForm extends Component {
 
                     <textarea type="text"
                         onKeyUp={this.textAreaAdjust}
-                        placeholder="+ Add a task title or youtube URL"
+                        placeholder="Add a task title..."
                         name="title"
                         ref={(input) => { this.nameInput = input; }}
                         onChange={this.inputChange} value={this.state.task.title} />

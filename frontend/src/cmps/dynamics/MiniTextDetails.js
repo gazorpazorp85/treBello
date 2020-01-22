@@ -45,6 +45,13 @@ export default class MiniTextDetails extends Component {
                     height: miniTask.height + 'px'
                 }}
             >
+                <div className="task-container-labels flex">
+                    {miniTask.task.labels.map(label => {
+                        return <div key={label} className={label + ' small-label'}>
+                        </div>
+                    })
+                    }
+                </div>
                 <textarea
                     name="title"
                     className="text-area"
@@ -53,7 +60,7 @@ export default class MiniTextDetails extends Component {
                     onFocus={this.handleFocus}
                     onInput={this.emitChange}
                     placeholder="Add a task title..."
-                >
+                >                   
                 </textarea>
             </div>
             <button
@@ -64,7 +71,12 @@ export default class MiniTextDetails extends Component {
                 }}
                 onClick={this.onSave}
             >SAVE</button>
-            <MiniDetailsEditor miniTask={this.props.miniTask}/>
+            <MiniDetailsEditor
+                miniTask={this.props.miniTask}
+                board={this.props.board}
+                updateBoard={this.props.updateBoard}
+                onToggle={this.props.onToggle}
+            />
             <ScreenFilter onToggle={this.props.onToggle} />
         </div >
     }
