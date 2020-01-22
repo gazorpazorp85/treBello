@@ -57,7 +57,10 @@ export default class ImagePreview extends Component {
             task: this.props.task,
             left: this.state.elLeft,
             top: this.state.elTop,
-            height: this.state.elHeight
+            height: this.state.elHeight,
+            imgHeight: this.state.imgHeight,
+            imgWidth: this.state.imgWidth,
+            previewType: 'image'
         };
         this.props.toggleMiniDetails(miniTask);
     }

@@ -3,15 +3,40 @@
     margin: 0 auto;
     padding-left: 10px;
     padding-right: 10px;
-    
+
     @include for-narrow-layout {
         max-width: $mobile-breakpoint;
     }
+
     @include for-normal-layout {
         max-width: $narrow-breakpoint;
     }
+
     @include for-wide-layout {
         max-width: $normal-breakpoint;
     }
 }
 
+.large-label {
+    cursor: pointer;
+    margin: 3px 5px;
+    height: 30px;
+    width: 100%;
+    border-radius: 2px;
+}
+
+.medium-label {
+    cursor: pointer;
+    margin: 3px;
+    height: 15px;
+    width: 30px;
+    border-radius: 2px;
+}
+
+.small-label {
+    cursor: pointer;
+    margin: 1px 2px;
+    height: 15px;
+    width: 25%;
+    border-radius: 2px;
+}

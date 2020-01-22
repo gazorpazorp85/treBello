@@ -32,7 +32,8 @@ export default class VideoPreview extends Component {
             task: this.props.task,
             left: this.state.elLeft,
             top: this.state.elTop,
-            height: this.state.elHeight
+            height: this.state.elHeight,
+            previewType: 'video'
         };
         this.props.toggleMiniDetails(miniTask);
     }

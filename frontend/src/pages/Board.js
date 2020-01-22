@@ -13,7 +13,7 @@ import Login from '../cmps/Login';
 import Filter from '../cmps/Filter';
 import Sort from '../cmps/Sort';
 import TaskDetails from '../cmps/TaskDetails';
-import MiniTaskDetails from '../cmps/MiniTaskDetails';
+import DynamicMiniComponent from '../cmps/dynamics/DynamicMiniComponent';
 
 import { loadBoard, updateBoard } from '../actions/BoardActions';
 import { logout } from '../actions/UserActions';
@@ -27,6 +27,8 @@ class Board extends Component {
     showTaskDetails: false,
     showMiniTaskDetails: false,
     currTaskId: '',
+    toggleUploadBgImg: false,
+    isUploading: false,
     toggleLogin: false,
     miniTaskDetails: {},
     filterBy: {
@@ -89,6 +91,36 @@ class Board extends Component {
     }
   }
 
+  toggleUploadBgImg = () => {
+    debugger
+    this.setState(prevState => ({ toggleUploadBgImg: !prevState.toggleUploadBgImg }))
+  }
+
+  onAddImg = (ev) => {
+    debugger
+    const file = ev.target.files[0];
+    // this.setState({ isUploading: true }, () => {
+    // utils.uploadImg(file).then(res => {
+    // const board = { ...this.props.board.columns }
+    // const newBoard = {
+    //     ...this.props.board,
+    //     columns: {
+    //         ...this.props.board.columns,
+
+    //         [this.state.column.id]: this.state.column
+    // .imgUrl = res we need to update the board
+    //     }
+    // };
+    // const id = this.state.column.id;
+    // const columnOrder = newBoard.columnOrder;
+    // if (!columnOrder.includes(id)) columnOrder.push(id);
+    // this.props.updateBoard(newBoard);
+
+    // this.setState({ isUploading: false })
+    // })
+    // })
+  }
+
   onFilter = (filterBy) => {
     this.setState({ filterBy }, this.loadBoard);
   }
@@ -137,41 +169,51 @@ class Board extends Component {
         </div>
         {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
         <div className="board-page-columns-container fill-height">
-          <div>
-            <div className="flex align-start">
-              <Login
-                variant="outlined"
-                className="home-page-login"
-                toggleLogin={this.toggleLogin}
-                toggleState={this.state.toggleLogin} />
-              <BoardColumns
-                board={this.props.board}
-                updateBoard={this.props.updateBoard}
-                toggleTaskDetails={this.toggleTaskDetails}
-                toggleMiniDetails={this.toggleMiniDetails} />
-              <div className="flex column align-center">
-                {(this.state.showAddColumn) ?
-                  <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}>
-                    + Add another list..  </button> : ''
-                }
-                {(this.state.showForm) && <ColumnAddForm board={this.props.board} updateBoard={this.props.updateBoard}
-                  toggleAddForm={this.toggleAddForm} />}
-              </div>
+
+          <div className="flex align-start">
+            <Login
+              variant="outlined"
+              className="home-page-login"
+              toggleLogin={this.toggleLogin}
+              toggleState={this.state.toggleLogin} />
+            <BoardColumns
+              board={this.props.board}
+              updateBoard={this.props.updateBoard}
+              toggleTaskDetails={this.toggleTaskDetails}
+              toggleMiniDetails={this.toggleMiniDetails} />
+            <div className="flex column align-center">
+              {(this.state.showAddColumn) ?
+                <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}>
+                  + Add another list..  </button> : ''
+              }
+              {(this.state.showForm) && <ColumnAddForm board={this.props.board} updateBoard={this.props.updateBoard}
+                toggleAddForm={this.toggleAddForm} />}
             </div>
           </div>
         </div>
+
         {this.state.showTaskDetails && <TaskDetails
           taskId={this.state.currTask.id}
           board={this.props.board}
           column={this.state.currTask.column}
           updateBoard={this.props.updateBoard}
           toggleTaskDetails={this.toggleTaskDetails} />}
-        {this.state.showMiniTaskDetails && <MiniTaskDetails
+        {this.state.showMiniTaskDetails && <DynamicMiniComponent
           miniTask={this.state.miniTaskDetails}
           updateBoard={this.props.updateBoard}
           onToggle={this.toggleMiniDetails}
           board={this.props.board}
         />}
+
+        {!this.state.toggleUploadBgImg ?
+          <button className="add-bg-photo" onClick={this.toggleUploadBgImg}>ADD BG PHOTO</button>
+          :
+          <div className="upload-img-container">
+            add image:<input type="file" id="upload-img" onChange={this.onAddImg}></input>
+          </div>
+        }
+
+
       </div>
     )
   }

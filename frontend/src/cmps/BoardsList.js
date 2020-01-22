@@ -10,7 +10,7 @@ function BoardsList({ boards }) {
 
     return (
         <section className="boards-list">
-            <div className="boards-list-main-container flex justify-center">
+            <div className="boards-list-main-container flex">
                 <div className="boards-list-main-inner-container flex">
                     {newBoards.map(board => (
                         <Link className="boards-list-main-inner-container-item" key={board._id} to={`/board/${board._id}`}>

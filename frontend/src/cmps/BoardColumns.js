@@ -185,7 +185,6 @@ export default class BoardColumns extends Component {
                                                                 spellCheck="false"
                                                                 onInput={(ev) => this.emitChange(ev, column.id)}
                                                                 suppressContentEditableWarning={true}
-                                                                style={{ width: (column.title.length * 12) + 'px' }}
                                                             >
                                                                 {column.title}
                                                             </h2>

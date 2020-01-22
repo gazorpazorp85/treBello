@@ -34,7 +34,7 @@
     //header -----------------------
 
     &-header-container {
-        background-image: url(../imags/header-bg.jpg);
+        background-image: url(../images/header-bg.jpg);
         background-size: cover;
         background-position-x: center;
         height: 75vh;
@@ -70,7 +70,7 @@
             width: 370px;
 
             &-img {
-                background-image: url(../imags/logo.png);
+                background-image: url(../images/logo.png);
                 background-size: contain;
                 background-repeat: no-repeat;
                 height: 100%;
@@ -85,7 +85,7 @@
             transition: 0.4s;
             padding: 15px 30px;
 
-            p{
+            p {
                 font-size: 1.1rem;
                 font-weight: 600;
             }
@@ -111,9 +111,9 @@
         background: rgba(0, 0, 0, 0.91);
 
         &-start-new-board {
-            width: 60%;
+            max-width: 660px;
             margin: auto;
-            padding: 60px 30px;
+            padding: 60px 0px;
 
             &-card {
                 width: 250px;
@@ -123,18 +123,24 @@
                 margin: 10px;
 
                 h2 {
-                    font-weight: 600;
+                    font-size: 1.2rem;
+
+                }
+
+                small {
+                    color: white;
+
                 }
             }
 
             &-right-text {
+                text-align: justify;
                 margin-left: 20px;
-                font-size: 1.3rem;
-                font-weight: 600;
+                font-size: 1.1rem;
                 color: white;
                 width: 60%;
-
             }
+
         }
 
 
@@ -182,6 +188,7 @@
 
         &-team-member-card {
             margin: 0 10px;
+            padding-bottom: 50px;
 
             a {
                 color: inherit;
@@ -189,42 +196,27 @@
 
 
             &-member-img {
-                height: 100px;
-                width: 90px;
+                height: 150px;
+                width: 150px;
                 border-radius: 100%;
-                transition: 0.7s;
+                transition: 0.2s;
 
                 &.vlad {
-                    background-image: url(../imags/team/Vlad.jpg);
+                    background-image: url(../images/team/Vlad.jpg);
                     background-size: contain;
                     background-repeat: no-repeat;
-
-                    &:hover {
-                        height: 120px;
-                        width: 110px;
-                    }
                 }
 
                 &.margad {
-                    background-image: url(../imags/team/Margad.jpg);
+                    background-image: url(../images/team/Margad.jpg);
                     background-size: contain;
                     background-repeat: no-repeat;
-
-                    &:hover {
-                        height: 120px;
-                        width: 110px;
-                    }
                 }
 
                 &.paolo {
-                    background-image: url(../imags/team/Paolo.jpg);
+                    background-image: url(../images/team/Paolo.jpg);
                     background-size: contain;
                     background-repeat: no-repeat;
-
-                    &:hover {
-                        height: 120px;
-                        width: 110px;
-                    }
                 }
             }
         }

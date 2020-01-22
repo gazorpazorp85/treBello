@@ -15,22 +15,15 @@ export default class DynamicComponent extends Component {
         return mapDynamicComponents[this.state.componentType];
     }
 
-    onDelete = ev => {
-        ev.stopPropagation();
-        this.props.onDelete(this.props.task.id);
-    }
-
     render() {
         const Cmp = this.getComponent();
         return <React.Fragment>
-            
             <Cmp
                 provided={this.props.provided}
                 innerRef={this.props.innerRef}
                 task={this.props.task}
                 isDragging={this.props.isDragging}
                 style={this.props.style}
-                onDelete={this.onDelete}                                                       
                 onTaskId={this.props.onTaskId}
                 showEditBtn={this.props.showEditBtn}
                 toggleMiniDetails = {this.props.toggleMiniDetails}
