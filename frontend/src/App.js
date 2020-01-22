@@ -12,7 +12,6 @@ import EmptyBoard from './pages/EmptyBoard.js'
 
 function App() {
   return (
-    <div>
       <Router history={history}>
         <Switch>
           <Route path="/" component={Home} exact />
@@ -20,7 +19,6 @@ function App() {
           <Route path="/board/:id" component={Board} exact />
         </Switch>
       </Router>
-    </div>
   );
 }
 

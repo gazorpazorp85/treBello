@@ -12,7 +12,7 @@ import ColumnAddForm from '../cmps/ColumnAddForm'
 import Login from '../cmps/Login';
 import Filter from '../cmps/Filter';
 import TaskDetails from '../cmps/TaskDetails';
-import MiniTaskDetails from '../cmps/MiniTaskDetails';
+import DynamicMiniComponent from '../cmps/dynamics/DynamicMiniComponent';
 
 import { loadBoard, updateBoard } from '../actions/BoardActions';
 import { logout } from '../actions/UserActions';
@@ -160,35 +160,40 @@ class Board extends Component {
         </div>
         {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
         <div className="board-page-columns-container fill-height">
-          <div>
-            <div className="flex align-start">
-              <Login
-                variant="outlined"
-                className="home-page-login"
-                toggleLogin={this.toggleLogin}
-                toggleState={this.state.toggleLogin} />
-              <BoardColumns
-                board={this.props.board}
-                updateBoard={this.props.updateBoard}
-                toggleTaskDetails={this.toggleTaskDetails}
-                toggleMiniDetails={this.toggleMiniDetails} />
-              <div className="flex column align-center">
-                {(this.state.showAddColumn) ?
-                  <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}>
-                    + Add another list..  </button> : ''
-                }
-                {(this.state.showForm) && <ColumnAddForm board={this.props.board} updateBoard={this.props.updateBoard}
-                  toggleAddForm={this.toggleAddForm} />}
-              </div>
+
+          <div className="flex align-start">
+            <Login
+              variant="outlined"
+              className="home-page-login"
+              toggleLogin={this.toggleLogin}
+              toggleState={this.state.toggleLogin} />
+            <BoardColumns
+              board={this.props.board}
+              updateBoard={this.props.updateBoard}
+              toggleTaskDetails={this.toggleTaskDetails}
+              toggleMiniDetails={this.toggleMiniDetails} />
+            <div className="flex column align-center">
+              {(this.state.showAddColumn) ?
+                <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}>
+                  + Add another list..  </button> : ''
+              }
+              {(this.state.showForm) && <ColumnAddForm board={this.props.board} updateBoard={this.props.updateBoard}
+                toggleAddForm={this.toggleAddForm} />}
             </div>
           </div>
         </div>
+
         {this.state.showTaskDetails && <TaskDetails
           taskId={this.state.currTask.id}
           board={this.props.board}
           column={this.state.currTask.column}
           updateBoard={this.props.updateBoard}
-          toggleTaskDetails={this.toggleTaskDetails}
+          toggleTaskDetails={this.toggleTaskDetails} />}
+        {this.state.showMiniTaskDetails && <DynamicMiniComponent
+          miniTask={this.state.miniTaskDetails}
+          updateBoard={this.props.updateBoard}
+          onToggle={this.toggleMiniDetails}
+          board={this.props.board}
         />}
 
         {!this.state.toggleUploadBgImg ?

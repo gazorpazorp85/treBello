@@ -43,7 +43,6 @@ export default class TaskDetails extends Component {
     onStopPropagationAndCloseOptions = (ev) => {
         ev.stopPropagation();
         this.setState({
-            showEditDescriptionForm: false,
             toggleChooseLabels: false
         })
     }

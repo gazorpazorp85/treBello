@@ -95,7 +95,6 @@ export default class TasksList extends Component {
                                                         task={task}
                                                         isDragging={snapshot.isDragging}
                                                         style={style}
-                                                        onDelete={(ev) => this.onDelete(ev, task.id)}
                                                         onTaskId={this.state.onTaskId}
                                                         showEditBtn={this.state.showEditBtn}
                                                         toggleMiniDetails = {this.props.toggleMiniDetails}
@@ -110,7 +109,7 @@ export default class TasksList extends Component {
                         ))}
                         {provided.placeholder}
                         <div className="board-column-footer">
-                            <p className="board-column-footer-add-task" onClick={() => this.toggleUpdateForm('')}> + Add task or youtube URL </p>
+                            <p className="board-column-footer-add-task" onClick={() => this.toggleUpdateForm('')}> + Add a task </p>
                             {(this.state.showAddForm) &&
                                 <TaskForm
                                     board={this.props.board}
@@ -124,7 +123,7 @@ export default class TasksList extends Component {
                     <div className="board-column-footer">
                         <p className="board-column-footer-add-task"
                             onClick={() => this.toggleUpdateForm('')}>
-                            + Add task or youtube URL  </p>
+                            + Add a task</p>
 
                         {(this.state.showAddForm) &&
                             <TaskForm

@@ -31,7 +31,8 @@ export default class TaskPreview extends Component {
             task: this.props.task,
             left: this.state.elLeft,
             top: this.state.elTop,
-            height: this.state.elHeight
+            height: this.state.elHeight,
+            previewType: 'text'
         };
         this.props.toggleMiniDetails(miniTask);
     }
@@ -63,10 +64,10 @@ export default class TaskPreview extends Component {
                                 onClick={e => this.toggleMiniDetails(e)} />
                         </div>
                         : ''}
+                    {(task.description !== '') ?
+                        <ListAltIcon /> : ''
+                    }
                 </div>
-                {(task.description !== '') ?
-                    <ListAltIcon /> : ''
-                }
 
 
             </section>
