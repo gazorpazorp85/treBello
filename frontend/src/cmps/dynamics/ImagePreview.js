@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CreateIcon from '@material-ui/icons/Create';
-import Card from '@material-ui/core/Card';
+
 
 // import moment from 'moment';
 // import 'moment/locale/es'
@@ -73,8 +73,8 @@ export default class ImagePreview extends Component {
         const { task, provided, innerRef, isDragging, style, showEditBtn, onTaskId } = this.props;
         return (
             <section ref="ref">
-                <Card
-                    className={"task-container" + (isDragging ? " isDragging" : "")}
+                <div
+                    className={"task-container flex column align center" + (isDragging ? " isDragging" : "")}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     ref={innerRef}
@@ -88,7 +88,7 @@ export default class ImagePreview extends Component {
                                 onClick={e => this.toggleMiniDetails(e)} />
                         </div>
                         : ''}
-                </Card>
+                </div>
             </section>
         )
     }
