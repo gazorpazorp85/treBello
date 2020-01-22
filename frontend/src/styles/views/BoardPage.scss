@@ -68,8 +68,10 @@
   }
 
   &-columns-container {
-    overflow: auto;
+    flex-grow: 1;
+    overflow-x: auto;
     margin: 0 3px;
+    padding-bottom: 5px;
   }
 
   .add-bg-photo {

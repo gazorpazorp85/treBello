@@ -1,7 +1,7 @@
 @import "./typography.scss";
 
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 8px;
     height: 10px;
 
 }
@@ -10,13 +10,13 @@
 ::-webkit-scrollbar-track {
     border-radius: 10px;
 
-    background-color: #b3b3b39d;
+    background-color: #e2e2e2cc;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-image: linear-gradient(-86deg, #999999 0%, #474747 100%);
+    background-image: linear-gradient(-86deg, #ffffff 0%, #0a0a0a 100%);
 }
 
 * {

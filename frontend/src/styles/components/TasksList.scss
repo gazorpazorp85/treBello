@@ -1,5 +1,9 @@
-.board-column {
+.task-list {
+    overflow-y: auto;
+    padding-right: 5px;
+
     &-footer {
+        padding-top: 5px;
 
         &-add-task {
             margin: 3px;
@@ -12,6 +16,7 @@
                 background: rgba(124, 124, 124, 0.288);
             }
         }
+
     }
 
     &.isDraggingOver {

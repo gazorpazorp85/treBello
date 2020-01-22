@@ -9,25 +9,9 @@ export default class TasksList extends Component {
 
     state = {
         showAddForm: false,
-        showEditForm: false,
-        showEditBtn: true,
         currTaskId: '',
         onTaskId: '',
         showTaskDetails: false
-    }
-
-    toggleUpdateForm = (id) => {
-        if (id) {
-            this.setState((prevState) => ({
-                showEditForm: !prevState.showEditForm, currTaskId: id,
-                showAddFormButton: !prevState.showAddFormButton
-            }))
-        } else {
-            this.setState((prevState) => ({
-                showAddForm: !prevState.showAddForm,
-                showAddFormButton: !prevState.showAddFormButton
-            }))
-        }
     }
 
     onDelete = (id) => {
@@ -69,11 +53,10 @@ export default class TasksList extends Component {
         const { tasks, provided, innerRef, isDraggingOver } = this.props;
         return (
             <section
-                className={"board-column" + (isDraggingOver ? " isDraggingOver" : "")}
+                className={"task-list" + (isDraggingOver ? " isDraggingOver" : "")}
                 {...provided.droppableProps}
                 ref={innerRef}
             >
-                {(Object.keys(tasks).length !== 0) ?
                     <div>
                         {tasks.map((task, idx) => (
                             <div key={task.id}>
@@ -108,32 +91,7 @@ export default class TasksList extends Component {
                             </div>
                         ))}
                         {provided.placeholder}
-                        <div className="board-column-footer">
-                            <p className="board-column-footer-add-task" onClick={() => this.toggleUpdateForm('')}> + Add a task </p>
-                            {(this.state.showAddForm) &&
-                                <TaskForm
-                                    board={this.props.board}
-                                    column={this.props.column}
-                                    toggleUpdateForm={this.toggleUpdateForm}
-                                    updateBoard={this.props.updateBoard}
-                                />
-                            }
-                        </div>
-                    </div> :
-                    <div className="board-column-footer">
-                        <p className="board-column-footer-add-task"
-                            onClick={() => this.toggleUpdateForm('')}>
-                            + Add a task</p>
-
-                        {(this.state.showAddForm) &&
-                            <TaskForm
-                                board={this.props.board}
-                                column={this.props.column}
-                                toggleUpdateForm={this.toggleUpdateForm}
-                                updateBoard={this.props.updateBoard}
-                            />
-                        }
-                    </div>}
+                    </div> 
             </section>
         )
     }

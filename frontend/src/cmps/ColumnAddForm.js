@@ -63,7 +63,6 @@ export default class ColumnAddForm extends Component {
         return <form className="add-column-form-container flex column space-between" onSubmit={this.saveColumn}>
                 <input
                     ref={(input) => { this.nameInput = input; }}
-                    // defaultValue="will focus"
                     type='text'
                     placeholder='Column Name'
                     name='title'
