@@ -15,7 +15,9 @@ export default class BoardColumns extends Component {
         showForm: false,
         showTopMenuOptions: false,
         currColumnId: '',
-        anchorEl: null
+        anchorEl: null,
+        timer: null,
+        title: ''
     }
 
     toggleAddForm = (id) => {
@@ -27,9 +29,9 @@ export default class BoardColumns extends Component {
     }
 
     onDelete = (id) => {
-        let board = { ...this.props.board };
-        let columnOrder = board.columnOrder;
-        let column = board.columns[id];
+        const board = { ...this.props.board };
+        const columnOrder = board.columnOrder;
+        const column = board.columns[id];
         for (const taskId of column.taskIds) {
             for (const taskKey in board.tasks) {
                 if (taskId === taskKey) {
@@ -38,7 +40,7 @@ export default class BoardColumns extends Component {
             }
         }
         delete board.columns[id];
-        let idx = columnOrder.findIndex(column => column === id);
+        const idx = columnOrder.findIndex(column => column === id);
         columnOrder.splice(idx, 1);
         this.props.updateBoard(board);
         this.handleOptionsMenuClose();
@@ -125,26 +127,22 @@ export default class BoardColumns extends Component {
         this.props.updateBoard(newBoard);
     }
 
-    handleCheck = (board) => {
-        // Clears running timer and starts a new one each time the user types
-        clearTimeout(this.timer);
-        this.timer = setTimeout(() => {
-            this.toggleCheck();
-            this.props.updateBoard(board);
-        }, 1000);
+    handleCheck = (colId, title) => {
+        clearTimeout(this.state.timer);
+        this.setState({
+            timer: setTimeout(() => {
+                const updatedBoard = { ...this.props.board };
+                updatedBoard.columns[colId].title = title;
+                this.props.updateBoard(updatedBoard);
+            }, 1000)
+        });
     }
 
-    toggleCheck = () => {
-        this.setState(prevState => ({ checked: !prevState.checked }));
+    emitChange = (ev, colId) => {
+        this.setState({ title: ev.target.innerText }, _ => {
+            this.handleCheck(colId, this.state.title);
+        });
     }
-
-    emitChange = (ev, id) => {
-        ev.preventDefault();
-        let board = { ...this.props.board };
-        board.columns[id].title = ev.target.innerText;
-        this.handleCheck(board)
-    }
-
 
     render() {
         return (
@@ -187,7 +185,8 @@ export default class BoardColumns extends Component {
                                                                 spellCheck="false"
                                                                 onInput={(ev) => this.emitChange(ev, column.id)}
                                                                 suppressContentEditableWarning={true}
-                                                                >
+                                                                style={{ width: (column.title.length * 12) + 'px' }}
+                                                            >
                                                                 {column.title}
                                                             </h2>
                                                         </div>
@@ -229,6 +228,7 @@ export default class BoardColumns extends Component {
                                                                 column={column}
                                                                 toggleTaskDetails={this.props.toggleTaskDetails}
                                                                 updateBoard={this.props.updateBoard}
+                                                                toggleMiniDetails={this.props.toggleMiniDetails}
                                                             >
                                                             </TasksList>
                                                         }}

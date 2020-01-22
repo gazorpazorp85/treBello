@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import Labels from './Labels'
 import TaskForm from './TaskForm';
 import ScreenFilter from './ScreenFilter'
 
@@ -13,7 +15,11 @@ export default class TaskDetails extends Component {
     state = {
         description: '',
         showActivity: false,
-        showEditDescriptionForm: false
+        showEditDescriptionForm: false,
+        teamMembers: [],
+        deuDate: null,
+        toggleChooseLabels: false,
+        choosenlabels: []
         // saveBtnHidden: true
     }
 
@@ -26,28 +32,6 @@ export default class TaskDetails extends Component {
         this.setState({ description: targetValue });
     }
 
-    // onToggleSaveBtn = _ => {
-    //     this.setState({ saveBtnHidden: false })
-    // }
-
-    // onSave = _ => {
-    //     this.setState({ saveBtnHidden: true }, _ => {
-    //         const newTask = { ...this.props.task, description: this.state.description };
-    //         const newBoard = {
-    //             ...this.props.board,
-    //             tasks: {
-    //                 ...this.props.board.tasks,
-    //                 [newTask.id]: newTask
-    //             }
-    //         }
-    //         this.props.updateBoard(newBoard);
-    //     })
-    // }
-
-    // closeTaskDetails = ev => {
-    //     ev.stopPropagation()
-    //     this.setState()
-    // }
     toggleUpdateDescriptionForm = () => {
         this.setState(prevState => ({ showEditDescriptionForm: !prevState.showEditDescriptionForm }))
     }
@@ -56,21 +40,29 @@ export default class TaskDetails extends Component {
         this.setState({ toggleUpdateDescriptionForm: false })
     }
 
-    onStopPropagation = (ev) => {
+    onStopPropagationAndCloseOptions = (ev) => {
         ev.stopPropagation();
+        this.setState({
+            showEditDescriptionForm: false,
+            toggleChooseLabels: false
+        })
+    }
+
+    toggleChooseLabels = (ev) => {
+        ev.stopPropagation();
+        this.setState(prevState => ({ toggleChooseLabels: !prevState.toggleChooseLabels }))
     }
 
     onSaveDescription = (task) => {
-        debugger
+        const newTask = { ...task, description: this.state.description };
         const newBoard = {
             ...this.props.board,
             tasks: {
-                ...this.props.board.columns,
-                // [this.props.board.columns[this.props.column.id]. [task.id].description]: this.state.description
+                ...this.props.board.tasks,
+                [newTask.id]: newTask
             }
         }
-        debugger
-        // this.props.updateBoard(newBoard)
+        this.props.updateBoard(newBoard);
     }
 
 
@@ -80,7 +72,7 @@ export default class TaskDetails extends Component {
         return (
             <div className="screen flex align-center justify-center" onClick={() => this.props.toggleTaskDetails()}>
 
-                <div className="task-details-container flex" onClick={(ev) => this.onStopPropagation(ev)}>
+                <div className="task-details-container flex" onClick={(ev) => this.onStopPropagationAndCloseOptions(ev)}>
                     <CloseIcon className="add-column-back-to-board   flex align-center"
                         onClick={() => this.props.toggleTaskDetails()} />
                     <div className="task-details-container-main full">
@@ -95,17 +87,29 @@ export default class TaskDetails extends Component {
                         </header>
 
                         <div className="task-details-container-lebels-container">
-                            {/* <p>lebels</p> */}
-                            {
-                                task.labels.map(label => {
-                                    const color = {
-                                        backGroundColor: label
-                                    }
-                                    return <div className="task-details-container-label-color" style={color}>
-                                        {label}
-                                    </div>
-                                })
+
+                            {this.state.toggleChooseLabels ?
+                                <Labels
+                                    toggleChooseLabels={this.toggleChooseLabels}
+                                    board={this.props.board}
+                                    task={task}
+                                    updateBoard={this.props.updateBoard}
+                                /> : ''
                             }
+
+
+                            {task.labels.length ?
+                                <h2>labels:</h2> : ''
+                            }
+                            <div className="flex">
+
+                                {
+                                    task.labels.map(label => {
+                                        return <div key={label} className={label + ' medium-label'}>
+                                        </div>
+                                    })
+                                }
+                            </div>
                         </div>
 
                         <div className="task-details-container-main-description">
@@ -120,7 +124,6 @@ export default class TaskDetails extends Component {
                                         rows="3"
                                         cols="40"
                                         onInput={this.emitChange}
-                                        // onClick={this.onToggleSaveBtn}
                                         defaultValue={task.description}
                                         placeholder="Add a more detailed description...">
                                     </textarea>
@@ -149,7 +152,7 @@ export default class TaskDetails extends Component {
                             <p className="text-center">ADD TO CARD</p>
                             <div className="task-details-container-add-to-card-options flex column">
                                 <button className="task-details-container-add-to-card-options-btn btn" >Members</button>
-                                <button className="task-details-container-add-to-card-options-btn btn" >Lebels</button>
+                                <button className="task-details-container-add-to-card-options-btn btn" onClick={(ev) => this.toggleChooseLabels(ev)} >Lebels</button>
                                 <button className="task-details-container-add-to-card-options-btn btn" >Check List</button>
                                 <button className="task-details-container-add-to-card-options-btn btn" >Due date</button>
                                 <button className="task-details-container-add-to-card-options-btn btn" >Img</button>

@@ -33,6 +33,7 @@ export default class DynamicComponent extends Component {
                 onDelete={this.onDelete}                                                       
                 onTaskId={this.props.onTaskId}
                 showEditBtn={this.props.showEditBtn}
+                toggleMiniDetails = {this.props.toggleMiniDetails}
             >
             </Cmp>
         </React.Fragment>

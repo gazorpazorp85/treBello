@@ -10,9 +10,11 @@ import pageLoading from '../cmps/LoadPage';
 import BoardColumns from '../cmps/BoardColumns'
 import ColumnAddForm from '../cmps/ColumnAddForm'
 import Login from '../cmps/Login';
+import Filter from '../cmps/Filter';
+import TaskDetails from '../cmps/TaskDetails';
 
 import { loadBoard, createBoard, updateBoardOffline } from '../actions/BoardActions';
-import { logout } from '../actions/UserActions'
+import { logout } from '../actions/UserActions';
 
 class EmptyBoard extends Component {
 
@@ -20,7 +22,7 @@ class EmptyBoard extends Component {
     showAddColumn: true,
     showForm: false,
     isTaskDetailsOccupied: false,
-    toggleLogin: false
+    toggleLogin: false,
   }
 
   componentDidMount() {
@@ -30,7 +32,8 @@ class EmptyBoard extends Component {
       this.props.updateBoardOffline(sessionBoard);
     } else {
       const boardId = '5e2581b51c9d44000081af2a';
-      this.props.loadBoard(boardId);
+      const filterBy = this.state.filterBy;
+      this.props.loadBoard(boardId, filterBy);
     }
     // SocketService.setup();
     // SocketService.emit('chat topic', this.state.topic);
@@ -71,6 +74,12 @@ class EmptyBoard extends Component {
     }
   }
 
+  onFilter = (filterBy) => {
+    const boardId = this.props.match.params.id;
+    this.props.loadBoard(boardId, filterBy);
+  }
+
+
   saveBoard = async () => {
     let board = this.props.board;
     delete board._id;
@@ -109,6 +118,7 @@ class EmptyBoard extends Component {
           <div>
             {loginButton}
             {saveBoardButton}
+            <Filter onFilter={this.onFilter}/>
           </div>
         </div>
         {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
@@ -136,6 +146,12 @@ class EmptyBoard extends Component {
             </div>
           </div>
         </div>
+        {this.state.showTaskDetails && <TaskDetails
+          taskId={this.state.currTask.id}
+          board={this.props.board}
+          column={this.state.currTask.column}
+          updateBoard={this.props.updateBoard}
+          toggleTaskDetails={this.toggleTaskDetails} />}
       </div>
     )
   }

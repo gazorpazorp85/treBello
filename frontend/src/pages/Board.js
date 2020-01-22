@@ -10,10 +10,13 @@ import pageLoading from '../cmps/LoadPage';
 import BoardColumns from '../cmps/BoardColumns'
 import ColumnAddForm from '../cmps/ColumnAddForm'
 import Login from '../cmps/Login';
+import Filter from '../cmps/Filter';
+import TaskDetails from '../cmps/TaskDetails';
+import MiniTaskDetails from '../cmps/MiniTaskDetails';
 
 import { loadBoard, updateBoard } from '../actions/BoardActions';
-import { logout } from '../actions/UserActions'
-import TaskDetails from '../cmps/TaskDetails';
+import { logout } from '../actions/UserActions';
+
 
 class Board extends Component {
 
@@ -21,15 +24,19 @@ class Board extends Component {
     showAddColumn: true,
     showForm: false,
     showTaskDetails: false,
+    showMiniTaskDetails: false,
     currTaskId: '',
     toggleUploadBgImg: false,
     isUploading: false,
-    toggleLogin: false
+    toggleLogin: false,
+    miniTaskDetails: {},
+    filterBy: {
+      title: ''
+    }
   }
 
   componentDidMount() {
-    const boardId = this.props.match.params.id;
-    this.props.loadBoard(boardId);
+    this.loadBoard();
     // SocketService.setup();
     // SocketService.emit('chat topic', this.state.topic);
     // SocketService.on('chat addMsg', this.addMsg);
@@ -46,6 +53,12 @@ class Board extends Component {
   componentWillUnmount() {
     // SocketService.off('chat addMsg', this.addMsg);
     // SocketService.terminate();
+  }
+
+  loadBoard = () => {
+    const boardId = this.props.match.params.id;
+    const filterBy = this.state.filterBy;
+    this.props.loadBoard(boardId, filterBy);
   }
 
   toggleAddForm = () => {
@@ -103,6 +116,19 @@ class Board extends Component {
     // })
   }
 
+  onFilter = (filterBy) => {
+    const boardId = this.props.match.params.id;
+    this.props.loadBoard(boardId, filterBy);
+  }
+
+  toggleMiniDetails = miniTask => {
+    if (miniTask) {
+      return this.setState(prevState => ({ showMiniTaskDetails: !prevState.showMiniTaskDetails, miniTaskDetails: miniTask }));
+    }
+    this.setState(prevState => ({ showMiniTaskDetails: !prevState.showMiniTaskDetails }));
+  }
+
+
   render() {
 
     if (!this.props.board.columns) return pageLoading();
@@ -128,15 +154,24 @@ class Board extends Component {
         </div>
 
         <div className="board-page-nav-bar-filters flex align-center">
+          {this.props.loggedInUser && this.props.loggedInUser.username}
+          {button}
+          <Filter onFilter={this.onFilter} />
         </div>
         {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
         <div className="board-page-columns-container fill-height">
           <div>
             <div className="flex align-start">
+              <Login
+                variant="outlined"
+                className="home-page-login"
+                toggleLogin={this.toggleLogin}
+                toggleState={this.state.toggleLogin} />
               <BoardColumns
                 board={this.props.board}
                 updateBoard={this.props.updateBoard}
-                toggleTaskDetails={this.toggleTaskDetails} />
+                toggleTaskDetails={this.toggleTaskDetails}
+                toggleMiniDetails={this.toggleMiniDetails} />
               <div className="flex column align-center">
                 {(this.state.showAddColumn) ?
                   <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}>

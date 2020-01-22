@@ -11,7 +11,7 @@ function getRandomId() {
 }
 
 
-// function uploadImg(file) {
+// async uploadImg(file) {
 //     const CLOUD_NAME = 'dujlxvxxv'
 //     const PRESET_NAME = 'xi62wuas'
 //     const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`
@@ -20,7 +20,7 @@ function getRandomId() {
 //     formData.append('file', file);
 //     formData.append('upload_preset', PRESET_NAME);
 
-//     return  axios.post(UPLOAD_URL, formData)
+//     await  axios.post(UPLOAD_URL, formData)
 //         .then(res => res.data)
 //         .then(res => {
 //             return res.url

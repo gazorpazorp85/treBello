@@ -18,10 +18,10 @@ function _setBoards(boards) {
   };
 }
 
-export function loadBoard(boardId) {
+export function loadBoard(boardId, filterBy) {
   return async dispatch => {
     try {
-      const board = await BoardService.get(boardId);
+      const board = await BoardService.get(boardId, filterBy);
       dispatch(_setBoard(board));
     } catch (err) {
       console.log('BoardActions: err in loadBoard', err);

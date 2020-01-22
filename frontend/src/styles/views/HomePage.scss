@@ -85,7 +85,7 @@
             transition: 0.4s;
             padding: 15px 30px;
 
-            p{
+            p {
                 font-size: 1.1rem;
                 font-weight: 600;
             }
@@ -123,6 +123,12 @@
                 margin: 10px;
 
                 h2 {
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                }
+
+                small {
+                    color: white;
                     font-weight: 600;
                 }
             }
@@ -133,8 +139,8 @@
                 font-weight: 600;
                 color: white;
                 width: 60%;
-
             }
+
         }
 
 

@@ -12,6 +12,11 @@
         font-weight: 600;
     }
 
+    &-labels-container {
+        margin-left: 25px;
+        padding-top: 25px;
+    }
+
     .text-area-wrapper {
         margin-left: 30px;
 
@@ -57,9 +62,6 @@
         &-activity {
             padding-top: 45px;
         }
-
-
-
     }
 
     &-overall-options {
