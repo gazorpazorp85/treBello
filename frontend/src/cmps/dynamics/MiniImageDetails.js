@@ -71,7 +71,11 @@ export default class MiniImageDetails extends Component {
                 }}
                 onClick={this.onSave}
             >SAVE</button>
-            <MiniDetailsEditor miniTask={this.props.miniTask}/>
+            <MiniDetailsEditor
+                miniTask={this.props.miniTask}
+                board={this.props.board}
+                updateBoard={this.props.updateBoard}
+                onToggle={this.props.onToggle} />
             <ScreenFilter onToggle={this.props.onToggle} />
         </div >
     }

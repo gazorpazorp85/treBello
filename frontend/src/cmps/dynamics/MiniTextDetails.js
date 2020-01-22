@@ -36,6 +36,7 @@ export default class MiniTextDetails extends Component {
 
     render() {
         const { miniTask } = this.props;
+        const labelLen = miniTask.task.labels.length;
         return <div className="mini-details-container">
             <div
                 className="mini-details"
@@ -54,7 +55,7 @@ export default class MiniTextDetails extends Component {
                 </div>
                 <textarea
                     name="title"
-                    className="text-area"
+                    className={"text-area" + (labelLen > 0 ? ' preview-label' : '')}
                     defaultValue={miniTask.task.title}
                     ref="textarea"
                     onFocus={this.handleFocus}
