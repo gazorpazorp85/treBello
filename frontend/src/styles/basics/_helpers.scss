@@ -1,3 +1,11 @@
+.screen {
+    background-color: rgba(0, 0, 0, 0.534);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
 // Font Sizes
 .fs12 {
     font-size: rem(12px);
@@ -69,6 +77,10 @@
     text-align: center;
 }
 
+.bold {
+    font-weight: 600;
+}
+
 
 //grid helpers
 
@@ -92,4 +104,30 @@
 
 .square-ratio {
     @include aspect-ratio(1, 1);
+}
+
+//colors
+
+.label-color-1 {
+    background-color: rgb(82, 82, 204);
+}
+
+.label-color-2 {
+    background-color: rgb(231, 255, 94);
+}
+
+.label-color-3 {
+    background-color: rgb(122, 122, 122);
+}
+
+.label-color-4 {
+    background-color: rgb(223, 160, 43);
+}
+
+.label-color-5 {
+    background-color: rgb(54, 230, 63);
+}
+
+.label-color-6 {
+    background-color: rgb(255, 0, 21);
 }

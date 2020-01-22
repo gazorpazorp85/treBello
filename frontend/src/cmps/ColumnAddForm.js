@@ -60,8 +60,7 @@ export default class ColumnAddForm extends Component {
     }
 
     render() {
-        return <div>
-            <form className="add-column-form-container flex column space-between" onSubmit={this.saveColumn}>
+        return <form className="add-column-form-container flex column space-between" onSubmit={this.saveColumn}>
                 <input
                     ref={(input) => { this.nameInput = input; }}
                     // defaultValue="will focus"
@@ -79,6 +78,5 @@ export default class ColumnAddForm extends Component {
 
                 </div>
             </form>
-        </div>
     }
 }

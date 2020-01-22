@@ -3,6 +3,7 @@ import CreateIcon from '@material-ui/icons/Create';
 // import moment from 'moment';
 // import 'moment/locale/es'
 // import Card from '@material-ui/core/Card';
+import ListAltIcon from '@material-ui/icons/ListAlt';
 
 export default class TaskPreview extends Component {
 
@@ -47,6 +48,15 @@ export default class TaskPreview extends Component {
                     ref={innerRef}
                     style={style}
                 >
+                    <div className="task-container-labels flex">
+                        {
+                            task.labels.map(label => {
+                                return <div key={label} className={label + ' small-label'}>
+                                </div>
+                            })
+                        }
+                    </div>
+
                     <p>{task.title}</p>
                     {(showEditBtn && (onTaskId === task.id)) ?
                         <div className="task-container-open-menu-wrapper flex align-center justify-center">
@@ -54,7 +64,12 @@ export default class TaskPreview extends Component {
                                 onClick={e => this.toggleMiniDetails(e)} />
                         </div>
                         : ''}
+                    {(task.description !== '') ?
+                        <ListAltIcon /> : ''
+                    }
                 </div>
+
+
             </section>
         )
     }
