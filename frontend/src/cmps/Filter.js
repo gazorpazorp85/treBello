@@ -20,14 +20,14 @@ export default class Filter extends Component {
 
     render() {
         return <div>
-            <input type='text' placeholder='name' value={this.state.filterBy.title}
+            <input type='text' placeholder='search task by name' value={this.state.filterBy.title}
                 onChange={this.inputChange} name='title'></input>
             {/* <select name='inStock' value={this.state.inStock} onChange={this.inputChange}>
                 <option value=''>All</option>
                 <option value='true'>In Stock</option>
                 <option value='false'>Out of Stock</option>
             </select> */}
-            <button onClick={this.onFilterClick}>Filter</button>
+            <button onClick={this.onFilterClick}>Filter</button>       
         </div>
     }
 }

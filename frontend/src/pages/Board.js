@@ -11,6 +11,7 @@ import BoardColumns from '../cmps/BoardColumns'
 import ColumnAddForm from '../cmps/ColumnAddForm'
 import Login from '../cmps/Login';
 import Filter from '../cmps/Filter';
+import Sort from '../cmps/Sort';
 import TaskDetails from '../cmps/TaskDetails';
 import DynamicMiniComponent from '../cmps/dynamics/DynamicMiniComponent';
 
@@ -32,7 +33,9 @@ class Board extends Component {
     miniTaskDetails: {},
     filterBy: {
       title: ''
-    }
+    },
+    sortBy: '',
+    sortOrder: ''
   }
 
   componentDidMount() {
@@ -58,7 +61,9 @@ class Board extends Component {
   loadBoard = () => {
     const boardId = this.props.match.params.id;
     const filterBy = this.state.filterBy;
-    this.props.loadBoard(boardId, filterBy);
+    const sortBy = this.state.sortBy;
+    const sortOrder = this.state.sortOrder;
+    this.props.loadBoard(boardId, filterBy, sortBy, sortOrder);
   }
 
   toggleAddForm = () => {
@@ -117,8 +122,11 @@ class Board extends Component {
   }
 
   onFilter = (filterBy) => {
-    const boardId = this.props.match.params.id;
-    this.props.loadBoard(boardId, filterBy);
+    this.setState({ filterBy }, this.loadBoard);
+  }
+
+  onSort = (sortBy, sortOrder) => {
+    this.setState({sortBy, sortOrder}, this.loadBoard);
   }
 
   toggleMiniDetails = miniTask => {
@@ -157,6 +165,7 @@ class Board extends Component {
           {this.props.loggedInUser && this.props.loggedInUser.username}
           {button}
           <Filter onFilter={this.onFilter} />
+          <Sort onSort={this.onSort} />
         </div>
         {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
         <div className="board-page-columns-container">
