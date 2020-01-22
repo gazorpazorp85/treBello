@@ -60,7 +60,6 @@ class Home extends Component {
     return (
       <div className="home-page" onClick={this.closeLogin}>
         <section className="home-page-header">
-
           <div variant="outlined" className="home-page-login flex justify-end align-center">
             {(this.props.loggedInUser) &&
               <p className="flex column">

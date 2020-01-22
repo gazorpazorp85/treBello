@@ -17,9 +17,11 @@ class Login extends Component {
       password: ''
     },
     signupCred: {
+      firstName: '',
+      lastName: '',
+      username: '',
       email: '',
-      password: '',
-      username: ''
+      password: ''
     }
   };
 
@@ -61,13 +63,13 @@ class Login extends Component {
 
   doSignup = async ev => {
     ev.preventDefault();
-    const { email, password, username } = this.state.signupCred;
-    if (!email || !password || !username) {
+    const { firstName, lastName, username, email, password } = this.state.signupCred;
+    if (!firstName || !lastName || !email || !password || !username) {
       return this.setState({ msg: 'All inputs are required!' });
     }
-    const signupCreds = { email, password, username };
+    const signupCreds = { firstName, lastName, username, email, password };
     this.props.signup(signupCreds);
-    this.setState({ signupCred: { email: '', password: '', username: '' } });
+    this.setState({ signupCred: { firstName: '', lastName: '', username: '', email: '', password: '' } });
     this.props.toggleLogin();
   };
 
@@ -85,18 +87,24 @@ class Login extends Component {
         <p>Not a member yet? Sign up!</p>
         <input
           type="text"
+          name="firstName"
+          value={this.state.signupCred.firstName}
+          onChange={this.signupHandleChange}
+          placeholder="Enter Your First Name"
+        />
+        <input
+          type="text"
+          name="lastName"
+          value={this.state.signupCred.lastName}
+          onChange={this.signupHandleChange}
+          placeholder="Enter Your Last Name"
+        />
+        <input
+          type="text"
           name="email"
           value={this.state.signupCred.email}
           onChange={this.signupHandleChange}
           placeholder="Email"
-        />
-        <br />
-        <input
-          name="password"
-          type="password"
-          value={this.state.signupCred.password}
-          onChange={this.signupHandleChange}
-          placeholder="Password"
         />
         <br />
         <input
@@ -105,6 +113,14 @@ class Login extends Component {
           value={this.state.signupCred.username}
           onChange={this.signupHandleChange}
           placeholder="Username"
+        />
+        <br />
+        <input
+          name="password"
+          type="password"
+          value={this.state.signupCred.password}
+          onChange={this.signupHandleChange}
+          placeholder="Password"
         />
         <br />
         <button className="login-container-signup-btn">Signup</button>
