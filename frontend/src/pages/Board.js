@@ -94,7 +94,7 @@ class Board extends Component {
 
   onAddImg = (ev) => {
     debugger
-    const file = ev.target.files[0];
+    // const file = ev.target.files[0];
     // this.setState({ isUploading: true }, () => {
     // utils.uploadImg(file).then(res => {
     // const board = { ...this.props.board.columns }
@@ -164,9 +164,9 @@ class Board extends Component {
           <Sort onSort={this.onSort} />
         </div>
         {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
-        <div className="board-page-columns-container fill-height">
+        <div className="board-page-columns-container">
 
-          <div className="flex align-start">
+          <div className="flex align-start fill-height">
             <Login
               variant="outlined"
               className="home-page-login"

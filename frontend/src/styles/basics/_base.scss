@@ -2,20 +2,20 @@
 
 ::-webkit-scrollbar {
     width: 8px;
-    height: 15px;
+    height: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
     border-radius: 10px;
 
-    background-color: #b3b3b39d;
+    background-color: #ffffff;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-image: linear-gradient(-86deg, #999999 0%, #474747 100%);
+    background-image: linear-gradient(-86deg, #e6e6e6 0%, #383838 100%);
 }
 
 * {

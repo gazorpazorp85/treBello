@@ -4,6 +4,7 @@ import NaturalDragAnimation from 'natural-drag-animation-rbdnd';
 
 import TasksList from './TasksList';
 import ColumnAddForm from '../cmps/ColumnAddForm';
+import TaskForm from '../cmps/TaskForm'
 
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -14,9 +15,15 @@ export default class BoardColumns extends Component {
         chacked: false,
         showForm: false,
         showTopMenuOptions: false,
+
+        // showAddFormButton: true,
+        showAddForm: false,
+        showEditBtn: true,
+
         currColumnId: '',
         anchorEl: null,
         timer: null,
+        currColumnId: '',
         title: ''
     }
 
@@ -144,6 +151,27 @@ export default class BoardColumns extends Component {
         });
     }
 
+
+    toggleUpdateForm = (id) => {
+        // if (id) {
+        debugger
+        // if (id === this.state.currColumnId) {
+
+        this.setState((prevState) => ({
+            showAddForm: !prevState.showAddForm, currColumnId: id,
+            // showAddFormButton: !prevState.showAddFormButton
+        }))
+        // }
+        // } else {
+        //     this.setState((prevState) => ({
+        //         showAddForm: !prevState.showAddForm,
+        //         showAddFormButton: !prevState.showAddFormButton
+        //     }))
+        // }
+    }
+
+
+
     render() {
         return (
             <DragDropContext onDragEnd={this.onDragEnd}>
@@ -232,7 +260,27 @@ export default class BoardColumns extends Component {
                                                             </TasksList>
                                                         }}
                                                     </Droppable>
+
+                                                    <div className="task-list-footer">
+                                                        { this.state.currColumnId !== column.id ?
+                                                            <p className="task-list-footer-add-task"
+                                                                onClick={() => this.toggleUpdateForm(column.id)}>
+                                                                + Add a task</p>
+                                                            : ''
+
+                                                        }
+                                                        {(this.state.showAddForm && this.state.currColumnId === column.id) ?
+                                                            <TaskForm
+                                                                board={this.props.board}
+                                                                column={column}
+                                                                toggleUpdateForm={this.toggleUpdateForm}
+                                                                updateBoard={this.props.updateBoard}
+                                                            />
+                                                            : ''
+                                                        }
+                                                    </div>
                                                 </div>
+
                                             )}
                                         </NaturalDragAnimation>
                                     )}

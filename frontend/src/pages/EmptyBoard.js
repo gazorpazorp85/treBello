@@ -11,7 +11,7 @@ import BoardColumns from '../cmps/BoardColumns'
 import ColumnAddForm from '../cmps/ColumnAddForm'
 import Login from '../cmps/Login';
 import Filter from '../cmps/Filter';
-import Sort from '../cmps/Sort';
+// import Sort from '../cmps/Sort';
 import TaskDetails from '../cmps/TaskDetails';
 
 import { loadBoard, createBoard, updateBoardOffline } from '../actions/BoardActions';

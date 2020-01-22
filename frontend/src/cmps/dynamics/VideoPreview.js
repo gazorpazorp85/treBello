@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import moment from 'moment';
 import CreateIcon from '@material-ui/icons/Create';
-import Card from '@material-ui/core/Card';
+
 
 // import 'moment/locale/es'
 
@@ -33,7 +33,8 @@ export default class VideoPreview extends Component {
             left: this.state.elLeft,
             top: this.state.elTop,
             height: this.state.elHeight,
-            previewType: 'video'
+            previewType: 'video',
+            column: this.props.column
         };
         this.props.toggleMiniDetails(miniTask);
     }
@@ -43,14 +44,14 @@ export default class VideoPreview extends Component {
         const { task, provided, innerRef, isDragging, style, showEditBtn, onTaskId } = this.props;
         return (
             <section ref="ref">
-                <Card
-                    className={"task-container" + (isDragging ? " isDragging" : "")}
+                <div 
+                    className={"task-container flex column align-center" + (isDragging ? " isDragging" : "")}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     ref={innerRef}
                     style={style}
                 >
-                    <iframe title={task.id} type='text/html' width="240" height="135" src={task.url}></iframe>
+                    <iframe title={task.id} type='text/html' width="240" height="135" src={task.url} security="restricted"></iframe>
                     <p>{task.title}</p>
                     {(showEditBtn && (onTaskId === task.id)) ?
                         <div className="task-container-open-menu-wrapper flex align-center justify-center">
@@ -58,7 +59,7 @@ export default class VideoPreview extends Component {
                                 onClick={e => this.toggleMiniDetails(e)} />
                         </div>
                         : ''}
-                </Card>
+                </div>
             </section>
         )
     }
