@@ -2,17 +2,20 @@
 
 ::-webkit-scrollbar {
     width: 5px;
-    height: 20px;
+    height: 10px;
+
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
+    border-radius: 10px;
+
     background-color: #b3b3b39d;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    border-radius: 15px;
+    border-radius: 10px;
     background-image: linear-gradient(-86deg, #999999 0%, #474747 100%);
 }
 
