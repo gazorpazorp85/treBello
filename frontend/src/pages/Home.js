@@ -96,7 +96,7 @@ class Home extends Component {
           </Link>
           <p className="home-page-boards-list-start-new-board-right-text">
             We, in Trebello, believe that simplicity and style must go together,  
-            that's why we made our brand simple and <br /> easy to use for everyone.<br />
+            that's why we made our brand simple and easy to use for everyone.<br /> <br />
             Organize your team and take them one step a head.</p>
         </div>
 

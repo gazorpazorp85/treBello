@@ -12,7 +12,7 @@ import ColumnAddForm from '../cmps/ColumnAddForm'
 import Login from '../cmps/Login';
 import Filter from '../cmps/Filter';
 import TaskDetails from '../cmps/TaskDetails';
-import MiniTaskDetails from '../cmps/MiniTaskDetails';
+import DynamicMiniComponent from '../cmps/dynamics/DynamicMiniComponent';
 
 import { loadBoard, updateBoard } from '../actions/BoardActions';
 import { logout } from '../actions/UserActions';
@@ -157,7 +157,7 @@ class Board extends Component {
           column={this.state.currTask.column}
           updateBoard={this.props.updateBoard}
           toggleTaskDetails={this.toggleTaskDetails} />}
-        {this.state.showMiniTaskDetails && <MiniTaskDetails
+        {this.state.showMiniTaskDetails && <DynamicMiniComponent
           miniTask={this.state.miniTaskDetails}
           updateBoard={this.props.updateBoard}
           onToggle={this.toggleMiniDetails}

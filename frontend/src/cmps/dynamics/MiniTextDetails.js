@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
-import ScreenFilter from './ScreenFilter';
+import MiniDetailsEditor from '../MiniDetailsEditor';
+import ScreenFilter from '../ScreenFilter';
 
-export default class MiniTaskDetails extends Component {
+export default class MiniTextDetails extends Component {
     state = {
         title: '',
     }
@@ -35,9 +36,9 @@ export default class MiniTaskDetails extends Component {
 
     render() {
         const { miniTask } = this.props;
-        return <div className="mini-task-details-container">
+        return <div className="mini-details-container">
             <div
-                className="mini-task-details"
+                className="mini-details"
                 style={{
                     left: miniTask.left + 'px',
                     top: miniTask.top + 'px',
@@ -56,13 +57,14 @@ export default class MiniTaskDetails extends Component {
                 </textarea>
             </div>
             <button
-                className="mini-task-details-save-btn"
+                className="mini-details-save-btn"
                 style={{
                     left: miniTask.left + 'px',
                     top: (miniTask.top + 10) + 'px'
                 }}
                 onClick={this.onSave}
             >SAVE</button>
+            <MiniDetailsEditor miniTask={this.props.miniTask}/>
             <ScreenFilter onToggle={this.props.onToggle} />
         </div >
     }
