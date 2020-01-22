@@ -34,7 +34,7 @@
     //header -----------------------
 
     &-header-container {
-        background-image: url(../imags/header-bg.jpg);
+        background-image: url(../images/header-bg.jpg);
         background-size: cover;
         background-position-x: center;
         height: 75vh;
@@ -70,7 +70,7 @@
             width: 370px;
 
             &-img {
-                background-image: url(../imags/logo.png);
+                background-image: url(../images/logo.png);
                 background-size: contain;
                 background-repeat: no-repeat;
                 height: 100%;
@@ -195,7 +195,7 @@
                 transition: 0.7s;
 
                 &.vlad {
-                    background-image: url(../imags/team/Vlad.jpg);
+                    background-image: url(../images/team/Vlad.jpg);
                     background-size: contain;
                     background-repeat: no-repeat;
 
@@ -206,7 +206,7 @@
                 }
 
                 &.margad {
-                    background-image: url(../imags/team/Margad.jpg);
+                    background-image: url(../images/team/Margad.jpg);
                     background-size: contain;
                     background-repeat: no-repeat;
 
@@ -217,7 +217,7 @@
                 }
 
                 &.paolo {
-                    background-image: url(../imags/team/Paolo.jpg);
+                    background-image: url(../images/team/Paolo.jpg);
                     background-size: contain;
                     background-repeat: no-repeat;
 
