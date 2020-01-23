@@ -12,6 +12,7 @@ import DynamicMiniComponent from '../cmps/dynamics/DynamicMiniComponent';
 
 import HomeIcon from '@material-ui/icons/Home';
 
+import utils from '../services/utils';
 import SocketService from '../services/SocketService';
 
 import { loadBoard, updateBoard } from '../actions/BoardActions';
@@ -27,7 +28,6 @@ class Board extends Component {
     showMiniTaskDetails: false,
     currTaskId: '',
     toggleUploadBgImg: false,
-    isUploading: false,
     toggleLogin: false,
     miniTaskDetails: {},
     filterBy: {
@@ -92,35 +92,23 @@ class Board extends Component {
     }
   }
 
-  // toggleUploadBgImg = () => {
-  //   debugger
-  //   this.setState(prevState => ({ toggleUploadBgImg: !prevState.toggleUploadBgImg }))
-  // }
+  toggleUploadBgImg = () => {
+    this.setState(prevState => ({ toggleUploadBgImg: !prevState.toggleUploadBgImg }))
+  }
 
-  // onAddImg = (ev) => {
-  //   debugger
-  //   const file = ev.target.files[0];
-  // this.setState({ isUploading: true }, () => {
-  // utils.uploadImg(file).then(res => {
-  // const board = { ...this.props.board.columns }
-  // const newBoard = {
-  //     ...this.props.board,
-  //     columns: {
-  //         ...this.props.board.columns,
+  onAddImg = (ev) => {
+    const file = ev.target.files[0];
+    this.setState({ isUploading: true }, () => {
 
-  //         [this.state.column.id]: this.state.column
-  // .imgUrl = res we need to update the board
-  //     }
-  // };
-  // const id = this.state.column.id;
-  // const columnOrder = newBoard.columnOrder;
-  // if (!columnOrder.includes(id)) columnOrder.push(id);
-  // this.props.updateBoard(newBoard);
+      utils.uploadImg(file).then(res => {
+        const newBoard = { ...this.props.board }
+        newBoard.boardBgImage = res
+        this.props.updateBoard(newBoard);
+        this.toggleUploadBgImg();
+      })
+    })
+  }
 
-  // this.setState({ isUploading: false })
-  // })
-  // })
-  // }
 
   onFilter = (filterBy) => {
     this.setState({ filterBy }, this.loadBoard);
@@ -154,9 +142,14 @@ class Board extends Component {
       </button>
     }
 
+    let imgClass
+    (this.state.boardBgImage !== '') ?
+      imgClass = "board-page fill-height flex column board-bgImg"
+      : imgClass = "board-page fill-height flex column"
+
     return (
       <div className="screen" onClick={this.closeLogin}>
-        <div className="board-page fill-height flex column">
+        <div className="board-page fill-height flex column" style={{ backgroundImage: 'url(' + this.props.board.boardBgImage + ')' }}>
 
 
           <div className="board-page-nav-bar flex space-between">
