@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// import SocketService from '../services/SocketService';
+import SocketService from '../services/SocketService';
 
-import Button from '@material-ui/core/Button';
 import HomeIcon from '@material-ui/icons/Home';
 
 import pageLoading from '../cmps/LoadPage';
@@ -11,7 +10,7 @@ import BoardColumns from '../cmps/BoardColumns'
 import ColumnAddForm from '../cmps/ColumnAddForm'
 import Login from '../cmps/Login';
 import Filter from '../cmps/Filter';
-// import Sort from '../cmps/Sort';
+import Sort from '../cmps/Sort';
 import TaskDetails from '../cmps/TaskDetails';
 
 import { loadBoard, createBoard, updateBoardOffline } from '../actions/BoardActions';
@@ -100,34 +99,42 @@ class EmptyBoard extends Component {
     if (!this.props.board.columns) return pageLoading();
     let loginButton, saveBoardButton;
     if (this.props.loggedInUser) {
-      loginButton = <button className="empty-board-login-btn">
-        <div onClick={this.props.logout}>LOGOUT</div>
+      loginButton = <button className="board-page-login-btn">
+        <div onClick={this.props.logout}>logout</div>
       </button>
-      saveBoardButton = <span onClick={this.saveBoard}>SAVE BOARD</span>
-    } else {
-      loginButton = <button className="empty-board-login-btn">
-        <div onClick={this.toggleLogin}>LOGIN</div>
+      saveBoardButton = <button className="board-page-nav-bar-filters nav-btn" onClick={this.saveBoard}>SAVE BOARD</button>
+    }
+    else {
+      loginButton = <button className="board-page-nav-bar nav-btn">
+        <div onClick={this.toggleLogin}>login</div>
+      </button>
+    }
+
+    if (this.props.loggedInUser) {
+      loginButton = <button className="board-page-nav-bar nav-btn"
+        onClick={this.props.logout}>
+        logout
       </button>
     }
 
     return (
       <div className="board-page fill-height flex column" onClick={this.closeLogin}>
-        <Button className="board-page-back-btn" variant="outlined" onClick={this.goBack} >
-          <HomeIcon className="board-page-back-btn-icon" />
-        </Button>
 
-        <div className="board-page-nav-bar flex justify-center align-center">
-          <div className="board-page-nav-bar-logo"> </div>
+        <div className="board-page-nav-bar flex space-between">
+          <div className="board-page-nav-bar-logo" onClick={this.goBack}> </div>
+          {this.props.loggedInUser && this.props.loggedInUser.username}
+          {loginButton}
         </div>
 
         <div className="board-page-nav-bar-filters flex align-center">
-          {this.props.loggedInUser && this.props.loggedInUser.username}
-          <div>
-            {loginButton}
+          <button className="board-page-nav-bar-filters-item nav-btn flex">
+            <HomeIcon onClick={this.goBack} />
+          </button>
             {saveBoardButton}
-            <Filter onFilter={this.onFilter}/>
-          </div>
+            <Filter onFilter={this.onFilter} />
+            <Sort onSort={this.onSort} />
         </div>
+
         {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
         <div className="board-page-columns-container fill-height">
           <div>

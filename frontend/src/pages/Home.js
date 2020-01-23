@@ -49,16 +49,16 @@ class Home extends Component {
     let button;
     if (this.props.loggedInUser) {
       button = <Button variant="outlined" className="home-page-login-btn">
-        <div onClick={this.props.logout}>LOGOUT</div>
+        <div onClick={this.props.logout}>logout</div>
       </Button>
     } else {
       button = <Button variant="outlined" className="home-page-login-btn">
-        <div onClick={this.toggleLogin}>LOGIN</div>
+        <div onClick={this.toggleLogin}>login</div>
       </Button>
     }
 
     return (
-      <div className="home-page">
+      <div className="home-page" onClick={this.closeLogin}>
         <section className="home-page-header">
           <div variant="outlined" className="home-page-login flex justify-end align-center">
             {(this.props.loggedInUser) &&
@@ -98,20 +98,20 @@ class Home extends Component {
         </section>
 
         <section className="home-page-boards-list flex column justify-center align-center">
-            <div className="home-page-boards-list-start-new-board flex justify-center align-center">
-              <div className="home-page-boards-list-start-new-board-card flex align-center justify-center"
-                onClick={this.createBoard}>
-                <div className="flex column justify-center align-center">
-                  <h2>+ ADD NEW LIST</h2>
-                  <small> please sign up first</small>
-                </div>
+          <div className="home-page-boards-list-start-new-board flex justify-center align-center">
+            <div className="home-page-boards-list-start-new-board-card flex align-center justify-center"
+              onClick={this.createBoard}>
+              <div className="flex column justify-center align-center">
+                <h2>+ ADD NEW LIST</h2>
+                <small> please sign up first</small>
               </div>
-              <p className="home-page-boards-list-start-new-board-right-text">
-                We, in Trebello, believe that simplicity and style must go together,
-            that's why we made our brand simple and easy to use for everyone.<br /> <br />
-                Organize your team and take them one step a head.</p>
             </div>
-        
+            <p className="home-page-boards-list-start-new-board-right-text">
+              We, in Trebello, believe that simplicity and style must go together,
+            that's why we made our brand simple and easy to use for everyone.<br /> <br />
+              Organize your team and take them one step a head.</p>
+          </div>
+
 
           <div className="home-page-boards-list-inspiration text-center flex column align-center justify-center">
             <h2 >GET SOME INSPIRATION</h2>

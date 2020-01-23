@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 
 import Labels from './Labels'
-// import TaskForm from './TaskForm';
-// import ScreenFilter from './ScreenFilter'
 
-// icons 
+
 import TitleIcon from '@material-ui/icons/Title';
 import NotesIcon from '@material-ui/icons/Notes';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import CloseIcon from '@material-ui/icons/Close';
-
+import LabelIcon from '@material-ui/icons/Label';
 
 export default class TaskDetails extends Component {
     state = {
@@ -85,7 +83,7 @@ export default class TaskDetails extends Component {
                             </div>
                         </header>
 
-                        <div className="task-details-container-lebels-container">
+                        <div className="task-details-container-labels-container">
 
                             {this.state.toggleChooseLabels ?
                                 <Labels
@@ -98,9 +96,13 @@ export default class TaskDetails extends Component {
 
 
                             {task.labels.length ?
-                                <h2>labels:</h2> : ''
+                                <div className="flex">
+                                    <LabelIcon />
+                                    <h2>labels:</h2>
+                                </div>
+                                : ''
                             }
-                            <div className="flex">
+                            <div className="labels-choosen-container flex">
 
                                 {
                                     task.labels.map(label => {

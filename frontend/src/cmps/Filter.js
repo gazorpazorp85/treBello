@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import SearchIcon from '@material-ui/icons/Search';
+
 export default class Filter extends Component {
 
     state = {
@@ -11,7 +13,12 @@ export default class Filter extends Component {
     inputChange = (ev) => {
         let fieldName = ev.target.name;
         let value = ev.target.value;
-        this.setState(prevState => ({ filterBy: { ...prevState.filterBy, [fieldName]: value } }));
+        this.setState(prevState => ({
+            filterBy: {
+                ...prevState.filterBy,
+                [fieldName]: value
+            }
+        }));
     }
 
     onFilterClick = () => {
@@ -19,15 +26,14 @@ export default class Filter extends Component {
     }
 
     render() {
-        return <div>
-            <input type='text' placeholder='search task by name' value={this.state.filterBy.title}
-                onChange={this.inputChange} name='title'></input>
-            {/* <select name='inStock' value={this.state.inStock} onChange={this.inputChange}>
-                <option value=''>All</option>
-                <option value='true'>In Stock</option>
-                <option value='false'>Out of Stock</option>
-            </select> */}
-            <button onClick={this.onFilterClick}>Filter</button>       
+        return <div className="board-page-nav-bar-filters-item flex">
+            <input type="text" placeholder="search task by name"
+                value={this.state.filterBy.title}
+                onChange={this.inputChange} name="title"></input>
+            <button className="board-page-nav-bar-filters nav-btn"
+                onClick={this.onFilterClick}>
+                <SearchIcon className="flex" />
+            </button>
         </div>
     }
 }
