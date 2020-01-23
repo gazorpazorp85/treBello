@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// import SocketService from '../services/SocketService';
-
-import Button from '@material-ui/core/Button';
-import HomeIcon from '@material-ui/icons/Home';
-
 import pageLoading from '../cmps/LoadPage';
 import BoardColumns from '../cmps/BoardColumns'
 import ColumnAddForm from '../cmps/ColumnAddForm'
@@ -14,6 +9,9 @@ import Filter from '../cmps/Filter';
 import Sort from '../cmps/Sort';
 import TaskDetails from '../cmps/TaskDetails';
 import DynamicMiniComponent from '../cmps/dynamics/DynamicMiniComponent';
+
+import HomeIcon from '@material-ui/icons/Home';
+
 
 import { loadBoard, updateBoard } from '../actions/BoardActions';
 import { logout } from '../actions/UserActions';
@@ -91,42 +89,42 @@ class Board extends Component {
     }
   }
 
-  toggleUploadBgImg = () => {
-    debugger
-    this.setState(prevState => ({ toggleUploadBgImg: !prevState.toggleUploadBgImg }))
-  }
+  // toggleUploadBgImg = () => {
+  //   debugger
+  //   this.setState(prevState => ({ toggleUploadBgImg: !prevState.toggleUploadBgImg }))
+  // }
 
-  onAddImg = (ev) => {
-    debugger
-    const file = ev.target.files[0];
-    // this.setState({ isUploading: true }, () => {
-    // utils.uploadImg(file).then(res => {
-    // const board = { ...this.props.board.columns }
-    // const newBoard = {
-    //     ...this.props.board,
-    //     columns: {
-    //         ...this.props.board.columns,
+  // onAddImg = (ev) => {
+  //   debugger
+  //   const file = ev.target.files[0];
+  // this.setState({ isUploading: true }, () => {
+  // utils.uploadImg(file).then(res => {
+  // const board = { ...this.props.board.columns }
+  // const newBoard = {
+  //     ...this.props.board,
+  //     columns: {
+  //         ...this.props.board.columns,
 
-    //         [this.state.column.id]: this.state.column
-    // .imgUrl = res we need to update the board
-    //     }
-    // };
-    // const id = this.state.column.id;
-    // const columnOrder = newBoard.columnOrder;
-    // if (!columnOrder.includes(id)) columnOrder.push(id);
-    // this.props.updateBoard(newBoard);
+  //         [this.state.column.id]: this.state.column
+  // .imgUrl = res we need to update the board
+  //     }
+  // };
+  // const id = this.state.column.id;
+  // const columnOrder = newBoard.columnOrder;
+  // if (!columnOrder.includes(id)) columnOrder.push(id);
+  // this.props.updateBoard(newBoard);
 
-    // this.setState({ isUploading: false })
-    // })
-    // })
-  }
+  // this.setState({ isUploading: false })
+  // })
+  // })
+  // }
 
   onFilter = (filterBy) => {
     this.setState({ filterBy }, this.loadBoard);
   }
 
   onSort = (sortBy, sortOrder) => {
-    this.setState({sortBy, sortOrder}, this.loadBoard);
+    this.setState({ sortBy, sortOrder }, this.loadBoard);
   }
 
   toggleMiniDetails = miniTask => {
@@ -142,31 +140,37 @@ class Board extends Component {
     if (!this.props.board.columns) return pageLoading();
     let button;
     if (this.props.loggedInUser) {
-      button = <Button className="empty-board-login-btn">
-        <div onClick={this.props.logout}>LOGOUT</div>
-      </Button>
+      button = <button className="board-page-nav-bar nav-btn"
+        onClick={this.props.logout}>
+        logout
+      </button>
     } else {
-      button = <button className="empty-board-login-btn">
-        <div onClick={this.toggleLogin}>LOGIN</div>
+      button = <button className="board-page-nav-bar nav-btn"
+        onClick={this.toggleLogin}>
+        login
       </button>
     }
 
     return (
       <div className="board-page fill-height flex column" onClick={this.closeLogin}>
-        <Button className="board-page-back-btn" variant="outlined" onClick={this.goBack} >
-          <HomeIcon className="board-page-back-btn-icon" />
-        </Button>
-
-        <div className="board-page-nav-bar flex justify-center">
-          <div className="board-page-nav-bar-logo"> </div>
-        </div>
-
-        <div className="board-page-nav-bar-filters flex align-center">
+        <div className="board-page-nav-bar flex space-between">
+          <div className="board-page-nav-bar-logo" onClick={this.goBack}> </div>
           {this.props.loggedInUser && this.props.loggedInUser.username}
           {button}
+        </div>
+
+        <div className="board-page-nav-bar-filters flex align-center ">
+          <div className="board-page-nav-bar-filters-item fill-height">
+            <button className="board-page-nav-bar-filters nav-btn flex">
+              <HomeIcon onClick={this.goBack} />
+            </button>
+          </div>
           <Filter onFilter={this.onFilter} />
           <Sort onSort={this.onSort} />
         </div>
+
+
+
         {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
         <div className="board-page-columns-container">
 

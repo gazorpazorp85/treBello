@@ -1,14 +1,16 @@
 .task-list {
     overflow-y: auto;
-    padding-right: 5px;
+    padding: 2px 5px;
+    box-shadow: 0px 0px 6px 4px #00000017;
+    border-radius: 4px;
 
     &-footer {
         padding-top: 5px;
 
         &-add-task {
-            margin: 3px;
-            padding: 10px 0;
             cursor: pointer;
+            margin: 5px;
+            padding: 8px 4px;
             border-radius: 4px;
             transition: 0.3s;
 
@@ -21,6 +23,6 @@
 
     &.isDraggingOver {
         transition: background-color 0.2 ease;
-        background-color: skyblue;
+        background-color: rgba(116, 116, 116, 0.281);
     }
 }
