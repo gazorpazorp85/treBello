@@ -6,7 +6,6 @@
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: normal;
-    padding: 5px;
 
     background: white;
     border-radius: 4px;
@@ -22,10 +21,15 @@
         width: 100%;
         margin-top: 2px;
         font-family: sans-serif;
+        padding: 5px;
     }
 
     &.isDragging {
         background-color: rgba(253, 253, 253, 0.685);
+    }
+
+    .task-container-labels{
+        align-self: flex-start;
     }
 
     &-open-menu {

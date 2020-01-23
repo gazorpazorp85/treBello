@@ -149,7 +149,7 @@ class Board extends Component {
       </button>
     } else {
       button = <button className="board-page-nav-bar nav-btn"
-        onClick={this.toggleLogin}>
+        onClick={ev => this.toggleLogin(ev)}>
         login
       </button>
     }

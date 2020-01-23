@@ -27,8 +27,8 @@
         padding-bottom: 30px;
         border-bottom: 1px solid #a0a0a059;
 
-        .labels-choosen-containerflex {
-            margin-inline-start: 25px;
+        .labels-choosen-container{
+            padding-left: 39px;
         }
     }
 
@@ -36,6 +36,7 @@
         padding: 5px;
 
         &-description {
+            padding-top: 15px;
             padding-bottom: 30px;
             margin: 10px 0px;
             border-bottom: 1px solid #a0a0a059;
@@ -45,7 +46,7 @@
 
 
     .text-area-wrapper {
-        margin-left: 30px;
+        margin-left: 42px;
 
         textarea {
             margin-top: 7px;
@@ -58,7 +59,7 @@
 
     p {
         font-weight: 600;
-        margin-inline-start: 30px;
+        margin-left: 41px;
     }
 
     .add-column-back-to-board {
@@ -96,6 +97,16 @@
     &-actions {
         &-options-container {
             padding-top: 50px;
+        }
+    }
+
+    .react-datepicker-wrapper{
+        position: absolute;
+        top: 234px;
+        right: 180px;
+
+        input{
+            width: 175px;
         }
     }
 }

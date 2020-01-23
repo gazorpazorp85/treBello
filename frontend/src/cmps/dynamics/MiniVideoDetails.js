@@ -36,7 +36,7 @@ export default class MiniVideoDetails extends Component {
 
     render() {
         const { miniTask } = this.props;
-        const videoDimensions = { height: 142, width: 253 };
+        const videoDimensions = { height: 140, width: 248 };
         return <div className="mini-details-container">
             <div
                 className="mini-details"

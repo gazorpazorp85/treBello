@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import Labels from './Labels'
+import Labels from './Labels';
+import DueDate from './DueDate';
 
 
 import TitleIcon from '@material-ui/icons/Title';
@@ -17,7 +18,8 @@ export default class TaskDetails extends Component {
         teamMembers: [],
         deuDate: null,
         toggleChooseLabels: false,
-        choosenlabels: []
+        choosenlabels: [],
+        onToggleDueDate: false
         // saveBtnHidden: true
     }
 
@@ -33,6 +35,12 @@ export default class TaskDetails extends Component {
     toggleUpdateDescriptionForm = () => {
         this.setState(prevState => ({ showEditDescriptionForm: !prevState.showEditDescriptionForm }))
     }
+
+    onToggleDueDate = ev => {
+        ev.stopPropagation();
+        this.setState(prevState => ({ onToggleDueDate: !prevState.onToggleDueDate }));
+    }
+
 
     closeUpdateDescriptionForm = () => {
         this.setState({ toggleUpdateDescriptionForm: false })
@@ -74,7 +82,7 @@ export default class TaskDetails extends Component {
                         onClick={() => this.props.toggleTaskDetails()} />
                     <div className="task-details-container-main full">
                         <header className="task-details-container-header">
-                            <div className="flex">
+                            <div className="flex align-center">
                                 <TitleIcon />
                                 <h2>{task.title}</h2>
                             </div>
@@ -98,7 +106,7 @@ export default class TaskDetails extends Component {
                             {task.labels.length ?
                                 <div className="flex">
                                     <LabelIcon />
-                                    <h2>labels:</h2>
+                                    <h2>Labels:</h2>
                                 </div>
                                 : ''
                             }
@@ -114,7 +122,7 @@ export default class TaskDetails extends Component {
                         </div>
 
                         <div className="task-details-container-main-description">
-                            <div className="flex">
+                            <div className="flex align-center">
                                 <NotesIcon />
                                 <h2>Description</h2>
                             </div>
@@ -139,13 +147,20 @@ export default class TaskDetails extends Component {
                         </div>
 
                         <div className="task-details-container-main-activity flex space-between">
-                            <div className="flex">
+                            <div className="flex align-center">
                                 <ListAltIcon />
                                 <h2>Activity</h2>
                             </div>
                             <button>{this.state.showActivity ? 'Show Activity' : 'Hide Activity'}</button>
                         </div>
                     </div>
+
+                    {this.state.onToggleDueDate ? <DueDate
+                        task={task}
+                        onToggle={this.onToggleDueDate}
+                        board={this.props.board}
+                        updateBoard={this.props.updateBoard}
+                    /> : ''}
 
 
                     <div className="task-details-container-overall-options">
@@ -155,7 +170,7 @@ export default class TaskDetails extends Component {
                                 <button className="task-details-container-add-to-card-options-btn btn" >Members</button>
                                 <button className="task-details-container-add-to-card-options-btn btn" onClick={(ev) => this.toggleChooseLabels(ev)} >Labels</button>
                                 <button className="task-details-container-add-to-card-options-btn btn" >Check List</button>
-                                <button className="task-details-container-add-to-card-options-btn btn" >Due date</button>
+                                <button className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.onToggleDueDate(ev)}>Due date</button>
                                 <button className="task-details-container-add-to-card-options-btn btn" >Image</button>
                                 <button className="task-details-container-add-to-card-options-btn btn" >Video</button>
                             </div>

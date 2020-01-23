@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 export default class MiniDetailsButton extends Component {
 
     render() {
-        const { text, onToggle } = this.props;
+        const { text, onClick } = this.props;
         return <div className="mini-details-editor-button"
-            onClick={onToggle}>
+            onClick={onClick}>
             <p>{text}</p>
         </div>
     }
