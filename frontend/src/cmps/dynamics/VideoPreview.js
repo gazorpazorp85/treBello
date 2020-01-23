@@ -45,7 +45,7 @@ export default class VideoPreview extends Component {
         return (
             <section ref="ref">
                 <div
-                    className={"task-container flex column align-center" + (isDragging ? " isDragging" : "")}
+                    className={"task-container flex column" + (isDragging ? " isDragging" : "")}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     ref={innerRef}
