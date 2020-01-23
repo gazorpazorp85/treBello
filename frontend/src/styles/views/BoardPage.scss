@@ -5,36 +5,62 @@
   background-position-x: center;
   height: 100vh;
 
-  .MuiButton-root {
-    font-family: montserratRegular, "sans-sarif";
-    position: absolute;
-    width: 0;
-    top: 5px;
-    left: 5px;
-    border: 0px;
-    color: #fafafaee;
-    background: #a0a0a071;
-    padding: 10px 20px;
-    transition: 0.3s;
-
-    &:hover {
-      background: #a0a0a0bb;
-    }
-  }
-
-  .root {
-    padding: 10px;
-    overflow: hidden;
-  }
-
   &-nav-bar {
-    height: 55px;
+    flex-basis: 0 0 55px;
     background-color: #000000c5;
+    padding: 15px 30px;
+
+    .nav-btn {
+      padding: 5px 15px;
+      background: #202020ab;
+      color: white;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: 0.3s;
+
+      &:hover {
+        background: #686868d3;
+      }
+    }
+
+    &-filters {
+      padding: 5px 10px;
+
+      &-item {
+        background: #ffffff1c;
+        border-radius: 4px;
+        color: white;
+        padding: 5px;
+        margin-right: 4px;
+
+        input {
+          min-width: 250px;
+          min-height: 30px;
+          border-radius: 2px;
+          border: none;
+          text-align: center;
+          background: #ffffff;
+        }
+
+        button {
+          border-radius: 4px;
+          color: white;
+          background: #202020ab;
+          transition: 0.3s;
+
+          &:hover {
+            background: #5a5a5ad3;
+
+          }
+        }
+
+      }
+    }
 
     &-logo {
-      margin-top: 5px;
-      height: 40px;
-      width: 110px;
+      cursor: pointer;
+      height: 25px;
+      width: 130px;
       background-image: url("../images/logo-nav.png");
       background-size: contain;
       background-repeat: no-repeat;
@@ -43,8 +69,10 @@
     &-filters {
       color: rgba(250, 250, 250, 0.932);
       background-color: #00000015;
-      height: 55px;
+      flex-basis: 0 0 55px;
+
     }
+
   }
 
   &-add-another-column-btn {

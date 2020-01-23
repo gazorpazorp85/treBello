@@ -15,18 +15,13 @@ import MenuItem from "@material-ui/core/MenuItem";
 export default class BoardColumns extends Component {
 
     state = {
-        chacked: false,
         showForm: false,
         showTopMenuOptions: false,
-
-        // showAddFormButton: true,
         showAddForm: false,
         showEditBtn: true,
-
         currColumnId: '',
         anchorEl: null,
         timer: null,
-        currColumnId: '',
         title: ''
     }
 
@@ -158,21 +153,9 @@ export default class BoardColumns extends Component {
 
 
     toggleUpdateForm = (id) => {
-        // if (id) {
-        debugger
-        // if (id === this.state.currColumnId) {
-
         this.setState((prevState) => ({
             showAddForm: !prevState.showAddForm, currColumnId: id,
-            // showAddFormButton: !prevState.showAddFormButton
         }))
-        // }
-        // } else {
-        //     this.setState((prevState) => ({
-        //         showAddForm: !prevState.showAddForm,
-        //         showAddFormButton: !prevState.showAddFormButton
-        //     }))
-        // }
     }
 
 

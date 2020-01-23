@@ -44,14 +44,21 @@ export default class VideoPreview extends Component {
         const { task, provided, innerRef, isDragging, style, showEditBtn, onTaskId } = this.props;
         return (
             <section ref="ref">
-                <div 
+                <div
                     className={"task-container flex column align-center" + (isDragging ? " isDragging" : "")}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     ref={innerRef}
                     style={style}
                 >
-                    <iframe title={task.id} type='text/html' width="240" height="135" src={task.url} security="restricted"></iframe>
+                    <iframe title={task.id} type='text/html' width="253" height="142" src={task.url} security="restricted"></iframe>
+                    <div className="task-container-labels flex">
+                        {task.labels.map(label => {
+                            return <div key={label} className={label + ' small-label'}>
+                            </div>
+                        })
+                        }
+                    </div>
                     <p>{task.title}</p>
                     {(showEditBtn && (onTaskId === task.id)) ?
                         <div className="task-container-open-menu-wrapper flex align-center justify-center">

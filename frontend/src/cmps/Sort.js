@@ -25,9 +25,10 @@ export default class Sort extends Component {
     }
 
     render() {
-        return <div>
-            <span>Sort tasks by: </span>
-            <button onClick={this.onSortBy} name='createdAt'>{this.toggleButtonName()}</button>
+        return <div  className="board-page-nav-bar-filters-item fill-height">
+            <button className="nav-btn fill-height"
+                onClick={this.onSortBy}
+                name='createdAt'>{this.toggleButtonName()}</button>
 
         </div>
     }

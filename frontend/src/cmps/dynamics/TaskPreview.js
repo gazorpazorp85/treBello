@@ -47,14 +47,12 @@ export default class TaskPreview extends Component {
                     style={style}
                 >
                     <div className="task-container-labels flex">
-                        {
-                            task.labels.map(label => {
-                                return <div key={label} className={label + ' small-label'}>
-                                </div>
-                            })
+                        {task.labels.map(label => {
+                            return <div key={label} className={label + ' small-label'}>
+                            </div>
+                        })
                         }
                     </div>
-
                     <p>{task.title}</p>
                     {(showEditBtn && (onTaskId === task.id)) ?
                         <div className="task-container-open-menu-wrapper flex align-center justify-center">
@@ -66,8 +64,6 @@ export default class TaskPreview extends Component {
                         <ListAltIcon /> : ''
                     }
                 </div>
-
-
             </section>
         )
     }
