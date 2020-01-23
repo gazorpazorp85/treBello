@@ -20,7 +20,6 @@ export default class BoardColumns extends Component {
         showAddForm: false,
         showEditBtn: true,
 
-        currColumnId: '',
         anchorEl: null,
         timer: null,
         currColumnId: '',
@@ -154,7 +153,6 @@ export default class BoardColumns extends Component {
 
     toggleUpdateForm = (id) => {
         // if (id) {
-        debugger
         // if (id === this.state.currColumnId) {
 
         this.setState((prevState) => ({

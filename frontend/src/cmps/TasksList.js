@@ -3,7 +3,6 @@ import { Draggable } from 'react-beautiful-dnd';
 import NaturalDragAnimation from 'natural-drag-animation-rbdnd';
 
 import DynamicComponent from './dynamics/DynamicComponent';
-import TaskForm from './TaskForm';
 
 export default class TasksList extends Component {
 
