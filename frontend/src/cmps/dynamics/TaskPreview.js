@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import CreateIcon from '@material-ui/icons/Create';
 import ListAltIcon from '@material-ui/icons/ListAlt';
+import utils from '../../services/utils'
+import Members from "../Members";
 
 export default class TaskPreview extends Component {
 
@@ -55,7 +57,7 @@ export default class TaskPreview extends Component {
                         }
                     </div>
 
-                    <p>{task.title}</p>
+                    <p className="task-container-title">{task.title}</p>
                     {(showEditBtn && (onTaskId === task.id)) ?
                         <div className="task-container-open-menu-wrapper flex align-center justify-center">
                             <CreateIcon className="task-container-open-menu"
@@ -65,6 +67,20 @@ export default class TaskPreview extends Component {
                     {(task.description !== '') ?
                         <ListAltIcon /> : ''
                     }
+
+                    <div className="asign-member-to-task flex">
+                        {(task.taskTeamMembers.map(member => {
+                            return <div key={member.userName} className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: `${member.color}` }} >
+                                <div className="team-member-icon">
+                                    <p className="flex align-center">
+                                        {utils.createUserIcon(member.firstName,
+                                            member.lastName)}
+                                    </p>
+                                </div>
+                            </div>
+                        }))
+                        }
+                    </div>
                 </div>
 
 
