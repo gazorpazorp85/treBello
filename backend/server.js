@@ -40,8 +40,6 @@ app.use('/api/auth', authRoutes)
 app.use('/api/board', boardRoutes)
 connectSockets(io)
 
-
-
 const logger = require('./services/logger.service')
 const port = process.env.PORT || 3030;
 http.listen(port, () => {

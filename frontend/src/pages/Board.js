@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// import SocketService from '../services/SocketService';
+import SocketService from '../services/SocketService';
 
 import Button from '@material-ui/core/Button';
 import HomeIcon from '@material-ui/icons/Home';
@@ -40,22 +40,18 @@ class Board extends Component {
 
   componentDidMount() {
     this.loadBoard();
-    // SocketService.setup();
-    // SocketService.emit('chat topic', this.state.topic);
-    // SocketService.on('chat addMsg', this.addMsg);
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.match.params.id
-      !== this.props.match.params.id) {
-      const boardId = this.props.match.params.id;
-      this.props.loadBoard(boardId);
-    }
+    const boardId = this.props.match.params.id;
+    const filterBy = this.state.filterBy;
+    const sortBy = this.state.sortBy;
+    const sortOrder = this.state.sortOrder;
+    SocketService.setup();
+    SocketService.emit('boardId', boardId);
+    SocketService.on('updateBoard', (board) => this.props.loadBoard(board._id, filterBy, sortBy, sortOrder));
   }
 
   componentWillUnmount() {
-    // SocketService.off('chat addMsg', this.addMsg);
-    // SocketService.terminate();
+    SocketService.off('updateBoard');
+    SocketService.terminate();
   }
 
   loadBoard = () => {
@@ -126,7 +122,7 @@ class Board extends Component {
   }
 
   onSort = (sortBy, sortOrder) => {
-    this.setState({sortBy, sortOrder}, this.loadBoard);
+    this.setState({ sortBy, sortOrder }, this.loadBoard);
   }
 
   toggleMiniDetails = miniTask => {

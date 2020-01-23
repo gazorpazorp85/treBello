@@ -1,5 +1,9 @@
 import BoardService from '../services/BoardService';
 
+import SocketService from '../services/SocketService';
+
+// SocketService.setup();
+
 export function loadBoards() {
   return async dispatch => {
     try {
@@ -41,6 +45,7 @@ export function updateBoard(board) {
     try {
       dispatch(_boardUpdate(board));
       await BoardService.put(board);
+      SocketService.emit('boardUpdate', board);
     } catch (err) {
       console.log('BoardActions: err in loadBoard', err);
     }
