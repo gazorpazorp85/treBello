@@ -4,8 +4,8 @@ export default {
     login,
     logout,
     signup,
-    // getUsers,
-    getById
+    getLoggedInUser
+    // getById
     // remove,
     // update
 }
@@ -13,7 +13,7 @@ export default {
 async function login(userCred) {
     try {
         const user = await HttpService.post('auth/login', userCred);
-        return _handleLogin(user);
+        return user;
     } catch (err) {
         console.log('UserService: err in login', err);
     }
@@ -22,7 +22,7 @@ async function login(userCred) {
 async function signup(userCred) {
     try {
         const user = await HttpService.post('auth/signup', userCred);
-        return _handleLogin(user);
+        return user;
     } catch (err) {
         console.log('UserService: err in signup', err);
     }
@@ -31,25 +31,29 @@ async function signup(userCred) {
 async function logout() {
     try {
         await HttpService.post('auth/logout');
-        localStorage.removeItem('user');
+        // localStorage.removeItem('user');
     } catch (err) {
         console.log('UserService: err in logout', err);
     }
 }
 
-function _handleLogin(user) {
-    localStorage.setItem('user', JSON.stringify(user))
-    return user;
+async function getLoggedInUser() {
+    try {
+        const user = await HttpService.get('auth/user');
+        return user;
+    } catch (err) {
+        console.log('UserService: err in getting loggedInUser', err);
+    }
 }
 
-
-// function getUsers() {
-//     return HttpService.get('user')
+// function _handleLogin(user) {
+//     localStorage.setItem('user', JSON.stringify(user))
+//     return user;
 // }
 
-function getById(userId) {
-    return HttpService.get(`user/${userId}`)
-}
+// function getById(userId) {
+//     return HttpService.get(`user/${userId}`)
+// }
 // function remove(userId) {
 //     return HttpService.delete(`user/${userId}`)
 // }

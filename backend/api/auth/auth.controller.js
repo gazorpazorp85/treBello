@@ -2,12 +2,11 @@ const authService = require('./auth.service')
 const logger = require('../../services/logger.service')
 
 async function login(req, res) {
-    const { email, password } = req.body;
-    res.cookie('user', loginData.name, { maxAge: 20 * 60 * 1000 });
+    const { email, password } = req.body
     try {
         const user = await authService.login(email, password)
         req.session.user = user;
-        res.json(user);
+        res.json(user)
     } catch (err) {
         res.status(401).send({ error: err })
     }
@@ -28,7 +27,7 @@ async function signup(req, res) {
     }
 }
 
-async function logout(req, res) {
+async function logout(req, res){
     try {
         req.session.destroy()
         res.send({ message: 'logged out successfully' })
@@ -37,8 +36,24 @@ async function logout(req, res) {
     }
 }
 
+async function getLoggedInUser(req, res) {
+    console.log('im here!')
+    console.log('refresh')
+    console.log(req.session.user);
+    try {
+        if (req.session.user) res.json(req.session.user);
+        // const loggedInUser = await userService.getByEmail(userEmail);
+        // req.session.user = loggedInUser;
+        
+    } catch (err) {
+        logger.error('no signedin users', err);
+        res.status(500).send({ error: 'no signedin users' });
+    }
+}
+
 module.exports = {
     login,
     signup,
-    logout
+    logout,
+    getLoggedInUser
 }

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import {
   // loadUsers,
-  // removeUser,
+  getLoggedInUser,
   login,
   logout,
   signup
@@ -22,11 +22,12 @@ class Login extends Component {
       username: '',
       email: '',
       password: ''
-    }
-  };
+    },
+
+  }
 
   componentDidMount() {
-    if (this.props.loggedInUser) this.props.logout();
+    this.props.getLoggedInUser();
   }
 
   loginHandleChange = ev => {
@@ -155,30 +156,30 @@ class Login extends Component {
 
       // <div className="screen" onClick={() => this.props.toggleLogin()} >
 
-        <div className={"login-container flex column align-center"
-          + (this.props.toggleState ? ' translateLeft' : '')}
-          style={this.props.style}
-          onClick={this.doStopPropagation}>
+      <div className={"login-container flex column align-center"
+        + (this.props.toggleState ? ' translateLeft' : '')}
+        style={this.props.style}
+        onClick={this.doStopPropagation}>
 
 
-          <div className="login-container-logo">
-          </div>
-          <h2>{this.state.msg}</h2>
-          <div className={"login-container-form-container"}>
-            {loggedInUser && (
-              <div>
-                <h2 className="login-container-loggedin-username"> <p>Welcome!</p> {loggedInUser.username} </h2>
-                <div className="fill-width flex">
-                  <button className="login-container-form-container-logout" onClick={this.doLogout}>Logout</button>
-                </div>
-              </div>
-            )}
-
-            {!this.props.loggedInUser && loginSection}
-            <hr />
-            {!this.props.loggedInUser && signupSection}
-          </div>
+        <div className="login-container-logo">
         </div>
+        <h2>{this.state.msg}</h2>
+        <div className={"login-container-form-container"}>
+          {loggedInUser && (
+            <div>
+              <h2 className="login-container-loggedin-username"> <p>Welcome!</p> {loggedInUser.username} </h2>
+              <div className="fill-width flex">
+                <button className="login-container-form-container-logout" onClick={this.doLogout}>Logout</button>
+              </div>
+            </div>
+          )}
+
+          {!this.props.loggedInUser && loginSection}
+          <hr />
+          {!this.props.loggedInUser && signupSection}
+        </div>
+      </div>
 
       // </div>
 
@@ -197,8 +198,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   login,
   logout,
-  signup
-  // removeUser,
+  signup,
+  getLoggedInUser
   // loadUsers
 };
 

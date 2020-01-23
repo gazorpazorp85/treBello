@@ -15,7 +15,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import SocketService from '../services/SocketService';
 
 import { loadBoard, updateBoard } from '../actions/BoardActions';
-import { logout } from '../actions/UserActions';
+import { logout, getLoggedInUser } from '../actions/UserActions';
 
 
 class Board extends Component {
@@ -38,6 +38,7 @@ class Board extends Component {
   }
 
   componentDidMount() {
+    this.props.getLoggedInUser();
     this.loadBoard();
     const boardId = this.props.match.params.id;
     const filterBy = this.state.filterBy;
@@ -161,8 +162,12 @@ class Board extends Component {
 
           <div className="board-page-nav-bar flex space-between">
             <div className="board-page-nav-bar-logo" onClick={this.goBack}> </div>
-            {this.props.loggedInUser && this.props.loggedInUser.username}
-            {button}
+            <div>
+              <span className="plaster"> 
+                {this.props.loggedInUser && `Logged in as: ${this.props.loggedInUser.username}`}
+              </span>
+              {button}
+            </div>
           </div>
 
           <div className="board-page-nav-bar-filters flex align-center ">
@@ -240,7 +245,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   loadBoard,
   updateBoard,
-  logout
+  logout,
+  getLoggedInUser
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board);

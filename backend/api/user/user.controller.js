@@ -6,7 +6,6 @@ async function getUser(req, res) {
 }
 
 async function getUsers(req, res) {
-    console.log(req.query);
     const users = await userService.query(req.query)
     res.send(users)
 }
@@ -22,15 +21,15 @@ async function updateUser(req, res) {
     res.send(user)
 }
 
-async function addUser(req, res) {
+// async function addUser(req, res) {
 
-    try {
-        const user = userService.add(req.body);
-        res.send(user);
-    } catch (err) {
-        logger.error
-    }
-}
+//     try {
+//         const user = userService.add(req.body);
+//         res.send(user);
+//     } catch (err) {
+//         logger.error
+//     }
+// }
 
 module.exports = {
     getUser,
