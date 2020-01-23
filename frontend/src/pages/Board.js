@@ -12,6 +12,7 @@ import DynamicMiniComponent from '../cmps/dynamics/DynamicMiniComponent';
 
 import HomeIcon from '@material-ui/icons/Home';
 
+import SocketService from '../services/SocketService';
 
 import { loadBoard, updateBoard } from '../actions/BoardActions';
 import { logout } from '../actions/UserActions';
@@ -38,22 +39,18 @@ class Board extends Component {
 
   componentDidMount() {
     this.loadBoard();
-    // SocketService.setup();
-    // SocketService.emit('chat topic', this.state.topic);
-    // SocketService.on('chat addMsg', this.addMsg);
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.match.params.id
-      !== this.props.match.params.id) {
-      const boardId = this.props.match.params.id;
-      this.props.loadBoard(boardId);
-    }
+    const boardId = this.props.match.params.id;
+    const filterBy = this.state.filterBy;
+    const sortBy = this.state.sortBy;
+    const sortOrder = this.state.sortOrder;
+    SocketService.setup();
+    SocketService.emit('boardId', boardId);
+    SocketService.on('updateBoard', (board) => this.props.loadBoard(board._id, filterBy, sortBy, sortOrder));
   }
 
   componentWillUnmount() {
-    // SocketService.off('chat addMsg', this.addMsg);
-    // SocketService.terminate();
+    SocketService.off('updateBoard');
+    SocketService.terminate();
   }
 
   loadBoard = () => {
@@ -75,8 +72,14 @@ class Board extends Component {
     this.props.history.push('/');
   }
 
-  toggleLogin = () => {
+  toggleLogin = (ev) => {
+    ev.stopPropagation()
     this.setState((prevState) => ({ toggleLogin: !prevState.toggleLogin }))
+  }
+
+  closeLogin = (ev) => {
+    ev.stopPropagation()
+    this.setState({ toggleLogin: false })
   }
 
   toggleTaskDetails = (currTask) => {
@@ -152,71 +155,75 @@ class Board extends Component {
     }
 
     return (
-      <div className="board-page fill-height flex column" onClick={this.closeLogin}>
-        <div className="board-page-nav-bar flex space-between">
-          <div className="board-page-nav-bar-logo" onClick={this.goBack}> </div>
-          {this.props.loggedInUser && this.props.loggedInUser.username}
-          {button}
-        </div>
+      <div className="screen" onClick={this.closeLogin}>
+        <div className="board-page fill-height flex column">
 
-        <div className="board-page-nav-bar-filters flex align-center ">
-          <div className="board-page-nav-bar-filters-item fill-height">
-            <button className="board-page-nav-bar-filters nav-btn flex">
-              <HomeIcon onClick={this.goBack} />
-            </button>
+
+          <div className="board-page-nav-bar flex space-between">
+            <div className="board-page-nav-bar-logo" onClick={this.goBack}> </div>
+            {this.props.loggedInUser && this.props.loggedInUser.username}
+            {button}
           </div>
-          <Filter onFilter={this.onFilter} />
-          <Sort onSort={this.onSort} />
-        </div>
+
+          <div className="board-page-nav-bar-filters flex align-center ">
+            <div className="board-page-nav-bar-filters-item fill-height">
+              <button className="board-page-nav-bar-filters nav-btn flex">
+                <HomeIcon onClick={this.goBack} />
+              </button>
+            </div>
+            <Filter onFilter={this.onFilter} />
+            <Sort onSort={this.onSort} />
+          </div>
 
 
 
-        {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
-        <div className="board-page-columns-container">
+          {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
+          <div className="board-page-columns-container">
 
-          <div className="flex align-start fill-height">
-            <Login
-              variant="outlined"
-              className="home-page-login"
-              toggleLogin={this.toggleLogin}
-              toggleState={this.state.toggleLogin} />
-            <BoardColumns
-              board={this.props.board}
-              updateBoard={this.props.updateBoard}
-              toggleTaskDetails={this.toggleTaskDetails}
-              toggleMiniDetails={this.toggleMiniDetails} />
-            <div className="flex column align-center">
-              {(this.state.showAddColumn) ?
-                <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}>
-                  + Add another list..  </button> : ''
-              }
-              {(this.state.showForm) && <ColumnAddForm board={this.props.board} updateBoard={this.props.updateBoard}
-                toggleAddForm={this.toggleAddForm} />}
+            <div className="flex align-start fill-height">
+              <Login
+                variant="outlined"
+                className="home-page-login"
+                toggleLogin={this.toggleLogin}
+                toggleState={this.state.toggleLogin} />
+              <BoardColumns
+                board={this.props.board}
+                updateBoard={this.props.updateBoard}
+                toggleTaskDetails={this.toggleTaskDetails}
+                toggleMiniDetails={this.toggleMiniDetails} />
+              <div className="flex column align-center">
+                {(this.state.showAddColumn) ?
+                  <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}>
+                    + Add another list..  </button> : ''
+                }
+                {(this.state.showForm) && <ColumnAddForm board={this.props.board} updateBoard={this.props.updateBoard}
+                  toggleAddForm={this.toggleAddForm} />}
+              </div>
             </div>
           </div>
+
+          {this.state.showTaskDetails && <TaskDetails
+            taskId={this.state.currTask.id}
+            board={this.props.board}
+            column={this.state.currTask.column}
+            updateBoard={this.props.updateBoard}
+            toggleTaskDetails={this.toggleTaskDetails} />}
+          {this.state.showMiniTaskDetails && <DynamicMiniComponent
+            miniTask={this.state.miniTaskDetails}
+            updateBoard={this.props.updateBoard}
+            onToggle={this.toggleMiniDetails}
+            board={this.props.board}
+          />}
+
+          {!this.state.toggleUploadBgImg ?
+            <button className="add-bg-photo" onClick={this.toggleUploadBgImg}>ADD BG PHOTO</button>
+            :
+            <div className="upload-img-container">
+              add image:<input type="file" id="upload-img" onChange={this.onAddImg}></input>
+            </div>
+          }
+
         </div>
-
-        {this.state.showTaskDetails && <TaskDetails
-          taskId={this.state.currTask.id}
-          board={this.props.board}
-          column={this.state.currTask.column}
-          updateBoard={this.props.updateBoard}
-          toggleTaskDetails={this.toggleTaskDetails} />}
-        {this.state.showMiniTaskDetails && <DynamicMiniComponent
-          miniTask={this.state.miniTaskDetails}
-          updateBoard={this.props.updateBoard}
-          onToggle={this.toggleMiniDetails}
-          board={this.props.board}
-        />}
-
-        {!this.state.toggleUploadBgImg ?
-          <button className="add-bg-photo" onClick={this.toggleUploadBgImg}>ADD BG PHOTO</button>
-          :
-          <div className="upload-img-container">
-            add image:<input type="file" id="upload-img" onChange={this.onAddImg}></input>
-          </div>
-        }
-
 
       </div>
     )

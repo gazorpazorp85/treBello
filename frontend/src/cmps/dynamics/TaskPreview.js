@@ -29,7 +29,8 @@ export default class TaskPreview extends Component {
             left: this.state.elLeft,
             top: this.state.elTop,
             height: this.state.elHeight,
-            previewType: 'text'
+            previewType: 'text',
+            column: this.props.column
         };
         this.props.toggleMiniDetails(miniTask);
     }

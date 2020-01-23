@@ -13,7 +13,6 @@ function query() {
 }
 
 function get(boardId, filterBy, sortBy, sortOrder) {
-  console.log(boardId, filterBy, sortBy, sortOrder);
   return HttpService.get(`board/${boardId}?title=${filterBy.title}&sortby=${sortBy}&sortorder=${sortOrder}`);
 }
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// import SocketService from '../services/SocketService';
+import SocketService from '../services/SocketService';
 
 import HomeIcon from '@material-ui/icons/Home';
 

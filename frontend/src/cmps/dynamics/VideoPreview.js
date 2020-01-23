@@ -33,7 +33,8 @@ export default class VideoPreview extends Component {
             left: this.state.elLeft,
             top: this.state.elTop,
             height: this.state.elHeight,
-            previewType: 'video'
+            previewType: 'video',
+            column: this.props.column
         };
         this.props.toggleMiniDetails(miniTask);
     }
@@ -50,7 +51,7 @@ export default class VideoPreview extends Component {
                     ref={innerRef}
                     style={style}
                 >
-                    <iframe title={task.id} type='text/html' width="240" height="135" src={task.url}></iframe>
+                    <iframe title={task.id} type='text/html' width="240" height="135" src={task.url} security="restricted"></iframe>
                     <p>{task.title}</p>
                     {(showEditBtn && (onTaskId === task.id)) ?
                         <div className="task-container-open-menu-wrapper flex align-center justify-center">
