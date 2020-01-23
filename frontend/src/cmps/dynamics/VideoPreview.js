@@ -51,7 +51,7 @@ export default class VideoPreview extends Component {
                     ref={innerRef}
                     style={style}
                 >
-                    <iframe title={task.id} type='text/html' width="240" height="135" src={task.url} security="restricted"></iframe>
+                    <iframe title={task.id} type='text/html' width="253" height="142" src={task.url} security="restricted"></iframe>
                     <div className="task-container-labels flex">
                         {task.labels.map(label => {
                             return <div key={label} className={label + ' small-label'}>
