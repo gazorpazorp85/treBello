@@ -3,9 +3,9 @@ import HttpService from './HttpService'
 export default {
     login,
     logout,
-    signup
+    signup,
     // getUsers,
-    // getById,
+    getById
     // remove,
     // update
 }
@@ -31,14 +31,14 @@ async function signup(userCred) {
 async function logout() {
     try {
         await HttpService.post('auth/logout');
-        sessionStorage.clear();
+        localStorage.removeItem('user');
     } catch (err) {
         console.log('UserService: err in logout', err);
     }
 }
 
 function _handleLogin(user) {
-    sessionStorage.setItem('user', JSON.stringify(user))
+    localStorage.setItem('user', JSON.stringify(user))
     return user;
 }
 
@@ -47,9 +47,9 @@ function _handleLogin(user) {
 //     return HttpService.get('user')
 // }
 
-// function getById(userId) {
-//     return HttpService.get(`user/${userId}`)
-// }
+function getById(userId) {
+    return HttpService.get(`user/${userId}`)
+}
 // function remove(userId) {
 //     return HttpService.delete(`user/${userId}`)
 // }

@@ -2,8 +2,6 @@ import BoardService from '../services/BoardService';
 
 import SocketService from '../services/SocketService';
 
-// SocketService.setup();
-
 export function loadBoards() {
   return async dispatch => {
     try {
