@@ -45,13 +45,13 @@ export default class VideoPreview extends Component {
         return (
             <section ref="ref">
                 <div
-                    className={"task-container flex column align-center" + (isDragging ? " isDragging" : "")}
+                    className={"task-container flex column" + (isDragging ? " isDragging" : "")}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     ref={innerRef}
                     style={style}
                 >
-                    <iframe title={task.id} type='text/html' width="253" height="142" src={task.url} security="restricted"></iframe>
+                    <iframe title={task.id} type='text/html' width="248" height="140" src={task.url} security="restricted"></iframe>
                     <div className="task-container-labels flex">
                         {task.labels.map(label => {
                             return <div key={label} className={label + ' small-label'}>

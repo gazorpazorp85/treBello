@@ -2,7 +2,6 @@
     position: relative;
     overflow-y: auto;
     background-color: white;
-    width: 50vw;
     height: 95vh;
     padding: 55px 15px;
     border-radius: 4px;
@@ -26,9 +25,51 @@
     &-labels-container {
         padding-bottom: 30px;
         border-bottom: 1px solid #a0a0a059;
+        margin: 10px 0px;
 
-        .labels-choosen-containerflex {
-            margin-inline-start: 25px;
+        .labels-choosen-container{
+            padding-left: 39px;
+        }
+    }
+
+    &-members-container {
+        padding-bottom: 30px;
+        border-bottom: 1px solid #a0a0a059;
+        margin: 10px 0px;
+
+        .members-choosen-container {
+            margin-top: 5px;
+
+            p {
+                margin: 0;
+                padding-left: 5px;
+            }
+
+            .team-member {
+                cursor: pointer;
+                margin-bottom: 5px;
+                border-radius: 2px;
+                padding: 10px;
+                border-bottom: 1px solid rgba(92, 92, 92, 0.288);
+
+                &-icon {
+                    &-wrapper {
+                        width: 40px;
+                        height: 40px;
+                        margin-right: 5px;
+                        border: 1px solid;
+                        padding: 5px 7px;
+                        border-radius: 50%;
+                    }
+
+                    p {
+                        font-family: montserratExtraBold, 'sans-sarif';
+                        color: white;
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+            }
         }
     }
 
@@ -36,6 +77,7 @@
         padding: 5px;
 
         &-description {
+            padding-top: 15px;
             padding-bottom: 30px;
             margin: 10px 0px;
             border-bottom: 1px solid #a0a0a059;
@@ -45,7 +87,7 @@
 
 
     .text-area-wrapper {
-        margin-left: 30px;
+        margin-left: 42px;
 
         textarea {
             margin-top: 7px;
@@ -58,7 +100,7 @@
 
     p {
         font-weight: 600;
-        margin-inline-start: 30px;
+        margin-left: 41px;
     }
 
     .add-column-back-to-board {
@@ -96,6 +138,16 @@
     &-actions {
         &-options-container {
             padding-top: 50px;
+        }
+    }
+
+    .react-datepicker-wrapper{
+        position: absolute;
+        top: 234px;
+        right: 180px;
+
+        input{
+            width: 175px;
         }
     }
 }

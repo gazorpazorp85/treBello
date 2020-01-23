@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import utils from '../services/utils'
+
 import {
   // loadUsers,
   getLoggedInUser,
@@ -14,9 +16,10 @@ class Login extends Component {
     msg: '',
     loginCred: {
       email: '',
-      password: ''
+      password: '',
     },
     signupCred: {
+      color: utils.getRandomColor(),
       firstName: '',
       lastName: '',
       username: '',

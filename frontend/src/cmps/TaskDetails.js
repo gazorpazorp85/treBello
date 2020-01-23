@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component, memo } from 'react';
 
+import utils from '../services/utils'
+
+import DueDate from './DueDate';
 import Labels from './Labels'
-
+import Members from './Members'
 
 import TitleIcon from '@material-ui/icons/Title';
 import NotesIcon from '@material-ui/icons/Notes';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import CloseIcon from '@material-ui/icons/Close';
 import LabelIcon from '@material-ui/icons/Label';
+import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 
 export default class TaskDetails extends Component {
     state = {
@@ -17,8 +21,11 @@ export default class TaskDetails extends Component {
         teamMembers: [],
         deuDate: null,
         toggleChooseLabels: false,
-        choosenlabels: []
-        // saveBtnHidden: true
+        choosenlabels: [],
+        onToggleDueDate: false,
+        toggleChooseMembers: false,
+        choosenMembers: []
+
     }
 
     componentDidMount() {
@@ -34,6 +41,12 @@ export default class TaskDetails extends Component {
         this.setState(prevState => ({ showEditDescriptionForm: !prevState.showEditDescriptionForm }))
     }
 
+    onToggleDueDate = ev => {
+        ev.stopPropagation();
+        this.setState(prevState => ({ onToggleDueDate: !prevState.onToggleDueDate }));
+    }
+
+
     closeUpdateDescriptionForm = () => {
         this.setState({ toggleUpdateDescriptionForm: false })
     }
@@ -41,7 +54,8 @@ export default class TaskDetails extends Component {
     onStopPropagationAndCloseOptions = (ev) => {
         ev.stopPropagation();
         this.setState({
-            toggleChooseLabels: false
+            toggleChooseLabels: false,
+            toggleChooseMembers: false
         })
     }
 
@@ -62,6 +76,11 @@ export default class TaskDetails extends Component {
         this.props.updateBoard(newBoard);
     }
 
+    toggleChooseMembers = (ev) => {
+        ev.stopPropagation();
+        this.setState(prevState => ({ toggleChooseMembers: !prevState.toggleChooseMembers }))
+    }
+
 
     render() {
         const task = this.props.board.tasks[this.props.taskId];
@@ -74,7 +93,7 @@ export default class TaskDetails extends Component {
                         onClick={() => this.props.toggleTaskDetails()} />
                     <div className="task-details-container-main full">
                         <header className="task-details-container-header">
-                            <div className="flex">
+                            <div className="flex align-center">
                                 <TitleIcon />
                                 <h2>{task.title}</h2>
                             </div>
@@ -93,12 +112,10 @@ export default class TaskDetails extends Component {
                                     updateBoard={this.props.updateBoard}
                                 /> : ''
                             }
-
-
                             {task.labels.length ?
                                 <div className="flex">
                                     <LabelIcon />
-                                    <h2>labels:</h2>
+                                    <h2>Labels:</h2>
                                 </div>
                                 : ''
                             }
@@ -113,8 +130,47 @@ export default class TaskDetails extends Component {
                             </div>
                         </div>
 
+
+                        <div className="task-details-container-members-container">
+
+                            {this.state.toggleChooseMembers ?
+                                <Members
+                                    toggleChooseMembers={this.toggleChooseMembers}
+                                    board={this.props.board}
+                                    task={task}
+                                    updateBoard={this.props.updateBoard}
+                                /> : ''
+                            }
+                            {task.taskTeamMembers.length ?
+                                <div className="flex">
+                                    <EmojiPeopleIcon />
+                                    <h2>Team members:</h2>
+                                </div>
+                                : ''
+                            }
+                            <div className="members-choosen-container flex column">
+                                {
+                                    task.taskTeamMembers.map(member => {
+                                        return <div key={member.userName} className="flex">
+                                            <div className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: `${member.color}` }} >
+                                                <div className="team-member-icon flex align-center">
+                                                    <p>
+                                                        {utils.createUserIcon(member.firstName,
+                                                            member.lastName)}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <p className=" flex align-center">{member.firstName}</p>
+                                            <p className=" flex align-center"> {member.lastName}</p>
+                                        </div>
+                                    })
+                                }
+                            </div>
+                        </div>
+
+
                         <div className="task-details-container-main-description">
-                            <div className="flex">
+                            <div className="flex align-center">
                                 <NotesIcon />
                                 <h2>Description</h2>
                             </div>
@@ -139,7 +195,7 @@ export default class TaskDetails extends Component {
                         </div>
 
                         <div className="task-details-container-main-activity flex space-between">
-                            <div className="flex">
+                            <div className="flex align-center">
                                 <ListAltIcon />
                                 <h2>Activity</h2>
                             </div>
@@ -147,15 +203,22 @@ export default class TaskDetails extends Component {
                         </div>
                     </div>
 
+                    {this.state.onToggleDueDate ? <DueDate
+                        task={task}
+                        onToggle={this.onToggleDueDate}
+                        board={this.props.board}
+                        updateBoard={this.props.updateBoard}
+                    /> : ''}
+
 
                     <div className="task-details-container-overall-options">
                         <div className="task-details-container-add-to-card-options-container">
                             <p className="text-center">ADD TO CARD</p>
                             <div className="task-details-container-add-to-card-options flex column">
-                                <button className="task-details-container-add-to-card-options-btn btn" >Members</button>
+                                <button className="task-details-container-add-to-card-options-btn btn" onClick={(ev) => this.toggleChooseMembers(ev)} >Members</button>
                                 <button className="task-details-container-add-to-card-options-btn btn" onClick={(ev) => this.toggleChooseLabels(ev)} >Labels</button>
                                 <button className="task-details-container-add-to-card-options-btn btn" >Check List</button>
-                                <button className="task-details-container-add-to-card-options-btn btn" >Due date</button>
+                                <button className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.onToggleDueDate(ev)}>Due date</button>
                                 <button className="task-details-container-add-to-card-options-btn btn" >Image</button>
                                 <button className="task-details-container-add-to-card-options-btn btn" >Video</button>
                             </div>

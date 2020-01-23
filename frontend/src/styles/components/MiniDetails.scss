@@ -32,6 +32,20 @@
             &-button:hover{
                 transform: translate(5px,0);;
             }
+
+            .react-datepicker-wrapper{
+                position: relative;
+                left: 8px;
+                bottom: 3px;
+
+                input{
+                    width: 175px;
+                }
+            }
+
+            .react-datepicker{
+                width: 328px;
+            }
         } 
 
         &-save-btn {

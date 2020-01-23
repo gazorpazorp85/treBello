@@ -2,14 +2,20 @@ import React, { Component } from 'react';
 
 import MiniDetailsButton from './MiniDetailsButton';
 import Labels from './Labels';
+import DueDate from './DueDate'
 
 export default class MiniDetailsEditor extends Component {
     state = {
-        onToggleLabels: false
+        onToggleLabels: false,
+        onToggleDueDate: false
     }
 
     onToggleLabels = _ => {
         this.setState(prevState => ({ onToggleLabels: !prevState.onToggleLabels }));
+    }
+
+    onToggleDueDate = _ => {
+        this.setState(prevState => ({ onToggleDueDate: !prevState.onToggleDueDate }));
     }
 
     onDelete = _ => {
@@ -33,7 +39,7 @@ export default class MiniDetailsEditor extends Component {
                 top: (miniTask.top + 1) + 'px'
             }}
         >
-            <MiniDetailsButton text="🖊️ Edit Labels" onToggle={this.onToggleLabels} />
+            <MiniDetailsButton text="🖊️ Edit Labels" onClick={this.onToggleLabels} />
             {this.state.onToggleLabels ? <Labels
                 miniTask={miniTask}
                 task={miniTask.task}
@@ -41,7 +47,14 @@ export default class MiniDetailsEditor extends Component {
                 board={this.props.board}
                 updateBoard={this.props.updateBoard} /> : ''}
             <MiniDetailsButton text="🎭 Change Members" />
-            <MiniDetailsButton text="🗑️ Delete Task" onToggle={this.onDelete} />
+            <MiniDetailsButton text="📅 Due Date" onClick={this.onToggleDueDate} />
+            {this.state.onToggleDueDate ? <DueDate
+                task={miniTask.task}
+                onToggle={this.onToggleDueDate}
+                board={this.props.board}
+                updateBoard={this.props.updateBoard}
+            /> : ''}
+            <MiniDetailsButton text="🗑️ Delete Task" onClick={this.onDelete} />
         </div>
     }
 }
