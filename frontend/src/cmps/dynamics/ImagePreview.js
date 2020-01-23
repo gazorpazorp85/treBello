@@ -82,6 +82,13 @@ export default class ImagePreview extends Component {
                     style={style}
                 >
                     <img title={task.id} alt="task" width={this.state.imgWidth} height={this.state.imgHeight} src={task.url} />
+                    <div className="task-container-labels flex">
+                        {task.labels.map(label => {
+                            return <div key={label} className={label + ' small-label'}>
+                            </div>
+                        })
+                        }
+                    </div>
                     <p>{task.title}</p>
                     {(showEditBtn && (onTaskId === task.id)) ?
                         <div className="task-container-open-menu-wrapper flex align-center justify-center">

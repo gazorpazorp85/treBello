@@ -51,9 +51,9 @@ export default class MiniImageDetails extends Component {
                     name="title"
                     className="text-area"
                     style={{
-                        height: miniTask.height - miniTask.imgHeight - 8,
+                        height: miniTask.height - miniTask.imgHeight - 6,
                         position: 'relative',
-                        top: -3 + 'px'
+                        top: -5 + 'px'
                     }}
                     defaultValue={miniTask.task.title}
                     ref="textarea"

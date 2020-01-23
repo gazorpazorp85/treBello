@@ -12,7 +12,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 export default class BoardColumns extends Component {
 
     state = {
-        chacked: false,
         showForm: false,
         showTopMenuOptions: false,
         showAddForm: false,

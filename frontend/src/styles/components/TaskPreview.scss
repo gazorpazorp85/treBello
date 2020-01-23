@@ -13,7 +13,6 @@
     box-shadow: 0 1px 0 rgba(9, 30, 66, .25);
     transition: 0.2s;
 
-
     &:hover {
         box-shadow: 1px 1px 4px 0px #00000059;
         background: rgba(238, 238, 238, 0.808);
@@ -26,7 +25,6 @@
         font-family: sans-serif;
         border-bottom:1px solid rgba(163, 163, 163, 0.514);
     }
-
 
     &.isDragging {
         background-color: rgba(253, 253, 253, 0.685);
