@@ -98,6 +98,8 @@ export default class BoardColumns extends Component {
                 ...start,
                 taskIds: newTaskIds
             };
+            console.log('start: ', start);
+            console.log('finish: ', finish);
             // this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() })
             const newBoard = {
                 ...this.props.board,

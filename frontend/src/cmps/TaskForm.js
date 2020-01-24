@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { store } from 'react-notifications-component';
+
 import CloseIcon from '@material-ui/icons/Close';
 
 import utils from '../services/utils'
+
 
 export default class TaskForm extends Component {
 
@@ -65,9 +68,9 @@ export default class TaskForm extends Component {
     }
 
     saveTask = _ => {
-        let msg = (this.state.edit) ? 
-        `Task titled ${this.state.task.title} was added by` + this.props.user :
-        this.props.user + `edited the task ${this.state.task.title}`;
+        let msg = (!this.state.edit) ?
+            `The task ${this.state.task.title} was added by ` + this.props.user :
+            this.props.user + ` edited the task ${this.state.task.title}`;
         this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() })
         const newBoard = {
             ...this.props.board,
@@ -82,6 +85,18 @@ export default class TaskForm extends Component {
         this.props.updateBoard(newBoard);
         if (this.props.toggleUpdateForm) this.props.toggleUpdateForm();
         if (this.props.toggleTaskDetails) this.props.toggleTaskDetails();
+        store.addNotification({
+            message: msg,
+            type: "success",
+            insert: "top",
+            container: "bottom-right",
+            animationIn: ["animated", "zoomIn"],
+            animationOut: ["animated", "fadeOut"],
+            dismiss: {
+              duration: 5000,
+              onScreen: true
+            }
+          });
     }
 
     textAreaAdjust = ev => {
