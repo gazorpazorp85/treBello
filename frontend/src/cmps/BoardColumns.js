@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import NaturalDragAnimation from 'natural-drag-animation-rbdnd';
 
-
-import SocketService from '../services/SocketService';
-
 import TasksList from './TasksList';
 import ColumnAddForm from '../cmps/ColumnAddForm';
 import TaskForm from '../cmps/TaskForm'
+
+import utils from '../services/utils';
 
 export default class BoardColumns extends Component {
 
@@ -44,6 +43,8 @@ export default class BoardColumns extends Component {
         delete board.columns[id];
         const idx = columnOrder.findIndex(column => column === id);
         columnOrder.splice(idx, 1);
+        let msg = `'${column.title}' was deleted by ` + this.props.user;
+        this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() })
         this.props.updateBoard(board);
         this.handleOptionsMenuClose();
     }
@@ -64,12 +65,13 @@ export default class BoardColumns extends Component {
             const newColumnOrder = this.props.board.columnOrder.slice();
             newColumnOrder.splice(source.index, 1);
             newColumnOrder.splice(destination.index, 0, draggableId);
-
+            const columnTitle = this.props.board.columns[draggableId].title;
+            const msg = columnTitle + ' was moved by ' + this.props.user;
+            this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() })
             const newBoard = {
                 ...this.props.board,
                 columnOrder: newColumnOrder
             }
-            SocketService.emit('boardUpdate', newBoard);
             return this.props.updateBoard(newBoard);
         };
 
@@ -85,7 +87,7 @@ export default class BoardColumns extends Component {
                 ...start,
                 taskIds: newTaskIds
             };
-
+            // this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() })
             const newBoard = {
                 ...this.props.board,
                 columns: {
@@ -93,7 +95,6 @@ export default class BoardColumns extends Component {
                     [newColumn.id]: newColumn
                 }
             };
-            SocketService.emit('boardUpdate', newBoard);
             return this.props.updateBoard(newBoard);
         };
 
@@ -119,7 +120,6 @@ export default class BoardColumns extends Component {
                 [newFinish.id]: newFinish
             }
         };
-        SocketService.emit('boardUpdate', newBoard);
         this.props.updateBoard(newBoard);
     }
 
@@ -247,6 +247,7 @@ export default class BoardColumns extends Component {
                                                         }
                                                         {(this.state.showAddForm && this.state.currColumnId === column.id) ?
                                                             <TaskForm
+                                                                user={this.props.user}
                                                                 board={this.props.board}
                                                                 column={column}
                                                                 toggleUpdateForm={this.toggleUpdateForm}

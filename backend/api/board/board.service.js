@@ -23,7 +23,7 @@ async function getById(boardId, filterBy = {}, sortBy, sortOrder) {
     try {
         const board = await collection.findOne({ "_id": ObjectId(boardId) });
 
-        if (filterBy.title) _filterBoard(board, filterBy);
+        if (filterBy) _filterBoard(board, filterBy);
         if (sortBy) _sortBoard(board, sortBy, sortOrder);
         return board;
     } catch (err) {
@@ -73,16 +73,33 @@ async function remove(boardId) {
 }
 
 function _filterBoard(board, filterBy) {
+
     const tasks = board.tasks;
+    const matchedIds = [];
     const unmatchedIds = [];
-    for (const task in tasks) {
-        let title = tasks[task].title;
-        let lowerCaseFilterTitle = filterBy.title.toLowerCase();
-        let lowerCaseTitle = title.toLowerCase();
-        (lowerCaseTitle.includes(lowerCaseFilterTitle)) ?
-            tasks[task] :
-            unmatchedIds.push(task);
+
+    for (const taskKey in tasks) {
+
+        let task = tasks[taskKey];
+        let filterTitle = filterBy.title.toLowerCase();
+        let title = task.title.toLowerCase();
+
+        (title.includes(filterTitle)) ? matchedIds.push(taskKey) : unmatchedIds.push(taskKey);
     }
+
+    if (filterBy.teamMembers) {
+        for (const id of matchedIds) {
+            let task = tasks[id];
+            let teamMember = filterBy.teamMembers;
+            let taskTeamMembers = task.taskTeamMembers;
+            if (taskTeamMembers.length === 0) {
+                unmatchedIds.push(id);
+            } else {
+                if (taskTeamMembers.every((taskTeamMember) => (taskTeamMember.userName !== teamMember))) unmatchedIds.push(id) ;
+            }
+        }
+    }
+
     for (const column in board.columns) {
         for (const unmatchedId of unmatchedIds) {
             if (board.columns[column].taskIds.includes(unmatchedId))
@@ -97,14 +114,14 @@ function _sortBoard(board, sortBy, sortOrder) {
     let tasks = board.tasks;
     let keys = Object.keys(tasks);
     const tasksArray = Object.values(tasks);
-    
+
     if (sortBy === 'createdAt') {
-        tasksArray.sort((a, b) => b.createdAt - a.createdAt);
+        tasksArray.sort((a, b) => a.createdAt - b.createdAt);
         tasks = tasksArray.reduce((acc, task) => {
             return { ...acc, [task.id]: task };
         }, {});
     }
-    
+
     for (const column in board.columns) {
         let sortedTasks = [];
         for (const key of keys) {

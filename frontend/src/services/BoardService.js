@@ -13,7 +13,11 @@ function query() {
 }
 
 function get(boardId, filterBy, sortBy, sortOrder) {
-  return HttpService.get(`board/${boardId}?title=${filterBy.title}&sortby=${sortBy}&sortorder=${sortOrder}`);
+  return HttpService.get(`board/${boardId}?${_createQueryString(filterBy)}&sortby=${sortBy}&sortorder=${sortOrder}`);
+}
+
+function _createQueryString(filterBy) {
+  return Object.keys(filterBy).map(filter => filter + '=' + filterBy[filter]).join('&');
 }
 
 function put(board) {

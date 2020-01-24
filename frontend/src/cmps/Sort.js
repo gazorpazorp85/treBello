@@ -4,7 +4,7 @@ export default class Sort extends Component {
 
     state = {
         sortBy: '',
-        sortOrder: ''
+        sortOrder: 'asc'
     }
 
     inputChange = (ev) => {
@@ -15,13 +15,12 @@ export default class Sort extends Component {
 
     onSortBy = (ev) => {
         let fieldName = ev.target.name;
-        let sortOrder = '';
-        sortOrder = (this.state.sortOrder === 'asc') ? 'desc' : 'asc';
+        let sortOrder = (this.state.sortOrder === 'asc') ? 'desc' : 'asc';
         this.setState({ sortBy: fieldName, sortOrder: sortOrder }, () => this.props.onSort(this.state.sortBy, this.state.sortOrder));
     }
 
     toggleButtonName = () => {
-        return (this.state.sortOrder === 'asc') ? 'Oldest Tasks' : 'Newest Tasks';
+        return (this.state.sortOrder === 'asc') ? 'Newest Tasks' : 'Oldest Tasks';
     }
 
     render() {

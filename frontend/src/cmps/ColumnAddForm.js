@@ -45,6 +45,8 @@ export default class ColumnAddForm extends Component {
 
     saveColumn = (ev) => {
         ev.preventDefault();
+        let msg = `'${this.state.column.title}' was added by ` + this.props.user;
+        this.props.board.history.push({id: utils.getRandomId(), msg: msg, time: Date.now()})
         const newBoard = {
             ...this.props.board,
             columns: {

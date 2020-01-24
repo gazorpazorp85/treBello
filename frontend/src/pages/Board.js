@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import pageLoading from '../cmps/LoadPage';
 import BoardColumns from '../cmps/BoardColumns'
+import BoardHistory from '../cmps/BoardHistory'
 import ColumnAddForm from '../cmps/ColumnAddForm'
 import Login from '../cmps/Login';
 import Filter from '../cmps/Filter';
@@ -16,7 +17,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import utils from '../services/utils';
 import SocketService from '../services/SocketService';
 
-import { loadBoard, updateBoard } from '../actions/BoardActions';
+import { loadBoard, updateBoard, setBoard } from '../actions/BoardActions';
 import { logout, getLoggedInUser } from '../actions/UserActions';
 
 
@@ -31,9 +32,11 @@ class Board extends Component {
     toggleUploadBgImg: false,
     toggleLogin: false,
     toggleSplashMenu: false,
+    showHistory: false,
     miniTaskDetails: {},
     filterBy: {
-      title: ''
+      title: '',
+      teamMembers: ''
     },
     sortBy: '',
     sortOrder: ''
@@ -43,12 +46,9 @@ class Board extends Component {
     this.props.getLoggedInUser();
     this.loadBoard();
     const boardId = this.props.match.params.id;
-    const filterBy = this.state.filterBy;
-    const sortBy = this.state.sortBy;
-    const sortOrder = this.state.sortOrder;
     SocketService.setup();
     SocketService.emit('boardId', boardId);
-    SocketService.on('updateBoard', (board) => this.props.loadBoard(board._id, filterBy, sortBy, sortOrder));
+    SocketService.on('updateBoard', (board) => this.props.setBoard(board));
   }
 
   componentWillUnmount() {
@@ -109,7 +109,6 @@ class Board extends Component {
     })
   }
 
-
   onFilter = (filterBy) => {
     this.setState({ filterBy }, this.loadBoard);
   }
@@ -129,6 +128,10 @@ class Board extends Component {
     ev.stopPropagation();
     this.setState(prevState => ({ toggleSplashMenu: !prevState.toggleSplashMenu }));
   }
+  toggleBoardHistory = () => {
+    this.setState(prevState => ({ showHistory: !prevState.showHistory }));
+  }
+
 
   render() {
 
@@ -154,8 +157,8 @@ class Board extends Component {
             <div className="board-page-nav-bar-logo" onClick={this.goBack}> </div>
             <div>
               <div className="flex">
-                {button}
                 {this.props.loggedInUser && `Logged in as: ${this.props.loggedInUser.username}`}
+                {button}
               </div>
             </div>
           </div>
@@ -166,11 +169,15 @@ class Board extends Component {
                 <HomeIcon onClick={this.goBack} />
               </button>
             </div>
-            <Filter onFilter={this.onFilter} />
+            <Filter onFilter={this.onFilter} teamMembers={this.props.board.teamMembers} />
             <Sort onSort={this.onSort} />
             <div className="board-page-nav-bar-filters-item fill-height">
               <button className="nav-btn fill-height"
                 onClick={(ev) => this.toggleSplashMenu(ev)}>CHANGE BACKGROUND</button>
+            </div>
+            <div className="board-page-nav-bar-filters-item flex fill-height">
+              <button className="board-page-nav-bar-filters nav-btn"
+                onClick={this.toggleBoardHistory}>Show Board History</button>
             </div>
           </div>
 
@@ -198,14 +205,15 @@ class Board extends Component {
                 board={this.props.board}
                 updateBoard={this.props.updateBoard}
                 toggleTaskDetails={this.toggleTaskDetails}
-                toggleMiniDetails={this.toggleMiniDetails} />
+                toggleMiniDetails={this.toggleMiniDetails}
+                user={this.props.loggedInUser.username} />
               <div className="flex column align-center">
                 {(this.state.showAddColumn) ?
                   <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}>
                     + Add another list..  </button> : ''
                 }
                 {(this.state.showForm) && <ColumnAddForm board={this.props.board} updateBoard={this.props.updateBoard}
-                  toggleAddForm={this.toggleAddForm} />}
+                  toggleAddForm={this.toggleAddForm} user={this.props.loggedInUser.username} />}
               </div>
             </div>
           </div>
@@ -221,7 +229,11 @@ class Board extends Component {
             updateBoard={this.props.updateBoard}
             onToggle={this.toggleMiniDetails}
             board={this.props.board}
+            user={this.props.loggedInUser.username}
           />}
+
+          {this.state.showHistory && <BoardHistory variant="outlined"
+            className="home-page-login" board={this.props.board} />}
         </div>
 
       </div >
@@ -240,7 +252,8 @@ const mapDispatchToProps = {
   loadBoard,
   updateBoard,
   logout,
-  getLoggedInUser
+  getLoggedInUser,
+  setBoard
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board);

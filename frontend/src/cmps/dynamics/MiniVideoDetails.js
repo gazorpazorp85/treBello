@@ -49,7 +49,8 @@ export default class MiniVideoDetails extends Component {
                 <iframe title={miniTask.task.id}
                     type='text/html' width={videoDimensions.width}
                     height={videoDimensions.height}
-                    src={miniTask.task.url}></iframe>
+                    src={miniTask.task.url}
+                    allowFullScreen="allowfullscreen"></iframe>
                 <textarea
                     name="title"
                     className="text-area"

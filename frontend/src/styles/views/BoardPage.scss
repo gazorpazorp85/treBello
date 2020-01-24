@@ -39,6 +39,15 @@
           border: none;
           text-align: center;
           background: #ffffff;
+          outline: none;
+        }
+
+        select {
+          margin-left: 10px;
+          margin-right: 10px;
+          border-radius: 2px;
+          border: none;
+          outline: none;
         }
 
         button {

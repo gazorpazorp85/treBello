@@ -17,7 +17,7 @@ export default class Sort extends Component {
         try {
             const splashImages = await utils.getImagesFromUnsplash(this.state.filterByName)
             let splashImagesUrls = []
-            splashImages.map(image => {
+            splashImages.forEach(image => {
                 const UrlIndx = splashImagesUrls.findIndex(currUrl => currUrl === image.urls.regular);
                 if (UrlIndx >= 0) {
                     splashImagesUrls.splice(UrlIndx, 1)
@@ -44,7 +44,7 @@ export default class Sort extends Component {
 
     render() {
         return <div className="splash-menu flex column align-center" onClick={(ev) => this.stopPropagation(ev)}>
-            
+
             <div className="flex column fill-width">
                 <div className="splash-menu-search-bar fill-width flex justify-center">
                     <input
