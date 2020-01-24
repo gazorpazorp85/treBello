@@ -1,38 +1,20 @@
 import React, { Component } from "react";
-// import moment from 'moment';
 import CreateIcon from '@material-ui/icons/Create';
 
-
-// import 'moment/locale/es'
-
 export default class VideoPreview extends Component {
-    // const createdAtFormat = new Date(task.createdAt).toString();
-    // const dueDateFormat = new Date(task.dueDate).toString();
     state = {
         elTop: 0,
         elLeft: 0,
         elHeight: 0,
     }
 
-    componentDidMount() {
-        this.setNewState();
-    }
-
-    setNewState = _ => {
-        this.setState({
-            elTop: this.refs.ref.getBoundingClientRect().top + 1,
-            elLeft: this.refs.ref.getBoundingClientRect().left,
-            elHeight: this.refs.ref.getBoundingClientRect().height - 1
-        });
-    }
-
     toggleMiniDetails = ev => {
         ev.stopPropagation();
         const miniTask = {
             task: this.props.task,
-            left: this.state.elLeft,
-            top: this.state.elTop,
-            height: this.state.elHeight,
+            left: this.refs.ref.getBoundingClientRect().left,
+            top: this.refs.ref.getBoundingClientRect().top + 1,
+            height: this.refs.ref.getBoundingClientRect().height - 1,
             previewType: 'video',
             column: this.props.column
         };
@@ -61,10 +43,8 @@ export default class VideoPreview extends Component {
                     </div>
                     <p className="task-container-title">{task.title}</p>
                     {(showEditBtn && (onTaskId === task.id)) ?
-                        <div className="task-container-open-menu-wrapper flex align-center justify-center">
-                            <CreateIcon className="task-container-open-menu"
-                                onClick={e => this.toggleMiniDetails(e)} />
-                        </div>
+                        <CreateIcon className="task-container-open-menu"
+                            onClick={e => this.toggleMiniDetails(e)} />
                         : ''}
                 </div>
             </section>

@@ -11,26 +11,13 @@ export default class TaskPreview extends Component {
         elHeight: 0,
     }
 
-    componentDidMount() {
-        this.setNewState();
-    }
-
-    setNewState = _ => {
-        this.setState({
-            elTop: this.refs.ref.getBoundingClientRect().top + 1,
-            elLeft: this.refs.ref.getBoundingClientRect().left,
-            elHeight: this.refs.ref.getBoundingClientRect().height - 1
-        }, _ => console.log(this.props.task.title ,this.state));
-    }
-
     toggleMiniDetails = ev => {
-        debugger
         ev.stopPropagation();
         const miniTask = {
             task: this.props.task,
-            left: this.state.elLeft,
-            top: this.state.elTop,
-            height: this.state.elHeight,
+            left: this.refs.ref.getBoundingClientRect().left,
+            top: this.refs.ref.getBoundingClientRect().top + 1,
+            height: this.refs.ref.getBoundingClientRect().height - 1,
             previewType: 'text',
             column: this.props.column
         };
@@ -58,16 +45,14 @@ export default class TaskPreview extends Component {
 
                     <p className="task-container-title">{task.title}</p>
                     {(showEditBtn && (onTaskId === task.id)) ?
-                        // <div className="task-container-open-menu-wrapper flex align-center justify-center">
-                            <CreateIcon className="task-container-open-menu"
-                                onClick={e => this.toggleMiniDetails(e)} />
-                        // </div>
+                        <CreateIcon className="task-container-open-menu"
+                            onClick={e => this.toggleMiniDetails(e)} />
                         : ''}
                     {(task.description !== '') ?
                         <ListAltIcon /> : ''
                     }
 
-                    <div className="asign-member-to-task flex">
+                    <div className="flex">
                         {(task.taskTeamMembers.map(member => {
                             return <div key={member.userName} className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: `${member.color}` }} >
                                 <div className="team-member-icon">

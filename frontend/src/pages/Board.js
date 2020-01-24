@@ -155,11 +155,9 @@ class Board extends Component {
 
           <div className="board-page-nav-bar flex space-between">
             <div className="board-page-nav-bar-logo" onClick={this.goBack}> </div>
-            <div>
-              <div className="flex">
-                {this.props.loggedInUser && `Logged in as: ${this.props.loggedInUser.username}`}
+              <div className="flex align-center">
+                {this.props.loggedInUser && <p className="logged-in-user">Logged in as: {this.props.loggedInUser.username}</p>}
                 {button}
-              </div>
             </div>
           </div>
 

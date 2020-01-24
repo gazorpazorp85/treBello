@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import CreateIcon from '@material-ui/icons/Create';
 
-
-// import moment from 'moment';
-// import 'moment/locale/es'
-
 export default class ImagePreview extends Component {
     state = {
         imgWidth: 220,
@@ -32,9 +28,9 @@ export default class ImagePreview extends Component {
                 this.setState({
                     imgWidth: newWidth,
                     imgHeight: img.height * heightRatio,
-                    elTop: this.refs.ref.getBoundingClientRect().top + 1,
-                    elLeft: this.refs.ref.getBoundingClientRect().left,
-                    elHeight: this.refs.ref.getBoundingClientRect().height - 1
+                    // elTop: this.refs.ref.getBoundingClientRect().top + 1,
+                    // elLeft: this.refs.ref.getBoundingClientRect().left,
+                    // elHeight: this.refs.ref.getBoundingClientRect().height - 1
                 });
             } else {  // Check if current height is larger than max
                 const widthRatio = maxWidth / img.width;
@@ -42,9 +38,9 @@ export default class ImagePreview extends Component {
                 this.setState({
                     imgWidth: img.width * widthRatio,
                     imgHeight: newHeight,
-                    elTop: this.refs.ref.getBoundingClientRect().top + 1,
-                    elLeft: this.refs.ref.getBoundingClientRect().left,
-                    elHeight: this.refs.ref.getBoundingClientRect().height - 1
+                    // elTop: this.refs.ref.getBoundingClientRect().top + 1,
+                    // elLeft: this.refs.ref.getBoundingClientRect().left,
+                    // elHeight: this.refs.ref.getBoundingClientRect().height - 1
                 });
             }
         }
@@ -55,9 +51,9 @@ export default class ImagePreview extends Component {
         ev.stopPropagation();
         const miniTask = {
             task: this.props.task,
-            left: this.state.elLeft,
-            top: this.state.elTop,
-            height: this.state.elHeight,
+            left: this.refs.ref.getBoundingClientRect().left,
+            top: this.refs.ref.getBoundingClientRect().top + 1,
+            height: this.refs.ref.getBoundingClientRect().height - 1,
             imgHeight: this.state.imgHeight,
             imgWidth: this.state.imgWidth,
             previewType: 'image',
@@ -91,10 +87,8 @@ export default class ImagePreview extends Component {
                     </div>
                     <p className="task-container-title">{task.title}</p>
                     {(showEditBtn && (onTaskId === task.id)) ?
-                        <div className="task-container-open-menu-wrapper flex align-center justify-center">
-                            <CreateIcon className="task-container-open-menu"
-                                onClick={e => this.toggleMiniDetails(e)} />
-                        </div>
+                        <CreateIcon className="task-container-open-menu"
+                            onClick={e => this.toggleMiniDetails(e)} />
                         : ''}
                 </div>
             </section>
