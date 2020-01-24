@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import pageLoading from '../cmps/LoadPage';
 import BoardColumns from '../cmps/BoardColumns'
+import BoardHistory from '../cmps/BoardHistory'
 import ColumnAddForm from '../cmps/ColumnAddForm'
 import Login from '../cmps/Login';
 import Filter from '../cmps/Filter';
@@ -15,7 +16,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import utils from '../services/utils';
 import SocketService from '../services/SocketService';
 
-import { loadBoard, updateBoard } from '../actions/BoardActions';
+import { loadBoard, updateBoard, setBoard } from '../actions/BoardActions';
 import { logout, getLoggedInUser } from '../actions/UserActions';
 
 
@@ -29,9 +30,11 @@ class Board extends Component {
     currTaskId: '',
     toggleUploadBgImg: false,
     toggleLogin: false,
+    showHistory: false,
     miniTaskDetails: {},
     filterBy: {
-      title: ''
+      title: '',
+      teamMembers: ''
     },
     sortBy: '',
     sortOrder: ''
@@ -41,12 +44,9 @@ class Board extends Component {
     this.props.getLoggedInUser();
     this.loadBoard();
     const boardId = this.props.match.params.id;
-    const filterBy = this.state.filterBy;
-    const sortBy = this.state.sortBy;
-    const sortOrder = this.state.sortOrder;
     SocketService.setup();
     SocketService.emit('boardId', boardId);
-    SocketService.on('updateBoard', (board) => this.props.loadBoard(board._id, filterBy, sortBy, sortOrder));
+    SocketService.on('updateBoard', (board) => this.props.setBoard(board));
   }
 
   componentWillUnmount() {
@@ -110,7 +110,6 @@ class Board extends Component {
     })
   }
 
-
   onFilter = (filterBy) => {
     this.setState({ filterBy }, this.loadBoard);
   }
@@ -124,6 +123,10 @@ class Board extends Component {
       return this.setState(prevState => ({ showMiniTaskDetails: !prevState.showMiniTaskDetails, miniTaskDetails: miniTask }));
     }
     this.setState(prevState => ({ showMiniTaskDetails: !prevState.showMiniTaskDetails }));
+  }
+
+  toggleBoardHistory = () => {
+    this.setState(prevState => ({ showHistory: !prevState.showHistory }));
   }
 
 
@@ -143,7 +146,7 @@ class Board extends Component {
       </button>
     }
 
-    let imgClass
+    let imgClass;
     (this.state.boardBgImage !== '') ?
       imgClass = "board-page fill-height flex column board-bgImg"
       : imgClass = "board-page fill-height flex column"
@@ -152,11 +155,10 @@ class Board extends Component {
       <div className="screen" onClick={this.closeLogin}>
         <div className="board-page fill-height flex column" style={{ backgroundImage: 'url(' + this.props.board.boardBgImage + ')' }}>
 
-
           <div className="board-page-nav-bar flex space-between">
             <div className="board-page-nav-bar-logo" onClick={this.goBack}> </div>
             <div>
-              <span className="plaster"> 
+              <span className="plaster">
                 {this.props.loggedInUser && `Logged in as: ${this.props.loggedInUser.username}`}
               </span>
               {button}
@@ -169,8 +171,12 @@ class Board extends Component {
                 <HomeIcon onClick={this.goBack} />
               </button>
             </div>
-            <Filter onFilter={this.onFilter} />
+            <Filter onFilter={this.onFilter} teamMembers={this.props.board.teamMembers} />
             <Sort onSort={this.onSort} />
+            <div className="board-page-nav-bar-filters-item flex fill-height">
+              <button className="board-page-nav-bar-filters nav-btn" 
+                      onClick={this.toggleBoardHistory}>Show Board History</button>
+            </div>
           </div>
 
 
@@ -188,14 +194,15 @@ class Board extends Component {
                 board={this.props.board}
                 updateBoard={this.props.updateBoard}
                 toggleTaskDetails={this.toggleTaskDetails}
-                toggleMiniDetails={this.toggleMiniDetails} />
+                toggleMiniDetails={this.toggleMiniDetails} 
+                user={this.props.loggedInUser.username}/>
               <div className="flex column align-center">
                 {(this.state.showAddColumn) ?
                   <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}>
                     + Add another list..  </button> : ''
                 }
                 {(this.state.showForm) && <ColumnAddForm board={this.props.board} updateBoard={this.props.updateBoard}
-                  toggleAddForm={this.toggleAddForm} />}
+                  toggleAddForm={this.toggleAddForm} user={this.props.loggedInUser.username}/>}
               </div>
             </div>
           </div>
@@ -211,7 +218,11 @@ class Board extends Component {
             updateBoard={this.props.updateBoard}
             onToggle={this.toggleMiniDetails}
             board={this.props.board}
+            user={this.props.loggedInUser.username}
           />}
+
+          {this.state.showHistory && <BoardHistory variant="outlined"
+                className="home-page-login" board={this.props.board} />}
 
           {!this.state.toggleUploadBgImg ?
             <button className="add-bg-photo" onClick={this.toggleUploadBgImg}>ADD BG PHOTO</button>
@@ -239,7 +250,8 @@ const mapDispatchToProps = {
   loadBoard,
   updateBoard,
   logout,
-  getLoggedInUser
+  getLoggedInUser,
+  setBoard
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board);

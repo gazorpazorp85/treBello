@@ -11,6 +11,8 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import BoardsList from '../cmps/BoardsList';
 import Login from '../cmps/Login';
 
+import utils from '../services/utils';
+
 import { loadBoards, loadBoard, createBoard } from '../actions/BoardActions'
 import { logout } from '../actions/UserActions'
 
@@ -39,8 +41,10 @@ class Home extends Component {
 
   createBoard = async () => {
     let board = this.props.board;
+    let msg = 'The Board was created by ' + this.props.loggedInUser.username;
     delete board._id;
     board.createdBy = this.props.loggedInUser;
+    board.history = [{ id: utils.getRandomId(), msg: msg, time: Date.now() }];
     const newBoard = await this.props.createBoard(board);
     this.props.history.push(`/board/${newBoard._id}`);
   }

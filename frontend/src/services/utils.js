@@ -1,6 +1,5 @@
 import axios from 'axios'
 
-
 export default { getRandomId, createUserIcon, getRandomColor, uploadImg }
 
 function getRandomId() {

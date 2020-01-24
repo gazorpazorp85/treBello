@@ -37,14 +37,8 @@ async function logout(req, res){
 }
 
 async function getLoggedInUser(req, res) {
-    console.log('im here!')
-    console.log('refresh')
-    console.log(req.session.user);
     try {
-        if (req.session.user) res.json(req.session.user);
-        // const loggedInUser = await userService.getByEmail(userEmail);
-        // req.session.user = loggedInUser;
-        
+        if (req.session.user) res.json(req.session.user);        
     } catch (err) {
         logger.error('no signedin users', err);
         res.status(500).send({ error: 'no signedin users' });
