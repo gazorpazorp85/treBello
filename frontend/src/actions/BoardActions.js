@@ -86,3 +86,13 @@ export function createBoard(board) {
     };
   }
 }
+
+export function setBoard(board) {
+  return async dispatch => {
+    try {
+      dispatch(_setBoard(board));
+    } catch (err) {
+      console.log('BoardActions: err in setBoard', err);
+    }
+  }
+}

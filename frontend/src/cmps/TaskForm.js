@@ -17,7 +17,8 @@ export default class TaskForm extends Component {
             labels: [],
             creator: {},
             taskTeamMembers: []
-        }
+        },
+        edit: false
     }
 
     componentDidMount() {
@@ -46,7 +47,8 @@ export default class TaskForm extends Component {
                     labels: task.labels,
                     creator: task.creator,
                     taskTeamMembers: task.taskTeamMembers
-                }
+                },
+                edit: true
             })
         }
     }
@@ -57,14 +59,16 @@ export default class TaskForm extends Component {
         this.setState({ task: { ...this.state.task, [fieldName]: value } })
     }
 
-
-
     save = (ev) => {
         ev.preventDefault();
         this.checkIfUrlAndSave(this.state.task.title);
     }
 
     saveTask = _ => {
+        let msg = (this.state.edit) ? 
+        `Task titled ${this.state.task.title} was added by` + this.props.user :
+        this.props.user + `edited the task ${this.state.task.title}`;
+        this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() })
         const newBoard = {
             ...this.props.board,
             tasks: {

@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import MiniDetailsEditor from '../MiniDetailsEditor';
 import ScreenFilter from '../ScreenFilter';
 
+import utils from '../../services/utils';
+
 export default class MiniTextDetails extends Component {
     state = {
         title: '',
@@ -23,6 +25,8 @@ export default class MiniTextDetails extends Component {
 
     onSave = _ => {
         const newTask = { ...this.props.miniTask.task, title: this.state.title };
+        let msg = this.props.user + ` changed the title of the task '${this.props.miniTask.task.title}' to '${this.state.title}'`;
+        this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() });
         const newBoard = {
             ...this.props.board,
             tasks: {
