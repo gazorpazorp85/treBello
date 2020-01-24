@@ -2,15 +2,12 @@
     cursor: pointer !important;
     position: relative;
     margin-bottom: 5px;
-    transition: 0.3s;
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: normal;
-
     background: white;
     border-radius: 4px;
     box-shadow: 0 1px 0 rgba(9, 30, 66, .25);
-    transition: 0.2s;
 
     &:hover {
         box-shadow: 1px 1px 4px 0px #00000059;
@@ -76,7 +73,7 @@
 
         p {
             font-size: rem(10px);
-            font-family: montserratExtraBold, 'sans-sarif';
+            font-family: montserratExtraBold, sans-serif;
             color: white;
         }
     }

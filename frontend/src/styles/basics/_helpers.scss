@@ -69,6 +69,10 @@
         align-items: flex-start;
     }
 
+    &.wrap {
+        flex-wrap: wrap;
+    }
+
 }
 
 //text helpers 

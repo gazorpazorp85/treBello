@@ -85,10 +85,18 @@ button {
     font-family: montserratBold, 'sans-sarif';
 }
 
-textarea {
+textarea,
+input {
     resize: none;
+    border-radius: 2px;
+    border: none;
     font-size: rem(16px);
     font-family: montserratLight, 'sans-sarif';
+}
+
+label {
+    cursor: pointer;
+    font-family: montserratBold, 'sans-sarif';
 }
 
 a {
