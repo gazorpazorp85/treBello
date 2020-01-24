@@ -146,11 +146,6 @@ class Board extends Component {
       </button>
     }
 
-    let imgClass;
-    (this.state.boardBgImage !== '') ?
-      imgClass = "board-page fill-height flex column board-bgImg"
-      : imgClass = "board-page fill-height flex column"
-
     return (
       <div className="screen" onClick={this.closeLogin}>
         <div className="board-page fill-height flex column" style={{ backgroundImage: 'url(' + this.props.board.boardBgImage + ')' }}>

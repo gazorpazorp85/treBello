@@ -76,8 +76,8 @@ export default class BoardColumns extends Component {
             const newColumnOrder = this.props.board.columnOrder.slice();
             newColumnOrder.splice(source.index, 1);
             newColumnOrder.splice(destination.index, 0, draggableId);
-            let columnTitle = this.props.board.columns[draggableId].title;
-            let msg = `'${columnTitle}' was moved by ` + this.props.user;
+            const columnTitle = this.props.board.columns[draggableId].title;
+            const msg = columnTitle + ' was moved by ' + this.props.user;
             this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() })
             const newBoard = {
                 ...this.props.board,
