@@ -22,7 +22,7 @@ export default class MiniImageDetails extends Component {
     }
 
     onSave = _ => {
-        const newTask = { ...this.props.miniTask.task, title: this.state.title };
+        const newTask = { ...this.props.miniTask.task, title: this.state.title ? this.state.title : this.props.miniTask.task.title };
         const newBoard = {
             ...this.props.board,
             tasks: {

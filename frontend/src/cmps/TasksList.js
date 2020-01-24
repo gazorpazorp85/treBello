@@ -56,7 +56,6 @@ export default class TasksList extends Component {
                 {...provided.droppableProps}
                 ref={innerRef}
             >
-                    <div>
                         {tasks.map((task, idx) => (
                             <div key={task.id}>
                                 <Draggable draggableId={task.id} index={idx}>
@@ -91,7 +90,6 @@ export default class TasksList extends Component {
                             </div>
                         ))}
                         {provided.placeholder}
-                    </div> 
             </section>
         )
     }

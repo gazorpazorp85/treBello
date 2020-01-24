@@ -21,10 +21,11 @@ export default class TaskPreview extends Component {
             elTop: this.refs.ref.getBoundingClientRect().top + 1,
             elLeft: this.refs.ref.getBoundingClientRect().left,
             elHeight: this.refs.ref.getBoundingClientRect().height - 1
-        });
+        }, _ => console.log(this.props.task.title ,this.state));
     }
 
     toggleMiniDetails = ev => {
+        debugger
         ev.stopPropagation();
         const miniTask = {
             task: this.props.task,
@@ -58,10 +59,10 @@ export default class TaskPreview extends Component {
 
                     <p className="task-container-title">{task.title}</p>
                     {(showEditBtn && (onTaskId === task.id)) ?
-                        <div className="task-container-open-menu-wrapper flex align-center justify-center">
+                        // <div className="task-container-open-menu-wrapper flex align-center justify-center">
                             <CreateIcon className="task-container-open-menu"
                                 onClick={e => this.toggleMiniDetails(e)} />
-                        </div>
+                        // </div>
                         : ''}
                     {(task.description !== '') ?
                         <ListAltIcon /> : ''

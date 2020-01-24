@@ -59,7 +59,7 @@ export default class VideoPreview extends Component {
                         })
                         }
                     </div>
-                    <p>{task.title}</p>
+                    <p className="task-container-title">{task.title}</p>
                     {(showEditBtn && (onTaskId === task.id)) ?
                         <div className="task-container-open-menu-wrapper flex align-center justify-center">
                             <CreateIcon className="task-container-open-menu"

@@ -24,7 +24,7 @@ export default class MiniTextDetails extends Component {
     }
 
     onSave = _ => {
-        const newTask = { ...this.props.miniTask.task, title: this.state.title };
+        const newTask = { ...this.props.miniTask.task, title: this.state.title ? this.state.title : this.props.miniTask.task.title };
         let msg = this.props.user + ` changed the title of the task '${this.props.miniTask.task.title}' to '${this.state.title}'`;
         this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() });
         const newBoard = {
@@ -65,7 +65,7 @@ export default class MiniTextDetails extends Component {
                     onFocus={this.handleFocus}
                     onInput={this.emitChange}
                     placeholder="Add a task title..."
-                >                   
+                >
                 </textarea>
             </div>
             <button
