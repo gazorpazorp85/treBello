@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { store } from 'react-notifications-component';
 
 import pageLoading from '../cmps/LoadPage';
 import BoardColumns from '../cmps/BoardColumns'
@@ -19,7 +20,6 @@ import SocketService from '../services/SocketService';
 
 import { loadBoard, updateBoard, setBoard } from '../actions/BoardActions';
 import { logout, getLoggedInUser } from '../actions/UserActions';
-
 
 class Board extends Component {
 
@@ -49,10 +49,12 @@ class Board extends Component {
     SocketService.setup();
     SocketService.emit('boardId', boardId);
     SocketService.on('updateBoard', (board) => this.props.setBoard(board));
+    SocketService.on('getNotification', (notification) => store.addNotification(notification));
   }
 
   componentWillUnmount() {
     SocketService.off('updateBoard');
+    SocketService.off('getNotification');
     SocketService.terminate();
   }
 
@@ -173,7 +175,7 @@ class Board extends Component {
             <Sort onSort={this.onSort} />
             <div className="board-page-nav-bar-filters-item fill-height">
               <button className="nav-btn fill-height"
-                onClick={(ev) => this.toggleSplashMenu(ev)}>CHANGE BACKGROUND</button>
+                onClick={(ev) => this.toggleSplashMenu(ev)}>Change Background</button>
             </div>
             <div className="board-page-nav-bar-filters-item flex fill-height">
               <button className="board-page-nav-bar-filters nav-btn"

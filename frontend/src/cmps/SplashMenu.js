@@ -49,7 +49,7 @@ export default class Sort extends Component {
                 <div className="splash-menu-search-bar fill-width flex justify-center">
                     <input
                         type='text'
-                        placeholder='searh by name...'
+                        placeholder='Search by name...'
                         onChange={this.inputChange}
                     />
                     <button className="splash-menu-search-bar-save-btn" onClick={this.onSave}>

@@ -14,5 +14,9 @@ function connectSockets(io) {
                 socket.join(boardId)
                 socket.boardId = boardId;
             })
+            socket.on('sendNotification', (notification) => {
+                console.log(notification);
+                socket.broadcast.to(socket.boardId).emit('getNotification', notification);
+            })
     })
 }

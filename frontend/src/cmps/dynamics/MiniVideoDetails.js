@@ -75,11 +75,12 @@ export default class MiniVideoDetails extends Component {
                 }}
                 onClick={this.onSave}
             >SAVE</button>
-            <MiniDetailsEditor 
-             miniTask={this.props.miniTask}
-             board={this.props.board}
-             updateBoard={this.props.updateBoard}
-             onToggle={this.props.onToggle}/>
+            <MiniDetailsEditor
+                user={this.props.user}
+                miniTask={this.props.miniTask}
+                board={this.props.board}
+                updateBoard={this.props.updateBoard}
+                onToggle={this.props.onToggle} />
             <ScreenFilter onToggle={this.props.onToggle} />
         </div >
     }

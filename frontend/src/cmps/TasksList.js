@@ -4,6 +4,8 @@ import NaturalDragAnimation from 'natural-drag-animation-rbdnd';
 
 import DynamicComponent from './dynamics/DynamicComponent';
 
+import utils from '../services/utils'
+
 export default class TasksList extends Component {
 
     state = {
@@ -11,20 +13,6 @@ export default class TasksList extends Component {
         currTaskId: '',
         onTaskId: '',
         showTaskDetails: false
-    }
-
-    onDelete = (id) => {
-        let board = { ...this.props.board };
-        let column = this.props.column;
-        let taskIds = column.taskIds
-        let idx = taskIds.findIndex(taskId => taskId === id);
-        taskIds.splice(idx, 1);
-        this.setState({
-            showAddFormButton: true,
-            showEditForm: false
-        }, () =>
-            this.props.updateBoard(board)
-        );
     }
 
     toggleTaskDetails = id => {
@@ -81,6 +69,7 @@ export default class TasksList extends Component {
                                                         onTaskId={this.state.onTaskId}
                                                         showEditBtn={this.state.showEditBtn}
                                                         toggleMiniDetails = {this.props.toggleMiniDetails}
+                                                        user={this.props.user}
                                                     >
                                                     </DynamicComponent>
                                                 </div>

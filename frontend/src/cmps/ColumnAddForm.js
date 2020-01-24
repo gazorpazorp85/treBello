@@ -45,8 +45,6 @@ export default class ColumnAddForm extends Component {
 
     saveColumn = (ev) => {
         ev.preventDefault();
-        let msg = `'${this.state.column.title}' was added by ` + this.props.user;
-        this.props.board.history.push({id: utils.getRandomId(), msg: msg, time: Date.now()})
         const newBoard = {
             ...this.props.board,
             columns: {
@@ -59,25 +57,28 @@ export default class ColumnAddForm extends Component {
         if (!columnOrder.includes(id)) columnOrder.push(id);
         this.props.updateBoard(newBoard);
         this.props.toggleAddForm();
+        let msg = `'${this.state.column.title}' was added by ` + this.props.user;
+        this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() })
+        utils.emitNotification(msg, 'success');
     }
 
     render() {
         return <form className="add-column-form-container flex column space-between" onSubmit={this.saveColumn}>
-                <input
-                    ref={(input) => { this.nameInput = input; }}
-                    type='text'
-                    placeholder='Column Name'
-                    name='title'
-                    onChange={this.inputChange}
-                    value={this.state.column.title} />
-                <div className="add-column flex">
-                    <button className="add-column-save-btn"
-                        variant="contained">SAVE</button>
+            <input
+                ref={(input) => { this.nameInput = input; }}
+                type='text'
+                placeholder='Column Name'
+                name='title'
+                onChange={this.inputChange}
+                value={this.state.column.title} />
+            <div className="add-column flex">
+                <button className="add-column-save-btn"
+                    variant="contained">SAVE</button>
 
-                    <CloseIcon className="add-column-back-to-board flex align-center"
-                        onClick={this.props.toggleAddForm} />
+                <CloseIcon className="add-column-back-to-board flex align-center"
+                    onClick={this.props.toggleAddForm} />
 
-                </div>
-            </form>
+            </div>
+        </form>
     }
 }

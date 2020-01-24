@@ -4,6 +4,7 @@ import MiniDetailsEditor from '../MiniDetailsEditor';
 import ScreenFilter from '../ScreenFilter';
 
 import utils from '../../services/utils';
+import SocketService from '../../services/SocketService';
 
 export default class MiniTextDetails extends Component {
     state = {
@@ -34,6 +35,18 @@ export default class MiniTextDetails extends Component {
                 [newTask.id]: newTask
             }
         }
+        let notification = {
+            message: msg,
+            type: "success",
+            insert: "top",
+            container: "bottom-right",
+            animationIn: ["animated", "zoomIn"],
+            animationOut: ["animated", "fadeOut"],
+            dismiss: {
+                duration: 5000,
+            }
+        };
+        SocketService.emit('sendNotification', notification);
         this.props.updateBoard(newBoard);
         this.props.onToggle();
     }
@@ -65,7 +78,7 @@ export default class MiniTextDetails extends Component {
                     onFocus={this.handleFocus}
                     onInput={this.emitChange}
                     placeholder="Add a task title..."
-                >                   
+                >
                 </textarea>
             </div>
             <button
@@ -77,6 +90,7 @@ export default class MiniTextDetails extends Component {
                 onClick={this.onSave}
             >SAVE</button>
             <MiniDetailsEditor
+                user={this.props.user}
                 miniTask={this.props.miniTask}
                 board={this.props.board}
                 updateBoard={this.props.updateBoard}
