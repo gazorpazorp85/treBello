@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import utils from '../services/utils'
+
 import SearchIcon from '@material-ui/icons/Search';
+
+import utils from '../services/utils'
 
 export default class Sort extends Component {
 
@@ -35,6 +37,9 @@ export default class Sort extends Component {
         const newBoard = { ...this.props.board }
         newBoard.boardBgImage = ev.target.src
         this.props.updateBoard(newBoard);
+        let msg = `${this.props.user} changed background image`;
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
+        utils.emitNotification(msg, 'danger');
     }
 
     stopPropagation = (ev) => {

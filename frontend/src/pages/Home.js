@@ -41,7 +41,7 @@ class Home extends Component {
 
   createBoard = async () => {
     let board = this.props.board;
-    let msg = 'The Board was created by ' + this.props.loggedInUser.username;
+    let msg = `The Board was created by ${this.props.loggedInUser.username}`;
     delete board._id;
     board.createdBy = this.props.loggedInUser;
     board.history = [{ id: utils.getRandomId(), msg: msg, time: Date.now() }];

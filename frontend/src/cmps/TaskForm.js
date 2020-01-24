@@ -80,9 +80,9 @@ export default class TaskForm extends Component {
         if (this.props.toggleUpdateForm) this.props.toggleUpdateForm();
         if (this.props.toggleTaskDetails) this.props.toggleTaskDetails();
         let msg = (!this.state.edit) ?
-            `The task ${this.state.task.title} was added by ` + this.props.user :
-            this.props.user + ` edited the task ${this.state.task.title}`;
-        this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() });
+            `The task '${this.state.task.title}' was added by ${this.props.user}` :
+            `${this.props.user} edited the task '${this.state.task.title}'`;
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
         utils.emitNotification(msg, 'success');
     }
 

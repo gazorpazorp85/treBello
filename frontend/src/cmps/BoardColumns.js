@@ -46,7 +46,7 @@ export default class BoardColumns extends Component {
         this.props.updateBoard(board);
         this.handleOptionsMenuClose();
         let msg = `'${column.title}' was deleted by ${this.props.user}`;
-        this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() })
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
         utils.emitNotification(msg, 'danger');
     }
 
@@ -71,8 +71,8 @@ export default class BoardColumns extends Component {
                 ...this.props.board,
                 columnOrder: newColumnOrder
             }
-            const msg = `'${columnTitle}' was moved by ${this.props.user}`;
-            this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() });
+            let msg = `'${columnTitle}' was moved by ${this.props.user}`;
+            this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
             utils.emitNotification(msg, 'success');
             return this.props.updateBoard(newBoard);
         };
@@ -96,8 +96,8 @@ export default class BoardColumns extends Component {
                 }
             };
             const taskTitle = this.props.board.tasks[draggableId].title;
-            const msg = `${this.props.user} changed the position of the task '${taskTitle}'`;
-            this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() });
+            let msg = `${this.props.user} changed the position of the task '${taskTitle}'`;
+            this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
             utils.emitNotification(msg, 'success');
 
             return this.props.updateBoard(newBoard);
@@ -128,8 +128,8 @@ export default class BoardColumns extends Component {
             }
         };
         const taskTitle = this.props.board.tasks[draggableId].title;
-        const msg = `${this.props.user} moved the task '${taskTitle}' from '${newStart.title}' to '${newFinish.title}'`;
-        this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() });
+        let msg = `${this.props.user} moved the task '${taskTitle}' from '${newStart.title}' to '${newFinish.title}'`;
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
         utils.emitNotification(msg, 'success');
         this.props.updateBoard(newBoard);
     }

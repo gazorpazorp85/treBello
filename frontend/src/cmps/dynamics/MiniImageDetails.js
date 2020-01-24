@@ -34,8 +34,8 @@ export default class MiniImageDetails extends Component {
         }
         this.props.updateBoard(newBoard);
         this.props.onToggle();
-        let msg = this.props.user + ` updated the task '${this.props.miniTask.task.title}' to '${this.state.title}'`;
-        this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() });
+        let msg = `${this.props.user} updated the task '${this.props.miniTask.task.title}' to '${this.state.title}'`;
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
         utils.emitNotification(msg, 'success');
     }
 

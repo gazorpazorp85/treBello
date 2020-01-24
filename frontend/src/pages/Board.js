@@ -137,8 +137,10 @@ class Board extends Component {
 
   render() {
 
-    if (!this.props.board.columns) return pageLoading();
     let button;
+
+    if (!this.props.board.columns) return pageLoading();
+    
     if (this.props.loggedInUser) {
       button = <button className="board-page-nav-bar nav-btn"
         onClick={this.props.logout}>
@@ -150,6 +152,7 @@ class Board extends Component {
         login
       </button>
     }
+
     return (
       <div className="screen" onClick={this.closeAllTabs}>
         <div className="board-page fill-height flex column" style={{ backgroundImage: 'url(' + this.props.board.boardBgImage + ')' }}>
@@ -188,8 +191,7 @@ class Board extends Component {
             toggleUploadBgImg={this.toggleUploadBgImg}
             onAddImg={this.onAddImg}
             showUploadBgImg={this.state.toggleUploadBgImg}
-
-          />
+            user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'} />
 
           {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
           <div className="board-page-columns-container">
@@ -232,7 +234,8 @@ class Board extends Component {
           />}
 
           {this.state.showHistory && <BoardHistory variant="outlined"
-            className="home-page-login" board={this.props.board} showHistory={this.state.showHistory}/>}
+            className="home-page-login" history={this.props.board.history} showHistory={this.state.showHistory}
+            toggleBoardHistory={this.toggleBoardHistory}/>}
         </div>
 
       </div>

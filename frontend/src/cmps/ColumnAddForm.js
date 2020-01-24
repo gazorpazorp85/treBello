@@ -58,7 +58,7 @@ export default class ColumnAddForm extends Component {
         this.props.updateBoard(newBoard);
         this.props.toggleAddForm();
         let msg = `'${this.state.column.title}' was added by ` + this.props.user;
-        this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() })
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
         utils.emitNotification(msg, 'success');
     }
 

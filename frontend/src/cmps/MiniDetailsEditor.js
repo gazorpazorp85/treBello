@@ -31,8 +31,8 @@ export default class MiniDetailsEditor extends Component {
         delete board.tasks[miniTask.task.id];
         this.props.updateBoard(board);
         this.props.onToggle();
-        let msg = `'${task.title}' was deleted by ` + this.props.user;
-        this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() })
+        let msg = `'${task.title}' was deleted by ${this.props.user}`;
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
         utils.emitNotification(msg, 'danger');
     }
 
