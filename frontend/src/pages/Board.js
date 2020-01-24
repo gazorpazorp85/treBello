@@ -7,6 +7,7 @@ import ColumnAddForm from '../cmps/ColumnAddForm'
 import Login from '../cmps/Login';
 import Filter from '../cmps/Filter';
 import Sort from '../cmps/Sort';
+import SplashMenu from '../cmps/SplashMenu'
 import TaskDetails from '../cmps/TaskDetails';
 import DynamicMiniComponent from '../cmps/dynamics/DynamicMiniComponent';
 
@@ -29,6 +30,7 @@ class Board extends Component {
     currTaskId: '',
     toggleUploadBgImg: false,
     toggleLogin: false,
+    toggleSplashMenu: false,
     miniTaskDetails: {},
     filterBy: {
       title: ''
@@ -78,9 +80,9 @@ class Board extends Component {
     this.setState((prevState) => ({ toggleLogin: !prevState.toggleLogin }))
   }
 
-  closeLogin = (ev) => {
+  closeAllTabs = (ev) => {
     ev.stopPropagation()
-    this.setState({ toggleLogin: false })
+    this.setState({ toggleLogin: false, toggleSplashMenu: false, toggleUploadBgImg: false })
   }
 
   toggleTaskDetails = (currTask) => {
@@ -99,14 +101,11 @@ class Board extends Component {
 
   onAddImg = (ev) => {
     const file = ev.target.files[0];
-    this.setState({ isUploading: true }, () => {
-
-      utils.uploadImg(file).then(res => {
-        const newBoard = { ...this.props.board }
-        newBoard.boardBgImage = res
-        this.props.updateBoard(newBoard);
-        this.toggleUploadBgImg();
-      })
+    utils.uploadImg(file).then(res => {
+      const newBoard = { ...this.props.board }
+      newBoard.boardBgImage = res
+      this.props.updateBoard(newBoard);
+      this.toggleUploadBgImg();
     })
   }
 
@@ -126,6 +125,10 @@ class Board extends Component {
     this.setState(prevState => ({ showMiniTaskDetails: !prevState.showMiniTaskDetails }));
   }
 
+  toggleSplashMenu = (ev) => {
+    ev.stopPropagation();
+    this.setState(prevState => ({ toggleSplashMenu: !prevState.toggleSplashMenu }));
+  }
 
   render() {
 
@@ -143,23 +146,17 @@ class Board extends Component {
       </button>
     }
 
-    let imgClass
-    (this.state.boardBgImage !== '') ?
-      imgClass = "board-page fill-height flex column board-bgImg"
-      : imgClass = "board-page fill-height flex column"
-
     return (
-      <div className="screen" onClick={this.closeLogin}>
+      <div className="screen" onClick={this.closeAllTabs}>
         <div className="board-page fill-height flex column" style={{ backgroundImage: 'url(' + this.props.board.boardBgImage + ')' }}>
-
 
           <div className="board-page-nav-bar flex space-between">
             <div className="board-page-nav-bar-logo" onClick={this.goBack}> </div>
             <div>
-              <span className="plaster"> 
+              <div className="flex">
+                {button}
                 {this.props.loggedInUser && `Logged in as: ${this.props.loggedInUser.username}`}
-              </span>
-              {button}
+              </div>
             </div>
           </div>
 
@@ -171,9 +168,22 @@ class Board extends Component {
             </div>
             <Filter onFilter={this.onFilter} />
             <Sort onSort={this.onSort} />
+            <div className="board-page-nav-bar-filters-item fill-height">
+              <button className="nav-btn fill-height"
+                onClick={(ev) => this.toggleSplashMenu(ev)}>CHANGE BACKGROUND</button>
+            </div>
           </div>
 
+          {this.state.toggleSplashMenu &&
+            <SplashMenu
+              board={this.props.board}
+              updateBoard={this.props.updateBoard}
+              toggleUploadBgImg={this.toggleUploadBgImg}
+              onAddImg={this.onAddImg}
+              showUploadBgImg={this.state.toggleUploadBgImg}
 
+            />
+          }
 
           {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
           <div className="board-page-columns-container">
@@ -212,18 +222,9 @@ class Board extends Component {
             onToggle={this.toggleMiniDetails}
             board={this.props.board}
           />}
-
-          {!this.state.toggleUploadBgImg ?
-            <button className="add-bg-photo" onClick={this.toggleUploadBgImg}>ADD BG PHOTO</button>
-            :
-            <div className="upload-img-container">
-              add image:<input type="file" id="upload-img" onChange={this.onAddImg}></input>
-            </div>
-          }
-
         </div>
 
-      </div>
+      </div >
     )
   }
 }
