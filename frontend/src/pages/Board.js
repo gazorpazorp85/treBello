@@ -150,18 +150,15 @@ class Board extends Component {
         login
       </button>
     }
-
     return (
       <div className="screen" onClick={this.closeAllTabs}>
         <div className="board-page fill-height flex column" style={{ backgroundImage: 'url(' + this.props.board.boardBgImage + ')' }}>
 
           <div className="board-page-nav-bar flex space-between">
             <div className="board-page-nav-bar-logo" onClick={this.goBack}> </div>
-            <div>
-              <div className="flex">
-                {this.props.loggedInUser && `Logged in as: ${this.props.loggedInUser.username}`}
-                {button}
-              </div>
+            <div className="flex align-center">
+              {this.props.loggedInUser && <p className="logged-in-user">Logged in as: {this.props.loggedInUser.username}</p>}
+              {button}
             </div>
           </div>
 
@@ -175,7 +172,7 @@ class Board extends Component {
             <Sort onSort={this.onSort} />
             <div className="board-page-nav-bar-filters-item fill-height">
               <button className="nav-btn fill-height"
-                onClick={(ev) => this.toggleSplashMenu(ev)}>Change Background</button>
+                onClick={(ev) => this.toggleSplashMenu(ev)}>Change Background Image</button>
             </div>
             <div className="board-page-nav-bar-filters-item flex fill-height">
               <button className="board-page-nav-bar-filters nav-btn"
@@ -183,16 +180,16 @@ class Board extends Component {
             </div>
           </div>
 
-          {this.state.toggleSplashMenu &&
-            <SplashMenu
-              board={this.props.board}
-              updateBoard={this.props.updateBoard}
-              toggleUploadBgImg={this.toggleUploadBgImg}
-              onAddImg={this.onAddImg}
-              showUploadBgImg={this.state.toggleUploadBgImg}
 
-            />
-          }
+          <SplashMenu
+            toggleSplashMenu={this.state.toggleSplashMenu}
+            board={this.props.board}
+            updateBoard={this.props.updateBoard}
+            toggleUploadBgImg={this.toggleUploadBgImg}
+            onAddImg={this.onAddImg}
+            showUploadBgImg={this.state.toggleUploadBgImg}
+
+          />
 
           {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
           <div className="board-page-columns-container">
@@ -208,14 +205,14 @@ class Board extends Component {
                 updateBoard={this.props.updateBoard}
                 toggleTaskDetails={this.toggleTaskDetails}
                 toggleMiniDetails={this.toggleMiniDetails}
-                user={this.props.loggedInUser.username} />
+                user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'} />
               <div className="flex column align-center">
                 {(this.state.showAddColumn) ?
                   <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}>
                     + Add another list..  </button> : ''
                 }
                 {(this.state.showForm) && <ColumnAddForm board={this.props.board} updateBoard={this.props.updateBoard}
-                  toggleAddForm={this.toggleAddForm} user={this.props.loggedInUser.username} />}
+                  toggleAddForm={this.toggleAddForm} user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'} />}
               </div>
             </div>
           </div>
@@ -231,14 +228,14 @@ class Board extends Component {
             updateBoard={this.props.updateBoard}
             onToggle={this.toggleMiniDetails}
             board={this.props.board}
-            user={this.props.loggedInUser.username}
+            user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'}
           />}
 
           {this.state.showHistory && <BoardHistory variant="outlined"
-            className="home-page-login" board={this.props.board} />}
+            className="home-page-login" board={this.props.board} showHistory={this.state.showHistory}/>}
         </div>
 
-      </div >
+      </div>
     )
   }
 }

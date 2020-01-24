@@ -4,7 +4,6 @@ import MiniDetailsEditor from '../MiniDetailsEditor';
 import ScreenFilter from '../ScreenFilter';
 
 import utils from '../../services/utils';
-import SocketService from '../../services/SocketService';
 
 export default class MiniTextDetails extends Component {
     state = {
@@ -25,9 +24,7 @@ export default class MiniTextDetails extends Component {
     }
 
     onSave = _ => {
-        const newTask = { ...this.props.miniTask.task, title: this.state.title };
-        let msg = this.props.user + ` changed the title of the task '${this.props.miniTask.task.title}' to '${this.state.title}'`;
-        this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() });
+        const newTask = { ...this.props.miniTask.task, title: this.state.title ? this.state.title : this.props.miniTask.task.title };
         const newBoard = {
             ...this.props.board,
             tasks: {
@@ -35,20 +32,11 @@ export default class MiniTextDetails extends Component {
                 [newTask.id]: newTask
             }
         }
-        let notification = {
-            message: msg,
-            type: "success",
-            insert: "top",
-            container: "bottom-right",
-            animationIn: ["animated", "zoomIn"],
-            animationOut: ["animated", "fadeOut"],
-            dismiss: {
-                duration: 5000,
-            }
-        };
-        SocketService.emit('sendNotification', notification);
         this.props.updateBoard(newBoard);
         this.props.onToggle();
+        let msg = this.props.user + ` changed the title of the task '${this.props.miniTask.task.title}' to '${this.state.title}'`;
+        this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() });
+        utils.emitNotification(msg, 'success');
     }
 
     render() {

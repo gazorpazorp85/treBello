@@ -7,7 +7,6 @@ import ColumnAddForm from '../cmps/ColumnAddForm';
 import TaskForm from '../cmps/TaskForm'
 
 import utils from '../services/utils';
-import SocketService from '../services/SocketService';
 
 export default class BoardColumns extends Component {
 
@@ -46,7 +45,7 @@ export default class BoardColumns extends Component {
         columnOrder.splice(idx, 1);
         this.props.updateBoard(board);
         this.handleOptionsMenuClose();
-        let msg = `'${column.title}' was deleted by ` + this.props.user;
+        let msg = `'${column.title}' was deleted by ${this.props.user}`;
         this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() })
         utils.emitNotification(msg, 'danger');
     }
@@ -72,7 +71,7 @@ export default class BoardColumns extends Component {
                 ...this.props.board,
                 columnOrder: newColumnOrder
             }
-            const msg = columnTitle + ' was moved by ' + this.props.user;
+            const msg = `'${columnTitle}' was moved by ${this.props.user}`;
             this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() });
             utils.emitNotification(msg, 'success');
             return this.props.updateBoard(newBoard);
@@ -85,7 +84,6 @@ export default class BoardColumns extends Component {
             const newTaskIds = start.taskIds.slice();
             newTaskIds.splice(source.index, 1);
             newTaskIds.splice(destination.index, 0, draggableId);
-
             const newColumn = {
                 ...start,
                 taskIds: newTaskIds
@@ -97,6 +95,11 @@ export default class BoardColumns extends Component {
                     [newColumn.id]: newColumn
                 }
             };
+            const taskTitle = this.props.board.tasks[draggableId].title;
+            const msg = `${this.props.user} changed the position of the task '${taskTitle}'`;
+            this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() });
+            utils.emitNotification(msg, 'success');
+
             return this.props.updateBoard(newBoard);
         };
 
@@ -113,6 +116,8 @@ export default class BoardColumns extends Component {
             ...finish,
             taskIds: finishTaskIds
         };
+        console.log('newStart', newStart.title);
+        console.log('newFinish', newFinish.title);
 
         const newBoard = {
             ...this.props.board,
@@ -122,6 +127,10 @@ export default class BoardColumns extends Component {
                 [newFinish.id]: newFinish
             }
         };
+        const taskTitle = this.props.board.tasks[draggableId].title;
+        const msg = `${this.props.user} moved the task '${taskTitle}' from '${newStart.title}' to '${newFinish.title}'`;
+        this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() });
+        utils.emitNotification(msg, 'success');
         this.props.updateBoard(newBoard);
     }
 

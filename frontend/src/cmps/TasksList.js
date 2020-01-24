@@ -4,8 +4,6 @@ import NaturalDragAnimation from 'natural-drag-animation-rbdnd';
 
 import DynamicComponent from './dynamics/DynamicComponent';
 
-import utils from '../services/utils'
-
 export default class TasksList extends Component {
 
     state = {
@@ -44,7 +42,6 @@ export default class TasksList extends Component {
                 {...provided.droppableProps}
                 ref={innerRef}
             >
-                    <div>
                         {tasks.map((task, idx) => (
                             <div key={task.id}>
                                 <Draggable draggableId={task.id} index={idx}>
@@ -80,7 +77,6 @@ export default class TasksList extends Component {
                             </div>
                         ))}
                         {provided.placeholder}
-                    </div> 
             </section>
         )
     }

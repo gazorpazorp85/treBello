@@ -15,7 +15,6 @@ function connectSockets(io) {
                 socket.boardId = boardId;
             })
             socket.on('sendNotification', (notification) => {
-                console.log(notification);
                 socket.broadcast.to(socket.boardId).emit('getNotification', notification);
             })
     })
