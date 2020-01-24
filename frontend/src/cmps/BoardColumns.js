@@ -80,7 +80,6 @@ export default class BoardColumns extends Component {
                 ...this.props.board,
                 columnOrder: newColumnOrder
             }
-            SocketService.emit('boardUpdate', newBoard);
             return this.props.updateBoard(newBoard);
         };
 
@@ -104,7 +103,6 @@ export default class BoardColumns extends Component {
                     [newColumn.id]: newColumn
                 }
             };
-            SocketService.emit('boardUpdate', newBoard);
             return this.props.updateBoard(newBoard);
         };
 
@@ -130,7 +128,6 @@ export default class BoardColumns extends Component {
                 [newFinish.id]: newFinish
             }
         };
-        SocketService.emit('boardUpdate', newBoard);
         this.props.updateBoard(newBoard);
     }
 
