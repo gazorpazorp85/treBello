@@ -5,7 +5,8 @@ import utils from '../services/utils'
 
 export default class Members extends Component {
     state = {
-        choosenMembers: []
+        choosenMembers: [],
+        availableMembers: []
     }
 
     componentDidMount = () => {
@@ -13,7 +14,9 @@ export default class Members extends Component {
     }
 
     setNewState = () => {
-        this.setState({ choosenMembers: this.props.task.taskTeamMembers })
+        // const availableMembers = this.props.board.teamMembers.filter(currMember => !this.props.task.taskTeamMembers.find(taskMember => taskMember.userName === currMember.userName));
+        // this.setState({ choosenMembers: this.props.task.taskTeamMembers, availableMembers }, _ => console.log(this.state));
+        this.setState({ choosenMembers: this.props.task.taskTeamMembers });
     }
 
     updateChoosenMembers = (teamMember) => {
@@ -73,8 +76,6 @@ export default class Members extends Component {
                                     </p>
                                 </div>
                             </div>
-
-
                             <p>{member.firstName}</p>
                             <p>{member.lastName}</p>
                         </div>
@@ -82,7 +83,13 @@ export default class Members extends Component {
                     }
                 </div>
                 <div className="add-team-members flex column">
-                    <p> ADD TEAM MEMBER </p>
+                    <p> ADD A TEAM MEMBER </p>
+
+
+
+
+
+                    {/* {this.state.availableMembers.map(teamMember => { */}
                     {this.props.board.teamMembers.map(teamMember => {
                         return <div key={teamMember.userName}
                             className="team-member flex align-center"

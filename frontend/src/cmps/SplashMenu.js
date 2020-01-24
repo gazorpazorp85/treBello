@@ -43,13 +43,14 @@ export default class Sort extends Component {
 
 
     render() {
-        return <div className="splash-menu flex column align-center" onClick={(ev) => this.stopPropagation(ev)}>
+        return <div className={"splash-menu flex column align-center" + (this.props.toggleSplashMenu ? ' translateRight' : '')} 
+        onClick={(ev) => this.stopPropagation(ev)}>
 
             <div className="flex column fill-width">
                 <div className="splash-menu-search-bar fill-width flex justify-center">
                     <input
                         type='text'
-                        placeholder='searh by name...'
+                        placeholder='Search by name...'
                         onChange={this.inputChange}
                     />
                     <button className="splash-menu-search-bar-save-btn" onClick={this.onSave}>

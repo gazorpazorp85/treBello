@@ -171,7 +171,7 @@ class Board extends Component {
             <Sort onSort={this.onSort} />
             <div className="board-page-nav-bar-filters-item fill-height">
               <button className="nav-btn fill-height"
-                onClick={(ev) => this.toggleSplashMenu(ev)}>CHANGE BACKGROUND</button>
+                onClick={(ev) => this.toggleSplashMenu(ev)}>Change Background Image</button>
             </div>
             <div className="board-page-nav-bar-filters-item flex fill-height">
               <button className="board-page-nav-bar-filters nav-btn"
@@ -179,8 +179,9 @@ class Board extends Component {
             </div>
           </div>
 
-          {this.state.toggleSplashMenu &&
+          
             <SplashMenu
+              toggleSplashMenu={this.state.toggleSplashMenu}
               board={this.props.board}
               updateBoard={this.props.updateBoard}
               toggleUploadBgImg={this.toggleUploadBgImg}
@@ -188,8 +189,7 @@ class Board extends Component {
               showUploadBgImg={this.state.toggleUploadBgImg}
 
             />
-          }
-
+          
           {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
           <div className="board-page-columns-container">
 
