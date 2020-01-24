@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import CreateIcon from '@material-ui/icons/Create';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import utils from '../../services/utils'
-import Members from "../Members";
 
 export default class TaskPreview extends Component {
 
