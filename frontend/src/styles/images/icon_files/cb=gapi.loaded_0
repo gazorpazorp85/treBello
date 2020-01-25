@@ -374,7 +374,7 @@ _.Mu("gapi.auth2.GoogleUser.prototype.grant",WE.prototype.sY);_.Mu("gapi.auth2.G
 _.Mu("gapi.auth2.GoogleUser.prototype.grantOfflineAccess",WE.prototype.Q1);_.Mu("gapi.auth2.GoogleUser.prototype.hasGrantedScopes",WE.prototype.qV);_.Mu("gapi.auth2.GoogleUser.prototype.reloadAuthResponse",WE.prototype.T8);_.Mu("gapi.auth2.LiveValue",xF);_.Mu("gapi.auth2.LiveValue.prototype.listen",xF.prototype.Ei);_.Mu("gapi.auth2.LiveValue.prototype.get",xF.prototype.get);_.Mu("gapi.auth2.SigninOptionsBuilder",iY);_.Mu("gapi.auth2.SigninOptionsBuilder.prototype.getAppPackageName",iY.prototype.Fea);
 _.Mu("gapi.auth2.SigninOptionsBuilder.prototype.setAppPackageName",iY.prototype.Pha);_.Mu("gapi.auth2.SigninOptionsBuilder.prototype.getScope",iY.prototype.P1);_.Mu("gapi.auth2.SigninOptionsBuilder.prototype.setScope",iY.prototype.yca);_.Mu("gapi.auth2.SigninOptionsBuilder.prototype.getPrompt",iY.prototype.ifa);_.Mu("gapi.auth2.SigninOptionsBuilder.prototype.setPrompt",iY.prototype.Vha);_.Mu("gapi.auth2.SigninOptionsBuilder.prototype.get",iY.prototype.get);
 
-_.gS=function(a,c){var f=c.oidc_spec_compliant;c=c.nonce;f&&(a.spec_compliant=f,c=c||_.V1());c&&(a.authParameters.nonce=c,a.forceTokenRefresh=!0,a.skipTokenCache=!0)};
+_.gS=function(a,c){var f=c.oidc_spec_compliant;c=c.nonce;f&&(a.spec_compliant=f,c=c||_.V1());c&&(a.authParameters.nonce=c,a.forceToken=!0,a.skipTokenCache=!0)};
 
 _.Xj=window.googleapis&&window.googleapis.server||{};
 

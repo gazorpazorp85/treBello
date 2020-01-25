@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import MiniDetailsEditor from '../MiniDetailsEditor';
 import ScreenFilter from '../ScreenFilter';
 
+import utils from '../../services/utils'
+
 export default class MiniVideoDetails extends Component {
     state = {
         title: '',
@@ -22,7 +24,7 @@ export default class MiniVideoDetails extends Component {
     }
 
     onSave = _ => {
-        const newTask = { ...this.props.miniTask.task, title: this.state.title };
+        const newTask = { ...this.props.miniTask.task, title: this.state.title ? this.state.title : this.props.miniTask.task.title };
         const newBoard = {
             ...this.props.board,
             tasks: {
@@ -32,6 +34,9 @@ export default class MiniVideoDetails extends Component {
         }
         this.props.updateBoard(newBoard);
         this.props.onToggle();
+        let msg = `${this.props.user} updated the task '${this.props.miniTask.task.title}' to '${this.state.title}'`;
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
+        utils.emitNotification(msg, 'success');
     }
 
     render() {
@@ -75,11 +80,12 @@ export default class MiniVideoDetails extends Component {
                 }}
                 onClick={this.onSave}
             >SAVE</button>
-            <MiniDetailsEditor 
-             miniTask={this.props.miniTask}
-             board={this.props.board}
-             updateBoard={this.props.updateBoard}
-             onToggle={this.props.onToggle}/>
+            <MiniDetailsEditor
+                user={this.props.user}
+                miniTask={this.props.miniTask}
+                board={this.props.board}
+                updateBoard={this.props.updateBoard}
+                onToggle={this.props.onToggle} />
             <ScreenFilter onToggle={this.props.onToggle} />
         </div >
     }

@@ -13,20 +13,6 @@ export default class TasksList extends Component {
         showTaskDetails: false
     }
 
-    onDelete = (id) => {
-        let board = { ...this.props.board };
-        let column = this.props.column;
-        let taskIds = column.taskIds
-        let idx = taskIds.findIndex(taskId => taskId === id);
-        taskIds.splice(idx, 1);
-        this.setState({
-            showAddFormButton: true,
-            showEditForm: false
-        }, () =>
-            this.props.updateBoard(board)
-        );
-    }
-
     toggleTaskDetails = id => {
         if (id) {
             this.setState(prevState => ({ showTaskDetails: !prevState.showTaskDetails, currTaskId: id }));
@@ -56,7 +42,6 @@ export default class TasksList extends Component {
                 {...provided.droppableProps}
                 ref={innerRef}
             >
-                    <div>
                         {tasks.map((task, idx) => (
                             <div key={task.id}>
                                 <Draggable draggableId={task.id} index={idx}>
@@ -81,6 +66,7 @@ export default class TasksList extends Component {
                                                         onTaskId={this.state.onTaskId}
                                                         showEditBtn={this.state.showEditBtn}
                                                         toggleMiniDetails = {this.props.toggleMiniDetails}
+                                                        user={this.props.user}
                                                     >
                                                     </DynamicComponent>
                                                 </div>
@@ -91,7 +77,6 @@ export default class TasksList extends Component {
                             </div>
                         ))}
                         {provided.placeholder}
-                    </div> 
             </section>
         )
     }

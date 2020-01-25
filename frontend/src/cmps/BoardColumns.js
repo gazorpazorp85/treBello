@@ -47,9 +47,10 @@ export default class BoardColumns extends Component {
         delete board.columns[id];
         const idx = columnOrder.findIndex(column => column === id);
         columnOrder.splice(idx, 1);
-        let msg = `'${column.title}' was deleted by ` + this.props.user;
-        this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() })
         this.props.updateBoard(board);
+        let msg = `'${column.title}' was deleted by ${this.props.user}`;
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
+        utils.emitNotification(msg, 'danger');
     }
 
     onDragEnd = result => {
@@ -69,12 +70,13 @@ export default class BoardColumns extends Component {
             newColumnOrder.splice(source.index, 1);
             newColumnOrder.splice(destination.index, 0, draggableId);
             const columnTitle = this.props.board.columns[draggableId].title;
-            const msg = columnTitle + ' was moved by ' + this.props.user;
-            this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() })
             const newBoard = {
                 ...this.props.board,
                 columnOrder: newColumnOrder
             }
+            let msg = `'${columnTitle}' was moved by ${this.props.user}`;
+            this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
+            utils.emitNotification(msg, 'success');
             return this.props.updateBoard(newBoard);
         };
 
@@ -85,12 +87,10 @@ export default class BoardColumns extends Component {
             const newTaskIds = start.taskIds.slice();
             newTaskIds.splice(source.index, 1);
             newTaskIds.splice(destination.index, 0, draggableId);
-
             const newColumn = {
                 ...start,
                 taskIds: newTaskIds
             };
-            // this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() })
             const newBoard = {
                 ...this.props.board,
                 columns: {
@@ -98,6 +98,11 @@ export default class BoardColumns extends Component {
                     [newColumn.id]: newColumn
                 }
             };
+            const taskTitle = this.props.board.tasks[draggableId].title;
+            let msg = `${this.props.user} changed the position of the task '${taskTitle}'`;
+            this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
+            utils.emitNotification(msg, 'success');
+
             return this.props.updateBoard(newBoard);
         };
 
@@ -114,6 +119,8 @@ export default class BoardColumns extends Component {
             ...finish,
             taskIds: finishTaskIds
         };
+        console.log('newStart', newStart.title);
+        console.log('newFinish', newFinish.title);
 
         const newBoard = {
             ...this.props.board,
@@ -123,6 +130,10 @@ export default class BoardColumns extends Component {
                 [newFinish.id]: newFinish
             }
         };
+        const taskTitle = this.props.board.tasks[draggableId].title;
+        let msg = `${this.props.user} moved the task '${taskTitle}' from '${newStart.title}' to '${newFinish.title}'`;
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
+        utils.emitNotification(msg, 'success');
         this.props.updateBoard(newBoard);
     }
 
@@ -236,6 +247,7 @@ export default class BoardColumns extends Component {
                                                                 toggleTaskDetails={this.props.toggleTaskDetails}
                                                                 updateBoard={this.props.updateBoard}
                                                                 toggleMiniDetails={this.props.toggleMiniDetails}
+                                                                user={this.props.user}
                                                             >
                                                             </TasksList>
                                                         }}

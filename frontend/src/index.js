@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-// TODO: use scss
+import ReactNotification from 'react-notifications-component';
+
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+import 'react-notifications-component/dist/theme.css';
 
 import Store from './store';
 
 ReactDOM.render(
   <Provider store={Store}>
+    <ReactNotification />
     <App />
   </Provider>,
   document.getElementById('root')

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import utils from '../services/utils'
+
 import SearchIcon from '@material-ui/icons/Search';
+
+import utils from '../services/utils'
 
 export default class Sort extends Component {
 
@@ -10,7 +12,7 @@ export default class Sort extends Component {
     }
 
     inputChange = ev => {
-        this.setState({ filterByName: ev.target.value })
+        this.setState({ filterByName: ev.target.value + " wallpaper"});
     }
 
     onSave = async () => {
@@ -18,11 +20,11 @@ export default class Sort extends Component {
             const splashImages = await utils.getImagesFromUnsplash(this.state.filterByName)
             let splashImagesUrls = []
             splashImages.forEach(image => {
-                const UrlIndx = splashImagesUrls.findIndex(currUrl => currUrl === image.urls.raw);
+                const UrlIndx = splashImagesUrls.findIndex(currUrl => currUrl === image.urls.full);
                 if (UrlIndx >= 0) {
                     splashImagesUrls.splice(UrlIndx, 1)
                 } else {
-                    splashImagesUrls.push(image.urls.raw);
+                    splashImagesUrls.push(image.urls.full);
                 }
             })
             this.setState({ splashImagesUrls })
@@ -33,8 +35,11 @@ export default class Sort extends Component {
 
     setBoardBackground = (ev) => {
         const newBoard = { ...this.props.board }
-        newBoard.boardBgImage = ev.target.src
+        newBoard.boardBgImage = ev.target.src;
         this.props.updateBoard(newBoard);
+        let msg = `${this.props.user} changed background image`;
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
+        utils.emitNotification(msg, 'danger');
     }
 
     stopPropagation = (ev) => {
@@ -43,13 +48,14 @@ export default class Sort extends Component {
 
 
     render() {
-        return <div className="splash-menu flex column align-center" onClick={(ev) => this.stopPropagation(ev)}>
+        return <div className={"splash-menu flex column align-center" + (this.props.toggleSplashMenu ? ' translateRight' : '')} 
+        onClick={(ev) => this.stopPropagation(ev)}>
 
             <div className="flex column fill-width">
                 <div className="splash-menu-search-bar fill-width flex justify-center">
                     <input
                         type='text'
-                        placeholder='searh by name...'
+                        placeholder='Search by name...'
                         onChange={this.inputChange}
                     />
                     <button className="splash-menu-search-bar-save-btn" onClick={this.onSave}>
