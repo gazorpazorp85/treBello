@@ -73,11 +73,12 @@ export default class MiniTextDetails extends Component {
                 className="mini-details-save-btn"
                 style={{
                     left: miniTask.left + 'px',
-                    top: (miniTask.top + 10) + 'px'
+                    top: (miniTask.top + miniTask.height + 10) + 'px'
                 }}
                 onClick={this.onSave}
             >SAVE</button>
             <MiniDetailsEditor
+                users={this.props.users}
                 user={this.props.user}
                 miniTask={this.props.miniTask}
                 board={this.props.board}

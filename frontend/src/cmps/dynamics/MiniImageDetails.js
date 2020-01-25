@@ -58,7 +58,7 @@ export default class MiniImageDetails extends Component {
                     style={{
                         height: miniTask.height - miniTask.imgHeight - 6,
                         position: 'relative',
-                        top: -5 + 'px'
+                        // top: -5 + 'px'
                     }}
                     defaultValue={miniTask.task.title}
                     ref="textarea"
@@ -72,11 +72,12 @@ export default class MiniImageDetails extends Component {
                 className="mini-details-save-btn"
                 style={{
                     left: miniTask.left + 'px',
-                    top: (miniTask.top + 10) + 'px'
+                    top: (miniTask.top + miniTask.height + (miniTask.task.title ? 10 : 32)) + 'px'
                 }}
                 onClick={this.onSave}
             >SAVE</button>
             <MiniDetailsEditor
+                users={this.props.users}
                 user={this.props.user}
                 miniTask={this.props.miniTask}
                 board={this.props.board}

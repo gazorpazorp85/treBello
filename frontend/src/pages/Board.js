@@ -264,6 +264,8 @@ class Board extends Component {
             onToggle={this.toggleMiniDetails}
             board={this.props.board}
             user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'}
+            users= {this.props.users}
+
           />}
 
           <BoardHistory variant="outlined"
