@@ -44,26 +44,28 @@ export default class TaskPreview extends Component {
                     </div>
 
                     <p className="task-container-title">{task.title}</p>
-                    {(showEditBtn && (onTaskId === task.id)) ?
-                        <CreateIcon className="task-container-open-menu"
-                            onClick={e => this.toggleMiniDetails(e)} />
-                        : ''}
-                    {(task.description !== '') ?
-                        <ListAltIcon /> : ''
-                    }
-
-                    <div className="flex">
-                        {(task.taskTeamMembers.map(member => {
-                            return <div key={member._id} className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: `${member.color}` }} >
-                                <div className="team-member-icon">
-                                    <p className="flex align-center">
-                                        {utils.createUserIcon(member.firstName,
-                                            member.lastName)}
-                                    </p>
-                                </div>
-                            </div>
-                        }))
+                    <div className={"flex align-center space-between" + (task.description == '' ? ' row-reverse' : '')}>
+                        {(showEditBtn && (onTaskId === task.id)) ?
+                            <CreateIcon className="task-container-open-menu"
+                                onClick={e => this.toggleMiniDetails(e)} />
+                            : ''}
+                        {(task.description !== '') ?
+                            <ListAltIcon /> : ''
                         }
+
+                        <div className="flex">
+                            {(task.taskTeamMembers.map(member => {
+                                return <div key={member._id} className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: `${member.color}` }} >
+                                    <div className="team-member-icon">
+                                        <p className="flex align-center">
+                                            {utils.createUserIcon(member.firstName,
+                                                member.lastName)}
+                                        </p>
+                                    </div>
+                                </div>
+                            }))
+                            }
+                        </div>
                     </div>
                 </div>
             </section>

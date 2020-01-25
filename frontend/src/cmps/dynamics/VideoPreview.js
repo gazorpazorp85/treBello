@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import CreateIcon from '@material-ui/icons/Create';
+import ListAltIcon from '@material-ui/icons/ListAlt';
+import utils from '../../services/utils'
+
 
 export default class VideoPreview extends Component {
     state = {
@@ -42,10 +45,29 @@ export default class VideoPreview extends Component {
                         }
                     </div>
                     <p className="task-container-title">{task.title}</p>
-                    {(showEditBtn && (onTaskId === task.id)) ?
-                        <CreateIcon className="task-container-open-menu"
-                            onClick={e => this.toggleMiniDetails(e)} />
-                        : ''}
+                    <div className={"flex align-center space-between" + (task.description == '' ? ' row-reverse' : '')}>
+                        {(showEditBtn && (onTaskId === task.id)) ?
+                            <CreateIcon className="task-container-open-menu"
+                                onClick={e => this.toggleMiniDetails(e)} />
+                            : ''}
+                        {(task.description !== '') ?
+                            <ListAltIcon /> : ''
+                        }
+
+                        <div className="flex">
+                            {(task.taskTeamMembers.map(member => {
+                                return <div key={member._id} className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: `${member.color}` }} >
+                                    <div className="team-member-icon">
+                                        <p className="flex align-center">
+                                            {utils.createUserIcon(member.firstName,
+                                                member.lastName)}
+                                        </p>
+                                    </div>
+                                </div>
+                            }))
+                            }
+                        </div>
+                    </div>
                 </div>
             </section>
         )
