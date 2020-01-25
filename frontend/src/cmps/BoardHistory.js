@@ -4,7 +4,6 @@ import moment from 'moment';
 export default class BoardHistory extends Component {
     render() {
         return (
-            <div className="screen" onClick={() => this.props.toggleBoardHistory()} >
                 <div className={"boardhistory-container flex column"
                     + (this.props.showHistory ? ' translateLeft' : '')}>
                     <ul className="clean-list">
@@ -14,7 +13,6 @@ export default class BoardHistory extends Component {
                         ))}
                     </ul>
                 </div>
-            </div>
         )
     }
 }

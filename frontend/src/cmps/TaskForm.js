@@ -97,11 +97,11 @@ export default class TaskForm extends Component {
         const imgREGEX = /.(jpg|jpeg|png|gif)\/?$/;
         if (url.match(youtubeREGEX)) {
             const newUrl = url.replace('watch?v=', 'embed/');
-            return this.setState(prevState => ({ task: { ...prevState.task, title: 'Video', type: 'video', url: newUrl } }), _ => {
+            return this.setState(prevState => ({ task: { ...prevState.task, title: '', type: 'video', url: newUrl } }), _ => {
                 this.saveTask();
             });
         } else if (url.match(imgREGEX)) {
-            return this.setState(prevState => ({ task: { ...prevState.task, title: 'Image', type: 'image', url } }), _ => {
+            return this.setState(prevState => ({ task: { ...prevState.task, title: '', type: 'image', url } }), _ => {
                 this.saveTask();
             });
         }

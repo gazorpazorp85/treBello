@@ -5,14 +5,19 @@ import "react-datepicker/dist/react-datepicker.css";
 
 export default class DueDate extends React.Component {
     state = {
-        dueDate: new Date()
+        dueDate: null
     }
 
-    componentDidMount(){
+    componentDidMount() {
+        this.setDate();
+    }
+
+    setDate = _ => {
+        this.setState({ dueDate: this.props.task.dueDate ? new Date(this.props.task.dueDate) : new Date() })
     }
 
     componentWillUnmount() {
-        this.saveTask(this);
+        this.saveTask();
     }
 
     handleChange = date => {
@@ -20,7 +25,7 @@ export default class DueDate extends React.Component {
     }
 
     saveTask = _ => {
-        const newTask = { ...this.props.task, dueDate: Date.now(this.state.dueDate) };
+        const newTask = { ...this.props.task, dueDate: this.state.dueDate.getTime() };
         const newBoard = {
             ...this.props.board,
             tasks: {

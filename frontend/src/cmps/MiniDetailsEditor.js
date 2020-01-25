@@ -3,13 +3,15 @@ import React, { Component } from 'react';
 import MiniDetailsButton from './MiniDetailsButton';
 import Labels from './Labels';
 import DueDate from './DueDate';
+import Members from './Members';
 
 import utils from '../services/utils';
 
 export default class MiniDetailsEditor extends Component {
     state = {
         onToggleLabels: false,
-        onToggleDueDate: false
+        onToggleDueDate: false,
+        onToggleMembers: false
     }
 
     onToggleLabels = _ => {
@@ -18,6 +20,10 @@ export default class MiniDetailsEditor extends Component {
 
     onToggleDueDate = _ => {
         this.setState(prevState => ({ onToggleDueDate: !prevState.onToggleDueDate }));
+    }
+
+    onToggleMembers = _ => {
+        this.setState(prevState => ({ onToggleMembers: !prevState.onToggleMembers }));
     }
 
     onDelete = _ => {
@@ -52,7 +58,15 @@ export default class MiniDetailsEditor extends Component {
                 toggleChooseLabels={this.onToggleLabels}
                 board={this.props.board}
                 updateBoard={this.props.updateBoard} /> : ''}
-            <MiniDetailsButton text="🎭 Change Members" />
+            <MiniDetailsButton text="🎭 Change Members" onClick={this.onToggleMembers} />
+            {this.state.onToggleMembers ? <Members
+                style={true}
+                task={miniTask.task}
+                board={this.props.board}
+                updateBoard={this.props.updateBoard}
+                toggleChooseMembers={this.onToggleMembers}
+                users={this.props.users}
+            /> : ''}
             <MiniDetailsButton text="📅 Due Date" onClick={this.onToggleDueDate} />
             {this.state.onToggleDueDate ? <DueDate
                 task={miniTask.task}
