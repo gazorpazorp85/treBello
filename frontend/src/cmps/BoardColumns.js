@@ -33,7 +33,6 @@ export default class BoardColumns extends Component {
     }
 
     onDelete = (id) => {
-        debugger
         const board = { ...this.props.board };
         const columnOrder = board.columnOrder;
         const column = board.columns[id];
@@ -225,6 +224,9 @@ export default class BoardColumns extends Component {
                                                         <TopMenuOptions
                                                             onDelete={this.onDelete}
                                                             column={column}
+                                                            board={this.props.board}
+                                                            updateBoard={this.props.updateBoard}
+                                                            toggleTopMenuOptions={this.toggleTopMenuOptions}
                                                         />
                                                         : ''}
 
