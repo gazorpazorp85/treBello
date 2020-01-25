@@ -194,25 +194,27 @@ class Board extends Component {
             </div>
           </div>
 
-          <div className="board-page-nav-bar-filters flex align-center ">
+          <div className="board-page-nav-bar-filters flex align-center space-between">
             <div className="board-page-nav-bar-filters-item flex align-center">
               <button className="board-page-nav-bar-filters nav-btn flex">
                 <HomeIcon onClick={this.goBack} />
               </button>
+              <Filter onFilter={this.onFilter} teamMembers={this.props.board.teamMembers} />
+              <Sort onSort={this.onSort} />
             </div>
-            <Filter onFilter={this.onFilter} teamMembers={this.props.board.teamMembers} />
-            <Sort onSort={this.onSort} />
-            <div className="board-page-nav-bar-filters-item fill-height">
-              <button className="nav-btn fill-height"
-                onClick={this.toggleBoardTeamMembers}>Add Members To Board</button>
-            </div>
-            <div className="board-page-nav-bar-filters-item fill-height">
-              <button className="nav-btn fill-height"
-                onClick={(ev) => this.toggleSplashMenu(ev)}>Change Background Image</button>
-            </div>
-            <div className="board-page-nav-bar-filters-item flex fill-height">
-              <button className="board-page-nav-bar-filters nav-btn"
-                onClick={this.toggleBoardHistory}>Show Board History</button>
+            <div className="flex">
+              <div className="board-page-nav-bar-filters-item fill-height">
+                <button className="nav-btn fill-height"
+                  onClick={this.toggleBoardTeamMembers}>Add Members To Board</button>
+              </div>
+              <div className="board-page-nav-bar-filters-item fill-height">
+                <button className="nav-btn fill-height"
+                  onClick={(ev) => this.toggleSplashMenu(ev)}>Change Background Image</button>
+              </div>
+              <div className="board-page-nav-bar-filters-item flex fill-height">
+                <button className="board-page-nav-bar-filters nav-btn"
+                  onClick={this.toggleBoardHistory}>Show Board History</button>
+              </div>
             </div>
           </div>
 
@@ -264,7 +266,7 @@ class Board extends Component {
             onToggle={this.toggleMiniDetails}
             board={this.props.board}
             user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'}
-            users= {this.props.users}
+            users={this.props.users}
 
           />}
 
