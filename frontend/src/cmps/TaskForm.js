@@ -80,8 +80,8 @@ export default class TaskForm extends Component {
         const id = this.state.task.id;
         if (!column.taskIds.includes(id)) column.taskIds.push(id);
         this.props.updateBoard(newBoard);
-        if (this.props.toggleUpdateForm) this.props.toggleUpdateForm();
-        if (this.props.toggleTaskDetails) this.props.toggleTaskDetails();
+        this.props.closeUpdateForm();
+        // if (this.props.toggleTaskDetails) this.props.toggleTaskDetails();
     }
 
     textAreaAdjust = ev => {
@@ -118,7 +118,7 @@ export default class TaskForm extends Component {
                         onChange={this.inputChange} value={this.state.task.title} />
                     <div className="flex align-center">
                         <button className="task-form-save-btn">SAVE</button>
-                        <CloseIcon className="task-form-back-btn" onClick={() => { this.props.toggleUpdateForm ? this.props.toggleUpdateForm() : this.props.toggleTaskDetails() }} />
+                        <CloseIcon className="task-form-back-btn" onClick={() => this.props.closeUpdateForm()} />
                     </div>
                 </div>
             </form>

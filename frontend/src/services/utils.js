@@ -49,8 +49,8 @@ function uploadImg(file) {
 
 function getImagesFromUnsplash(filterName) {
   const client_id = '9a992bf0a58ef7c4735758c98ec044dcdb524c2178db25d55cd773d7436f15d1'
-  const perPage = 4;
-  const URL = `https://api.unsplash.com/search/photos?query=${filterName}?page=${perPage}&client_id=${client_id}`
+  // const perPage = 4;
+  const URL = `https://api.unsplash.com/search/photos?query=${filterName}&client_id=${client_id}`
   return axios.get(URL)
     .then(res => res.data)
     .then(res => {

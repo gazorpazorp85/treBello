@@ -18,11 +18,11 @@ export default class Sort extends Component {
             const splashImages = await utils.getImagesFromUnsplash(this.state.filterByName)
             let splashImagesUrls = []
             splashImages.forEach(image => {
-                const UrlIndx = splashImagesUrls.findIndex(currUrl => currUrl === image.urls.regular);
+                const UrlIndx = splashImagesUrls.findIndex(currUrl => currUrl === image.urls.raw);
                 if (UrlIndx >= 0) {
                     splashImagesUrls.splice(UrlIndx, 1)
                 } else {
-                    splashImagesUrls.push(image.urls.regular);
+                    splashImagesUrls.push(image.urls.raw);
                 }
             })
             this.setState({ splashImagesUrls })
