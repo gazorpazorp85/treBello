@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import CloseIcon from '@material-ui/icons/Close';
 
 import utils from '../services/utils'
@@ -65,10 +66,6 @@ export default class TaskForm extends Component {
     }
 
     saveTask = _ => {
-        let msg = (this.state.edit) ? 
-        `Task titled ${this.state.task.title} was added by` + this.props.user :
-        this.props.user + `edited the task ${this.state.task.title}`;
-        this.props.board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() })
         const newBoard = {
             ...this.props.board,
             tasks: {
@@ -82,6 +79,11 @@ export default class TaskForm extends Component {
         this.props.updateBoard(newBoard);
         if (this.props.toggleUpdateForm) this.props.toggleUpdateForm();
         if (this.props.toggleTaskDetails) this.props.toggleTaskDetails();
+        let msg = (!this.state.edit) ?
+            `The task '${this.state.task.title}' was added by ${this.props.user}` :
+            `${this.props.user} edited the task '${this.state.task.title}'`;
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
+        utils.emitNotification(msg, 'success');
     }
 
     textAreaAdjust = ev => {
