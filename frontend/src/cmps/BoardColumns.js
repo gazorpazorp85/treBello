@@ -14,7 +14,7 @@ import utils from '../services/utils';
 export default class BoardColumns extends Component {
 
     state = {
-        showForm: false,
+        showAddColumnForm: false,
         showTopMenuOptions: false,
         showAddForm: false,
         showEditBtn: true,
@@ -230,7 +230,7 @@ export default class BoardColumns extends Component {
                                                         />
                                                         : ''}
 
-                                                    {(this.state.showForm && this.state.currColumnId === column.id)
+                                                    {(this.state.showAddColumnForm && this.state.currColumnId === column.id)
                                                         && <ColumnAddForm
                                                             board={this.props.board}
                                                             toggleAddForm={this.toggleAddForm}
@@ -256,7 +256,7 @@ export default class BoardColumns extends Component {
                                                     </Droppable>
 
                                                     <div className="task-list-footer">
-                                                        {!this.state.showAddForm ?
+                                                        {!this.state.showAddForm && this.state.currColumnId === column.id ?
                                                             <p className="task-list-footer-add-task"
                                                                 onClick={() => this.openUpdateForm(column.id)}>
                                                                 + Add a task</p>
