@@ -1,0 +1,54 @@
+/* 1 */
+{
+    "_id" : ObjectId("5e281693440f2c37a4a87f02"),
+    "firstName" : "Paolo",
+    "lastName" : "Groppi",
+    "email" : "paolo.groppi@gmail.com",
+    "password" : "$2b$10$c9OARvmgwJ7MmCcU6qcheulu9PUcUkL5CWho7gVOmfnVTWI8KxBJO",
+    "username" : "gazorpazorp",
+    "color" : "#000000"
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5e296c654f8f4f446cbf248e"),
+    "firstName" : "Vlad",
+    "lastName" : "Ballz",
+    "email" : "vladbald@gmail.com",
+    "password" : "$2b$10$qIcL8LPlat05mH9LNmrnf.6tOSotDOVLdaqRqQ4LTTTdtF8qa/82q",
+    "username" : "vladbald",
+    "color" : "#0000FF"
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("5e296c913d6970b098b4b1d9"),
+    "firstName" : "Vlad",
+    "lastName" : "batalin",
+    "email" : "batalinvlad@gmail.com",
+    "password" : "$2b$10$BzLvW2gb/jsguRjbFjq3VOP9mv1e0kJdRQ/sy9Ie2.NXMqKCa8g7O",
+    "username" : "EatBussyAllDay",
+    "color" : "#FF0000"
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("5e2b2fc30bb3ba3c58d98a1e"),
+    "firstName" : "Puki",
+    "lastName" : "Ben David",
+    "email" : "pukibendavid@gmail.com",
+    "password" : "$2b$10$JY4Yk/cbpFGM0HmCiSwhzOtJtiLSMxnFAg9TI./yxaN96eOftVJ6.",
+    "username" : "Puki Ben David",
+    "color" : "#ff77ff"
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("5e2c4237945e7e2778850f98"),
+    "firstName" : "Will",
+    "lastName" : "Smith",
+    "email" : "will.smith@gmail.com",
+    "password" : "$2b$10$FbvmHbnNFRJx1Shyx1HufOFfjh8nDju7ezcTlK1QG1obtNXF4wSLy",
+    "username" : "Fresh Prince",
+    "color" : "#2A3D51"
+}

@@ -19,7 +19,7 @@ import utils from '../services/utils';
 import SocketService from '../services/SocketService';
 
 import { loadBoard, updateBoard, setBoard } from '../actions/BoardActions';
-import { logout, getLoggedInUser } from '../actions/UserActions';
+import { logout, getLoggedInUser, getUsers } from '../actions/UserActions';
 
 class Board extends Component {
 
@@ -43,6 +43,7 @@ class Board extends Component {
   }
 
   componentDidMount() {
+    this.props.getUsers();
     this.props.getLoggedInUser();
     this.loadBoard();
     const boardId = this.props.match.params.id;
@@ -224,7 +225,8 @@ class Board extends Component {
             board={this.props.board}
             column={this.state.currTask.column}
             updateBoard={this.props.updateBoard}
-            toggleTaskDetails={this.toggleTaskDetails} />}
+            toggleTaskDetails={this.toggleTaskDetails} 
+            users={this.props.users}/>}
           {this.state.showMiniTaskDetails && <DynamicMiniComponent
             miniTask={this.state.miniTaskDetails}
             updateBoard={this.props.updateBoard}
@@ -246,7 +248,8 @@ class Board extends Component {
 const mapStateToProps = state => {
   return {
     board: state.boards.board,
-    loggedInUser: state.user.loggedInUser
+    loggedInUser: state.user.loggedInUser,
+    users: state.user.users
   };
 };
 
@@ -255,7 +258,8 @@ const mapDispatchToProps = {
   updateBoard,
   logout,
   getLoggedInUser,
-  setBoard
+  setBoard,
+  getUsers
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board);

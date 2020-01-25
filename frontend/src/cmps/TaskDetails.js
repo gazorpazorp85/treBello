@@ -139,6 +139,7 @@ export default class TaskDetails extends Component {
                                     board={this.props.board}
                                     task={task}
                                     updateBoard={this.props.updateBoard}
+                                    users={this.props.users}
                                 /> : ''
                             }
                             {task.taskTeamMembers.length ?
@@ -151,7 +152,7 @@ export default class TaskDetails extends Component {
                             <div className="members-choosen-container flex column">
                                 {
                                     task.taskTeamMembers.map(member => {
-                                        return <div key={member.userName} className="flex">
+                                        return <div key={member._id} className="flex">
                                             <div className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: `${member.color}` }} >
                                                 <div className="team-member-icon flex align-center">
                                                     <p>

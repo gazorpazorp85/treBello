@@ -91,6 +91,20 @@
     list-style-type: none;
 }
 
+.uppercase {
+    text-transform: uppercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+// pointer helper
+
+.pointer {
+    cursor: pointer;
+}
+
 //grid helpers
 
 .grid-item {

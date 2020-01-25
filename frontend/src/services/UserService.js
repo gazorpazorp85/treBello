@@ -4,10 +4,8 @@ export default {
     login,
     logout,
     signup,
-    getLoggedInUser
-    // getById
-    // remove,
-    // update
+    getLoggedInUser,
+    getUsers
 }
 
 async function login(userCred) {
@@ -31,7 +29,6 @@ async function signup(userCred) {
 async function logout() {
     try {
         await HttpService.post('auth/logout');
-        // localStorage.removeItem('user');
     } catch (err) {
         console.log('UserService: err in logout', err);
     }
@@ -46,18 +43,11 @@ async function getLoggedInUser() {
     }
 }
 
-// function _handleLogin(user) {
-//     localStorage.setItem('user', JSON.stringify(user))
-//     return user;
-// }
-
-// function getById(userId) {
-//     return HttpService.get(`user/${userId}`)
-// }
-// function remove(userId) {
-//     return HttpService.delete(`user/${userId}`)
-// }
-
-// function update(user) {
-//     return HttpService.put(`user/${user._id}`, user)
-// }
+async function getUsers() {
+    try {
+        const users = await HttpService.get('user');
+        return users;
+    } catch (err) {
+        console.log('UserService: err in getting users', err);
+    }
+}

@@ -14,6 +14,7 @@ export default class Filter extends Component {
     inputChange = (ev) => {
         let fieldName = ev.target.name;
         let value = ev.target.value;
+        console.log(fieldName, value);
         this.setState(prevState => ({
             filterBy: {
                 ...prevState.filterBy,
@@ -35,10 +36,10 @@ export default class Filter extends Component {
                 value={this.state.filterBy.title}
                 onChange={this.inputChange} name="title">
             </input>
-            <select name="teamMembers" value={this.state.filterBy.teamMembers} onChange={this.inputChange}>
+            <select name="teamMembers" onChange={this.inputChange}>
                 <option value=''>All Team Members</option>
                 {teamMembers.map(teamMember => (
-                    <option key={teamMember.userName} value={`${teamMember.userName}`}>{teamMember.firstName} {teamMember.lastName}</option>
+                    <option key={teamMember._id} value={`${teamMember.username}`}>{teamMember.firstName} {teamMember.lastName}</option>
                 ))}
             </select>
             <button className="board-page-nav-bar-filters nav-btn"

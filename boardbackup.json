@@ -1,0 +1,1602 @@
+/* 1 */
+{
+    "_id" : ObjectId("5e2581b51c9d44000081af2a"),
+    "teamMembers" : [],
+    "tasks" : {},
+    "columns" : {},
+    "columnOrder" : [],
+    "style" : {},
+    "boardBgImage" : "http://res.cloudinary.com/dujlxvxxv/image/upload/v1579783944/unjwrwil6vpwwptsde6b.jpg",
+    "history" : []
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5e25b17cd9132934d4c08ef9"),
+    "teamMembers" : [],
+    "tasks" : {
+        "orupy1uvvh" : {
+            "id" : "orupy1uvvh",
+            "title" : "upload to heroku",
+            "createdAt" : 1579796615541.0,
+            "dueDate" : 1579856804429.0,
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [ 
+                "label-color-1", 
+                "label-color-2", 
+                "label-color-3"
+            ],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "1kxqr7weuu" : {
+            "id" : "1kxqr7weuu",
+            "title" : "add option to edit title in full details",
+            "createdAt" : 1579796827805.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "kc0nbojpgi" : {
+            "id" : "kc0nbojpgi",
+            "title" : "HA GAAAYYYYYYY!!",
+            "createdAt" : 1579797174227.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "image",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : [],
+            "url" : "https://tenor.com/view/ha-gay-gayyyyyyy-gif-4982350.gif"
+        },
+        "ayrp02m6xs" : {
+            "id" : "ayrp02m6xs",
+            "title" : "Video",
+            "createdAt" : 1579797248936.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "video",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : [],
+            "url" : "https://www.youtube.com/embed/d-LtMpDw9B0"
+        },
+        "gz7uyhwes1" : {
+            "id" : "gz7uyhwes1",
+            "title" : "Video",
+            "createdAt" : 1579798953437.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "video",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : [],
+            "url" : "https://www.youtube.com/embed/jd4TsegK9fQ"
+        },
+        "h79elxqrgq" : {
+            "id" : "h79elxqrgq",
+            "title" : "hey",
+            "createdAt" : 1579895111453.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        }
+    },
+    "columns" : {
+        "vira362nzv" : {
+            "id" : "vira362nzv",
+            "title" : "Weekend Tasks\n\n",
+            "taskIds" : [ 
+                "orupy1uvvh", 
+                "1kxqr7weuu", 
+                "h79elxqrgq"
+            ]
+        },
+        "hpysy2ypym" : {
+            "id" : "hpysy2ypym",
+            "title" : "fun times!",
+            "taskIds" : [ 
+                "gz7uyhwes1", 
+                "ayrp02m6xs", 
+                "kc0nbojpgi"
+            ]
+        }
+    },
+    "columnOrder" : [ 
+        "vira362nzv", 
+        "hpysy2ypym"
+    ],
+    "createdBy" : {
+        "_id" : "5e244f8db8d9191e946b6125",
+        "email" : "paolo.groppi@gmail.com",
+        "username" : "gazorpazorp"
+    },
+    "style" : {},
+    "boardBgImage" : "https://images.unsplash.com/photo-1549656774-c97be27a9e0b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExMTc0M30",
+    "history" : [ 
+        {
+            "id" : "exgzilh9dr",
+            "msg" : "vladbaldedited the task Fluid D&D animation",
+            "time" : 1579883463783.0
+        }, 
+        {
+            "id" : "0dh7jrxur8",
+            "msg" : "EatBussyAllDayedited the task a b c",
+            "time" : 1579892742834.0
+        }, 
+        {
+            "id" : "1gitm614ln",
+            "msg" : "EatBussyAllDayedited the task hey",
+            "time" : 1579895117604.0
+        }, 
+        {
+            "id" : "tiponrjqsc",
+            "msg" : "'In progress' was deleted by EatBussyAllDay",
+            "time" : 1579951331438.0
+        }, 
+        {
+            "id" : "8cey68yyqi",
+            "msg" : "'Done' was deleted by EatBussyAllDay",
+            "time" : 1579951497131.0
+        }
+    ]
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("5e2766f435cc5e36c0539993"),
+    "teamMembers" : [],
+    "tasks" : {
+        "euqu27gfss" : {
+            "id" : "euqu27gfss",
+            "createdAt" : 1579640649148.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "image",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : [],
+            "url" : "https://media.giphy.com/media/YkkbVZma9gRKU/giphy.gif",
+            "title" : "Supa Hot Fire!"
+        },
+        "eizybicxa6" : {
+            "id" : "eizybicxa6",
+            "title" : "Video",
+            "createdAt" : 1579640832878.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "video",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : [],
+            "url" : "https://www.youtube.com/embed/WGOohBytKTU"
+        },
+        "hgsdc1srp5" : {
+            "id" : "hgsdc1srp5",
+            "title" : "are you talkin to me?",
+            "createdAt" : 1579641150990.0,
+            "dueDate" : 1579783356144.0,
+            "importance" : "",
+            "description" : "",
+            "type" : "image",
+            "labels" : [ 
+                "label-color-1"
+            ],
+            "creator" : {},
+            "taskTeamMembers" : [],
+            "url" : "https://media.giphy.com/media/tXC4guhC1xhpC/giphy.gif"
+        },
+        "ie8imsjlih" : {
+            "id" : "ie8imsjlih",
+            "title" : "lal",
+            "createdAt" : 1579641240372.0,
+            "dueDate" : 1579775784838.0,
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [ 
+                "label-color-5", 
+                "label-color-4", 
+                "label-color-3"
+            ],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "p9xe97ikzs" : {
+            "id" : "p9xe97ikzs",
+            "title" : "have double fun!",
+            "createdAt" : 1579641244128.0,
+            "dueDate" : "2020-01-21T21:14:04.128Z",
+            "importance" : "",
+            "description" : "fun fun fun",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "g8owbxsiys" : {
+            "id" : "g8owbxsiys",
+            "title" : "I'm Cool",
+            "createdAt" : 1579641937528.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "image",
+            "labels" : [ 
+                "label-color-1", 
+                "label-color-3"
+            ],
+            "creator" : {},
+            "taskTeamMembers" : [],
+            "url" : "https://media.giphy.com/media/3o7btPSMZmmOaAWYyA/giphy.gif"
+        },
+        "v2rbi57wrb" : {
+            "id" : "v2rbi57wrb",
+            "title" : "Joker",
+            "createdAt" : 1579644700900.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "image",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : [],
+            "url" : "https://media.giphy.com/media/ZCU3YxmmD8lh6savbB/giphy.gif"
+        },
+        "ussqs3iyum" : {
+            "id" : "ussqs3iyum",
+            "title" : "My name Ohad\nkththhtnhtnhtr\n",
+            "createdAt" : 1579683893767.0,
+            "dueDate" : "2020-01-24T09:04:53.000Z",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [ 
+                "label-color-3", 
+                "label-color-6", 
+                "label-color-1"
+            ],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "6o6ol8k90y" : {
+            "id" : "6o6ol8k90y",
+            "title" : "Video",
+            "createdAt" : 1579683918443.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "video",
+            "labels" : [ 
+                "label-color-1", 
+                "label-color-2", 
+                "label-color-3"
+            ],
+            "creator" : {},
+            "taskTeamMembers" : [],
+            "url" : "https://www.youtube.com/embed/UccDkrYrZUM"
+        },
+        "iqrfqh0ssi" : {
+            "id" : "iqrfqh0ssi",
+            "title" : "Not afraid - Eminem",
+            "createdAt" : 1579683941416.0,
+            "dueDate" : 1579777682537.0,
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "85soy2qpro" : {
+            "id" : "85soy2qpro",
+            "title" : "me and the bois",
+            "createdAt" : 1579683971691.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "this is desc",
+            "type" : "image",
+            "labels" : [ 
+                "label-color-1", 
+                "label-color-4", 
+                "label-color-5", 
+                "label-color-3", 
+                "label-color-2"
+            ],
+            "creator" : {},
+            "taskTeamMembers" : [],
+            "url" : "https://i.kym-cdn.com/entries/icons/original/000/028/367/cover1.jpg"
+        },
+        "no0wng8ucs" : {
+            "id" : "no0wng8ucs",
+            "title" : "Paoladon",
+            "createdAt" : 1579702568201.0,
+            "dueDate" : 1579796170762.0,
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [ 
+                "label-color-1", 
+                "label-color-2", 
+                "label-color-3", 
+                "label-color-4"
+            ],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "9huud0okxs" : {
+            "id" : "9huud0okxs",
+            "title" : "fukdatsht",
+            "createdAt" : 1579707145273.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [ 
+                "label-color-1", 
+                "label-color-3", 
+                "label-color-2", 
+                "label-color-4"
+            ],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "se8rm3r8js" : {
+            "id" : "se8rm3r8js",
+            "title" : "vlad",
+            "createdAt" : 1579711151835.0,
+            "dueDate" : "2020-01-22T17:00:00.835Z",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "q2rrarsiai" : {
+            "id" : "q2rrarsiai",
+            "title" : "how the presentation went",
+            "createdAt" : 1579790508315.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "image",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : [],
+            "url" : "https://i.imgflip.com/2zgfyk.jpg"
+        },
+        "jrhwsysres" : {
+            "id" : "jrhwsysres",
+            "title" : "true, true...",
+            "createdAt" : 1579791080720.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "1db7iwyqs8" : {
+            "id" : "1db7iwyqs8",
+            "title" : "Vladislav",
+            "createdAt" : 1579796131191.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        }
+    },
+    "columns" : {
+        "risasig20c" : {
+            "id" : "risasig20c",
+            "title" : "Let's go bois",
+            "taskIds" : [ 
+                "hgsdc1srp5", 
+                "euqu27gfss"
+            ]
+        },
+        "6z9phv0fqt" : {
+            "id" : "6z9phv0fqt",
+            "title" : "business time",
+            "taskIds" : [ 
+                "6o6ol8k90y", 
+                "ie8imsjlih"
+            ]
+        },
+        "07bmu6tsfh" : {
+            "id" : "07bmu6tsfh",
+            "title" : "Meme",
+            "taskIds" : [ 
+                "g8owbxsiys"
+            ]
+        },
+        "hd1owesqxu" : {
+            "id" : "hd1owesqxu",
+            "title" : "fun times YAY!",
+            "taskIds" : [ 
+                "iqrfqh0ssi", 
+                "9huud0okxs", 
+                "ussqs3iyum", 
+                "no0wng8ucs", 
+                "eizybicxa6", 
+                "se8rm3r8js", 
+                "p9xe97ikzs", 
+                "1db7iwyqs8"
+            ]
+        },
+        "vxjnseyis4" : {
+            "id" : "vxjnseyis4",
+            "title" : "after presentation",
+            "taskIds" : [ 
+                "jrhwsysres", 
+                "85soy2qpro", 
+                "q2rrarsiai"
+            ]
+        },
+        "bxvep5ux7n" : {
+            "id" : "bxvep5ux7n",
+            "title" : "Presentation",
+            "taskIds" : [ 
+                "v2rbi57wrb"
+            ]
+        }
+    },
+    "columnOrder" : [ 
+        "hd1owesqxu", 
+        "6z9phv0fqt", 
+        "risasig20c", 
+        "07bmu6tsfh", 
+        "vxjnseyis4", 
+        "bxvep5ux7n"
+    ],
+    "createdBy" : {
+        "_id" : "5e244f8db8d9191e946b6125",
+        "email" : "paolo.groppi@gmail.com",
+        "username" : "gazorpazorp"
+    },
+    "style" : {},
+    "boardBgImage" : "https://images.unsplash.com/photo-1544377120-118102e60f08?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExMTc0M30",
+    "history" : [ 
+        {
+            "id" : "zfiglkru6x",
+            "msg" : "Let's go bois was moved by vladbald",
+            "time" : 1579880983665.0
+        }, 
+        {
+            "id" : "sszshsr5gg",
+            "msg" : "Let's go bois was moved by vladbald",
+            "time" : 1579880986094.0
+        }, 
+        {
+            "id" : "v0ndhsqhcg",
+            "msg" : "Let's go bois was moved by vladbald",
+            "time" : 1579880996129.0
+        }, 
+        {
+            "id" : "qtlhqs3qss",
+            "msg" : "Let's go bois was moved by vladbald",
+            "time" : 1579880997600.0
+        }, 
+        {
+            "id" : "lgehx4tls9",
+            "msg" : "Presentation was moved by vladbald",
+            "time" : 1579882224236.0
+        }, 
+        {
+            "id" : "lsemnu1hh5",
+            "msg" : "Presentation was moved by vladbald",
+            "time" : 1579882226436.0
+        }, 
+        {
+            "id" : "ku2she7dz4",
+            "msg" : "fun times YAY! was moved by vladbald",
+            "time" : 1579882232989.0
+        }, 
+        {
+            "id" : "ciniri0g9u",
+            "msg" : "fun times YAY! was moved by vladbald",
+            "time" : 1579882235062.0
+        }, 
+        {
+            "id" : "mauutvmmml",
+            "msg" : "vladbald changed the title of the task 'have fun!' to ''",
+            "time" : 1579884552595.0
+        }, 
+        {
+            "id" : "7hsrxqxgn7",
+            "msg" : "vladbald changed the title of the task '' to 'lal'",
+            "time" : 1579884599041.0
+        }, 
+        {
+            "id" : "ufssrew3au",
+            "msg" : "vladbald changed the title of the task 'lal' to ''",
+            "time" : 1579884602697.0
+        }, 
+        {
+            "id" : "liai7q6inh",
+            "msg" : "vladbald changed the title of the task '' to 'lal'",
+            "time" : 1579884675943.0
+        }, 
+        {
+            "id" : "su0sxguzit",
+            "msg" : "vladbald changed the title of the task 'lal' to ''",
+            "time" : 1579884683920.0
+        }
+    ]
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("5e27670835cc5e36c0539994"),
+    "teamMembers" : [],
+    "tasks" : {
+        "qbn6unb8xs" : {
+            "id" : "qbn6unb8xs",
+            "title" : "web sockets",
+            "createdAt" : 1579645520744.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "vlad",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "9q3ya1imie" : {
+            "id" : "9q3ya1imie",
+            "title" : "fix issue that user gets logged out on refresh",
+            "createdAt" : 1579645539938.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "jsj4tyq7ui" : {
+            "id" : "jsj4tyq7ui",
+            "title" : "more filtering options",
+            "createdAt" : 1579645570074.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "9s6njxyssr" : {
+            "id" : "9s6njxyssr",
+            "title" : "add sorting feature",
+            "createdAt" : 1579645577706.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "xiqsii7dus" : {
+            "id" : "xiqsii7dus",
+            "title" : "fix details and features ",
+            "createdAt" : 1579719523438.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "mssdd94mz5" : {
+            "id" : "mssdd94mz5",
+            "title" : "add users and team members",
+            "createdAt" : 1579719553994.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "osiishlvx8" : {
+            "id" : "osiishlvx8",
+            "title" : "find a job",
+            "createdAt" : 1579719575483.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "sd319gssji" : {
+            "id" : "sd319gssji",
+            "title" : "make a great cv\n",
+            "createdAt" : 1579719582470.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "5qj8yqsguc" : {
+            "id" : "5qj8yqsguc",
+            "title" : "have fun",
+            "createdAt" : 1579719596675.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "fmknhrgvqx" : {
+            "id" : "fmknhrgvqx",
+            "title" : "eat well",
+            "createdAt" : 1579719601518.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "s6ifvsbbcu" : {
+            "id" : "s6ifvsbbcu",
+            "title" : "enjoy life",
+            "createdAt" : 1579719606904.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "1z36stwss6" : {
+            "id" : "1z36stwss6",
+            "title" : "Video",
+            "createdAt" : 1579782880623.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "video",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : [],
+            "url" : "https://www.youtube.com/embed/UGT1tZT9C1o"
+        },
+        "u134xxzlwb" : {
+            "id" : "u134xxzlwb",
+            "title" : "Video",
+            "createdAt" : 1579782968013.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "video",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : [],
+            "url" : "https://www.youtube.com/embed/1vNBeoPOZls"
+        },
+        "ookd2h5vef" : {
+            "id" : "ookd2h5vef",
+            "title" : "Video",
+            "createdAt" : 1579782987768.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "video",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : [],
+            "url" : "https://www.youtube.com/embed/tKi9Z-f6qX4"
+        },
+        "vx9s1i19ch" : {
+            "id" : "vx9s1i19ch",
+            "title" : "Video",
+            "createdAt" : 1579783038404.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "video",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : [],
+            "url" : "https://www.youtube.com/embed/tBGyFKslj1A"
+        },
+        "nrnouvczms" : {
+            "id" : "nrnouvczms",
+            "title" : "Image",
+            "createdAt" : 1579883484347.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "image",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : [],
+            "url" : "https://images-na.ssl-images-amazon.com/images/I/410--MML9jL._SX331_BO1,204,203,200_.jpg"
+        }
+    },
+    "columns" : {
+        "v2rii2zc00" : {
+            "id" : "v2rii2zc00",
+            "title" : "Paolo's tasks for tomorrow 25 .01.20:",
+            "taskIds" : [ 
+                "5qj8yqsguc", 
+                "mssdd94mz5", 
+                "osiishlvx8", 
+                "xiqsii7dus", 
+                "sd319gssji", 
+                "fmknhrgvqx", 
+                "nrnouvczms"
+            ]
+        },
+        "oh5be7ucxr" : {
+            "id" : "oh5be7ucxr",
+            "title" : "Done tasks:",
+            "taskIds" : [ 
+                "qbn6unb8xs", 
+                "9s6njxyssr"
+            ]
+        },
+        "ieukhjlbgs" : {
+            "id" : "ieukhjlbgs",
+            "title" : "Tasks in progress:",
+            "taskIds" : [ 
+                "9q3ya1imie", 
+                "jsj4tyq7ui", 
+                "s6ifvsbbcu"
+            ]
+        },
+        "shaeiz3mck" : {
+            "id" : "shaeiz3mck",
+            "title" : "Playlist:",
+            "taskIds" : [ 
+                "1z36stwss6", 
+                "u134xxzlwb", 
+                "ookd2h5vef", 
+                "vx9s1i19ch"
+            ]
+        }
+    },
+    "columnOrder" : [ 
+        "oh5be7ucxr", 
+        "v2rii2zc00", 
+        "ieukhjlbgs", 
+        "shaeiz3mck"
+    ],
+    "createdBy" : {
+        "_id" : "5e244f8db8d9191e946b6125",
+        "email" : "paolo.groppi@gmail.com",
+        "username" : "gazorpazorp"
+    },
+    "style" : {},
+    "boardBgImage" : "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExMTc0M30",
+    "history" : [ 
+        {
+            "id" : "ighezioir9",
+            "msg" : "vladbaldedited the task Image",
+            "time" : 1579883590589.0
+        }, 
+        {
+            "id" : "dnt5sdp6ul",
+            "msg" : "'abc' was added by EatBussyAllDay",
+            "time" : 1579952227520.0
+        }, 
+        {
+            "id" : "ypeidnscyd",
+            "msg" : "'abc' was deleted by EatBussyAllDay",
+            "time" : 1579952235837.0
+        }, 
+        {
+            "id" : "ramuvmsu3i",
+            "msg" : "'abc' was added by EatBussyAllDay",
+            "time" : 1579952304736.0
+        }, 
+        {
+            "id" : "s5dbyhjs6f",
+            "msg" : "'abc' was deleted by EatBussyAllDay",
+            "time" : 1579952315241.0
+        }
+    ]
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("5e2afdbb4316744dbc4344dc"),
+    "teamMembers" : [],
+    "tasks" : {
+        "br0xsss1ee" : {
+            "id" : "br0xsss1ee",
+            "title" : "vlad and margad are huge cocksuckers!",
+            "createdAt" : 1579878735379.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "1egat0zise" : {
+            "id" : "1egat0zise",
+            "title" : "yeah!",
+            "createdAt" : 1579883530698.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "sd85qnx9is" : {
+            "id" : "sd85qnx9is",
+            "title" : "yeah 2!",
+            "createdAt" : 1579883707947.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "hepq95s5sk" : {
+            "id" : "hepq95s5sk",
+            "title" : "yeah 3!!",
+            "createdAt" : 1579883733191.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "0v7sas2x2e" : {
+            "id" : "0v7sas2x2e",
+            "title" : "yeah 4!",
+            "createdAt" : 1579883817591.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "1qyuktc9up" : {
+            "id" : "1qyuktc9up",
+            "title" : "yeah 5!!",
+            "createdAt" : 1579883866502.0,
+            "dueDate" : 1579883905352.0,
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "k6xqqtw44u" : {
+            "id" : "k6xqqtw44u",
+            "title" : "it works!!",
+            "createdAt" : 1579885816562.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "eebduuspsl" : {
+            "id" : "eebduuspsl",
+            "title" : "it works again!",
+            "createdAt" : 1579886046270.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "72ceeic2sg" : {
+            "id" : "72ceeic2sg",
+            "title" : "it works again again!",
+            "createdAt" : 1579886066167.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "hyxuusbcmr" : {
+            "id" : "hyxuusbcmr",
+            "title" : "it works!",
+            "createdAt" : 1579886332747.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "67of7uwzzn" : {
+            "id" : "67of7uwzzn",
+            "title" : "it works!!",
+            "createdAt" : 1579886639904.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "1iyeap3pe4" : {
+            "id" : "1iyeap3pe4",
+            "title" : "it works!!!",
+            "createdAt" : 1579886687563.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "g8ggylbose" : {
+            "id" : "g8ggylbose",
+            "title" : "gghrnhtthes\n",
+            "createdAt" : 1579886760367.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "idvy5cp1il" : {
+            "id" : "idvy5cp1il",
+            "title" : "yeah!",
+            "createdAt" : 1579887424696.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "fmiw0a1rmx" : {
+            "id" : "fmiw0a1rmx",
+            "title" : "yeah!",
+            "createdAt" : 1579887840997.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "wrwqpj5guj" : {
+            "id" : "wrwqpj5guj",
+            "title" : "blabla!",
+            "createdAt" : 1579888591882.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "7scrns4u0n" : {
+            "id" : "7scrns4u0n",
+            "title" : "yeah!!!",
+            "createdAt" : 1579889680807.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "v5bypei56n" : {
+            "id" : "v5bypei56n",
+            "title" : "dbnxj",
+            "createdAt" : 1579889973955.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "ks5ys68h78" : {
+            "id" : "ks5ys68h78",
+            "title" : "dfdsdf",
+            "createdAt" : 1579890027319.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "bzxq2rxvtp" : {
+            "id" : "bzxq2rxvtp",
+            "title" : "[piohugyfutdf",
+            "createdAt" : 1579890338078.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "mhmslnf1ed" : {
+            "id" : "mhmslnf1ed",
+            "title" : "dsfdsfdsfsd",
+            "createdAt" : 1579890458427.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "sv3jesxudi" : {
+            "id" : "sv3jesxudi",
+            "title" : "fgffgfgfg",
+            "createdAt" : 1579890704666.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "yosdusftce" : {
+            "id" : "yosdusftce",
+            "title" : "dfddfdf",
+            "createdAt" : 1579893285788.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "nahuzr1snt" : {
+            "id" : "nahuzr1snt",
+            "title" : "dfdfdfdfdf",
+            "createdAt" : 1579893318987.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "x1zwycssqb" : {
+            "id" : "x1zwycssqb",
+            "title" : "dfdsfdsf",
+            "createdAt" : 1579893355056.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "ww73yxjsul" : {
+            "id" : "ww73yxjsul",
+            "title" : "ERGTHYRJT34W",
+            "createdAt" : 1579893370807.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        },
+        "u5rrhsrb4g" : {
+            "id" : "u5rrhsrb4g",
+            "title" : "sdsdsdsdsdsdsd",
+            "createdAt" : 1579893393481.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : []
+        }
+    },
+    "columns" : {
+        "qkph8618he" : {
+            "id" : "qkph8618he",
+            "title" : "My first column!",
+            "taskIds" : [ 
+                "br0xsss1ee", 
+                "1egat0zise", 
+                "sd85qnx9is", 
+                "hepq95s5sk", 
+                "0v7sas2x2e", 
+                "1qyuktc9up", 
+                "nahuzr1snt", 
+                "x1zwycssqb", 
+                "ww73yxjsul", 
+                "u5rrhsrb4g"
+            ]
+        },
+        "gjobshafs1" : {
+            "id" : "gjobshafs1",
+            "title" : "Sda",
+            "taskIds" : [ 
+                "k6xqqtw44u", 
+                "eebduuspsl", 
+                "72ceeic2sg", 
+                "idvy5cp1il", 
+                "7scrns4u0n", 
+                "v5bypei56n", 
+                "ks5ys68h78", 
+                "mhmslnf1ed", 
+                "sv3jesxudi", 
+                "yosdusftce"
+            ]
+        },
+        "x7ds5rtvns" : {
+            "id" : "x7ds5rtvns",
+            "title" : "sa",
+            "taskIds" : [ 
+                "67of7uwzzn", 
+                "hyxuusbcmr", 
+                "1iyeap3pe4", 
+                "g8ggylbose", 
+                "fmiw0a1rmx", 
+                "wrwqpj5guj", 
+                "bzxq2rxvtp"
+            ]
+        }
+    },
+    "columnOrder" : [ 
+        "qkph8618he", 
+        "gjobshafs1", 
+        "x7ds5rtvns"
+    ],
+    "style" : {},
+    "boardBgImage" : "http://res.cloudinary.com/dujlxvxxv/image/upload/v1579783944/unjwrwil6vpwwptsde6b.jpg",
+    "createdBy" : {
+        "_id" : "5e281693440f2c37a4a87f02",
+        "firstName" : "Paolo",
+        "lastName" : "Groppi",
+        "email" : "paolo.groppi@gmail.com",
+        "username" : "gazorpazorp"
+    },
+    "history" : [ 
+        {
+            "id" : "issuegpxsu",
+            "msg" : "The Board was created by gazorpazorp",
+            "time" : 1579875771276.0
+        }, 
+        {
+            "id" : "yfe7zjzms4",
+            "msg" : "Column 'My first column!' added by gazorpazorp",
+            "time" : 1579876860387.0
+        }, 
+        {
+            "id" : "7znsex40ts",
+            "msg" : "'My second column!' was added by gazorpazorp",
+            "time" : 1579877029777.0
+        }, 
+        {
+            "id" : "zt6zrvkips",
+            "msg" : "'My second column!' was deleted by undefined",
+            "time" : 1579877223702.0
+        }, 
+        {
+            "id" : "uh1isbhsrj",
+            "msg" : "'my third column!' was added by gazorpazorp",
+            "time" : 1579877363183.0
+        }, 
+        {
+            "id" : "qeihrgsqus",
+            "msg" : "'my third column!' was deleted by gazorpazorp",
+            "time" : 1579877373924.0
+        }, 
+        {
+            "id" : "ik8yy0yuxy",
+            "msg" : "'bla' was added by gazorpazorp",
+            "time" : 1579877524625.0
+        }, 
+        {
+            "id" : "5ysuupn5si",
+            "msg" : "'sa' was added by gazorpazorp",
+            "time" : 1579878256397.0
+        }, 
+        {
+            "id" : "eelv9uquxu",
+            "msg" : "'bla' was moved by gazorpazorp",
+            "time" : 1579878371889.0
+        }, 
+        {
+            "id" : "s4izfrb23e",
+            "msg" : "Task titled vlad and margad are cocksuskers! was added bygazorpazorp",
+            "time" : 1579878749713.0
+        }, 
+        {
+            "id" : "6rshkdlhiy",
+            "msg" : "The task title was changed by gazorpazorp",
+            "time" : 1579879599048.0
+        }, 
+        {
+            "id" : "sxhqv9iisi",
+            "msg" : "gazorpazorp changed the title of the task vlad and margad are mega cocksuckers! to vlad and margad are huge cocksuckers!",
+            "time" : 1579879737630.0
+        }, 
+        {
+            "id" : "hshnekhcsb",
+            "msg" : "gazorpazorpedited the task yeah!",
+            "time" : 1579883535218.0
+        }, 
+        {
+            "id" : "e5huwomiyh",
+            "msg" : "gazorpazorp edited the task yeah 2!",
+            "time" : 1579883713397.0
+        }, 
+        {
+            "id" : "48iuhywp12",
+            "msg" : "gazorpazorp edited the task yeah 3!",
+            "time" : 1579883739379.0
+        }, 
+        {
+            "id" : "l9gxq9ip6p",
+            "msg" : "gazorpazorp changed the title of the task 'yeah 3!' to 'yeah 3!!'",
+            "time" : 1579883790956.0
+        }, 
+        {
+            "id" : "s1sssgexye",
+            "msg" : "gazorpazorp edited the task yeah 4!",
+            "time" : 1579883823882.0
+        }, 
+        {
+            "id" : "r29pikiwwc",
+            "msg" : "The task yeah 5! was added bygazorpazorp",
+            "time" : 1579883870910.0
+        }, 
+        {
+            "id" : "sw5mexss00",
+            "msg" : "gazorpazorp changed the title of the task 'yeah 5!' to 'yeah 5!!'",
+            "time" : 1579884968773.0
+        }, 
+        {
+            "id" : "qhfutoi3u7",
+            "msg" : "The task it works! was added bygazorpazorp",
+            "time" : 1579885823307.0
+        }, 
+        {
+            "id" : "xisgflqswq",
+            "msg" : "gazorpazorp changed the title of the task 'it works!' to 'it works!!'",
+            "time" : 1579885917473.0
+        }, 
+        {
+            "id" : "siscwuxj20",
+            "msg" : "The task it works again! was added by gazorpazorp",
+            "time" : 1579886052766.0
+        }, 
+        {
+            "id" : "0oa69m7sxs",
+            "msg" : "The task it works again again! was added by gazorpazorp",
+            "time" : 1579886073834.0
+        }, 
+        {
+            "id" : "e5u6isjgei",
+            "msg" : "The task dfsdfdsf was added by gazorpazorp",
+            "time" : 1579886247426.0
+        }, 
+        {
+            "id" : "jjasa8qu83",
+            "msg" : "'sa' was moved by gazorpazorp",
+            "time" : 1579886329258.0
+        }, 
+        {
+            "id" : "7qsxy57usn",
+            "msg" : "'sa' was moved by gazorpazorp",
+            "time" : 1579886332257.0
+        }, 
+        {
+            "id" : "lomee3puxu",
+            "msg" : "The task it works! was added by gazorpazorp",
+            "time" : 1579886342226.0
+        }, 
+        {
+            "id" : "hfyqlgzeor",
+            "msg" : "The task it works!! was added by gazorpazorp",
+            "time" : 1579886644379.0
+        }, 
+        {
+            "id" : "eturw7rkdx",
+            "msg" : "The task it works!!! was added by gazorpazorp",
+            "time" : 1579886692155.0
+        }, 
+        {
+            "id" : "kxqsj864jn",
+            "msg" : "The task gghrnhtthes\n was added by gazorpazorp",
+            "time" : 1579886780103.0
+        }, 
+        {
+            "id" : "sumaqsscyi",
+            "msg" : "The task yeah! was added by gazorpazorp",
+            "time" : 1579887428536.0
+        }, 
+        {
+            "id" : "eyi9iq20ys",
+            "msg" : "The task yeah! was added by gazorpazorp",
+            "time" : 1579887845187.0
+        }, 
+        {
+            "id" : "9js48s45ys",
+            "msg" : "The task blabla! was added by gazorpazorp",
+            "time" : 1579888596000.0
+        }, 
+        {
+            "id" : "8syqi8rm84",
+            "msg" : "The task yeah!!! was added by gazorpazorp",
+            "time" : 1579889687191.0
+        }, 
+        {
+            "id" : "engsyuutyv",
+            "msg" : "The task dbnxj was added by Puki Ben David",
+            "time" : 1579889976649.0
+        }, 
+        {
+            "id" : "4aq0trzyeh",
+            "msg" : "The task dfdsdf was added by gazorpazorp",
+            "time" : 1579890029194.0
+        }, 
+        {
+            "id" : "gafq2ghdgs",
+            "msg" : "The task [piohugyfutdf was added by gazorpazorp",
+            "time" : 1579890340791.0
+        }, 
+        {
+            "id" : "iib0lshhn6",
+            "msg" : "The task wqerthyjk was added by gazorpazorp",
+            "time" : 1579890438564.0
+        }, 
+        {
+            "id" : "v2rug6hlua",
+            "msg" : "The task dsfdsfdsfsd was added by gazorpazorp",
+            "time" : 1579890460106.0
+        }, 
+        {
+            "id" : "4t4f6h3lcp",
+            "msg" : "The task fgffgfgfg was added by Puki Ben David",
+            "time" : 1579890706519.0
+        }, 
+        {
+            "id" : "od1fsggstz",
+            "msg" : "The task gdfxhgjc was added by gazorpazorp",
+            "time" : 1579890818626.0
+        }, 
+        {
+            "id" : "zq4rkpgjvv",
+            "msg" : "The task dfddfdf was added by gazorpazorp",
+            "time" : 1579893287658.0
+        }, 
+        {
+            "id" : "njgs27i2ji",
+            "msg" : "The task dfdfdfdfdf was added by Puki Ben David",
+            "time" : 1579893321281.0
+        }, 
+        {
+            "id" : "r17ghxeiss",
+            "msg" : "The task dfdsfdsf was added by gazorpazorp",
+            "time" : 1579893356628.0
+        }, 
+        {
+            "id" : "hzlx4iqrgc",
+            "msg" : "The task ERGTHYRJT34W was added by Puki Ben David",
+            "time" : 1579893372771.0
+        }, 
+        {
+            "id" : "qa2hu5eski",
+            "msg" : "The task sdsdsdsdsdsdsd was added by Puki Ben David",
+            "time" : 1579893395438.0
+        }, 
+        {
+            "id" : "bvrejg5dbw",
+            "msg" : "gazorpazorp changed the title of the task 'wqerthyjk' to 'bla!'",
+            "time" : 1579898446389.0
+        }
+    ]
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("5e2b7bd7794da43ae000d2dd"),
+    "teamMembers" : [ 
+        {
+            "_id" : "5e281693440f2c37a4a87f02",
+            "firstName" : "Paolo",
+            "lastName" : "Groppi",
+            "username" : "gazorpazorp",
+            "color" : "#000000"
+        }, 
+        {
+            "_id" : "5e2b2fc30bb3ba3c58d98a1e",
+            "firstName" : "Puki",
+            "lastName" : "Ben David",
+            "username" : "Puki Ben David",
+            "color" : "#ff77ff"
+        }, 
+        {
+            "_id" : "5e296c654f8f4f446cbf248e",
+            "firstName" : "Vlad",
+            "lastName" : "Ballz",
+            "username" : "vladbald",
+            "color" : "#0000FF"
+        }
+    ],
+    "tasks" : {
+        "z2lxl3n1o7" : {
+            "id" : "z2lxl3n1o7",
+            "title" : "New task",
+            "createdAt" : 1579908091682.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : [ 
+                {
+                    "_id" : "5e281693440f2c37a4a87f02",
+                    "firstName" : "Paolo",
+                    "lastName" : "Groppi",
+                    "username" : "gazorpazorp",
+                    "color" : "#000000"
+                }
+            ]
+        },
+        "go39utalss" : {
+            "id" : "go39utalss",
+            "title" : "Another New Task",
+            "createdAt" : 1579908485699.0,
+            "dueDate" : "",
+            "importance" : "",
+            "description" : "",
+            "type" : "text",
+            "labels" : [],
+            "creator" : {},
+            "taskTeamMembers" : [ 
+                {
+                    "_id" : "5e2b2fc30bb3ba3c58d98a1e",
+                    "firstName" : "Puki",
+                    "lastName" : "Ben David",
+                    "username" : "Puki Ben David",
+                    "color" : "#ff77ff"
+                }
+            ]
+        }
+    },
+    "columns" : {
+        "yzrbrfr97z" : {
+            "id" : "yzrbrfr97z",
+            "title" : "New Column",
+            "taskIds" : [ 
+                "z2lxl3n1o7", 
+                "go39utalss"
+            ]
+        }
+    },
+    "columnOrder" : [ 
+        "yzrbrfr97z"
+    ],
+    "style" : {},
+    "boardBgImage" : "https://images.unsplash.com/photo-1443694910004-3567042689f5?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExMTc0M30",
+    "history" : [ 
+        {
+            "id" : "08yjirzluy",
+            "msg" : "vladbald was released from the task 'New task'",
+            "time" : 1579958256171.0
+        }, 
+        {
+            "id" : "isrr4rysyw",
+            "msg" : "vladbald was asigned to the task 'New task'",
+            "time" : 1579958251876.0
+        }, 
+        {
+            "id" : "kzunvcswr9",
+            "msg" : "vladbald was added to this board",
+            "time" : 1579958248356.0
+        }, 
+        {
+            "id" : "s0g8zdsj4j",
+            "msg" : "vladbald was removed from this board",
+            "time" : 1579958242358.0
+        }, 
+        {
+            "id" : "gsybpjispe",
+            "msg" : "The task 'Another New Task' was added by gazorpazorp",
+            "time" : 1579908493473.0
+        }, 
+        {
+            "id" : "1mppswssnz",
+            "msg" : "The task New task was added by gazorpazorp",
+            "time" : 1579908097073.0
+        }, 
+        {
+            "id" : "53uek9uiei",
+            "msg" : "'New Column' was added by gazorpazorp",
+            "time" : 1579908086958.0
+        }, 
+        {
+            "id" : "ei27uhbj0v",
+            "msg" : "gazorpazorp changed background image",
+            "time" : 1579908071891.0
+        }, 
+        {
+            "id" : "gxqy5d4h21",
+            "msg" : "The Board was created by gazorpazorp",
+            "time" : 1579908055373.0
+        }
+    ],
+    "createdBy" : {
+        "_id" : "5e281693440f2c37a4a87f02",
+        "firstName" : "Paolo",
+        "lastName" : "Groppi",
+        "email" : "paolo.groppi@gmail.com",
+        "username" : "gazorpazorp"
+    }
+}

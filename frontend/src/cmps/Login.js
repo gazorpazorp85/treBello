@@ -19,14 +19,13 @@ class Login extends Component {
       password: '',
     },
     signupCred: {
-      color: utils.getRandomColor(),
       firstName: '',
       lastName: '',
       username: '',
       email: '',
-      password: ''
+      password: '',
+      color: utils.getRandomColor()
     },
-
   }
 
   componentDidMount() {
@@ -67,11 +66,11 @@ class Login extends Component {
 
   doSignup = async ev => {
     ev.preventDefault();
-    const { firstName, lastName, username, email, password } = this.state.signupCred;
+    const { firstName, lastName, username, email, password, color } = this.state.signupCred;
     if (!firstName || !lastName || !email || !password || !username) {
       return this.setState({ msg: 'All inputs are required!' });
     }
-    const signupCreds = { firstName, lastName, username, email, password };
+    const signupCreds = { firstName, lastName, username, email, password, color };
     this.props.signup(signupCreds);
     this.setState({ signupCred: { firstName: '', lastName: '', username: '', email: '', password: '' } });
     this.props.toggleLogin();
@@ -94,14 +93,14 @@ class Login extends Component {
           name="firstName"
           value={this.state.signupCred.firstName}
           onChange={this.signupHandleChange}
-          placeholder="Enter Your First Name"
+          placeholder="First Name"
         />
         <input
           type="text"
           name="lastName"
           value={this.state.signupCred.lastName}
           onChange={this.signupHandleChange}
-          placeholder="Enter Your Last Name"
+          placeholder="Last Name"
         />
         <input
           type="text"
@@ -132,7 +131,7 @@ class Login extends Component {
     );
     let loginSection = (
       <form className="login-container-login text-center" onSubmit={this.doLogin}>
-        <p> login: </p>
+        <p> Login: </p>
         <input
           type="text"
           name="email"

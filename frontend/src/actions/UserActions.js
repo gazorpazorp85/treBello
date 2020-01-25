@@ -47,9 +47,27 @@ export function getLoggedInUser() {
   };
 }
 
-export function _setUser(user) {
+function _setUser(user) {
   return {
     type: 'SET_USER',
     user
+  };
+}
+
+export function getUsers() {
+  return async dispatch => {
+    try {
+      const users = await UserService.getUsers();
+      dispatch(_setUsers(users));
+    } catch (err) {
+      console.log('UserActions: err in getUsers', err);
+    }
+  }
+}
+
+function _setUsers(users) {
+  return {
+    type: 'SET_USERS',
+    users
   };
 }

@@ -86,7 +86,6 @@ function _filterBoard(board, filterBy) {
 
         (title.includes(filterTitle)) ? matchedIds.push(taskKey) : unmatchedIds.push(taskKey);
     }
-
     if (filterBy.teamMembers) {
         for (const id of matchedIds) {
             let task = tasks[id];
@@ -95,7 +94,7 @@ function _filterBoard(board, filterBy) {
             if (taskTeamMembers.length === 0) {
                 unmatchedIds.push(id);
             } else {
-                if (taskTeamMembers.every((taskTeamMember) => (taskTeamMember.userName !== teamMember))) unmatchedIds.push(id) ;
+                if (taskTeamMembers.every((taskTeamMember) => (taskTeamMember.username !== teamMember))) unmatchedIds.push(id) ;
             }
         }
     }

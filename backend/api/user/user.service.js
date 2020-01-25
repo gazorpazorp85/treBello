@@ -4,7 +4,7 @@ const dbService = require('../../services/db.service')
 const ObjectId = require('mongodb').ObjectId
 
 module.exports = {
-    // query,
+    query,
     // getById,
     getByEmail,
     // remove,
@@ -12,24 +12,26 @@ module.exports = {
     add
 }
 
-// async function query(filterBy = {}) {
-//     const criteria = _buildCriteria(filterBy)
-//     const collection = await dbService.getCollection('user')
-//     try {
-//         const users = await collection.find(criteria).toArray();
-//         users.forEach(user => delete user.password);
-
-//         return users
-//     } catch (err) {
-//         console.log('ERROR: cannot find users')
-//         throw err;
-//     }
-// }
+async function query() {
+    // const criteria = _buildCriteria(filterBy)
+    const collection = await dbService.getCollection('user')
+    try {
+        const users = await collection.find().toArray();
+        users.forEach(user => {
+            delete user.password;
+            delete user.email
+        });
+        return users
+    } catch (err) {
+        console.log('ERROR: cannot find users')
+        throw err;
+    }
+}
 
 async function getByEmail(email) {
     const collection = await dbService.getCollection('user')
     try {
-        const user = await collection.findOne({email})
+        const user = await collection.findOne({ email })
         return user
     } catch (err) {
         console.log(`ERROR: while finding user ${email}`)
@@ -52,7 +54,7 @@ async function update(user) {
     user._id = ObjectId(user._id);
 
     try {
-        await collection.replaceOne({"_id":user._id}, {$set : user})
+        await collection.replaceOne({ "_id": user._id }, { $set: user })
         return user
     } catch (err) {
         console.log(`ERROR: cannot update user ${user._id}`)
