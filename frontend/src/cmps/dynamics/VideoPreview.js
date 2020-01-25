@@ -13,8 +13,8 @@ export default class VideoPreview extends Component {
         const miniTask = {
             task: this.props.task,
             left: this.refs.ref.getBoundingClientRect().left,
-            top: this.refs.ref.getBoundingClientRect().top + 1,
-            height: this.refs.ref.getBoundingClientRect().height - 1,
+            top: this.refs.ref.getBoundingClientRect().top,
+            height: this.refs.ref.getBoundingClientRect().height,
             previewType: 'video',
             column: this.props.column
         };

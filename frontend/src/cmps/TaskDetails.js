@@ -113,7 +113,7 @@ export default class TaskDetails extends Component {
                                 /> : ''
                             }
                             {task.labels.length ?
-                                <div className="flex">
+                                <div className="flex align-center">
                                     <LabelIcon />
                                     <h2>Labels:</h2>
                                 </div>
@@ -143,7 +143,7 @@ export default class TaskDetails extends Component {
                                 /> : ''
                             }
                             {task.taskTeamMembers.length ?
-                                <div className="flex">
+                                <div className="flex align-center">
                                     <EmojiPeopleIcon />
                                     <h2>Team members:</h2>
                                 </div>

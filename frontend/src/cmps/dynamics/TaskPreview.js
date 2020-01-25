@@ -16,8 +16,8 @@ export default class TaskPreview extends Component {
         const miniTask = {
             task: this.props.task,
             left: this.refs.ref.getBoundingClientRect().left,
-            top: this.refs.ref.getBoundingClientRect().top + 1,
-            height: this.refs.ref.getBoundingClientRect().height - 1,
+            top: this.refs.ref.getBoundingClientRect().top,
+            height: this.refs.ref.getBoundingClientRect().height,
             previewType: 'text',
             column: this.props.column
         };

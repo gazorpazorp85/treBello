@@ -167,7 +167,7 @@ class Board extends Component {
           </div>
 
           <div className="board-page-nav-bar-filters flex align-center ">
-            <div className="board-page-nav-bar-filters-item fill-height">
+            <div className="board-page-nav-bar-filters-item flex align-center">
               <button className="board-page-nav-bar-filters nav-btn flex">
                 <HomeIcon onClick={this.goBack} />
               </button>
@@ -233,6 +233,8 @@ class Board extends Component {
             onToggle={this.toggleMiniDetails}
             board={this.props.board}
             user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'}
+            users= {this.props.users}
+
           />}
 
           {this.state.showHistory && <BoardHistory variant="outlined"
