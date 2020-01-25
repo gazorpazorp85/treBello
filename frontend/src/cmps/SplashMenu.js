@@ -46,9 +46,8 @@ export default class Sort extends Component {
         ev.stopPropagation()
     }
 
-
     render() {
-        return <div className={"splash-menu flex column align-center" + (this.props.toggleSplashMenu ? ' translateRight' : '')} 
+        return <div className={"splash-menu flex column align-center" + (this.props.toggleSplashMenu ? ' translateLeft' : '')} 
         onClick={(ev) => this.stopPropagation(ev)}>
 
             <div className="flex column fill-width">

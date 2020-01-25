@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import { store } from 'react-notifications-component';
 
 import pageLoading from '../cmps/LoadPage';
-import BoardColumns from '../cmps/BoardColumns'
-import BoardHistory from '../cmps/BoardHistory'
-import ColumnAddForm from '../cmps/ColumnAddForm'
+import BoardColumns from '../cmps/BoardColumns';
+import BoardHistory from '../cmps/BoardHistory';
+import BoardTeamMembers from '../cmps/BoardTeamMembers';
+import ColumnAddForm from '../cmps/ColumnAddForm';
 import Login from '../cmps/Login';
 import Filter from '../cmps/Filter';
 import Sort from '../cmps/Sort';
-import SplashMenu from '../cmps/SplashMenu'
+import SplashMenu from '../cmps/SplashMenu';
 import TaskDetails from '../cmps/TaskDetails';
 import DynamicMiniComponent from '../cmps/dynamics/DynamicMiniComponent';
 
@@ -33,6 +34,7 @@ class Board extends Component {
     toggleLogin: false,
     toggleSplashMenu: false,
     showHistory: false,
+    toggleBoardTeamMembers: false,
     miniTaskDetails: {},
     filterBy: {
       title: '',
@@ -80,12 +82,22 @@ class Board extends Component {
 
   toggleLogin = (ev) => {
     ev.stopPropagation()
-    this.setState((prevState) => ({ toggleLogin: !prevState.toggleLogin }))
+    this.setState((prevState) => ({
+      toggleLogin: !prevState.toggleLogin,
+      showHistory: false,
+      toggleBoardTeamMembers: false,
+      toggleSplashMenu: false
+    }))
   }
 
   closeAllTabs = (ev) => {
     ev.stopPropagation()
-    this.setState({ toggleLogin: false, toggleSplashMenu: false, toggleUploadBgImg: false })
+    this.setState({
+      toggleLogin: false,
+      toggleSplashMenu: false,
+      showHistory: false,
+      toggleBoardTeamMembers: false
+    })
   }
 
   toggleTaskDetails = (currTask) => {
@@ -96,10 +108,6 @@ class Board extends Component {
     } else {
       this.setState(prevState => ({ showTaskDetails: !prevState.showTaskDetails, currTask }));
     }
-  }
-
-  toggleUploadBgImg = () => {
-    this.setState(prevState => ({ toggleUploadBgImg: !prevState.toggleUploadBgImg }))
   }
 
   onAddImg = (ev) => {
@@ -129,19 +137,39 @@ class Board extends Component {
 
   toggleSplashMenu = (ev) => {
     ev.stopPropagation();
-    this.setState(prevState => ({ toggleSplashMenu: !prevState.toggleSplashMenu }));
+    this.setState(prevState => ({
+      toggleSplashMenu: !prevState.toggleSplashMenu,
+      showHistory: false,
+      toggleBoardTeamMembers: false,
+      toggleLogin: false
+    }));
   }
-  toggleBoardHistory = () => {
-    this.setState(prevState => ({ showHistory: !prevState.showHistory }));
+  toggleBoardHistory = (ev) => {
+    ev.stopPropagation();
+    this.setState(prevState => ({
+      showHistory: !prevState.showHistory,
+      toggleSplashMenu: false,
+      toggleBoardTeamMembers: false,
+      toggleLogin: false
+    }));
   }
 
+  toggleBoardTeamMembers = (ev) => {
+    ev.stopPropagation();
+    this.setState(prevState => ({
+      toggleBoardTeamMembers: !prevState.toggleBoardTeamMembers,
+      showHistory: false,
+      toggleSplashMenu: false,
+      toggleLogin: false
+    }))
+  }
 
   render() {
 
     let button;
 
     if (!this.props.board.columns) return pageLoading();
-    
+
     if (this.props.loggedInUser) {
       button = <button className="board-page-nav-bar nav-btn"
         onClick={this.props.logout}>
@@ -174,6 +202,10 @@ class Board extends Component {
             </div>
             <Filter onFilter={this.onFilter} teamMembers={this.props.board.teamMembers} />
             <Sort onSort={this.onSort} />
+            <div className="board-page-nav-bar-filters-item fill-height">
+              <button className="nav-btn fill-height"
+                onClick={this.toggleBoardTeamMembers}>Add Members To Board</button>
+            </div>
             <div className="board-page-nav-bar-filters-item fill-height">
               <button className="nav-btn fill-height"
                 onClick={(ev) => this.toggleSplashMenu(ev)}>Change Background Image</button>
@@ -225,8 +257,7 @@ class Board extends Component {
             board={this.props.board}
             column={this.state.currTask.column}
             updateBoard={this.props.updateBoard}
-            toggleTaskDetails={this.toggleTaskDetails} 
-            users={this.props.users}/>}
+            toggleTaskDetails={this.toggleTaskDetails} />}
           {this.state.showMiniTaskDetails && <DynamicMiniComponent
             miniTask={this.state.miniTaskDetails}
             updateBoard={this.props.updateBoard}
@@ -237,9 +268,13 @@ class Board extends Component {
 
           />}
 
-          {this.state.showHistory && <BoardHistory variant="outlined"
+          <BoardHistory variant="outlined"
             className="home-page-login" history={this.props.board.history} showHistory={this.state.showHistory}
-            toggleBoardHistory={this.toggleBoardHistory}/>}
+            toggleBoardHistory={this.toggleBoardHistory} />
+
+          <BoardTeamMembers board={this.props.board}
+            users={this.props.users} toggleBoardTeamMembers={this.state.toggleBoardTeamMembers}
+            updateBoard={this.props.updateBoard} />
         </div>
 
       </div>
