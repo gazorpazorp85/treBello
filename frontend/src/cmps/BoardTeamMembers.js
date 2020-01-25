@@ -50,7 +50,7 @@ export default class BoardTeamMembers extends Component {
                     + (this.props.toggleBoardTeamMembers ? ' translateLeft' : '')} onClick={(ev) => this.onStopPropagation(ev)}>
 
                     <div className="members-container-colors-container flex column">
-                        <p className="pointer uppercase"><h2>board members :</h2></p>
+                        <div className="pointer uppercase"><h2>board members :</h2></div>
                         <hr />
                         {this.state.currentBoardMembers.map(teamMember => {
                             return (
