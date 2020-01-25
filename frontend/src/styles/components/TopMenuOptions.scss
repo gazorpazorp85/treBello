@@ -1,0 +1,31 @@
+.top-menu-options {
+    position: absolute;
+    background: #f8f8f8;
+    color: black;
+    z-index: 3;
+    top: 35px;
+    left: 230px;
+    min-height: 150px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px 2px #cfcfcfb0;
+
+
+    h2 {
+        min-width: 200px;
+        padding: 3px;
+        border-bottom: 1px solid rgba(211, 211, 211, 0.473);
+    }
+
+    p {
+        cursor: pointer;
+        padding: 3px;
+
+        &:hover {
+            background: #d6d6d67a;
+        }
+    }
+
+    p:not(:last-child) {
+        border-bottom: 1px solid rgba(211, 211, 211, 0.473);
+    }
+}

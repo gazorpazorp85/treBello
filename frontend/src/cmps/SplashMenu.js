@@ -12,7 +12,7 @@ export default class Sort extends Component {
     }
 
     inputChange = ev => {
-        this.setState({ filterByName: ev.target.value })
+        this.setState({ filterByName: ev.target.value + " wallpaper"});
     }
 
     onSave = async () => {
@@ -20,11 +20,11 @@ export default class Sort extends Component {
             const splashImages = await utils.getImagesFromUnsplash(this.state.filterByName)
             let splashImagesUrls = []
             splashImages.forEach(image => {
-                const UrlIndx = splashImagesUrls.findIndex(currUrl => currUrl === image.urls.regular);
+                const UrlIndx = splashImagesUrls.findIndex(currUrl => currUrl === image.urls.full);
                 if (UrlIndx >= 0) {
                     splashImagesUrls.splice(UrlIndx, 1)
                 } else {
-                    splashImagesUrls.push(image.urls.regular);
+                    splashImagesUrls.push(image.urls.full);
                 }
             })
             this.setState({ splashImagesUrls })
@@ -35,7 +35,7 @@ export default class Sort extends Component {
 
     setBoardBackground = (ev) => {
         const newBoard = { ...this.props.board }
-        newBoard.boardBgImage = ev.target.src
+        newBoard.boardBgImage = ev.target.src;
         this.props.updateBoard(newBoard);
         let msg = `${this.props.user} changed background image`;
         this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
