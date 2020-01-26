@@ -58,7 +58,7 @@ export default class Labels extends Component {
                 style={{ ...updateStyle }}
             >
                 <CloseIcon className="labels-container-close-btn" onClick={this.props.toggleChooseLabels} />
-                <p>CHOOSE LABELS</p>
+                <p className="uppercase">choose labels</p>
                 <hr />
                 <div className="labels-container-colors-container flex column align-center ">
                     <div className="label-color-1 large-label" onClick={(ev) => this.updateChoosenLabels(ev)}></div>

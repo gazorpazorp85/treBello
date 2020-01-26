@@ -51,15 +51,16 @@
                 border-radius: 2px;
                 padding: 10px;
                 border-bottom: 1px solid rgba(92, 92, 92, 0.288);
-
+                
                 &-icon {
                     &-wrapper {
-                        width: 40px;
-                        height: 40px;
+                        width: 30px;
+                        height: 30px;
                         margin-right: 5px;
                         border: 1px solid;
                         padding: 5px 7px;
                         border-radius: 50%;
+                        text-transform: uppercase;
                     }
 
                     p {

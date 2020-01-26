@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-
-import utils from '../services/utils'
-
-import DueDate from './DueDate';
-import Labels from './Labels'
-import Members from './Members'
+import moment from 'moment';
 
 import TitleIcon from '@material-ui/icons/Title';
 import NotesIcon from '@material-ui/icons/Notes';
@@ -12,6 +7,13 @@ import ListAltIcon from '@material-ui/icons/ListAlt';
 import CloseIcon from '@material-ui/icons/Close';
 import LabelIcon from '@material-ui/icons/Label';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
+import EventIcon from '@material-ui/icons/Event';
+
+import DueDate from './DueDate';
+import Labels from './Labels';
+import Members from './Members';
+
+import utils from '../services/utils'
 
 export default class TaskDetails extends Component {
     state = {
@@ -132,13 +134,10 @@ export default class TaskDetails extends Component {
                                     updateBoard={this.props.updateBoard}
                                 /> : ''
                             }
-                            {task.labels.length ?
-                                <div className="flex align-center">
-                                    <LabelIcon />
-                                    <h2>Labels:</h2>
-                                </div>
-                                : ''
-                            }
+                            <div className="flex align-center">
+                                <LabelIcon />
+                                <h2>Labels :</h2>
+                            </div>
                             <div className="labels-choosen-container flex">
 
                                 {
@@ -162,13 +161,11 @@ export default class TaskDetails extends Component {
                                     users={this.props.users}
                                 /> : ''
                             }
-                            {task.taskTeamMembers.length ?
-                                <div className="flex align-center">
-                                    <EmojiPeopleIcon />
-                                    <h2>Team members:</h2>
-                                </div>
-                                : ''
-                            }
+                            <div className="flex align-center">
+                                <EmojiPeopleIcon />
+                                <h2>Team members :</h2>
+                            </div>
+
                             <div className="members-choosen-container flex column">
                                 {
                                     task.taskTeamMembers.map(member => {
@@ -189,6 +186,15 @@ export default class TaskDetails extends Component {
                             </div>
                         </div>
 
+                        <div className="task-details-container-labels-container">
+                            <div className="flex align-center">
+                                <EventIcon />
+                                <h2>Due Date :</h2>
+                            </div>
+                            <div>
+                                <p>{moment(task.dueDate).calendar()}</p>
+                            </div>
+                        </div>
 
                         <div className="task-details-container-main-description">
                             <div className="flex align-center">
@@ -215,13 +221,14 @@ export default class TaskDetails extends Component {
                             </div>
                         </div>
 
-                        <div className="task-details-container-main-activity flex space-between">
+                        {/* <div className="task-details-container-main-activity flex space-between">
                             <div className="flex align-center">
                                 <ListAltIcon />
                                 <h2>Activity</h2>
+
                             </div>
                             <button>{this.state.showActivity ? 'Show Activity' : 'Hide Activity'}</button>
-                        </div>
+                        </div> */}
                     </div>
 
                     {this.state.onToggleDueDate ? <DueDate
@@ -237,8 +244,9 @@ export default class TaskDetails extends Component {
                         <div className="task-details-container-add-to-card-options-container">
                             <p className="text-center uppercase">add to card</p>
                             <div className="task-details-container-add-to-card-options flex column">
-                                <button className="task-details-container-add-to-card-options-btn btn" onClick={(ev) => this.toggleChooseMembers(ev)} >Members</button>
+
                                 <button className="task-details-container-add-to-card-options-btn btn" onClick={(ev) => this.toggleChooseLabels(ev)} >Labels</button>
+                                <button className="task-details-container-add-to-card-options-btn btn" onClick={(ev) => this.toggleChooseMembers(ev)} >Members</button>
                                 {/* <button className="task-details-container-add-to-card-options-btn btn" >Check List</button> */}
                                 <button className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.onToggleDueDate(ev)}>Due date</button>
                                 {/* <button className="task-details-container-add-to-card-options-btn btn" >Image</button>
