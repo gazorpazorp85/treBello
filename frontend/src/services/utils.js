@@ -62,7 +62,7 @@ function getImagesFromUnsplash(filterName) {
 }
 
 function emitNotification(msg, type) {
-  let notification = {
+  const notification = {
     message: msg,
     type: type,
     insert: "top",
