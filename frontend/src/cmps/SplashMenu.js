@@ -12,7 +12,7 @@ export default class Sort extends Component {
     }
 
     inputChange = ev => {
-        this.setState({ filterByName: ev.target.value + " wallpaper"});
+        this.setState({ filterByName: ev.target.value });
     }
 
     onSave = async () => {

@@ -81,7 +81,6 @@ export default class MiniVideoDetails extends Component {
                 onClick={this.onSave}
             >SAVE</button>
             <MiniDetailsEditor
-                users={this.props.users}
                 user={this.props.user}
                 miniTask={this.props.miniTask}
                 board={this.props.board}
