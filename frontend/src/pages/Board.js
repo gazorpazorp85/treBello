@@ -25,11 +25,9 @@ import { logout, getLoggedInUser, getUsers } from '../actions/UserActions';
 class Board extends Component {
 
   state = {
-    showAddColumn: true,
-    showForm: false,
+    showColAddForm: true,
     showTaskDetails: false,
     showMiniTaskDetails: false,
-    currTaskId: '',
     toggleUploadBgImg: false,
     toggleLogin: false,
     toggleSplashMenu: false,
@@ -41,7 +39,10 @@ class Board extends Component {
       teamMembers: ''
     },
     sortBy: '',
-    sortOrder: ''
+    sortOrder: '',
+    showTopMenuOptions: true,
+    showAddForm: false,
+    currColumnId: '',
   }
 
   componentDidMount() {
@@ -69,10 +70,9 @@ class Board extends Component {
     this.props.loadBoard(boardId, filterBy, sortBy, sortOrder);
   }
 
-  toggleAddForm = () => {
+  toggleAddColumn = () => {
     this.setState((prevState) => ({
-      showForm: !prevState.showForm,
-      showAddColumn: !prevState.showAddColumn
+      showColAddForm: !prevState.showColAddForm,
     }))
   }
 
@@ -96,8 +96,10 @@ class Board extends Component {
       toggleLogin: false,
       toggleSplashMenu: false,
       showHistory: false,
-      toggleBoardTeamMembers: false
-    })
+      toggleBoardTeamMembers: false,
+      showTopMenuOptions: false,
+      showAddForm: false,
+    });
   }
 
   toggleTaskDetails = (currTask) => {
@@ -144,6 +146,7 @@ class Board extends Component {
       toggleLogin: false
     }));
   }
+
   toggleBoardHistory = (ev) => {
     ev.stopPropagation();
     this.setState(prevState => ({
@@ -164,12 +167,27 @@ class Board extends Component {
     }))
   }
 
+  openAddForm = colId => {
+    this.setState({ showAddForm: true, currColumnId: colId }, this.closeEditColumn);
+  }
+
+  closeAddForm = _ => {
+    this.setState({ showAddForm: false });
+  }
+
+  openEditColumn = (colId) => {
+    this.setState({ showTopMenuOptions: true, currColumnId: colId }, _ => {console.log('state',this.state);this.closeAddForm()});
+  }
+
+  closeEditColumn = _ => {
+    this.setState({ showTopMenuOptions: false });
+  }
+
+
   render() {
-
-    let button;
-
     if (!this.props.board.columns) return pageLoading();
 
+    let button;
     if (this.props.loggedInUser) {
       button = <button className="board-page-nav-bar nav-btn"
         onClick={this.props.logout}>
@@ -226,11 +244,11 @@ class Board extends Component {
             toggleUploadBgImg={this.toggleUploadBgImg}
             onAddImg={this.onAddImg}
             showUploadBgImg={this.state.toggleUploadBgImg}
-            user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'} />
+            user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'}
+          />
 
           {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
           <div className="board-page-columns-container">
-
             <div className="flex align-start fill-height">
               <Login
                 variant="outlined"
@@ -242,14 +260,21 @@ class Board extends Component {
                 updateBoard={this.props.updateBoard}
                 toggleTaskDetails={this.toggleTaskDetails}
                 toggleMiniDetails={this.toggleMiniDetails}
-                user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'} />
+                user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'}
+                currColumnId={this.state.currColumnId}
+                openAddForm={this.openAddForm}
+                closeAddForm={this.closeAddForm}
+                openEditColumn={this.openEditColumn}
+                closeEditColumn={this.closeEditColumn}
+                showTopMenuOptions={this.state.showTopMenuOptions}
+                showAddForm={this.state.showAddForm}
+              />
               <div className="flex column align-center">
-                {(this.state.showAddColumn) ?
-                  <button className="board-page-add-another-column-btn" onClick={this.toggleAddForm}>
-                    + Add another list..  </button> : ''
-                }
-                {(this.state.showForm) && <ColumnAddForm board={this.props.board} updateBoard={this.props.updateBoard}
-                  toggleAddForm={this.toggleAddForm} user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'} />}
+                {this.state.showColAddForm ?
+                  <button className="board-page-add-another-column-btn" onClick={this.toggleAddColumn}>
+                    + Add another list..  </button> : ''}
+                {!this.state.showColAddForm && <ColumnAddForm board={this.props.board} updateBoard={this.props.updateBoard}
+                  toggleAddForm={this.toggleAddColumn} user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'} />}
               </div>
             </div>
           </div>
@@ -267,8 +292,6 @@ class Board extends Component {
             onToggle={this.toggleMiniDetails}
             board={this.props.board}
             user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'}
-            users={this.props.users}
-
           />}
 
           <BoardHistory variant="outlined"

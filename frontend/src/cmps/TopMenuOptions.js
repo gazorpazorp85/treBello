@@ -1,10 +1,8 @@
-import React, { Component } from 'react'
-import utils from '../services/utils'
+import React, { Component } from 'react';
+
+import utils from '../services/utils';
+
 export default class TopMenuOptions extends Component {
-
-    state = {
-
-    }
 
     onDuplicateColumn = () => {
 
@@ -37,7 +35,6 @@ export default class TopMenuOptions extends Component {
     }
 
     render() {
-
         return <div className="top-menu-options">
             <h2 className="text-center capitalize">options menu</h2>
             <div className="options-container flex column">

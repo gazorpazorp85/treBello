@@ -24,7 +24,6 @@ export default class DynamicMiniComponent extends Component {
                 onToggle={this.props.onToggle}
                 board={this.props.board}
                 user={this.props.user}
-                users={this.props.users}
             >
             </Cmp>
         </React.Fragment>
