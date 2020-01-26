@@ -33,6 +33,10 @@ export default class TaskForm extends Component {
         }
     }
 
+    componentWillUnmount(){
+        this.saveTask();
+    }
+
     setFormDataForEdit() {
         if (this.props.task) {
             const task = this.props.task;
