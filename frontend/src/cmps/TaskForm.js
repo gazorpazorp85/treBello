@@ -33,6 +33,10 @@ export default class TaskForm extends Component {
         }
     }
 
+    componentWillUnmount(){
+        this.saveTask();
+    }
+
     setFormDataForEdit() {
         if (this.props.task) {
             const task = this.props.task;
@@ -110,7 +114,7 @@ export default class TaskForm extends Component {
 
     render() {
         return <div className="task-form" >
-            <form onSubmit={this.save}>
+            <form onSubmit={this.save} onClick={ev => ev.stopPropagation()}>
                 <div className="flex column" >
 
                     <textarea type="text"
@@ -121,7 +125,7 @@ export default class TaskForm extends Component {
                         onChange={this.inputChange} value={this.state.task.title} />
                     <div className="flex align-center">
                         <button className="task-form-save-btn">SAVE</button>
-                        <CloseIcon className="task-form-back-btn" onClick={() => this.props.closeUpdateForm()} />
+                        <CloseIcon className="task-form-back-btn" onClick={(ev) => {ev.stopPropagation();this.props.closeUpdateForm()}} />
                     </div>
                 </div>
             </form>

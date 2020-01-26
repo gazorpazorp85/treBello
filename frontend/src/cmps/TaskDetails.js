@@ -209,6 +209,7 @@ export default class TaskDetails extends Component {
                                         cols="40"
                                         onInput={this.emitChange}
                                         defaultValue={task.description}
+                                        spellcheck="false"
                                         placeholder="Add a more detailed description...">
                                     </textarea>
                                 </form>
