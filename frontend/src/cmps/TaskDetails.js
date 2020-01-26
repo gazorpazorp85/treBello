@@ -76,9 +76,9 @@ export default class TaskDetails extends Component {
             }
         }
         const msg = `The description of '${task.title}' was changed by ${this.props.user}`;
+        const notificationType = 'success';
         this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
-        utils.emitNotification(msg, 'success');
-        this.props.updateBoard(newBoard);
+        this.props.updateBoard(newBoard, msg, notificationType);
     }
 
     toggleChooseMembers = (ev) => {
@@ -97,9 +97,9 @@ export default class TaskDetails extends Component {
             }
         }
         const msg = `The task '${task.title}' was duplicated by ${this.props.user}`;
+        const notificationType = 'success';
         this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
-        utils.emitNotification(msg, 'success');
-        this.props.updateBoard(newBoard);
+        this.props.updateBoard(newBoard, msg, notificationType);
         this.props.toggleTaskDetails();
     }
 

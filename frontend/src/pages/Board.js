@@ -176,7 +176,7 @@ class Board extends Component {
   }
 
   openEditColumn = (colId) => {
-    this.setState({ showTopMenuOptions: true, currColumnId: colId }, _ => {console.log('state',this.state);this.closeAddForm()});
+    this.setState({ showTopMenuOptions: true, currColumnId: colId }, this.closeAddForm());
   }
 
   closeEditColumn = _ => {

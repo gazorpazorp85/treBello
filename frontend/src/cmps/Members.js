@@ -19,7 +19,7 @@ export default class Members extends Component {
 
     setAvailableMembers = _ => {
         const availableMembers = this.props.board.teamMembers.filter(currMember => !this.state.choosenMembers.find(taskMember => taskMember._id === currMember._id));
-        this.setState({availableMembers}, this.onSave);
+        this.setState({ availableMembers }, this.onSave);
     }
 
     updateChoosenMembers = (teamMember) => {
@@ -64,19 +64,18 @@ export default class Members extends Component {
             }
 
         }
-        
+
         return (
             <div className="members-container text-center column"
                 onClick={(ev) => this.onStopPropagation(ev)}
-                style={{ ...updateStyle }}
-            >
+                style={{ ...updateStyle }}>
                 <CloseIcon className="members-container-close-btn" onClick={this.props.toggleChooseMembers} />
                 <p>ASSIGNED MEMBERS</p>
                 <hr />
                 <div className="members-container-colors-container flex column">
                     {this.props.task.taskTeamMembers.map(member => {
                         return <div key={member._id} className="team-member flex"
-                        onClick={() => this.updateChoosenMembers(member)}>
+                            onClick={() => this.updateChoosenMembers(member)}>
                             <div className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: `${member.color}` }} >
                                 <div className="team-member-icon">
                                     <p>
@@ -94,24 +93,24 @@ export default class Members extends Component {
                 <div className="add-team-members flex column">
                     <p> ADD A TEAM MEMBER </p>
                     {this.state.availableMembers.map(teamMember => {
-                    // {this.props.board.teamMembers.map(teamMember => {
-                        return <div key={teamMember._id}
-                            className="team-member flex align-center"
-                            onClick={() => this.updateChoosenMembers(teamMember)}>
-                            <div className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: `${teamMember.color}` }} >
-                                <div className="team-member-icon">
-                                    <p>
-                                        {utils.createUserIcon(teamMember.firstName,
-                                            teamMember.lastName)}
-                                    </p>
+                        return (
+                            <div key={teamMember._id}
+                                className="team-member flex align-center"
+                                onClick={() => this.updateChoosenMembers(teamMember)}>
+                                <div className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: `${teamMember.color}` }} >
+                                    <div className="team-member-icon">
+                                        <p>
+                                            {utils.createUserIcon(teamMember.firstName,
+                                                teamMember.lastName)}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <p>{teamMember.firstName}</p>
-                            <p>{teamMember.lastName}</p>
-                        </div>
-                    })
-                    }
+                                <p>{teamMember.firstName}</p>
+                                <p>{teamMember.lastName}</p>
+                            </div>
+                        )
+                    })}
                 </div >
             </div >
         );

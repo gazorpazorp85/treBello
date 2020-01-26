@@ -88,7 +88,7 @@ class Home extends Component {
                 <div className="home-page-logo-get-started flex column align-center">
                   <div className="home-page-header-container-logo-img fill-width fill-height"></div>
                   {/* <h2 className="text-center"> EASY ORGANIZE TOOL</h2> */}
-                  <div>
+                  <div className="text-center">
                     <h2>Manage your tasks in a fun and easy way</h2>
                   </div>
                   <div className="get-started-btn">

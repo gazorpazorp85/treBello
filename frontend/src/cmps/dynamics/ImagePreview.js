@@ -19,31 +19,25 @@ export default class ImagePreview extends Component {
     }
 
     setNewState = _ => {
-        const maxWidth = 220; // Max width for the image
-        const maxHeight = 220; // Max height for the image
-        // const ref = this.props.task.id;
+        const maxWidth = 220;
+        const maxHeight = 220; 
+
         const img = new Image();
         img.onload = _ => {
-            // Check if the current width is larger than the max
+
             if (img.width > img.height) {
-                const heightRatio = maxHeight / img.height;   // get ratio for scaling image
+                const heightRatio = maxHeight / img.height;
                 const newWidth = img.width > maxWidth ? maxWidth : img.width;
                 this.setState({
                     imgWidth: newWidth,
                     imgHeight: img.height * heightRatio,
-                    // elTop: this.refs.ref.getBoundingClientRect().top + 1,
-                    // elLeft: this.refs.ref.getBoundingClientRect().left,
-                    // elHeight: this.refs.ref.getBoundingClientRect().height - 1
                 });
-            } else {  // Check if current height is larger than max
+            } else {  
                 const widthRatio = maxWidth / img.width;
                 const newHeight = img.height > maxHeight ? maxHeight : img.height;
                 this.setState({
                     imgWidth: img.width * widthRatio,
                     imgHeight: newHeight,
-                    // elTop: this.refs.ref.getBoundingClientRect().top + 1,
-                    // elLeft: this.refs.ref.getBoundingClientRect().left,
-                    // elHeight: this.refs.ref.getBoundingClientRect().height - 1
                 });
             }
         }
@@ -68,8 +62,6 @@ export default class ImagePreview extends Component {
 
 
     render() {
-        // const createdAtFormat = new Date(task.createdAt).toString();
-        // const dueDateFormat = new Date(task.dueDate).toString();
         const { task, provided, innerRef, isDragging, style, showEditBtn, onTaskId } = this.props;
         return (
             <section ref="ref">

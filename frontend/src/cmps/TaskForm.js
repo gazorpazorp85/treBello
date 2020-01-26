@@ -33,7 +33,7 @@ export default class TaskForm extends Component {
         }
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         this.saveTask();
     }
 
@@ -80,15 +80,15 @@ export default class TaskForm extends Component {
         const column = this.props.column;
         const id = this.state.task.id;
         if (!column.taskIds.includes(id)) column.taskIds.push(id);
-        this.props.updateBoard(newBoard);
+        const msg = (!this.state.edit) ?
+            `The task '${this.state.task.title}' was added by ${this.props.user}` :
+            `${this.props.user} edited the task '${this.state.task.title}'`;
+        const notificationType = 'success';
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
+        this.props.updateBoard(newBoard, msg, notificationType);
         this.props.closeUpdateForm();
         if (this.props.toggleUpdateForm) this.props.toggleUpdateForm();
         if (this.props.toggleTaskDetails) this.props.toggleTaskDetails();
-        let msg = (!this.state.edit) ?
-            `The task '${this.state.task.title}' was added by ${this.props.user}` :
-            `${this.props.user} edited the task '${this.state.task.title}'`;
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
-        utils.emitNotification(msg, 'success');
     }
 
     textAreaAdjust = ev => {
@@ -125,7 +125,7 @@ export default class TaskForm extends Component {
                         onChange={this.inputChange} value={this.state.task.title} />
                     <div className="flex align-center">
                         <button className="task-form-save-btn">SAVE</button>
-                        <CloseIcon className="task-form-back-btn" onClick={(ev) => {ev.stopPropagation();this.props.closeUpdateForm()}} />
+                        <CloseIcon className="task-form-back-btn" onClick={(ev) => { ev.stopPropagation(); this.props.closeUpdateForm() }} />
                     </div>
                 </div>
             </form>

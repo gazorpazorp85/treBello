@@ -32,11 +32,11 @@ export default class MiniVideoDetails extends Component {
                 [newTask.id]: newTask
             }
         }
-        this.props.updateBoard(newBoard);
-        this.props.onToggle();
-        let msg = `${this.props.user} updated the task '${this.props.miniTask.task.title}' to '${this.state.title}'`;
+        const msg = `${this.props.user} updated the task '${this.props.miniTask.task.title}' to '${this.state.title}'`;
+        const notificationType = 'success';
         this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
-        utils.emitNotification(msg, 'success');
+        this.props.updateBoard(newBoard, msg, notificationType);
+        this.props.onToggle();
     }
 
     render() {

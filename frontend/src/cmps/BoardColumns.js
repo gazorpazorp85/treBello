@@ -29,10 +29,11 @@ export default class BoardColumns extends Component {
         delete board.columns[id];
         const idx = columnOrder.findIndex(column => column === id);
         columnOrder.splice(idx, 1);
-        this.props.updateBoard(board);
         const msg = `'${column.title}' was deleted by ${this.props.user}`;
+        const notificationType = 'danger';
+        this.props.updateBoard(board, msg, notificationType);
         this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
-        utils.emitNotification(msg, 'danger');
+        
     }
 
     onDragEnd = result => {
@@ -56,10 +57,10 @@ export default class BoardColumns extends Component {
                 ...this.props.board,
                 columnOrder: newColumnOrder
             }
-            let msg = `'${columnTitle}' was moved by ${this.props.user}`;
+            const msg = `'${columnTitle}' was moved by ${this.props.user}`;
+            const notificationType = 'success';
             this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
-            utils.emitNotification(msg, 'success');
-            return this.props.updateBoard(newBoard);
+            return this.props.updateBoard(newBoard, msg, notificationType);
         };
 
         const start = this.props.board.columns[source.droppableId];
@@ -81,11 +82,10 @@ export default class BoardColumns extends Component {
                 }
             };
             const taskTitle = this.props.board.tasks[draggableId].title;
-            let msg = `${this.props.user} changed the position of the task '${taskTitle}'`;
+            const msg = `${this.props.user} changed the position of the task '${taskTitle}'`;
+            const notificationType = 'success';
             this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
-            utils.emitNotification(msg, 'success');
-
-            return this.props.updateBoard(newBoard);
+            return this.props.updateBoard(newBoard, msg, notificationType);
         };
 
         const startTaskIds = start.taskIds.slice();
@@ -111,10 +111,10 @@ export default class BoardColumns extends Component {
             }
         };
         const taskTitle = this.props.board.tasks[draggableId].title;
-        let msg = `${this.props.user} moved the task '${taskTitle}' from '${newStart.title}' to '${newFinish.title}'`;
+        const msg = `${this.props.user} moved the task '${taskTitle}' from '${newStart.title}' to '${newFinish.title}'`;
+        const notificationType = 'success';
         this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
-        utils.emitNotification(msg, 'success');
-        this.props.updateBoard(newBoard);
+        this.props.updateBoard(newBoard, msg, notificationType);
     }
 
     handleCheck = (colId, title) => {

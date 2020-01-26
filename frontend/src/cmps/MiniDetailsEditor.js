@@ -38,9 +38,9 @@ export default class MiniDetailsEditor extends Component {
         }
         newBoard.columns[this.props.miniTask.column.id].taskIds.push(newTask.id);
         const msg = `The task '${task.title}' was duplicated by ${this.props.user}`;
+        const notificationType = 'success';
         this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
-        utils.emitNotification(msg, 'success');
-        this.props.updateBoard(newBoard);
+        this.props.updateBoard(newBoard, msg, notificationType);
         this.props.onToggle();
     }
 
@@ -53,11 +53,11 @@ export default class MiniDetailsEditor extends Component {
         const idx = taskIds.findIndex(taskId => taskId === miniTask.task.id);
         taskIds.splice(idx, 1);
         delete board.tasks[miniTask.task.id];
-        this.props.updateBoard(board);
-        this.props.onToggle();
         const msg = `'${task.title}' was deleted by ${this.props.user}`;
+        const notificationType = 'danger'; 
         this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
-        utils.emitNotification(msg, 'danger');
+        this.props.updateBoard(board, msg, notificationType);
+        this.props.onToggle();
     }
 
     render() {

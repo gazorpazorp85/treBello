@@ -28,10 +28,9 @@ export default class TopMenuOptions extends Component {
         board.columns[newId] = newColumn;
         this.props.toggleTopMenuOptions(column.id);
         const msg = `'${column.title}' was duplicated by ${this.props.user}`;
+        const notificationType = 'success';
         this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
-        utils.emitNotification(msg, 'success');
-        this.props.updateBoard(board);
-
+        this.props.updateBoard(board, msg, notificationType);
     }
 
     render() {
