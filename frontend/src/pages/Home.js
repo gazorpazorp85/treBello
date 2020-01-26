@@ -52,11 +52,11 @@ class Home extends Component {
   render() {
     let button;
     if (this.props.loggedInUser) {
-      button = <Button variant="outlined" className="home-page-login-btn">
+      button = <Button className="home-page-login-btn">
         <div onClick={this.props.logout}>logout</div>
       </Button>
     } else {
-      button = <Button variant="outlined" className="home-page-login-btn">
+      button = <Button className="home-page-login-btn">
         <div onClick={this.toggleLogin}>login</div>
       </Button>
     }
@@ -64,7 +64,7 @@ class Home extends Component {
     return (
       <div className="home-page" onClick={this.closeLogin}>
         <section className="home-page-header">
-          <div variant="outlined" className="home-page-login flex justify-end align-center">
+          <div className="home-page-login flex justify-end align-center">
             {(this.props.loggedInUser) &&
               <p className="flex column">
                 <small>welcome!</small>
@@ -75,34 +75,56 @@ class Home extends Component {
           </div>
 
           <Login
-            variant="outlined"
             className="home-page-login"
             toggleLogin={this.toggleLogin}
             toggleState={this.state.toggleLogin} />
 
-          <div className="home-page-header-container">
-            <div className="home-page-header-container-inner-container fill-height fill-width flex column align-center">
+          <div className="home-page-header-container flex">
 
-              <div className="home-page-header-container-logo">
-                <div className="home-page-header-container-logo-img fill-width fill-height">
-                </div>
-              </div>
-              <div className="get-started-btn">
-                <Link to={'/board/getstarted'}>
-                  <Fab variant="extended">
-                    <p>
-                      GET STARTED
+            {/* <div className="header-image-wrapper"> */}
+              <div className="header-image flex align-center justify-center fill-width fill-height">
+
+                <div className="login-get-started-container flex align-center justify-center">
+                  <div className="home-page-logo-get-started flex column align-center">
+                    <div className="home-page-header-container-logo-img fill-width fill-height"></div>
+                    {/* <h2 className="text-center"> EASY ORGANIZE TOOL</h2> */}
+                    <div className="get-started-btn">
+                      <Link to={'/board/getstarted'}>
+                        <Fab variant="extended">
+                          <p>
+                            GET STARTED
                     </p>
-                  </Fab>
-                </Link>
-              </div>
-            </div>
-          </div>
+                        </Fab>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
 
+            {/* </div> */}
+              </div>
+
+
+
+          </div>
         </section>
 
-        <section className="home-page-boards-list flex column justify-center align-center">
-          <div className="home-page-boards-list-start-new-board flex justify-center align-center">
+
+        {/* <div className="next-section flex align-center justify-center"> */}
+          {/* <h1 className="text-center"> MANAGE YOUR TEAM </h1> */}
+        {/* </div> */}
+
+
+
+        <section className="home-page-boards-list flex colum">
+          <div className="home-page-boards-list-img-wrapper">
+            <div className="home-page-boards-list-img"></div>
+          </div>
+          <div className="home-page-boards-list-start-new-board flex column align-center">
+            <p className="home-page-boards-list-start-new-board-right-text">
+              We, in Trebello, believe that simplicity and style must go together,
+            that's why we made our brand simple and easy to use for everyone.<br /> <br />
+              Organize your team and take them one step ahead.</p>
+
             <div className="home-page-boards-list-start-new-board-card flex align-center justify-center"
               onClick={this.createBoard}>
               <div className="flex column justify-center align-center">
@@ -110,19 +132,17 @@ class Home extends Component {
                 <small> please sign up first</small>
               </div>
             </div>
-            <p className="home-page-boards-list-start-new-board-right-text">
-              We, in Trebello, believe that simplicity and style must go together,
-            that's why we made our brand simple and easy to use for everyone.<br /> <br />
-              Organize your team and take them one step ahead.</p>
+
           </div>
 
 
-          <div className="home-page-boards-list-inspiration text-center flex column align-center justify-center">
-            <h2 >GET SOME INSPIRATION</h2>
-          </div>
-          <BoardsList boards={this.props.boards} />
+
 
         </section>
+     
+          
+      
+        <BoardsList boards={this.props.boards} />
 
         <section className="home-page-footer flex column align-center justify-center">
           <h2> OUR TEAM </h2>
@@ -160,7 +180,7 @@ class Home extends Component {
 
           </div>
         </section>
-        
+
 
       </div>
     )

@@ -1,6 +1,20 @@
+.board-preview {
 
+    &.card {
+        position: relative;
+        
+        img{
+            position: absolute;
+            object-fit: cover;
+            object-position: center;
+        }
 
-.board-img{   
-    height: 100%;
-    object-fit: cover;
+        h2 {
+            font-size: 1rem;
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+        }
+    }
+
 }
