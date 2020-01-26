@@ -2,8 +2,10 @@
 
     &.card {
         position: relative;
-        
-        img{
+        transition: 0.3s;
+        // transform: ;
+
+        img {
             position: absolute;
             object-fit: cover;
             object-position: center;
@@ -14,6 +16,13 @@
             position: absolute;
             bottom: 5px;
             left: 5px;
+        }
+
+        &:hover {
+            h2 {
+                font-size: 1.5rem;
+            }
+            box-shadow: 2px 2px 20px 4px rgba(255, 255, 255, 0.37);
         }
     }
 
