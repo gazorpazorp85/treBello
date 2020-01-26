@@ -223,15 +223,15 @@ class Board extends Component {
             <div className="flex">
               <div className="board-page-nav-bar-filters-item fill-height">
                 <button className="nav-btn fill-height"
-                  onClick={this.toggleBoardTeamMembers}>Add Members To Board</button>
+                  onClick={this.toggleBoardTeamMembers}>Add Members</button>
               </div>
               <div className="board-page-nav-bar-filters-item fill-height">
                 <button className="nav-btn fill-height"
-                  onClick={(ev) => this.toggleSplashMenu(ev)}>Change Background Image</button>
+                  onClick={(ev) => this.toggleSplashMenu(ev)}>Change Background</button>
               </div>
               <div className="board-page-nav-bar-filters-item flex fill-height">
                 <button className="board-page-nav-bar-filters nav-btn"
-                  onClick={this.toggleBoardHistory}>Show Board History</button>
+                  onClick={this.toggleBoardHistory}>Show History</button>
               </div>
             </div>
           </div>
