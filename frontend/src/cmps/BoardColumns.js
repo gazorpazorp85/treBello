@@ -47,7 +47,7 @@ export default class BoardColumns extends Component {
         const idx = columnOrder.findIndex(column => column === id);
         columnOrder.splice(idx, 1);
         this.props.updateBoard(board);
-        let msg = `'${column.title}' was deleted by ${this.props.user}`;
+        const msg = `'${column.title}' was deleted by ${this.props.user}`;
         this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
         utils.emitNotification(msg, 'danger');
     }
@@ -118,8 +118,6 @@ export default class BoardColumns extends Component {
             ...finish,
             taskIds: finishTaskIds
         };
-        console.log('newStart', newStart.title);
-        console.log('newFinish', newFinish.title);
 
         const newBoard = {
             ...this.props.board,
@@ -227,6 +225,7 @@ export default class BoardColumns extends Component {
                                                             board={this.props.board}
                                                             updateBoard={this.props.updateBoard}
                                                             toggleTopMenuOptions={this.toggleTopMenuOptions}
+                                                            user={this.props.user}
                                                         />
                                                         : ''}
 
