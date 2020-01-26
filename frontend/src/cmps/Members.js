@@ -14,9 +14,7 @@ export default class Members extends Component {
     }
 
     setNewState = () => {
-        // const availableMembers = this.props.board.teamMembers.filter(currMember => !this.props.task.taskTeamMembers.find(taskMember => taskMember.userName === currMember.userName));
         this.setState({ choosenMembers: this.props.task.taskTeamMembers }, this.setAvailableMembers);
-        // this.setState({ choosenMembers: this.props.task.taskTeamMembers });
     }
 
     setAvailableMembers = _ => {
@@ -59,7 +57,7 @@ export default class Members extends Component {
 
     render() {
         let updateStyle = null;
-        if (this.props.style) {
+        if (this.props.pos) {
             updateStyle = {
                 left: 10 + 'px',
                 top: 72 + 'px',
@@ -117,6 +115,5 @@ export default class Members extends Component {
                 </div >
             </div >
         );
-
     }
 }

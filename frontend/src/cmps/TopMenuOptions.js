@@ -1,10 +1,8 @@
-import React, { Component } from 'react'
-import utils from '../services/utils'
+import React, { Component } from 'react';
+
+import utils from '../services/utils';
+
 export default class TopMenuOptions extends Component {
-
-    state = {
-
-    }
 
     onCopy = (column, board) => {
         let newColumn = { ...column }
@@ -12,8 +10,6 @@ export default class TopMenuOptions extends Component {
         const newId = utils.getRandomId();
         newColumn.id = newId;
         board.columnOrder.push(newId);
-
-        debugger
         newColumn.taskIds.forEach(currId => {
             // const saveId = currId
             const newId = utils.getRandomId();
@@ -32,7 +28,7 @@ export default class TopMenuOptions extends Component {
         })
 
         board.columns[newId] = newColumn;
-        this.props.toggleTopMenuOptions(column.id);
+        this.props.toggleTopMenuOptions();
         // this.props.updateBoard(newBoard);
 
     }
@@ -41,8 +37,8 @@ export default class TopMenuOptions extends Component {
 
 
     render() {
-        const { column } = this.props
-        const { board } = this.props
+        const { column } = this.props;
+        const { board } = this.props;
 
         return <div className="top-menu-options">
             <h2 className="text-center">options menu</h2>

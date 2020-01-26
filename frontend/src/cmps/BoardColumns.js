@@ -4,32 +4,15 @@ import NaturalDragAnimation from 'natural-drag-animation-rbdnd';
 
 import TopMenuOptions from './TopMenuOptions'
 import TasksList from './TasksList';
-import ColumnAddForm from '../cmps/ColumnAddForm';
 import TaskForm from '../cmps/TaskForm'
-
-
 
 import utils from '../services/utils';
 
 export default class BoardColumns extends Component {
 
     state = {
-        showAddColumnForm: false,
-        showTopMenuOptions: false,
-        showAddForm: false,
-        showEditBtn: true,
-        currColumnId: '',
-        anchorEl: null,
         timer: null,
         title: ''
-    }
-
-    toggleAddForm = (id) => {
-        this.setState((prevState) => ({ showForm: !prevState.showForm, currColumnId: id }));
-    }
-
-    toggleTopMenuOptions = (id) => {
-        this.setState(prevState => ({ showTopMenuOptions: !prevState.showTopMenuOptions, currColumnId: id }));
     }
 
     onDelete = (id) => {
@@ -154,21 +137,11 @@ export default class BoardColumns extends Component {
     }
 
 
-    // toggleUpdateForm = (id) => {
-    //     this.setState((prevState) => ({
-    //         showAddForm: !prevState.showAddForm, currColumnId: id,
-    //     }))
-    // }
 
-    openUpdateForm = (id) => {
-        this.setState({ showAddForm: true, currColumnId: id })
-    }
 
-    closeUpdateForm = (id) => {
-        this.setState({ showAddForm: false, currColumnId: id })
-    }
 
     render() {
+        const { currColumnId, showTopMenuOptions, showAddForm } = this.props;
         return (
             <DragDropContext onDragEnd={this.onDragEnd}>
                 <Droppable droppableId="all-columns" direction="horizontal" type="column">
@@ -214,29 +187,23 @@ export default class BoardColumns extends Component {
                                                             </h2>
                                                         </div>
 
-                                                        <div className="board-columns-item-header-menu-btn" onClick={() => this.toggleTopMenuOptions(column.id)}>
+                                                        <div className="board-columns-item-header-menu-btn"
+                                                            onClick={(ev) => { ev.stopPropagation(); this.props.openEditColumn(column.id) }}
+                                                        >
                                                             <h2 className="board-columns-item-header-menu-btn-icon"> ... </h2>
                                                         </div>
 
                                                     </div>
 
-                                                    {(this.state.showTopMenuOptions) && (this.state.currColumnId === column.id) ?
+                                                    {showTopMenuOptions && (currColumnId === column.id) ?
                                                         <TopMenuOptions
                                                             onDelete={this.onDelete}
                                                             column={column}
                                                             board={this.props.board}
                                                             updateBoard={this.props.updateBoard}
-                                                            toggleTopMenuOptions={this.toggleTopMenuOptions}
+                                                            toggleTopMenuOptions={this.props.closeEditColumn}
                                                         />
                                                         : ''}
-
-                                                    {(this.state.showAddColumnForm && this.state.currColumnId === column.id)
-                                                        && <ColumnAddForm
-                                                            board={this.props.board}
-                                                            toggleAddForm={this.toggleAddForm}
-                                                            column={column}
-                                                            updateBoard={this.props.updateBoard}
-                                                        />}
                                                     <Droppable droppableId={column.id} type="task">
                                                         {(provided, snapshot) => {
                                                             return <TasksList
@@ -256,32 +223,23 @@ export default class BoardColumns extends Component {
                                                     </Droppable>
 
                                                     <div className="task-list-footer">
-                                                        {!this.state.showAddForm && this.state.currColumnId === column.id ?
+                                                        {(!showAddForm || currColumnId !== column.id) &&
                                                             <p className="task-list-footer-add-task"
-                                                                onClick={() => this.openUpdateForm(column.id)}>
+                                                                onClick={(ev) => { ev.stopPropagation(); this.props.openAddForm(column.id) }}>
                                                                 + Add a task</p>
-                                                            :
-                                                            this.state.currColumnId !== column.id ?
-                                                                <p className="task-list-footer-add-task"
-                                                                    onClick={() => this.openUpdateForm(column.id)}>
-                                                                    + Add a task</p>
-                                                                : ''
                                                         }
-
-
-                                                        {(this.state.showAddForm && this.state.currColumnId === column.id) ?
+                                                        {showAddForm && (currColumnId === column.id) ?
                                                             <TaskForm
                                                                 user={this.props.user}
                                                                 board={this.props.board}
                                                                 column={column}
-                                                                closeUpdateForm={this.closeUpdateForm}
+                                                                closeUpdateForm={this.props.closeAddForm}
                                                                 updateBoard={this.props.updateBoard}
                                                             />
                                                             : ''
                                                         }
                                                     </div>
                                                 </div>
-
                                             )}
                                         </NaturalDragAnimation>
                                     )}
@@ -291,6 +249,7 @@ export default class BoardColumns extends Component {
                         </div >)}
                 </Droppable>
             </DragDropContext>
+
         );
     }
 }
