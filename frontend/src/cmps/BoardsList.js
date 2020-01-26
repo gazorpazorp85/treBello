@@ -10,7 +10,7 @@ function BoardsList({ boards }) {
 
     return (
         <section className="boards-list flex column">
-            <h2 className="text-center"> CHECK OUR BEAUTIFULL BOARDS</h2>
+            <h2 className="text-center uppercase"> check our beautiful boards</h2>
             <div className="boards-list-main-container fill-width">
                 <div className="boards-list-main-inner-container">
                     {newBoards.map(board => (

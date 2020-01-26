@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import Button from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Fab';
@@ -41,7 +40,8 @@ class Home extends Component {
 
   createBoard = async () => {
     let board = this.props.board;
-    let msg = `The Board was created by ${this.props.loggedInUser.username}`;
+    const username = (this.props.loggedInUser) ? this.props.loggedInUser.username : 'Guest';
+    let msg = `The Board was created by ${username}`;
     delete board._id;
     board.createdBy = this.props.loggedInUser;
     board.history = [{ id: utils.getRandomId(), msg: msg, time: Date.now() }];
@@ -82,26 +82,25 @@ class Home extends Component {
           <div className="home-page-header-container flex">
 
             {/* <div className="header-image-wrapper"> */}
-              <div className="header-image flex align-center justify-center fill-width fill-height">
+            <div className="header-image flex align-center justify-center fill-width fill-height">
 
-                <div className="login-get-started-container flex align-center justify-center">
-                  <div className="home-page-logo-get-started flex column align-center">
-                    <div className="home-page-header-container-logo-img fill-width fill-height"></div>
-                    {/* <h2 className="text-center"> EASY ORGANIZE TOOL</h2> */}
-                    <div className="get-started-btn">
-                      <Link to={'/board/getstarted'}>
-                        <Fab variant="extended">
-                          <p>
-                            GET STARTED
+              <div className="login-get-started-container flex align-center justify-center">
+                <div className="home-page-logo-get-started flex column align-center">
+                  <div className="home-page-header-container-logo-img fill-width fill-height"></div>
+                  {/* <h2 className="text-center"> EASY ORGANIZE TOOL</h2> */}
+                  <div className="get-started-btn">
+                    <Fab variant="extended">
+                      <p className="uppercase" onClick={this.createBoard}>
+                        get started
                     </p>
-                        </Fab>
-                      </Link>
-                    </div>
+                    </Fab>
                   </div>
                 </div>
-
-            {/* </div> */}
+                  <h2>Manage your tasks in a fun and easy way</h2>
               </div>
+
+              {/* </div> */}
+            </div>
 
 
 
@@ -110,7 +109,7 @@ class Home extends Component {
 
 
         {/* <div className="next-section flex align-center justify-center"> */}
-          {/* <h1 className="text-center"> MANAGE YOUR TEAM </h1> */}
+        {/* <h1 className="text-center"> MANAGE YOUR TEAM </h1> */}
         {/* </div> */}
 
 
@@ -125,13 +124,13 @@ class Home extends Component {
             that's why we made our brand simple and easy to use for everyone.<br /> <br />
               Organize your team and take them one step ahead.</p>
 
-            <div className="home-page-boards-list-start-new-board-card flex align-center justify-center"
+            {/* <div className="home-page-boards-list-start-new-board-card flex align-center justify-center"
               onClick={this.createBoard}>
               <div className="flex column justify-center align-center">
                 <h2>+ ADD NEW LIST</h2>
                 <small> please sign up first</small>
               </div>
-            </div>
+            </div> */}
 
           </div>
 
@@ -139,9 +138,9 @@ class Home extends Component {
 
 
         </section>
-     
-          
-      
+
+
+
         <BoardsList boards={this.props.boards} />
 
         <section className="home-page-footer flex column align-center justify-center">
