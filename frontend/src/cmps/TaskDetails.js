@@ -73,12 +73,32 @@ export default class TaskDetails extends Component {
                 [newTask.id]: newTask
             }
         }
+        const msg = `The description of '${task.title}' was changed by ${this.props.user}`;
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
+        utils.emitNotification(msg, 'success');
         this.props.updateBoard(newBoard);
     }
 
     toggleChooseMembers = (ev) => {
         ev.stopPropagation();
         this.setState(prevState => ({ toggleChooseMembers: !prevState.toggleChooseMembers }))
+    }
+
+    onDuplicateTask = (column, task) => {
+        const newTask = { ...task, id: utils.getRandomId() };
+        column.taskIds.push(newTask.id);
+        const newBoard = {
+            ...this.props.board,
+            tasks: {
+                ...this.props.board.tasks,
+                [newTask.id]: newTask
+            }
+        }
+        const msg = `The task '${task.title}' was duplicated by ${this.props.user}`;
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
+        utils.emitNotification(msg, 'success');
+        this.props.updateBoard(newBoard);
+        this.props.toggleTaskDetails();
     }
 
 
@@ -188,7 +208,7 @@ export default class TaskDetails extends Component {
                                 </form>
                                 {this.state.showEditDescriptionForm ?
                                     <div className="flex align-center">
-                                        <button className="task-form-save-btn" onClick={() => this.onSaveDescription(task)}>SAVE</button>
+                                        <button className="task-form-save-btn uppercase" onClick={() => this.onSaveDescription(task)}>save</button>
                                         <CloseIcon className="task-form-back-btn" onClick={this.closeUpdateDescriptionForm} />
                                     </div> : ''
                                 }
@@ -209,27 +229,28 @@ export default class TaskDetails extends Component {
                         onToggle={this.onToggleDueDate}
                         board={this.props.board}
                         updateBoard={this.props.updateBoard}
+                        user={this.props.user}
                     /> : ''}
 
 
                     <div className="task-details-container-overall-options">
                         <div className="task-details-container-add-to-card-options-container">
-                            <p className="text-center">ADD TO CARD</p>
+                            <p className="text-center uppercase">add to card</p>
                             <div className="task-details-container-add-to-card-options flex column">
                                 <button className="task-details-container-add-to-card-options-btn btn" onClick={(ev) => this.toggleChooseMembers(ev)} >Members</button>
                                 <button className="task-details-container-add-to-card-options-btn btn" onClick={(ev) => this.toggleChooseLabels(ev)} >Labels</button>
-                                <button className="task-details-container-add-to-card-options-btn btn" >Check List</button>
+                                {/* <button className="task-details-container-add-to-card-options-btn btn" >Check List</button> */}
                                 <button className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.onToggleDueDate(ev)}>Due date</button>
-                                <button className="task-details-container-add-to-card-options-btn btn" >Image</button>
-                                <button className="task-details-container-add-to-card-options-btn btn" >Video</button>
+                                {/* <button className="task-details-container-add-to-card-options-btn btn" >Image</button>
+                                <button className="task-details-container-add-to-card-options-btn btn" >Video</button> */}
                             </div>
                         </div>
 
                         <div className="task-details-container-actions-options-container">
-                            <p className="text-center">ACTIONS</p>
+                            <p className="text-center uppercase">actions</p>
                             <div className="task-details-container-actions-options-actions flex column">
-                                <button className="task-details-container-actions-options-btn btn" >Move</button>
-                                <button className="task-details-container-actions-options-btn btn" >Copy</button>
+                                {/* <button className="task-details-container-actions-options-btn btn" >Move</button> */}
+                                <button className="task-details-container-actions-options-btn btn" onClick={() => this.onDuplicateTask(column, task)}>Duplicate</button>
                             </div>
                         </div>
 

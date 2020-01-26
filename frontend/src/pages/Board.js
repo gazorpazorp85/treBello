@@ -284,7 +284,8 @@ class Board extends Component {
             board={this.props.board}
             column={this.state.currTask.column}
             updateBoard={this.props.updateBoard}
-            toggleTaskDetails={this.toggleTaskDetails} />}
+            toggleTaskDetails={this.toggleTaskDetails}
+            user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'} />}
           {this.state.showMiniTaskDetails && <DynamicMiniComponent
             miniTask={this.state.miniTaskDetails}
             updateBoard={this.props.updateBoard}

@@ -51,6 +51,13 @@ export default class MiniDetailsEditor extends Component {
                 top: (miniTask.top + 1) + 'px'
             }}
         >
+            {/* <MiniDetailsButton text="⎘ copy" onClick={this.onToggleDueDate} />
+            {this.state.onToggleDueDate ? <DueDate
+                task={miniTask.task}
+                onToggle={this.onToggleDueDate}
+                board={this.props.board}
+                updateBoard={this.props.updateBoard}
+            /> : ''} */}
             <MiniDetailsButton text="🖊️ Edit Labels" onClick={this.onToggleLabels} />
             {this.state.onToggleLabels ? <Labels
                 miniTask={miniTask}
