@@ -30,26 +30,34 @@
     h2 {
         font-size: 2.2rem;
         color: white;
+        
     }
 
     //header -----------------------
 
     &-header-container {
+        background: #00000099;
         height: 85vh;
-
+        
         .header-image {
             width: 100%;
             height: 100%;
+            background-color: #00000099;
             background-image: url(../images/header-bg.jpg);
             background-size: cover;
             background-position-x: center;
+            background-blend-mode: darken;
             border-radius: 5px;
         }
 
-
+        h2 {
+            font-weight: 600;
+            text-shadow: 1px 1px 1px black;
+        }
 
         .login-get-started-container {
-            width: 30%;
+            z-index: 1;
+            width: 60%;
         }
 
         &-about-compony-container {
@@ -242,4 +250,8 @@
             }
         }
     }
+}
+
+.subtitle {
+    max-width: 300px;
 }

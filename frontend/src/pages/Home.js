@@ -84,11 +84,15 @@ class Home extends Component {
             {/* <div className="header-image-wrapper"> */}
             <div className="header-image flex align-center justify-center fill-width fill-height">
 
-              <div className="login-get-started-container flex align-center justify-center">
+              <div className="login-get-started-container flex align-center justify-center align-center">
                 <div className="home-page-logo-get-started flex column align-center">
                   <div className="home-page-header-container-logo-img fill-width fill-height"></div>
                   {/* <h2 className="text-center"> EASY ORGANIZE TOOL</h2> */}
+                  <div>
+                    <h2>Manage your tasks in a fun and easy way</h2>
+                  </div>
                   <div className="get-started-btn">
+
                     <Fab variant="extended">
                       <p className="uppercase" onClick={this.createBoard}>
                         get started
@@ -96,7 +100,6 @@ class Home extends Component {
                     </Fab>
                   </div>
                 </div>
-                  <h2>Manage your tasks in a fun and easy way</h2>
               </div>
 
               {/* </div> */}
@@ -159,7 +162,7 @@ class Home extends Component {
 
             <div className="home-page-footer-team-member-card flex column align-center justify-center">
               <div className="home-page-footer-team-member-card-member-img margad"></div>
-              <p>Margad T.</p>
+              <p>Margad Taikhir</p>
               <small>High functionality backend support</small>
               <div className="flex">
                 <LinkedInIcon className="linkedInIcon"></LinkedInIcon>
