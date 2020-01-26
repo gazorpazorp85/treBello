@@ -26,6 +26,24 @@ export default class MiniDetailsEditor extends Component {
         this.setState(prevState => ({ onToggleMembers: !prevState.onToggleMembers }));
     }
 
+    onDuplicateTask = _ => {
+        const { task } = this.props.miniTask
+        const newTask = { ...task, id: utils.getRandomId() };
+        const newBoard = {
+            ...this.props.board,
+            tasks: {
+                ...this.props.board.tasks,
+                [newTask.id]: newTask
+            }
+        }
+        newBoard.columns[this.props.miniTask.column.id].taskIds.push(newTask.id);
+        const msg = `The task '${task.title}' was duplicated by ${this.props.user}`;
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
+        utils.emitNotification(msg, 'success');
+        this.props.updateBoard(newBoard);
+        this.props.onToggle();
+    }
+
     onDelete = _ => {
         const { miniTask } = this.props;
         const board = { ...this.props.board };
@@ -37,7 +55,7 @@ export default class MiniDetailsEditor extends Component {
         delete board.tasks[miniTask.task.id];
         this.props.updateBoard(board);
         this.props.onToggle();
-        let msg = `'${task.title}' was deleted by ${this.props.user}`;
+        const msg = `'${task.title}' was deleted by ${this.props.user}`;
         this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
         utils.emitNotification(msg, 'danger');
     }
@@ -51,13 +69,6 @@ export default class MiniDetailsEditor extends Component {
                 top: (miniTask.top + 1) + 'px'
             }}
         >
-            {/* <MiniDetailsButton text="⎘ copy" onClick={this.onToggleDueDate} />
-            {this.state.onToggleDueDate ? <DueDate
-                task={miniTask.task}
-                onToggle={this.onToggleDueDate}
-                board={this.props.board}
-                updateBoard={this.props.updateBoard}
-            /> : ''} */}
             <MiniDetailsButton text="🖊️ Edit Labels" onClick={this.onToggleLabels} />
             {this.state.onToggleLabels ? <Labels
                 miniTask={miniTask}
@@ -73,13 +84,14 @@ export default class MiniDetailsEditor extends Component {
                 updateBoard={this.props.updateBoard}
                 toggleChooseMembers={this.onToggleMembers}
             /> : ''}
-            <MiniDetailsButton text="📅 Due Date" onClick={this.onToggleDueDate} />
+            <MiniDetailsButton text="📅 Change Due Date" onClick={this.onToggleDueDate} />
             {this.state.onToggleDueDate ? <DueDate
                 task={miniTask.task}
                 onToggle={this.onToggleDueDate}
                 board={this.props.board}
                 updateBoard={this.props.updateBoard}
             /> : ''}
+            <MiniDetailsButton text="⎘ Duplicate Task" onClick={this.onDuplicateTask} />
             <MiniDetailsButton text="🗑️ Delete Task" onClick={this.onDelete} />
         </div>
     }
