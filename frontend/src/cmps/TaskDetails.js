@@ -3,7 +3,7 @@ import moment from 'moment';
 
 import TitleIcon from '@material-ui/icons/Title';
 import NotesIcon from '@material-ui/icons/Notes';
-import ListAltIcon from '@material-ui/icons/ListAlt';
+// import ListAltIcon from '@material-ui/icons/ListAlt';
 import CloseIcon from '@material-ui/icons/Close';
 import LabelIcon from '@material-ui/icons/Label';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
