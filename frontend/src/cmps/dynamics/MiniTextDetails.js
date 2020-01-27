@@ -43,13 +43,23 @@ export default class MiniTextDetails extends Component {
         const { task } = this.props.miniTask;
         const { boundingClientRect } = this.props.miniTask;
         const labelLen = task.labels.length;
+        let height = boundingClientRect.height;
+        let top = boundingClientRect.top;
+
+        if (height + top > window.innerHeight) {
+            height = (window.innerHeight - top - 50) > 248 ? window.innerHeight - top - 50 : 248;
+        }
+        if (boundingClientRect.top > (window.innerHeight - (window.innerHeight / 4))) {
+            top = window.innerHeight - height - 50;
+        }
+        
         return <div className="mini-details-container">
             <div
                 className="mini-details"
                 style={{
                     left: boundingClientRect.left + 'px',
-                    top: boundingClientRect.top + 'px',
-                    height: boundingClientRect.height + 'px'
+                    top: top + 'px',
+                    height: height + 'px'
                 }}
             >
                 <div className="task-container-labels flex">
@@ -74,7 +84,7 @@ export default class MiniTextDetails extends Component {
                 className="mini-details-save-btn"
                 style={{
                     left: boundingClientRect.left + 'px',
-                    top: (boundingClientRect.top + boundingClientRect.height + 10) + 'px'
+                    top: (top + height + 10) + 'px'
                 }}
                 onClick={this.onSave}
             >SAVE</button>
