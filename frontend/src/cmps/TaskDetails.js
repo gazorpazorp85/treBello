@@ -186,14 +186,27 @@ export default class TaskDetails extends Component {
                             </div>
                         </div>
 
-                        <div className="task-details-container-labels-container">
+                        <div className="task-details-container-duedate-container">
                             <div className="flex align-center">
                                 <EventIcon />
                                 <h2>Due Date :</h2>
                             </div>
                             <div>
-                                <p>{moment(task.dueDate).calendar()}</p>
+                                {(task.dueDate) ?
+                                    <p>{moment(task.dueDate).calendar()}</p> :
+                                    <p>This task doesn't have a due date yet</p>
+                                }
+
                             </div>
+
+                            {this.state.onToggleDueDate ? <DueDate
+                                task={task}
+                                onToggle={this.onToggleDueDate}
+                                board={this.props.board}
+                                updateBoard={this.props.updateBoard}
+                                user={this.props.user}
+                            /> : ''}
+
                         </div>
 
                         <div className="task-details-container-main-description">
@@ -209,7 +222,7 @@ export default class TaskDetails extends Component {
                                         cols="40"
                                         onInput={this.emitChange}
                                         defaultValue={task.description}
-                                        spellcheck="false"
+                                        spellCheck="false"
                                         placeholder="Add a more detailed description...">
                                     </textarea>
                                 </form>
@@ -231,15 +244,6 @@ export default class TaskDetails extends Component {
                             <button>{this.state.showActivity ? 'Show Activity' : 'Hide Activity'}</button>
                         </div> */}
                     </div>
-
-                    {this.state.onToggleDueDate ? <DueDate
-                        task={task}
-                        onToggle={this.onToggleDueDate}
-                        board={this.props.board}
-                        updateBoard={this.props.updateBoard}
-                        user={this.props.user}
-                    /> : ''}
-
 
                     <div className="task-details-container-overall-options">
                         <div className="task-details-container-add-to-card-options-container">

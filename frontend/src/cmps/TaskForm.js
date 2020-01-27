@@ -33,9 +33,9 @@ export default class TaskForm extends Component {
         }
     }
 
-    componentWillUnmount() {
-        this.saveTask();
-    }
+    // componentWillUnmount() {
+    //     this.saveTask();
+    // }
 
     setFormDataForEdit() {
         if (this.props.task) {
@@ -69,6 +69,22 @@ export default class TaskForm extends Component {
         this.checkIfUrlAndSave(this.state.task.title);
     }
 
+    checkIfUrlAndSave = (url) => {
+        const youtubeREGEX = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+        const imgREGEX = /.(jpg|jpeg|png|gif)\/?$/;
+        if (url.match(youtubeREGEX)) {
+            const newUrl = url.replace('watch?v=', 'embed/');
+            return this.setState(prevState => ({ task: { ...prevState.task, title: '', type: 'video', url: newUrl } }), _ => {
+                this.saveTask();
+            });
+        } else if (url.match(imgREGEX)) {
+            return this.setState(prevState => ({ task: { ...prevState.task, title: '', type: 'image', url } }), _ => {
+                this.saveTask();
+            });
+        }
+        this.saveTask();
+    }
+
     saveTask = _ => {
         const newBoard = {
             ...this.props.board,
@@ -94,22 +110,6 @@ export default class TaskForm extends Component {
     textAreaAdjust = ev => {
         ev.target.style.height = "1px"
         ev.target.style.height = (25 + ev.target.scrollHeight) + "px";
-    }
-
-    checkIfUrlAndSave = (url) => {
-        const youtubeREGEX = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
-        const imgREGEX = /.(jpg|jpeg|png|gif)\/?$/;
-        if (url.match(youtubeREGEX)) {
-            const newUrl = url.replace('watch?v=', 'embed/');
-            return this.setState(prevState => ({ task: { ...prevState.task, title: '', type: 'video', url: newUrl } }), _ => {
-                this.saveTask();
-            });
-        } else if (url.match(imgREGEX)) {
-            return this.setState(prevState => ({ task: { ...prevState.task, title: '', type: 'image', url } }), _ => {
-                this.saveTask();
-            });
-        }
-        this.saveTask();
     }
 
     render() {

@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import BoardPreview from "./BoardPreview";
 
@@ -14,9 +14,9 @@ function BoardsList({ boards }) {
             <div className="boards-list-main-container fill-width">
                 <div className="boards-list-main-inner-container">
                     {newBoards.map(board => (
-                        <Link className="boards-list-main-inner-container-item" key={board._id} to={`/board/${board._id}`}>
+                        <NavLink className="boards-list-main-inner-container-item" key={board._id} to={`/board/${board._id}`}>
                             <BoardPreview board={board} />
-                        </Link>
+                        </NavLink>
                     ))}
                 </div>
             </div>

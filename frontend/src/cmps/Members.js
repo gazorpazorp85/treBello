@@ -91,7 +91,7 @@ export default class Members extends Component {
                     }
                 </div>
                 <div className="add-team-members flex column">
-                    <p> ADD A TEAM MEMBER </p>
+                    <p className="uppercase"> add a team member </p>
                     {this.state.availableMembers.map(teamMember => {
                         return (
                             <div key={teamMember._id}
