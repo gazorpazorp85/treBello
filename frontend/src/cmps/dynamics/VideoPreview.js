@@ -5,19 +5,16 @@ import utils from '../../services/utils'
 
 
 export default class VideoPreview extends Component {
-    state = {
-        elTop: 0,
-        elLeft: 0,
-        elHeight: 0,
+    constructor(props) {
+        super(props);
+        this.videoContainer = React.createRef();
     }
 
     toggleMiniDetails = ev => {
         ev.stopPropagation();
         const miniTask = {
             task: this.props.task,
-            left: this.refs.ref.getBoundingClientRect().left,
-            top: this.refs.ref.getBoundingClientRect().top,
-            height: this.refs.ref.getBoundingClientRect().height,
+            boundingClientRect: this.videoContainer.current.getBoundingClientRect(),
             previewType: 'video',
             column: this.props.column
         };
@@ -28,7 +25,7 @@ export default class VideoPreview extends Component {
     render() {
         const { task, provided, innerRef, isDragging, style, showEditBtn, onTaskId } = this.props;
         return (
-            <section ref="ref">
+            <section ref={this.videoContainer}>
                 <div
                     className={"task-container flex column" + (isDragging ? " isDragging" : "")}
                     {...provided.draggableProps}

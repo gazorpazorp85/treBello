@@ -62,11 +62,12 @@ export default class MiniDetailsEditor extends Component {
 
     render() {
         const { miniTask } = this.props;
+        const { boundingClientRect } = this.props.miniTask;
         return <div
             className="mini-details-editor"
             style={{
-                left: (miniTask.left + 265) + 'px',
-                top: (miniTask.top + 1) + 'px'
+                left: (boundingClientRect.left + 265) + 'px',
+                top: (boundingClientRect.top + 1) + 'px'
             }}
         >
             <MiniDetailsButton text="🖊️ Edit Labels" onClick={this.onToggleLabels} />
