@@ -17,29 +17,30 @@ export default class Members extends Component {
         this.setState({ choosenMembers: this.props.task.taskTeamMembers }, this.setAvailableMembers);
     }
 
-    setAvailableMembers = _ => {
-        const availableMembers = this.props.board.teamMembers.filter(currMember => !this.state.choosenMembers.find(taskMember => taskMember._id === currMember._id));
-        this.setState({ availableMembers }, this.onSave);
-    }
-
     updateChoosenMembers = (teamMember) => {
         const choosenMembers = this.state.choosenMembers;
         const memberIdx = choosenMembers.findIndex(currMember => currMember._id === teamMember._id);
+        let msg = '';
+        let notificationType = '';
         if (memberIdx >= 0) {
             choosenMembers.splice(memberIdx, 1);
-            const msg = `${teamMember.username} was released from the task '${this.props.task.title}'`;
-            this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
-            utils.emitNotification(msg, 'danger');
+            msg = `${teamMember.username} was released from the task '${this.props.task.title}'`;
+            notificationType = 'danger';
         } else {
             choosenMembers.push(teamMember);
-            const msg = `${teamMember.username} was asigned to the task '${this.props.task.title}'`;
-            this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
-            utils.emitNotification(msg, 'success');
+            msg = `${teamMember.username} was asigned to the task '${this.props.task.title}'`;
+            notificationType = 'success';
         }
-        this.setState({ choosenMembers }, this.setAvailableMembers);
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
+        this.setState({ choosenMembers }, this.setAvailableMembers(msg, notificationType));
     }
 
-    onSave = () => {
+    setAvailableMembers = (msg, notificationType) => {
+        const availableMembers = this.props.board.teamMembers.filter(currMember => !this.state.choosenMembers.find(taskMember => taskMember._id === currMember._id));
+        this.setState({ availableMembers }, this.onSave(msg, notificationType));
+    }
+
+    onSave = (msg, notificationType) => {
         const newTask = { ...this.props.task, taskTeamMembers: this.state.choosenMembers };
         const newBoard = {
             ...this.props.board,
@@ -48,7 +49,7 @@ export default class Members extends Component {
                 [newTask.id]: newTask
             }
         }
-        this.props.updateBoard(newBoard);
+        this.props.updateBoard(newBoard, msg, notificationType);
     }
 
     onStopPropagation = (ev) => {
@@ -62,7 +63,6 @@ export default class Members extends Component {
                 left: 10 + 'px',
                 top: 72 + 'px',
             }
-
         }
 
         return (
@@ -70,7 +70,7 @@ export default class Members extends Component {
                 onClick={(ev) => this.onStopPropagation(ev)}
                 style={{ ...updateStyle }}>
                 <CloseIcon className="members-container-close-btn" onClick={this.props.toggleChooseMembers} />
-                <p>ASSIGNED MEMBERS</p>
+                <p className="uppercase">assigned members</p>
                 <hr />
                 <div className="members-container-colors-container flex column">
                     {this.props.task.taskTeamMembers.map(member => {

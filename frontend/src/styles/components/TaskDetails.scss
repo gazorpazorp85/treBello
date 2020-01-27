@@ -1,167 +1,154 @@
 .task-details-container {
-    position: relative;
-    overflow-y: auto;
-    background-color: white;
-    height: 95vh;
-    padding: 55px 15px;
-    border-radius: 4px;
+  position: relative;
+  overflow-y: auto;
+  background-color: white;
+  height: 95vh;
+  padding: 55px 15px;
+  border-radius: 4px;
 
-    h2 {
-        margin-inline-start: 5px;
-        font-weight: 600;
+  h2 {
+    margin-inline-start: 5px;
+    font-weight: 600;
+  }
+
+  .MuiSvgIcon-root {
+    height: 35px;
+    width: 36px;
+  }
+
+  &-header {
+    padding-bottom: 30px;
+    margin: 10px 0px;
+    border-bottom: 1px solid #a0a0a059;
+  }
+
+  &-labels-container {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #a0a0a059;
+    margin: 10px 0px;
+
+    .labels-choosen-container {
+      padding-left: 39px;
     }
+  }
 
-    .MuiSvgIcon-root {
-        height: 35px;
-        width: 36px;
-    }
+  &-members-container {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #a0a0a059;
+    margin: 10px 0px;
 
-    &-header {
-        padding-bottom: 30px;
-        margin: 10px 0px;
-        border-bottom: 1px solid #a0a0a059;
-    }
+    .members-choosen-container {
+      margin-top: 5px;
+      margin-left: 40px;
 
-    &-labels-container {
-        padding-bottom: 30px;
-        border-bottom: 1px solid #a0a0a059;
-        margin: 10px 0px;
+      p {
+        margin: 0;
+        padding-left: 5px;
+      }
 
-        .labels-choosen-container{
-            padding-left: 39px;
+      .team-member {
+        cursor: pointer;
+        margin-bottom: 5px;
+        border-radius: 2px;
+        padding: 10px;
+        border-bottom: 1px solid rgba(92, 92, 92, 0.288);
+
+        &-icon {
+          &-wrapper {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+            border: 1px solid;
+            padding: 5px 7px;
+            border-radius: 50%;
+            text-transform: uppercase;
+          }
+
+          p {
+            font-family: montserratExtraBold, "sans-sarif";
+            color: white;
+            margin: 0;
+            padding: 0;
+          }
         }
+      }
+
+      div:not(:first-child) {
+        margin-top: 4px;
+      }
     }
+  }
 
-    &-members-container {
-        padding-bottom: 30px;
-        border-bottom: 1px solid #a0a0a059;
-        margin: 10px 0px;
+  &-duedate-container {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #a0a0a059;
+    margin: 10px 0px;
+    
+  }
 
-        .members-choosen-container {
-            margin-top: 5px;
-            margin-left: 40px;
+  &-main {
+    padding: 5px;
 
-            p {
-                margin: 0;
-                padding-left: 5px;
-            }
-
-            .team-member {
-                cursor: pointer;
-                margin-bottom: 5px;
-                border-radius: 2px;
-                padding: 10px;
-                border-bottom: 1px solid rgba(92, 92, 92, 0.288);
-                
-                &-icon {
-                    &-wrapper {
-                        width: 30px;
-                        height: 30px;
-                        margin-right: 5px;
-                        border: 1px solid;
-                        padding: 5px 7px;
-                        border-radius: 50%;
-                        text-transform: uppercase;
-                    }
-
-                    p {
-                        font-family: montserratExtraBold, 'sans-sarif';
-                        color: white;
-                        margin: 0;
-                        padding: 0;
-                    }
-                }
-            }
-
-            div:not(:first-child){
-                margin-top:4px;
-            }
-        }
+    &-description {
+      padding-top: 15px;
+      padding-bottom: 30px;
+      margin: 10px 0px;
+      border-bottom: 1px solid #a0a0a059;
     }
+  }
 
-    &-duedate-container {
-        padding-bottom: 30px;
-        border-bottom: 1px solid #a0a0a059;
-        margin: 10px 0px;
+  .text-area-wrapper {
+    margin-left: 42px;
 
-        .duedate-edit {
-            margin-top: 5px;
-            margin-left: 40px;
-        }
+    textarea {
+      min-height: 250px;
+      margin-top: 7px;
+      padding: 7px 5px;
+      background-color: rgba(9, 30, 66, 0.04);
+      border: none;
+      border-radius: 4px;
     }
+  }
 
-    &-main {
-        padding: 5px;
+  p {
+    font-weight: 600;
+    margin-left: 41px;
+  }
 
-        &-description {
-            padding-top: 15px;
-            padding-bottom: 30px;
-            margin: 10px 0px;
-            border-bottom: 1px solid #a0a0a059;
-        }
+  .add-column-back-to-board {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+
+  .btn {
+    margin-bottom: 5px;
+    width: 150px;
+    height: 40px;
+    font-weight: 600;
+    transition: 0.2s;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.562);
+      color: white;
     }
+  }
 
-
-
-    .text-area-wrapper {
-        margin-left: 42px;
-
-        textarea {
-            min-height: 250px;
-            margin-top: 7px;
-            padding: 7px 5px;
-            background-color: rgba(9, 30, 66, .04);
-            border: none;
-            border-radius: 4px;
-        }
-    }
+  &-overall-options {
+    padding: 5px;
 
     p {
-        font-weight: 600;
-        margin-left: 41px;
+      margin-inline-start: 0px;
     }
+  }
 
-    .add-column-back-to-board {
-        position: absolute;
-        top: 5px;
-        right: 10px;
+  &-add-to-card {
+    padding: 30px 10px;
+  }
+
+  &-actions {
+    &-options-container {
+      padding-top: 50px;
     }
-
-    .btn {
-        margin-bottom: 5px;
-        width: 150px;
-        height: 40px;
-        font-weight: 600;
-        transition: 0.2s;
-
-        &:hover {
-            background: rgba(0, 0, 0, 0.562);
-            color: white;
-        }
-
-    }
-
-    &-overall-options {
-        padding: 5px;
-
-        p {
-            margin-inline-start: 0px;
-        }
-    }
-
-    &-add-to-card {
-        padding: 30px 10px;
-    }
-
-    &-actions {
-        &-options-container {
-            padding-top: 50px;
-        }
-    }
-
-    .react-datepicker-wrapper{
-        input{
-            width: 200px;
-        }
-    }
+  }
 }

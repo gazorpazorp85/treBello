@@ -1,0 +1,30 @@
+.duedate-edit {
+  max-width: 250px;
+  height: 60px;
+  border: 1px solid #a0a0a059;
+  border-radius: 4px;
+  margin-top: 5px;
+  margin-left: 40px;
+
+  &-close-btn {
+    cursor: pointer;
+    position: relative;
+    left: 220px;
+    // right: 95px;
+  }
+
+  & > .MuiSvgIcon-root {
+    height: 18px;
+    width: 18px;
+  }
+
+  .datepicker-container{
+    margin-top: 7px;
+  }
+
+  .react-datepicker-wrapper {
+    input {
+      width: 200px;
+    }
+  }
+}

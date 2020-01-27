@@ -4,8 +4,7 @@ import utils from '../services/utils'
 
 export default class BoardTeamMembers extends Component {
     state = {
-        currentBoardMembers: [],
-        toggleUsersList: false
+        currentBoardMembers: []
     }
 
     componentDidMount = () => {
@@ -17,29 +16,19 @@ export default class BoardTeamMembers extends Component {
         const teamMembers = board.teamMembers;
         let msg = '';
         let notificationType = '';
-        if (teamMembers.length === 0) {
-            teamMembers.push(user);
-            msg = `${user.username} was added to this board`;
-            notificationType = 'success';
-            this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
-        } else if (teamMembers.find(teamMember => teamMember._id === user._id)) {
+        if (teamMembers.find(teamMember => teamMember._id === user._id)) {
             const idx = teamMembers.findIndex(teamMember => teamMember._id === user._id);
             teamMembers.splice(idx, 1);
             msg = `${user.username} was removed from this board`;
             notificationType = 'danger';
-            this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
         } else {
             teamMembers.push(user);
             msg = `${user.username} was added to this board`;
             notificationType = 'success';
-            this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
         }
         this.setState({ currentBoardMembers: teamMembers });
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
         this.props.updateBoard(board, msg, notificationType);
-    }
-
-    toggleUsersList = () => {
-        this.setState(prevState => ({ toggleUsersList: !prevState.toggleUsersList }));
     }
 
     onStopPropagation = (ev) => {
@@ -47,6 +36,8 @@ export default class BoardTeamMembers extends Component {
     }
 
     render() {
+        const currentBoardMembers = this.state.currentBoardMembers;
+        const users = this.props.users.filter(user => !currentBoardMembers.find(boardMember => user._id === boardMember._id));
         return (
             <div className={"board-team-members-container text-center column"
                 + (this.props.toggleBoardTeamMembers ? ' translateLeft' : '')} onClick={(ev) => this.onStopPropagation(ev)}>
@@ -56,7 +47,8 @@ export default class BoardTeamMembers extends Component {
                     <hr />
                     {this.state.currentBoardMembers.map(teamMember => {
                         return (
-                            <div key={teamMember._id} className="team-member flex align-center">
+                            <div key={teamMember._id} className="team-member flex align-center"
+                                onClick={() => this.updateTeamMembers(teamMember)}>
                                 <div className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: `${teamMember.color}` }} >
                                     <div className="team-member-icon">
                                         <p className="capitalize">
@@ -71,8 +63,8 @@ export default class BoardTeamMembers extends Component {
                 </div>
 
                 <div className="add-team-members flex column">
-                    <p className="pointer uppercase" onClick={this.toggleUsersList}>add / remove users</p>
-                    {this.state.toggleUsersList && this.props.users.map(user => {
+                    <p className="pointer uppercase">add / remove users</p>
+                    {users.map(user => {
                         return (
                             <div key={user._id} className="team-member flex align-center"
                                 onClick={() => this.updateTeamMembers(user)}>

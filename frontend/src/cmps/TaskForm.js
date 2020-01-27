@@ -16,6 +16,7 @@ export default class TaskForm extends Component {
             description: '',
             type: 'text',
             labels: [],
+            checklist: [],
             creator: {},
             taskTeamMembers: []
         },
@@ -33,10 +34,6 @@ export default class TaskForm extends Component {
         }
     }
 
-    // componentWillUnmount() {
-    //     this.saveTask();
-    // }
-
     setFormDataForEdit() {
         if (this.props.task) {
             const task = this.props.task;
@@ -50,6 +47,7 @@ export default class TaskForm extends Component {
                     description: this.props.description,
                     type: task.type,
                     labels: task.labels,
+                    checklist: task.checklist,
                     creator: task.creator,
                     taskTeamMembers: task.taskTeamMembers
                 },
@@ -124,7 +122,7 @@ export default class TaskForm extends Component {
                         ref={(input) => { this.nameInput = input; }}
                         onChange={this.inputChange} value={this.state.task.title} />
                     <div className="flex align-center">
-                        <button className="task-form-save-btn">SAVE</button>
+                        <button className="task-form-save-btn save">save</button>
                         <CloseIcon className="task-form-back-btn" onClick={(ev) => { ev.stopPropagation(); this.props.closeUpdateForm() }} />
                     </div>
                 </div>

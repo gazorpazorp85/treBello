@@ -134,10 +134,6 @@ export default class BoardColumns extends Component {
         });
     }
 
-
-
-
-
     render() {
         const { currColumnId, showTopMenuOptions, showAddForm } = this.props;
         return (

@@ -163,7 +163,7 @@ export default class TaskDetails extends Component {
                             }
                             <div className="flex align-center">
                                 <EmojiPeopleIcon />
-                                <h2>Team members :</h2>
+                                <h2>Team Members :</h2>
                             </div>
 
                             <div className="members-choosen-container flex column">
@@ -196,9 +196,7 @@ export default class TaskDetails extends Component {
                                     <p>{moment(task.dueDate).calendar()}</p> :
                                     <p>This task doesn't have a due date yet</p>
                                 }
-
                             </div>
-
                             {this.state.onToggleDueDate ? <DueDate
                                 task={task}
                                 onToggle={this.onToggleDueDate}
@@ -206,7 +204,6 @@ export default class TaskDetails extends Component {
                                 updateBoard={this.props.updateBoard}
                                 user={this.props.user}
                             /> : ''}
-
                         </div>
 
                         <div className="task-details-container-main-description">
@@ -253,7 +250,7 @@ export default class TaskDetails extends Component {
                                 <button className="task-details-container-add-to-card-options-btn btn" onClick={(ev) => this.toggleChooseLabels(ev)} >Labels</button>
                                 <button className="task-details-container-add-to-card-options-btn btn" onClick={(ev) => this.toggleChooseMembers(ev)} >Members</button>
                                 {/* <button className="task-details-container-add-to-card-options-btn btn" >Check List</button> */}
-                                <button className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.onToggleDueDate(ev)}>Due date</button>
+                                <button className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.onToggleDueDate(ev)}>Due Date</button>
                                 {/* <button className="task-details-container-add-to-card-options-btn btn" >Image</button>
                                 <button className="task-details-container-add-to-card-options-btn btn" >Video</button> */}
                             </div>
@@ -262,13 +259,10 @@ export default class TaskDetails extends Component {
                         <div className="task-details-container-actions-options-container">
                             <p className="text-center uppercase">actions</p>
                             <div className="task-details-container-actions-options-actions flex column">
-                                {/* <button className="task-details-container-actions-options-btn btn" >Move</button> */}
                                 <button className="task-details-container-actions-options-btn btn" onClick={() => this.onDuplicateTask(column, task)}>Duplicate</button>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         )

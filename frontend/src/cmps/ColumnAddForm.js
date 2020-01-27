@@ -72,8 +72,8 @@ export default class ColumnAddForm extends Component {
                 onChange={this.inputChange}
                 value={this.state.column.title} />
             <div className="add-column flex">
-                <button className="add-column-save-btn"
-                    variant="contained">SAVE</button>
+                <button className="add-column-save-btn uppercase"
+                    variant="contained">save</button>
 
                 <CloseIcon className="add-column-back-to-board flex align-center"
                     onClick={this.props.toggleAddForm} />
