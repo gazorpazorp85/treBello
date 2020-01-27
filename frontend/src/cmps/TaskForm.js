@@ -16,6 +16,7 @@ export default class TaskForm extends Component {
             description: '',
             type: 'text',
             labels: [],
+            checkList: [],
             creator: {},
             taskTeamMembers: []
         },
@@ -33,7 +34,7 @@ export default class TaskForm extends Component {
         }
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         this.saveTask();
     }
 
@@ -50,6 +51,7 @@ export default class TaskForm extends Component {
                     description: this.props.description,
                     type: task.type,
                     labels: task.labels,
+                    checkList: task.checkList,
                     creator: task.creator,
                     taskTeamMembers: task.taskTeamMembers
                 },
@@ -125,7 +127,7 @@ export default class TaskForm extends Component {
                         onChange={this.inputChange} value={this.state.task.title} />
                     <div className="flex align-center">
                         <button className="task-form-save-btn">SAVE</button>
-                        <CloseIcon className="task-form-back-btn" onClick={(ev) => {ev.stopPropagation();this.props.closeUpdateForm()}} />
+                        <CloseIcon className="task-form-back-btn" onClick={(ev) => { ev.stopPropagation(); this.props.closeUpdateForm() }} />
                     </div>
                 </div>
             </form>
