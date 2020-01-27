@@ -118,7 +118,7 @@ class Board extends Component {
       const newBoard = { ...this.props.board }
       newBoard.boardBgImage = res
       this.props.updateBoard(newBoard);
-      this.toggleUploadBgImg();
+      // this.props.toggleUploadBgImg();
     })
   }
 

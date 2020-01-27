@@ -1868,3 +1868,30 @@ Mon, 27 Jan 2020 09:40:11 GMT - Info - Server is running on port: 3030
 Mon, 27 Jan 2020 09:40:12 GMT - Info - Server is running on port: 3030
 Mon, 27 Jan 2020 12:55:56 GMT - Info - Server is running on port: 3030
 Mon, 27 Jan 2020 14:14:29 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 14:22:15 GMT - Error - Cannot get boards
+Mon, 27 Jan 2020 14:22:15 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 14:22:16 GMT - Error - Cannot get boards
+Mon, 27 Jan 2020 14:22:16 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 14:23:37 GMT - Error - Cannot get boards
+Mon, 27 Jan 2020 14:23:37 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 14:23:55 GMT - Error - Cannot get boards
+Mon, 27 Jan 2020 14:23:55 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 14:25:04 GMT - Error - Cannot get boards
+Mon, 27 Jan 2020 14:25:04 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 14:25:21 GMT - Debug - auth.service - login with email: batalinvlad@gmail.com
+Mon, 27 Jan 2020 14:25:36 GMT - Debug - auth.service - login with email: Batalin Vlad
+Mon, 27 Jan 2020 14:25:52 GMT - Debug - Vlad,batalin,batalinvlad@gmail.com, batalinvlad, 9081206,#3309D8
+Mon, 27 Jan 2020 14:25:52 GMT - Debug - auth.service - signup with email: batalinvlad@gmail.com, username: batalinvlad
+Mon, 27 Jan 2020 14:27:22 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 15:58:40 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 15:58:40 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 15:58:51 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 15:58:51 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 15:59:08 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 15:59:08 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 16:00:01 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 16:00:01 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 16:03:44 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 16:03:44 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 16:34:12 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 16:34:12 GMT - Error - Cannot get board

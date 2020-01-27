@@ -29,6 +29,7 @@ export default class TaskList extends Component {
     onSaveCheckListItem = () => {
         const checkListItem = {
             text: this.state.text,
+            isDone: false,
             id: utils.getRandomId()
         }
         const checkList = this.state.checkList
@@ -46,10 +47,7 @@ export default class TaskList extends Component {
                 [newTask.id]: newTask
             }
         }
-
-        debugger
         this.props.updateBoard(newBoard);
-
     }
 
     onStopPropagation = (ev) => {
@@ -76,10 +74,10 @@ export default class TaskList extends Component {
                     </div>
                 }
 
-                <ul className="todos-contaienr ">
+                <ul className="todos-contaienr clean-list">
                     {
                         this.props.task.checkList.map(todo => {
-                            return <li key={todo.id} className="todo-item">
+                            return <li key={todo.id} className="todo-item clean-list">
                                 {todo.text}
                             </li>
                         })

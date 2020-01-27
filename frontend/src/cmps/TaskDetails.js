@@ -4,6 +4,7 @@ import moment from 'moment';
 import TitleIcon from '@material-ui/icons/Title';
 import NotesIcon from '@material-ui/icons/Notes';
 // import ListAltIcon from '@material-ui/icons/ListAlt';
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import CloseIcon from '@material-ui/icons/Close';
 import LabelIcon from '@material-ui/icons/Label';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
@@ -29,11 +30,28 @@ export default class TaskDetails extends Component {
         toggleChooseLabels: false,
         toggleChooseMembers: false,
         toggleCheckList: false,
-        onToggleDueDate: false
-
+        onToggleDueDate: false,
+        progressWidth: 0
     }
 
     componentDidMount() {
+        let currTask = this.props.board.tasks[this.props.taskId]
+        if (!currTask.checkList) {
+            currTask.checkList = []
+
+            const newBoard = {
+                ...this.props.board,
+                tasks: {
+                    ...this.props.board.tasks,
+                    [currTask.id]: currTask
+                }
+            }
+            this.props.updateBoard(newBoard);
+
+            this.updateProgressBar()
+        } else {
+            this.updateProgressBar()
+        }
         this.setState({ description: this.props.board.tasks[this.props.taskId].description });
     }
 
@@ -112,6 +130,77 @@ export default class TaskDetails extends Component {
         this.props.toggleTaskDetails();
     }
 
+    toggleTodoDone = (todo) => {
+        todo.isDone = !todo.isDone;
+        let newTask = { ...this.props.board.tasks[this.props.taskId] };
+        const checkList = newTask.checkList;
+        const idx = checkList.findIndex(currTodo => (currTodo.id === todo.id))
+        checkList[idx].isDone = todo.isDone;
+        const newBoard = {
+            ...this.props.board,
+            tasks: {
+                ...this.props.board.tasks,
+                [newTask.id]: newTask
+            }
+        }
+        this.props.updateBoard(newBoard);
+        this.updateProgressBar()
+    }
+
+    updateProgressBar = () => {
+        let start = this.state.progressWidth;
+        const task = this.props.board.tasks[this.props.taskId];
+        let countDone = 0;
+        task.checkList.forEach(todo => {
+            if (todo.isDone) countDone++;
+        })
+        let progressWidth;
+        (!task.checkList.length) ? progressWidth = 0 :
+            progressWidth = ((countDone / task.checkList.length) * 100);
+        if (start < progressWidth) {
+            var upInterval = setInterval(() => {
+                if (start >= progressWidth) {
+                    clearInterval(upInterval);
+                } else {
+                    start++;
+                    this.setState({
+                        progressWidth: start
+                    })
+                }
+            }
+                , 10);
+        } else {
+            var downInterval = setInterval(() => {
+                if (start <= progressWidth) {
+                    clearInterval(downInterval);
+                } else {
+                    start--;
+                    this.setState({
+                        progressWidth: start
+                    })
+                }
+            }
+                , 10);
+        }
+    }
+
+    deleteTodo = (todoId) => {
+        let task = this.props.board.tasks[this.props.taskId];
+        let checkList = task.checkList;
+        const idx = checkList.findIndex(currTodo => (currTodo.id === todoId))
+        checkList.splice(idx, 1);
+        const newBoard = {
+            ...this.props.board,
+            tasks: {
+                ...this.props.board.tasks,
+                [task.id]: task
+            }
+        }
+        debugger
+        this.props.updateBoard(newBoard);
+        this.updateProgressBar()
+    }
+
 
     render() {
         const task = this.props.board.tasks[this.props.taskId];
@@ -160,6 +249,7 @@ export default class TaskDetails extends Component {
 
 
                         <div className="task-details-container-check-list-container">
+
                             {this.state.toggleCheckList ?
                                 <CheckList
                                     toggleCheckList={this.toggleCheckList}
@@ -168,21 +258,45 @@ export default class TaskDetails extends Component {
                                     updateBoard={this.props.updateBoard}
                                 /> : ''
                             }
+
                             <div className="flex align-center">
                                 <LabelIcon />
                                 <h2>Check List :</h2>
                             </div>
-                            <div className="check-list-container flex">
-                                <ul className="todos-contaienr ">
+                            {task.checkList ?
+                                <div className="check-list-container flex column">
                                     {
                                         task.checkList.map(todo => {
-                                            return <li key={todo.id} className="todo-item">
-                                                {todo.text}
-                                            </li>
+                                            return <div key={todo.id} className="todo-item flex space-between" >
+                                                <div className="flex align-center">
+                                                    {todo.isDone ?
+                                                        <input type="checkbox" onChange={() => this.toggleTodoDone(todo)} checked>
+                                                        </input>
+                                                        :
+                                                        <input type="checkbox" onChange={() => this.toggleTodoDone(todo)}>
+                                                        </input>
+                                                    }
+
+                                                    <p className={todo.isDone ? "text-decoration" : ""}>
+                                                        {todo.text}
+                                                    </p>
+                                                </div>
+
+
+                                                <DeleteOutlineIcon
+                                                    onClick={() => this.deleteTodo(todo.id)}
+                                                />
+
+                                            </div>
                                         })
                                     }
-                                </ul>
-                            </div>
+                                    <div className="check-list-progress">
+                                        <div className="progress fill-height flex align-center" style={{ width: this.state.progressWidth + "%" }} >
+                                            <small className="fill-width text-center">{this.state.progressWidth + "%"}</small>
+                                        </div>
+                                    </div>
+                                </div> : ''
+                            }
                         </div>
 
 
@@ -308,7 +422,7 @@ export default class TaskDetails extends Component {
                     </div>
 
                 </div>
-            </div>
+            </div >
         )
     }
 }
