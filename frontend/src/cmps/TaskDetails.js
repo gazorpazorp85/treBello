@@ -89,7 +89,6 @@ export default class TaskDetails extends Component {
         this.setState(prevState => ({ toggleChooseMembers: !prevState.toggleChooseMembers }))
     }
 
-
     toggleCheckList = (ev) => {
         ev.stopPropagation();
         this.setState(prevState => ({ toggleCheckList: !prevState.toggleCheckList }))
