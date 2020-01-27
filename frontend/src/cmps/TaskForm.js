@@ -34,9 +34,15 @@ export default class TaskForm extends Component {
         }
     }
 
+<<<<<<< HEAD
     componentWillUnmount() {
         this.saveTask();
     }
+=======
+    // componentWillUnmount() {
+    //     this.saveTask();
+    // }
+>>>>>>> 22feb606897923eea6295ddc53f530359e1251e7
 
     setFormDataForEdit() {
         if (this.props.task) {
@@ -71,33 +77,6 @@ export default class TaskForm extends Component {
         this.checkIfUrlAndSave(this.state.task.title);
     }
 
-    saveTask = _ => {
-        const newBoard = {
-            ...this.props.board,
-            tasks: {
-                ...this.props.board.tasks,
-                [this.state.task.id]: this.state.task
-            }
-        };
-        const column = this.props.column;
-        const id = this.state.task.id;
-        if (!column.taskIds.includes(id)) column.taskIds.push(id);
-        this.props.updateBoard(newBoard);
-        this.props.closeUpdateForm();
-        if (this.props.toggleUpdateForm) this.props.toggleUpdateForm();
-        if (this.props.toggleTaskDetails) this.props.toggleTaskDetails();
-        let msg = (!this.state.edit) ?
-            `The task '${this.state.task.title}' was added by ${this.props.user}` :
-            `${this.props.user} edited the task '${this.state.task.title}'`;
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
-        utils.emitNotification(msg, 'success');
-    }
-
-    textAreaAdjust = ev => {
-        ev.target.style.height = "1px"
-        ev.target.style.height = (25 + ev.target.scrollHeight) + "px";
-    }
-
     checkIfUrlAndSave = (url) => {
         const youtubeREGEX = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
         const imgREGEX = /.(jpg|jpeg|png|gif)\/?$/;
@@ -112,6 +91,33 @@ export default class TaskForm extends Component {
             });
         }
         this.saveTask();
+    }
+
+    saveTask = _ => {
+        const newBoard = {
+            ...this.props.board,
+            tasks: {
+                ...this.props.board.tasks,
+                [this.state.task.id]: this.state.task
+            }
+        };
+        const column = this.props.column;
+        const id = this.state.task.id;
+        if (!column.taskIds.includes(id)) column.taskIds.push(id);
+        const msg = (!this.state.edit) ?
+            `The task '${this.state.task.title}' was added by ${this.props.user}` :
+            `${this.props.user} edited the task '${this.state.task.title}'`;
+        const notificationType = 'success';
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
+        this.props.updateBoard(newBoard, msg, notificationType);
+        this.props.closeUpdateForm();
+        if (this.props.toggleUpdateForm) this.props.toggleUpdateForm();
+        if (this.props.toggleTaskDetails) this.props.toggleTaskDetails();
+    }
+
+    textAreaAdjust = ev => {
+        ev.target.style.height = "1px"
+        ev.target.style.height = (25 + ev.target.scrollHeight) + "px";
     }
 
     render() {

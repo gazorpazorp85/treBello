@@ -79,6 +79,17 @@
         }
     }
 
+    &-duedate-container {
+        padding-bottom: 30px;
+        border-bottom: 1px solid #a0a0a059;
+        margin: 10px 0px;
+
+        .duedate-edit {
+            margin-top: 5px;
+            margin-left: 40px;
+        }
+    }
+
     &-main {
         padding: 5px;
 
@@ -149,12 +160,8 @@
     }
 
     .react-datepicker-wrapper{
-        position: absolute;
-        top: 234px;
-        right: 180px;
-
         input{
-            width: 175px;
+            width: 200px;
         }
     }
 }

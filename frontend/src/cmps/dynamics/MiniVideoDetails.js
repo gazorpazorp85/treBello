@@ -32,39 +32,48 @@ export default class MiniVideoDetails extends Component {
                 [newTask.id]: newTask
             }
         }
-        this.props.updateBoard(newBoard);
-        this.props.onToggle();
-        let msg = `${this.props.user} updated the task '${this.props.miniTask.task.title}' to '${this.state.title}'`;
+        const msg = `${this.props.user} updated the task '${this.props.miniTask.task.title}' to '${this.state.title}'`;
+        const notificationType = 'success';
         this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
-        utils.emitNotification(msg, 'success');
+        this.props.updateBoard(newBoard, msg, notificationType);
+        this.props.onToggle();
     }
 
     render() {
-        const { miniTask } = this.props;
+        const { task } = this.props.miniTask;
+        const { boundingClientRect } = this.props.miniTask;
         const videoDimensions = { height: 140, width: 246 };
+        const labelLen = task.labels.length;
         return <div className="mini-details-container">
             <div
                 className="mini-details"
                 style={{
-                    left: miniTask.left + 'px',
-                    top: miniTask.top + 'px',
-                    height: miniTask.height + 'px'
+                    left: boundingClientRect.left + 'px',
+                    top: boundingClientRect.top + 'px',
+                    height: boundingClientRect.height + 'px'
                 }}
             >
-                <iframe title={miniTask.task.id}
+                <iframe title={task.id}
                     type='text/html' width={videoDimensions.width}
                     height={videoDimensions.height}
-                    src={miniTask.task.url}
+                    src={task.url}
                     allowFullScreen="allowfullscreen"></iframe>
+                <div className="task-container-labels flex">
+                    {task.labels.map(label => {
+                        return <div key={label} className={label + ' small-label'}>
+                        </div>
+                    })
+                    }
+                </div>
                 <textarea
                     name="title"
-                    className="text-area"
+                    className={"text-area" + (labelLen > 0 ? ' preview-label' : '')}
                     style={{
-                        height: miniTask.height - videoDimensions.height,
+                        height: boundingClientRect.height - videoDimensions.height,
                         position: 'relative',
-                        bottom: 8 + 'px'
+                        bottom: 14 + 'px'
                     }}
-                    defaultValue={miniTask.task.title}
+                    defaultValue={task.title}
                     ref="textarea"
                     onFocus={this.handleFocus}
                     onInput={this.emitChange}
@@ -75,8 +84,8 @@ export default class MiniVideoDetails extends Component {
             <button
                 className="mini-details-save-btn"
                 style={{
-                    left: miniTask.left + 'px',
-                    top: (miniTask.top + miniTask.height + (miniTask.task.title ? 10 : 32)) + 'px'
+                    left: boundingClientRect.left + 'px',
+                    top: (boundingClientRect.top + boundingClientRect.height + (task.title ? 10 : 32)) + 'px'
                 }}
                 onClick={this.onSave}
             >SAVE</button>

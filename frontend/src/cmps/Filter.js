@@ -32,7 +32,7 @@ export default class Filter extends Component {
         const teamMembers = this.props.teamMembers;
 
         return <div className="board-page-nav-bar-filters-item flex">
-            <input type="text" placeholder="search task by name"
+            <input type="text" placeholder="Search task by name"
                 value={this.state.filterBy.title}
                 onChange={this.inputChange} name="title">
             </input>

@@ -1,6 +1,6 @@
 import BoardService from '../services/BoardService';
-
 import SocketService from '../services/SocketService';
+import utils from '../services/utils';
 
 export function loadBoards() {
   return async dispatch => {
@@ -38,12 +38,13 @@ function _setBoard(board) {
   }
 }
 
-export function updateBoard(board) {
+export function updateBoard(board, msg, notificationType) {
   return async dispatch => {
     try {
       dispatch(_boardUpdate(board));
       await BoardService.put(board);
       SocketService.emit('boardUpdate', board);
+      utils.emitNotification(msg, notificationType);
     } catch (err) {
       console.log('BoardActions: err in loadBoard', err);
     }

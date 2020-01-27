@@ -55,11 +55,11 @@ export default class ColumnAddForm extends Component {
         const id = this.state.column.id;
         const columnOrder = newBoard.columnOrder;
         if (!columnOrder.includes(id)) columnOrder.push(id);
-        this.props.updateBoard(newBoard);
+        const msg = `'${this.state.column.title}' was added by ` + this.props.user;
+        const notificationType = 'success';
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
+        this.props.updateBoard(newBoard, msg, notificationType);
         this.props.toggleAddForm();
-        let msg = `'${this.state.column.title}' was added by ` + this.props.user;
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
-        utils.emitNotification(msg, 'success');
     }
 
     render() {

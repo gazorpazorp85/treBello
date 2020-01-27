@@ -38,7 +38,8 @@ async function logout(req, res){
 
 async function getLoggedInUser(req, res) {
     try {
-        if (req.session.user) res.json(req.session.user);        
+        if (req.session.user) res.json(req.session.user);
+        // (req.session.user) ? res.json(req.session.user) : res.json({"username": "Guest"})        
     } catch (err) {
         logger.error('no signedin users', err);
         res.status(500).send({ error: 'no signedin users' });

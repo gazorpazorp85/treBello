@@ -1,0 +1,1870 @@
+Mon, 13 Jan 2020 11:16:58 GMT - Info - Server is running on port: 3000
+Mon, 13 Jan 2020 11:17:11 GMT - Info - Server is running on port: 3000
+Mon, 13 Jan 2020 11:21:30 GMT - Info - Server is running on port: 3000
+Mon, 13 Jan 2020 11:21:41 GMT - Info - Server is running on port: 3000
+Mon, 13 Jan 2020 11:22:17 GMT - Info - Server is running on port: 3000
+Mon, 13 Jan 2020 11:22:35 GMT - Info - Server is running on port: 3000
+Mon, 13 Jan 2020 11:22:46 GMT - Info - Server is running on port: 3000
+Tue, 14 Jan 2020 07:13:19 GMT - Info - Server is running on port: 3030
+Tue, 14 Jan 2020 07:13:39 GMT - Error - Cannot get reviews
+Tue, 14 Jan 2020 07:15:23 GMT - Error - Cannot get reviews
+Tue, 14 Jan 2020 07:15:46 GMT - Error - Cannot get reviews
+Tue, 14 Jan 2020 07:16:05 GMT - Info - Server is running on port: 3030
+Tue, 14 Jan 2020 07:16:09 GMT - Error - Cannot get reviews
+Tue, 14 Jan 2020 07:16:29 GMT - Error - Cannot get reviews
+Tue, 14 Jan 2020 07:18:13 GMT - Error - Cannot get reviews
+Tue, 14 Jan 2020 07:32:53 GMT - Error - Cannot get reviews
+Tue, 14 Jan 2020 07:33:17 GMT - Debug - auth.service - login with email: v
+Tue, 14 Jan 2020 07:33:18 GMT - Error - Cannot get reviews
+Tue, 14 Jan 2020 07:33:23 GMT - Error - Cannot get reviews
+Tue, 14 Jan 2020 07:35:26 GMT - Debug - v, v, v
+Tue, 14 Jan 2020 07:35:26 GMT - Debug - auth.service - signup with email: v, username: v
+Tue, 14 Jan 2020 07:35:27 GMT - Debug - auth.route - new account created: {"email":"v","password":"$2b$10$FtA/XOVg6Huj8PYhLHraQuaNG0lxg9gt2S8chBYtfkqPldrlu7DbG","username":"v","_id":"5e1d6f3f30820335201a26af"}
+Tue, 14 Jan 2020 07:35:27 GMT - Debug - auth.service - login with email: v
+Tue, 14 Jan 2020 07:35:41 GMT - Debug - auth.service - login with email: v
+Tue, 14 Jan 2020 07:35:49 GMT - Error - Cannot get reviews
+Tue, 14 Jan 2020 07:37:19 GMT - Info - Server is running on port: 3030
+Tue, 14 Jan 2020 07:37:25 GMT - Error - Cannot get reviews
+Tue, 14 Jan 2020 07:37:28 GMT - Error - Cannot get reviews
+Tue, 14 Jan 2020 07:38:43 GMT - Error - Cannot get reviews
+Tue, 14 Jan 2020 07:39:10 GMT - Error - Cannot get reviews
+Tue, 14 Jan 2020 07:39:50 GMT - Info - Server is running on port: 3030
+Tue, 14 Jan 2020 07:41:44 GMT - Info - Server is running on port: 3030
+Tue, 14 Jan 2020 07:42:07 GMT - Debug - auth.service - login with email: v
+Tue, 14 Jan 2020 07:47:41 GMT - Info - Server is running on port: 3030
+Tue, 14 Jan 2020 07:48:09 GMT - Debug - auth.service - login with email: v
+Tue, 14 Jan 2020 07:52:16 GMT - Info - Server is running on port: 3030
+Tue, 14 Jan 2020 07:56:09 GMT - Debug - auth.service - login with email: v
+Tue, 14 Jan 2020 08:07:18 GMT - Debug - auth.service - login with email: v
+Tue, 14 Jan 2020 08:11:13 GMT - Debug - auth.service - login with email: v
+Tue, 14 Jan 2020 08:26:02 GMT - Info - Server is running on port: 3030
+Tue, 14 Jan 2020 08:26:39 GMT - Info - Server is running on port: 3030
+Tue, 14 Jan 2020 11:47:05 GMT - Info - Server is running on port: 3030
+Tue, 14 Jan 2020 11:47:27 GMT - Info - Server is running on port: 3030
+Tue, 14 Jan 2020 11:49:50 GMT - Info - Server is running on port: 3030
+Tue, 14 Jan 2020 11:53:59 GMT - Debug - canov19, CaNov19, 1
+Tue, 14 Jan 2020 11:53:59 GMT - Debug - auth.service - signup with email: canov19, username: CaNov19
+Tue, 14 Jan 2020 11:53:59 GMT - Debug - auth.route - new account created: {"email":"canov19","password":"$2b$10$0p9ZIPwVpcFILivaKnAT8OxQF2x2VsueXLzBun6uUc/zowTZJpT2S","username":"CaNov19","_id":"5e1dabd709367a5de4707923"}
+Tue, 14 Jan 2020 11:53:59 GMT - Debug - auth.service - login with email: canov19
+Tue, 14 Jan 2020 12:12:16 GMT - Debug - auth.service - login with email: v
+Sat, 18 Jan 2020 13:58:09 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 13:59:49 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 14:03:04 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 14:03:09 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 14:05:57 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 14:14:00 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 14:14:05 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 14:18:59 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 14:19:22 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 14:23:37 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 14:38:09 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 14:38:10 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 14:38:11 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 14:38:40 GMT - Error - ERROR: Cannot find boards
+Sat, 18 Jan 2020 14:38:40 GMT - Error - Cannot get boards
+Sat, 18 Jan 2020 14:38:52 GMT - Error - ERROR: Cannot find boards
+Sat, 18 Jan 2020 14:38:52 GMT - Error - Cannot get boards
+Sat, 18 Jan 2020 14:39:46 GMT - Error - ERROR: Cannot find boards
+Sat, 18 Jan 2020 14:39:46 GMT - Error - Cannot get boards
+Sat, 18 Jan 2020 14:49:27 GMT - Error - ERROR: Cannot find boards
+Sat, 18 Jan 2020 14:49:27 GMT - Error - Cannot get boards
+Sat, 18 Jan 2020 14:51:21 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 14:51:53 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 14:52:35 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 14:53:43 GMT - Error - ERROR: Cannot find boards
+Sat, 18 Jan 2020 14:53:45 GMT - Error - Cannot get boards
+Sat, 18 Jan 2020 14:55:59 GMT - Error - ERROR: Cannot find boards
+Sat, 18 Jan 2020 14:56:01 GMT - Error - Cannot get boards
+Sat, 18 Jan 2020 15:02:08 GMT - Error - ERROR: Cannot find boards
+Sat, 18 Jan 2020 15:02:08 GMT - Error - Cannot get boards
+Sat, 18 Jan 2020 15:36:10 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 15:36:18 GMT - Error - ERROR: Cannot find boards
+Sat, 18 Jan 2020 15:36:18 GMT - Error - Cannot get boards
+Sat, 18 Jan 2020 15:39:09 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 15:39:16 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 15:39:24 GMT - Error - ERROR: Cannot find boards
+Sat, 18 Jan 2020 15:39:24 GMT - Error - Cannot get boards
+Sat, 18 Jan 2020 15:45:54 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 15:47:40 GMT - Error - ERROR: Cannot find board
+Sat, 18 Jan 2020 15:47:40 GMT - Error - Cannot get board
+Sat, 18 Jan 2020 15:47:43 GMT - Error - ERROR: Cannot find board
+Sat, 18 Jan 2020 15:47:43 GMT - Error - Cannot get board
+Sat, 18 Jan 2020 15:50:22 GMT - Error - ERROR: Cannot find board
+Sat, 18 Jan 2020 15:50:22 GMT - Error - Cannot get board
+Sat, 18 Jan 2020 16:03:57 GMT - Error - ERROR: Cannot find board
+Sat, 18 Jan 2020 16:03:57 GMT - Error - Cannot get board
+Sat, 18 Jan 2020 16:04:10 GMT - Error - ERROR: Cannot find board
+Sat, 18 Jan 2020 16:04:10 GMT - Error - Cannot get board
+Sat, 18 Jan 2020 16:04:11 GMT - Error - ERROR: Cannot find board
+Sat, 18 Jan 2020 16:04:11 GMT - Error - Cannot get board
+Sat, 18 Jan 2020 16:04:13 GMT - Error - ERROR: Cannot find board
+Sat, 18 Jan 2020 16:04:13 GMT - Error - Cannot get board
+Sat, 18 Jan 2020 17:09:52 GMT - Error - ERROR: Cannot update board undefined
+Sat, 18 Jan 2020 17:09:52 GMT - Error - Cannot update board
+Sat, 18 Jan 2020 17:11:00 GMT - Error - ERROR: Cannot update board undefined
+Sat, 18 Jan 2020 17:11:00 GMT - Error - Cannot update board
+Sat, 18 Jan 2020 17:11:04 GMT - Error - ERROR: Cannot update board undefined
+Sat, 18 Jan 2020 17:11:04 GMT - Error - Cannot update board
+Sat, 18 Jan 2020 17:11:05 GMT - Error - ERROR: Cannot update board undefined
+Sat, 18 Jan 2020 17:11:05 GMT - Error - Cannot update board
+Sat, 18 Jan 2020 17:11:21 GMT - Error - ERROR: Cannot update board undefined
+Sat, 18 Jan 2020 17:11:21 GMT - Error - Cannot update board
+Sat, 18 Jan 2020 17:11:42 GMT - Error - ERROR: Cannot update board undefined
+Sat, 18 Jan 2020 17:11:42 GMT - Error - Cannot update board
+Sat, 18 Jan 2020 17:11:44 GMT - Error - ERROR: Cannot update board undefined
+Sat, 18 Jan 2020 17:11:44 GMT - Error - Cannot update board
+Sat, 18 Jan 2020 17:11:50 GMT - Error - ERROR: Cannot update board undefined
+Sat, 18 Jan 2020 17:11:50 GMT - Error - Cannot update board
+Sat, 18 Jan 2020 17:13:19 GMT - Error - ERROR: Cannot update board undefined
+Sat, 18 Jan 2020 17:13:19 GMT - Error - Cannot update board
+Sat, 18 Jan 2020 17:13:21 GMT - Error - ERROR: Cannot update board undefined
+Sat, 18 Jan 2020 17:13:21 GMT - Error - Cannot update board
+Sat, 18 Jan 2020 17:13:23 GMT - Error - ERROR: Cannot update board undefined
+Sat, 18 Jan 2020 17:13:23 GMT - Error - Cannot update board
+Sat, 18 Jan 2020 17:15:08 GMT - Error - ERROR: Cannot update board undefined
+Sat, 18 Jan 2020 17:15:08 GMT - Error - Cannot update board
+Sat, 18 Jan 2020 17:18:05 GMT - Error - ERROR: Cannot update board undefined
+Sat, 18 Jan 2020 17:18:05 GMT - Error - Cannot update board
+Sat, 18 Jan 2020 17:19:07 GMT - Error - ERROR: Cannot update board undefined
+Sat, 18 Jan 2020 17:19:07 GMT - Error - Cannot update board
+Sat, 18 Jan 2020 17:19:37 GMT - Error - ERROR: Cannot update board undefined
+Sat, 18 Jan 2020 17:19:37 GMT - Error - Cannot update board
+Sat, 18 Jan 2020 17:20:50 GMT - Error - ERROR: Cannot update board undefined
+Sat, 18 Jan 2020 17:20:50 GMT - Error - Cannot update board
+Sat, 18 Jan 2020 17:22:17 GMT - Error - ERROR: Cannot update board undefined
+Sat, 18 Jan 2020 17:22:17 GMT - Error - Cannot update board
+Sat, 18 Jan 2020 17:23:13 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 17:24:11 GMT - Error - ERROR: Cannot update board undefined
+Sat, 18 Jan 2020 17:24:11 GMT - Error - Cannot update board
+Sat, 18 Jan 2020 17:24:41 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 17:24:43 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 17:48:28 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 17:56:13 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 18:57:00 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 18:57:06 GMT - Info - Server is running on port: 3030
+Sat, 18 Jan 2020 20:25:03 GMT - Error - ERROR: Cannot find board
+Sat, 18 Jan 2020 20:25:03 GMT - Error - Cannot get board
+Sun, 19 Jan 2020 07:13:42 GMT - Info - Server is running on port: 3030
+Sun, 19 Jan 2020 07:14:08 GMT - Info - Server is running on port: 3030
+Sun, 19 Jan 2020 07:14:17 GMT - Info - Server is running on port: 3030
+Sun, 19 Jan 2020 07:15:15 GMT - Info - Server is running on port: 3030
+Sun, 19 Jan 2020 07:15:37 GMT - Info - Server is running on port: 3030
+Sun, 19 Jan 2020 07:16:20 GMT - Info - Server is running on port: 3030
+Sun, 19 Jan 2020 07:16:22 GMT - Info - Server is running on port: 3030
+Sun, 19 Jan 2020 07:16:28 GMT - Info - Server is running on port: 3030
+Sun, 19 Jan 2020 11:02:12 GMT - Info - Server is running on port: 3030
+Sun, 19 Jan 2020 12:13:48 GMT - Error - ERROR: Cannot find boards
+Sun, 19 Jan 2020 12:13:48 GMT - Error - ERROR: Cannot find boards
+Sun, 19 Jan 2020 12:13:48 GMT - Error - Cannot get boards
+Sun, 19 Jan 2020 12:13:48 GMT - Error - Cannot get boards
+Sun, 19 Jan 2020 12:33:20 GMT - Info - Server is running on port: 3030
+Sun, 19 Jan 2020 12:43:23 GMT - Info - Server is running on port: 3030
+Sun, 19 Jan 2020 12:44:10 GMT - Info - Server is running on port: 3030
+Sun, 19 Jan 2020 12:44:50 GMT - Info - Server is running on port: 3030
+Sun, 19 Jan 2020 12:45:17 GMT - Info - Server is running on port: 3030
+Sun, 19 Jan 2020 12:46:05 GMT - Debug - paolo.groppi@gmail.com, gazorpazorp, 1234
+Sun, 19 Jan 2020 12:46:05 GMT - Debug - auth.service - signup with email: paolo.groppi@gmail.com, username: gazorpazorp
+Sun, 19 Jan 2020 12:46:05 GMT - Debug - auth.route - new account created: {"email":"paolo.groppi@gmail.com","password":"$2b$10$FBFGKB1oWtRRDeGkdsYdAefKv0ihu6xSITfw3mc6Ap4BG0AaEfCCO","username":"gazorpazorp","_id":"5e244f8db8d9191e946b6125"}
+Sun, 19 Jan 2020 12:46:05 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 12:47:04 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 12:49:15 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 14:00:09 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 14:18:14 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 14:21:45 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 14:22:49 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 14:34:59 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 14:39:42 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 14:47:10 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 14:47:41 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 15:04:58 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 15:05:31 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 15:06:31 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 15:08:52 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 15:12:57 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 15:13:10 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 15:22:28 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 15:26:52 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 15:57:52 GMT - Debug - blabla@bla.com, blabla!, 123
+Sun, 19 Jan 2020 15:57:52 GMT - Debug - auth.service - signup with email: blabla@bla.com, username: blabla!
+Sun, 19 Jan 2020 15:57:52 GMT - Debug - auth.route - new account created: {"email":"blabla@bla.com","password":"$2b$10$tmQEjj9oPtOrteZogbZBYeLAQkkLxe/W5PJQXLWoGkfs6kFEtB4M6","username":"blabla!","_id":"5e247c80b8d9191e946b6126"}
+Sun, 19 Jan 2020 15:57:52 GMT - Debug - auth.service - login with email: blabla@bla.com
+Sun, 19 Jan 2020 15:59:26 GMT - Debug - tralala@tralala.com, tralalalalalala, 123456
+Sun, 19 Jan 2020 15:59:26 GMT - Debug - auth.service - signup with email: tralala@tralala.com, username: tralalalalalala
+Sun, 19 Jan 2020 15:59:26 GMT - Debug - auth.route - new account created: {"email":"tralala@tralala.com","password":"$2b$10$FgOP7/rhyBBCLAFgSTR55OvvB5BU/Q4dXYS7xViuyRyHpaEipq3uW","username":"tralalalalalala","_id":"5e247cdeb8d9191e946b6127"}
+Sun, 19 Jan 2020 15:59:26 GMT - Debug - auth.service - login with email: tralala@tralala.com
+Sun, 19 Jan 2020 16:01:10 GMT - Debug - blabla@bla.com, blabla!, asdcb
+Sun, 19 Jan 2020 16:01:10 GMT - Debug - auth.service - signup with email: blabla@bla.com, username: blabla!
+Sun, 19 Jan 2020 16:01:10 GMT - Debug - auth.route - new account created: {"email":"blabla@bla.com","password":"$2b$10$6hASbpHm87UpbbpFIdE5H.olUN7IxyaBWvaIMrncHeqgb7wi5pk7i","username":"blabla!","_id":"5e247d46b8d9191e946b6128"}
+Sun, 19 Jan 2020 16:01:10 GMT - Debug - auth.service - login with email: blabla@bla.com
+Sun, 19 Jan 2020 16:02:34 GMT - Debug - blabla@bla.com, djoivhgi, 1234
+Sun, 19 Jan 2020 16:02:34 GMT - Debug - auth.service - signup with email: blabla@bla.com, username: djoivhgi
+Sun, 19 Jan 2020 16:02:34 GMT - Debug - auth.route - new account created: {"email":"blabla@bla.com","password":"$2b$10$1mJGDqJPZ5Z27SJgIzRAtOKCLlbBVqNy.t1tsUJtcZZPCLAIHwHLS","username":"djoivhgi","_id":"5e247d9ab8d9191e946b6129"}
+Sun, 19 Jan 2020 16:02:34 GMT - Debug - auth.service - login with email: blabla@bla.com
+Sun, 19 Jan 2020 16:02:34 GMT - Error - [SIGNUP] Invalid email or password
+Sun, 19 Jan 2020 16:06:06 GMT - Debug - blabla@bla.com, 123456789, 1234
+Sun, 19 Jan 2020 16:06:06 GMT - Debug - auth.service - signup with email: blabla@bla.com, username: 123456789
+Sun, 19 Jan 2020 16:06:06 GMT - Debug - auth.route - new account created: {"email":"blabla@bla.com","password":"$2b$10$9l5E9.LdszfNE3LJ.0zVKO6zso/oOYgTpMgeMC8xcip7TeTMGm1LW","username":"123456789","_id":"5e247e6eb8d9191e946b612a"}
+Sun, 19 Jan 2020 16:06:06 GMT - Debug - auth.service - login with email: blabla@bla.com
+Sun, 19 Jan 2020 16:07:29 GMT - Debug - tralala@tralala.com, tralalala, 123456
+Sun, 19 Jan 2020 16:07:29 GMT - Debug - auth.service - signup with email: tralala@tralala.com, username: tralalala
+Sun, 19 Jan 2020 16:07:30 GMT - Debug - auth.route - new account created: {"email":"tralala@tralala.com","password":"$2b$10$LZtWV2KNlcExDeY5e00hMu12YooPJOz3LEwxWlm/7PQG/272CMrmq","username":"tralalala","_id":"5e247ec1b8d9191e946b612b"}
+Sun, 19 Jan 2020 16:07:30 GMT - Debug - auth.service - login with email: tralala@tralala.com
+Sun, 19 Jan 2020 16:13:59 GMT - Debug - blabla@bla.com, 12345789, 123456789
+Sun, 19 Jan 2020 16:13:59 GMT - Debug - auth.service - signup with email: blabla@bla.com, username: 12345789
+Sun, 19 Jan 2020 16:13:59 GMT - Debug - auth.route - new account created: {"email":"blabla@bla.com","password":"$2b$10$73.aWED4MNJwX1i4hF32Y.vmb8tsL8OByY1YHQ9Z7OisAloEDS9u6","username":"12345789","_id":"5e248047b8d9191e946b612c"}
+Sun, 19 Jan 2020 16:13:59 GMT - Debug - auth.service - login with email: blabla@bla.com
+Sun, 19 Jan 2020 16:14:00 GMT - Error - [SIGNUP] Invalid email or password
+Sun, 19 Jan 2020 16:26:59 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 16:31:46 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 16:31:53 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 16:33:42 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 16:34:23 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 16:36:32 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 16:45:14 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 16:46:10 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 16:46:54 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 16:47:04 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 16:47:11 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 16:52:59 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 16:57:15 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 16:57:36 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 17:05:57 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 17:11:26 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 17:13:59 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 17:15:23 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 17:16:56 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 17:20:00 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 17:21:20 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 17:21:28 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 17:24:09 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 17:24:18 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 17:25:05 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 17:25:13 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 17:25:56 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 17:26:41 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 17:26:51 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 17:27:42 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 17:37:05 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 17:46:43 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 17:48:51 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 19 Jan 2020 19:33:51 GMT - Error - ERROR: Cannot find board
+Sun, 19 Jan 2020 19:33:51 GMT - Error - Cannot get board
+Sun, 19 Jan 2020 19:49:42 GMT - Error - ERROR: Cannot update board undefined
+Sun, 19 Jan 2020 19:49:42 GMT - Error - Cannot update board
+Sun, 19 Jan 2020 19:58:36 GMT - Info - Server is running on port: 3030
+Sun, 19 Jan 2020 19:59:05 GMT - Error - ERROR: Cannot update board undefined
+Sun, 19 Jan 2020 19:59:05 GMT - Error - Cannot update board
+Mon, 20 Jan 2020 06:54:02 GMT - Error - ERROR: Cannot find board
+Mon, 20 Jan 2020 06:54:02 GMT - Error - Cannot get board
+Mon, 20 Jan 2020 07:57:20 GMT - Error - ERROR: Cannot find boards
+Mon, 20 Jan 2020 07:57:20 GMT - Error - ERROR: Cannot find board
+Mon, 20 Jan 2020 07:57:20 GMT - Error - ERROR: Cannot find boards
+Mon, 20 Jan 2020 07:57:20 GMT - Error - ERROR: Cannot find boards
+Mon, 20 Jan 2020 07:57:20 GMT - Error - Cannot get boards
+Mon, 20 Jan 2020 07:57:20 GMT - Error - Cannot get board
+Mon, 20 Jan 2020 07:57:20 GMT - Error - Cannot get boards
+Mon, 20 Jan 2020 07:57:20 GMT - Error - Cannot get boards
+Mon, 20 Jan 2020 08:38:50 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 09:21:55 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 09:22:46 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 09:23:17 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 09:25:41 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 09:45:01 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 09:45:21 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 10:16:33 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 10:20:41 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 10:20:56 GMT - Error - ERROR: Cannot add board
+Mon, 20 Jan 2020 10:20:56 GMT - Error - Cannot create board
+Mon, 20 Jan 2020 10:22:10 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 10:22:12 GMT - Error - ERROR: Cannot add board
+Mon, 20 Jan 2020 10:22:12 GMT - Error - Cannot create board
+Mon, 20 Jan 2020 10:25:36 GMT - Error - ERROR: Cannot find board
+Mon, 20 Jan 2020 10:25:36 GMT - Error - Cannot get board
+Mon, 20 Jan 2020 10:26:28 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 10:29:30 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 10:29:53 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 10:30:14 GMT - Error - ERROR: Cannot add board
+Mon, 20 Jan 2020 10:30:14 GMT - Error - Cannot create board
+Mon, 20 Jan 2020 10:39:03 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 10:49:03 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 12:49:34 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 12:50:04 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 12:50:34 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 12:51:36 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 12:53:28 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 12:53:53 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 13:05:09 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 13:07:14 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 13:09:54 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 13:10:16 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 13:11:36 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 13:11:53 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 13:13:00 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 13:14:31 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 13:56:08 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 20 Jan 2020 15:43:55 GMT - Debug - blabla@bla.com, bla, bla
+Mon, 20 Jan 2020 15:43:55 GMT - Debug - auth.service - signup with email: blabla@bla.com, username: bla
+Mon, 20 Jan 2020 15:43:55 GMT - Debug - auth.route - new account created: {"email":"blabla@bla.com","password":"$2b$10$jBL19vQKn0AtG9d1nQGL3etVpVczKwrDO1HcC8UrPC29TQfFb3fa6","username":"bla","_id":"5e25cabbd9132934d4c08efa"}
+Mon, 20 Jan 2020 15:43:55 GMT - Debug - auth.service - login with email: blabla@bla.com
+Mon, 20 Jan 2020 16:18:55 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 16:19:03 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 16:21:32 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 16:21:36 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 16:23:15 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 16:29:31 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 16:29:54 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 16:34:57 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 16:34:59 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 16:35:03 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 16:35:10 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 16:35:15 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 16:36:57 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 16:43:00 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 16:43:00 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 16:43:01 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 17:20:32 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 17:20:40 GMT - Error - Cannot get board
+Mon, 20 Jan 2020 17:21:47 GMT - Error - Cannot get board
+Mon, 20 Jan 2020 17:22:58 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 17:23:00 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 17:23:18 GMT - Error - Cannot get board
+Mon, 20 Jan 2020 17:25:21 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 17:28:36 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 17:29:22 GMT - Info - Server is running on port: 3030
+Mon, 20 Jan 2020 17:29:36 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 06:32:41 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:32:48 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:33:07 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:33:39 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:33:41 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:34:22 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:34:35 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:34:47 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 06:35:22 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:35:41 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:35:55 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:37:13 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 06:37:52 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:37:56 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 06:37:57 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 06:41:44 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:41:53 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 06:42:26 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:42:28 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 06:42:28 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 06:42:37 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:49:02 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:49:15 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:53:02 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:53:52 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:54:14 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:54:35 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:54:57 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:55:01 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:55:02 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:55:14 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 06:55:14 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 06:56:59 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:57:59 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:58:28 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:59:41 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 06:59:59 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:00:03 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:00:35 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:00:38 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:05:43 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:07:01 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:07:02 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:07:24 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:07:31 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:07:47 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:08:23 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:08:55 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:09:02 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:09:04 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:09:10 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:09:15 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:18:26 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:19:18 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:21:32 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:21:41 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:21:45 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:21:47 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:22:27 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:22:33 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:22:42 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:22:56 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:25:50 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:26:29 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:26:56 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 07:31:47 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 09:40:10 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 09:40:27 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 12:03:33 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 12:07:04 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 12:07:15 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 12:07:20 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 12:07:35 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 12:07:38 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 12:08:12 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 12:08:24 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 12:08:24 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 12:09:06 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 12:09:07 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 12:09:10 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 12:10:07 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 12:10:07 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 12:10:09 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 12:10:09 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 12:30:48 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 12:31:08 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 12:42:41 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 12:42:41 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 13:55:39 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 13:56:51 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 13:56:54 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 13:57:04 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 14:01:55 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:18:24 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:19:13 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:19:24 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:19:32 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:20:32 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:20:55 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:21:05 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 14:29:47 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:30:00 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:31:05 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:31:48 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:32:40 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:33:18 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:33:56 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:34:19 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:34:22 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:34:38 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 14:34:38 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 14:34:51 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:35:00 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:35:05 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 14:35:05 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 14:35:54 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:36:09 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:36:19 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:36:20 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:36:24 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 14:36:24 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 14:36:43 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:36:50 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:36:54 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 14:36:54 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 14:37:52 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 14:37:52 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 14:38:06 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 14:38:06 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 14:38:12 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 14:38:12 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 14:42:17 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 14:42:17 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 14:43:33 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:45:00 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:45:05 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 14:45:05 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 14:46:41 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 14:46:41 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 14:46:59 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 14:46:59 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 14:47:51 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 14:47:51 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 14:47:57 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 14:47:57 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 14:48:06 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 14:48:06 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 14:48:18 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 14:48:18 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 14:49:33 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:49:52 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:50:38 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:50:51 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:51:16 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:53:59 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:55:27 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:57:07 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:57:13 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:57:26 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 14:57:26 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 14:58:49 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:58:51 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 14:58:51 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 14:59:25 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 14:59:29 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 14:59:29 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 15:00:26 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 15:00:26 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 15:00:44 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:00:48 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 15:00:48 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 15:01:11 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:01:15 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 15:01:15 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 15:01:37 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:01:40 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 15:01:40 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 15:02:17 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:02:24 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:02:27 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 15:02:27 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 15:02:55 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:02:58 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 15:02:58 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 15:03:22 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:03:34 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:04:27 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:04:50 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:05:23 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:05:26 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 15:05:26 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 15:05:45 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:05:48 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 15:05:48 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 15:06:11 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:06:14 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:07:33 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:08:24 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:08:42 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:10:32 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:11:41 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:11:45 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 15:11:45 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 15:12:11 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:12:35 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:14:17 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:14:30 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:14:35 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:16:03 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:17:53 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:17:54 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:50:29 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:52:43 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:53:38 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:56:27 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:56:31 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:56:36 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 15:57:29 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 16:00:42 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 16:00:53 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 16:02:06 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 16:03:31 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 16:04:01 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 16:04:47 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 16:05:10 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 16:05:12 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 16:05:13 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 16:05:59 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 16:06:06 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 16:09:41 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 16:51:20 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 16:51:20 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 16:51:54 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 16:51:54 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 16:52:28 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 16:52:28 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 16:52:41 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 16:52:41 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 16:54:18 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 16:54:18 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 16:54:20 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 16:54:20 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 16:57:58 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 16:57:58 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 16:58:06 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 16:58:06 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 17:00:02 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:06:54 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:07:38 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:08:25 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:08:29 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:20:12 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:20:37 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:20:50 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:26:00 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:26:06 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:26:17 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:27:57 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:30:03 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:30:46 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:30:52 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:31:00 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:33:45 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:34:11 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 17:34:11 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 17:34:58 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:35:04 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 17:35:04 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 17:35:34 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:35:39 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 17:35:39 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 17:35:49 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:36:24 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:36:35 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 17:36:35 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 17:36:55 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:38:16 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:40:08 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:46:25 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:49:19 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:49:26 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 17:49:26 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 17:50:17 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:50:21 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:50:48 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:51:04 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:51:09 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:51:12 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:51:17 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 17:51:17 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 17:51:27 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:51:32 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 17:51:32 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 17:51:35 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 17:51:35 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 17:51:41 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:51:50 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 17:51:50 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 17:52:17 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:52:34 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:52:40 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 17:52:40 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 17:54:31 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:54:33 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:54:38 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:55:31 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:55:37 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 17:55:44 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 17:55:44 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 17:56:18 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:19:36 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:19:46 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:19:48 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:24:18 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:24:49 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:25:13 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:25:13 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:25:15 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:25:15 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:25:45 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:25:52 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:25:52 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:26:56 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:27:32 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:27:43 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:27:43 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:27:44 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:27:44 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:28:02 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:28:06 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:28:14 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:28:14 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:28:16 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:28:16 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:29:15 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:29:21 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:29:21 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:30:35 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:30:38 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:31:09 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:31:33 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:31:58 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:32:01 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:32:09 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:32:09 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:32:33 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:32:36 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:32:51 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:32:58 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:32:58 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:34:13 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:34:25 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:34:25 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:34:30 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:34:30 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:35:08 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:35:13 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:35:13 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:35:24 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:35:24 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:35:28 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:35:28 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:35:44 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:35:44 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:35:58 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:36:07 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:36:07 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:37:36 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:37:44 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:37:44 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:38:08 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:38:15 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:38:15 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:38:54 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:39:08 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:39:08 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:39:31 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:39:35 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:39:41 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:39:41 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:39:56 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:40:06 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:40:06 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:40:19 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:40:23 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:40:23 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:40:40 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:40:42 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:40:46 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:40:46 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:40:53 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:40:53 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:41:49 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:41:56 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:42:01 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:42:01 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:43:08 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:43:15 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:43:16 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:43:17 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:43:20 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:43:24 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:43:24 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:44:09 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:44:13 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:44:13 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:45:50 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:46:01 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:46:01 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 19:47:43 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 19:47:52 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 19:47:52 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:27:59 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:27:59 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:29:28 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:29:32 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:29:32 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:29:52 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:29:59 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:29:59 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:33:39 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:33:45 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:33:45 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:33:52 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:33:52 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:34:38 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:34:39 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:34:46 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:34:46 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:35:43 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:35:48 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:35:48 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:36:24 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:36:27 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:36:27 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:36:46 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:36:54 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:36:54 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:37:25 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:37:26 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:37:31 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:37:31 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:38:27 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:38:37 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:38:53 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:39:07 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:39:26 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:39:32 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:39:42 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:39:43 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:39:52 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:39:58 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:40:10 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:40:15 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:40:20 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:40:20 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:40:44 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:40:45 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:40:52 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:40:52 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:41:05 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:41:05 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:41:18 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:41:18 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:41:45 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:41:56 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:42:01 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:42:04 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:42:04 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:42:31 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:43:01 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:44:03 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:44:11 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:44:11 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:44:24 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:44:31 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:44:31 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:44:57 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:45:04 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:45:04 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:45:39 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:46:11 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:46:31 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:46:31 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:47:10 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 20:48:54 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:48:54 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:50:50 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:50:50 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:52:12 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:52:12 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:53:21 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:53:21 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:55:06 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 20:55:06 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 20:57:57 GMT - Info - Server is running on port: 3030
+Tue, 21 Jan 2020 21:00:52 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 21:00:52 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 21:02:40 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Tue, 21 Jan 2020 21:03:00 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Tue, 21 Jan 2020 21:03:13 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Tue, 21 Jan 2020 21:03:35 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Tue, 21 Jan 2020 21:34:24 GMT - Error - ERROR: Cannot find board
+Tue, 21 Jan 2020 21:34:24 GMT - Error - Cannot get board
+Tue, 21 Jan 2020 22:08:24 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Wed, 22 Jan 2020 07:19:26 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 07:20:19 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 07:59:10 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 07:59:10 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:00:46 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 08:00:46 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:02:01 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:02:15 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:02:36 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:02:50 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:02:55 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:03:12 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 08:03:12 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:03:48 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 08:03:48 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:04:18 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:04:30 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:04:45 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:04:51 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:05:01 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:05:09 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 08:05:09 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:05:51 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:05:55 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 08:05:55 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:06:32 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:06:39 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 08:06:39 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:07:23 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:07:30 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:08:53 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 08:08:53 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:09:59 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:10:05 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 08:10:05 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:11:05 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:11:10 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 08:11:10 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:11:23 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:11:28 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:11:31 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 08:11:31 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:11:41 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:12:23 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:14:33 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 08:14:33 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:17:42 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 08:17:42 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:18:51 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 08:18:51 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:18:53 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 08:18:53 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:19:35 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:19:51 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 08:19:51 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:20:34 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:20:40 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 08:20:40 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:23:28 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:24:23 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 08:24:30 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:27:15 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 08:27:15 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:27:29 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:31:31 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:32:03 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:32:26 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:32:34 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:32:42 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:32:47 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:32:49 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:32:56 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 08:32:56 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:33:08 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:33:10 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:33:22 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:33:54 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:34:09 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:34:42 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:34:43 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:35:05 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:37:13 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:37:30 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:37:34 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:38:38 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:39:02 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:39:06 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:39:07 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:39:30 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:39:41 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:39:58 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:40:20 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:40:25 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 08:40:25 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:40:42 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:43:44 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:44:54 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:44:56 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 08:44:56 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 08:45:09 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:46:14 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:46:20 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:47:12 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:47:35 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:48:46 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:49:10 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:49:42 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:50:32 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:50:47 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:51:07 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:51:11 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:51:50 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:54:17 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:54:33 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:58:15 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:58:28 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:58:40 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:59:32 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 08:59:45 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:00:01 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:00:23 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:02:08 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:14:00 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:14:17 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:14:54 GMT - Debug - blablablabla@bla.com, Bla, bla
+Wed, 22 Jan 2020 09:14:54 GMT - Debug - auth.service - signup with email: blablablabla@bla.com, username: Bla
+Wed, 22 Jan 2020 09:14:55 GMT - Debug - auth.route - new account created: {"email":"blablablabla@bla.com","password":"$2b$10$xrcipNX5pqq3j/iMqkibs.nfjIJddf5XW/hGCPJQWYCVEgtzTBUYm","username":"Bla","_id":"5e28128e6bd3a52fec8a5fef"}
+Wed, 22 Jan 2020 09:14:55 GMT - Debug - auth.service - login with email: blablablabla@bla.com
+Wed, 22 Jan 2020 09:18:23 GMT - Debug - bla@bla.com, bla, bla
+Wed, 22 Jan 2020 09:18:23 GMT - Debug - auth.service - signup with email: bla@bla.com, username: bla
+Wed, 22 Jan 2020 09:18:23 GMT - Debug - auth.route - new account created: {"email":"bla@bla.com","password":"$2b$10$vpJ.toeiY3lNZQ3j1vZ0wOdFfTQnpU2Vh7mj8QuFqylL106hGEwmK","username":"bla","_id":"5e28135f6bd3a52fec8a5ff0"}
+Wed, 22 Jan 2020 09:18:23 GMT - Debug - auth.service - login with email: bla@bla.com
+Wed, 22 Jan 2020 09:23:10 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:23:27 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:24:32 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:27:50 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:28:37 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:29:12 GMT - Debug - bla,bla,blabla@bla.com, bla, bla
+Wed, 22 Jan 2020 09:29:12 GMT - Debug - auth.service - signup with email: blabla@bla.com, username: bla
+Wed, 22 Jan 2020 09:29:12 GMT - Error - [SIGNUP] ReferenceError: lastNAme is not defined
+Wed, 22 Jan 2020 09:30:42 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:30:56 GMT - Debug - bla,bla,blabla@bla.com, bla, bla
+Wed, 22 Jan 2020 09:30:56 GMT - Debug - auth.service - signup with email: blabla@bla.com, username: bla
+Wed, 22 Jan 2020 09:30:57 GMT - Debug - auth.route - new account created: {"firstName":"bla","lastName":"bla","email":"blabla@bla.com","password":"$2b$10$zvGG3jT/NL0g5TZ4p7Y1lef.Vf1xQGfe6dUbsM3uXIlmCOOMu85cG","username":"bla","_id":"5e281651440f2c37a4a87f01"}
+Wed, 22 Jan 2020 09:30:57 GMT - Debug - auth.service - login with email: blabla@bla.com
+Wed, 22 Jan 2020 09:32:03 GMT - Debug - Paolo,Groppi,paolo.groppi@gmail.com, gazorpazorp, 1234
+Wed, 22 Jan 2020 09:32:03 GMT - Debug - auth.service - signup with email: paolo.groppi@gmail.com, username: gazorpazorp
+Wed, 22 Jan 2020 09:32:03 GMT - Debug - auth.route - new account created: {"firstName":"Paolo","lastName":"Groppi","email":"paolo.groppi@gmail.com","password":"$2b$10$c9OARvmgwJ7MmCcU6qcheulu9PUcUkL5CWho7gVOmfnVTWI8KxBJO","username":"gazorpazorp","_id":"5e281693440f2c37a4a87f02"}
+Wed, 22 Jan 2020 09:32:03 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Wed, 22 Jan 2020 09:35:10 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:35:15 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:36:56 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:37:02 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:37:09 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:41:02 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:41:12 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Wed, 22 Jan 2020 09:42:38 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Wed, 22 Jan 2020 09:43:21 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:44:18 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:46:12 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:46:15 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:46:22 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 09:46:22 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 09:47:03 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:47:24 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:47:45 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 09:47:45 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 09:47:45 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 09:47:45 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 09:49:08 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:49:17 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:50:12 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:50:31 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:50:34 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:50:44 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:51:35 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:51:46 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:51:48 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:51:53 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 09:51:53 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 09:51:59 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 09:51:59 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 09:52:15 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:53:03 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:53:40 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:54:33 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:55:10 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:55:27 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:56:59 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:57:08 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:57:12 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:57:17 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:57:52 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:58:00 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:58:46 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:58:52 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:59:21 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 09:59:37 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:00:43 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:00:46 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:00:49 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:03:22 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:03:36 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:04:01 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 10:04:01 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 10:04:17 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:04:22 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 10:04:22 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 10:04:34 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:04:41 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:04:44 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 10:04:44 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 10:04:50 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:05:14 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:05:42 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:05:48 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 10:05:48 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 10:05:49 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 10:05:49 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 10:06:35 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:06:42 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 10:06:42 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 10:07:52 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:08:05 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:08:06 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:13:06 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:13:58 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:14:03 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 10:14:03 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 10:14:13 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:14:18 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 10:14:18 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 10:14:42 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:15:29 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:15:31 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:16:09 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:16:14 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 10:16:14 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 10:16:58 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:17:35 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:17:58 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:18:05 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:18:07 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:18:35 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:19:10 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:19:26 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:21:19 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:22:04 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:22:10 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 10:22:10 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 10:22:20 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:26:59 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:27:47 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:27:57 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:27:59 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:29:02 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:29:03 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:29:16 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:35:35 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:37:18 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:37:28 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:37:31 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:38:01 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:38:07 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:38:16 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:38:24 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:39:46 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:40:41 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:40:46 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:55:32 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:55:38 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:56:03 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:56:23 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:56:30 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 10:58:28 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:01:46 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:01:50 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:03:20 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:03:37 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:04:11 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:04:24 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:04:32 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:04:37 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:04:42 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:05:22 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:05:58 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:07:18 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:07:20 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:07:28 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 11:07:28 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 11:07:30 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 11:07:30 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 11:07:40 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:07:59 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:08:12 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:09:23 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:09:25 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:09:48 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:09:54 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 11:09:54 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 11:09:55 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 11:09:55 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 11:10:09 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:10:11 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 11:10:11 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 11:10:12 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 11:10:12 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 11:10:28 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:10:41 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:11:31 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:11:46 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:12:24 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:12:24 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:12:34 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:12:41 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:12:45 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:13:33 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:13:58 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:14:01 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:14:06 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:14:19 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:14:57 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:15:26 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:15:52 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:16:09 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:16:12 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 11:16:12 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 11:16:28 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:16:32 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 11:16:32 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 11:16:42 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:16:54 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:17:11 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:17:24 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:17:28 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 11:17:28 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 11:17:29 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 11:17:29 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 11:17:38 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:17:41 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 11:17:41 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 11:17:42 GMT - Error - ERROR: Cannot find board
+Wed, 22 Jan 2020 11:17:42 GMT - Error - Cannot get board
+Wed, 22 Jan 2020 11:18:10 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:18:35 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:19:12 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:19:42 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:19:52 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:19:55 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:19:58 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:20:09 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:20:11 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:22:58 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:23:10 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:26:25 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:27:04 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:27:07 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:27:48 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:27:59 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:29:01 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:29:13 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:31:05 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:31:26 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:31:28 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:32:00 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:32:02 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:32:25 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:32:27 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:33:44 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:34:10 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:34:17 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:34:21 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:34:27 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:34:39 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:34:40 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:35:16 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:35:23 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:35:25 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:35:57 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:35:59 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:36:52 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:37:58 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:39:08 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:39:32 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:40:50 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:42:28 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:49:59 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:50:00 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 11:50:01 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 13:47:20 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 13:47:35 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 13:47:51 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 13:55:28 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 13:59:10 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 14:01:28 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 14:01:39 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 14:06:48 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 14:14:30 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 14:17:09 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 14:22:08 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 14:22:10 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 14:25:53 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 14:25:58 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 14:26:27 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 14:35:05 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 14:37:57 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 14:42:27 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 14:45:07 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 14:54:08 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 14:54:08 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 14:54:08 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 14:54:08 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 14:54:08 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 14:54:08 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 14:54:19 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 14:54:19 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 14:54:19 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 14:54:19 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 14:54:22 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 14:54:22 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 14:54:22 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 14:54:22 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 14:54:25 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 14:54:25 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 14:54:25 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 14:54:25 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 14:54:55 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 14:54:55 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 14:54:55 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 14:54:55 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 14:54:59 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 14:54:59 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 14:55:00 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 14:55:00 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 14:55:23 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 14:55:23 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 14:55:23 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 14:55:23 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 14:55:26 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 14:55:26 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 14:55:26 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 14:55:26 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 15:13:23 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 15:15:05 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 16:06:37 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 16:06:37 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 16:06:37 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 16:06:37 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 16:06:38 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 16:06:39 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 16:06:39 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 16:06:39 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 16:06:49 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 16:06:49 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 16:06:49 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 16:06:49 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 16:06:52 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 16:06:52 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 16:06:52 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 16:06:52 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 16:06:54 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 16:06:54 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 16:06:54 GMT - Error - ERROR: Cannot update board undefined
+Wed, 22 Jan 2020 16:06:54 GMT - Error - Cannot update board
+Wed, 22 Jan 2020 16:09:43 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 16:34:08 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 16:34:23 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 17:26:40 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 17:26:45 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 17:28:01 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 17:28:10 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 17:38:05 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 17:38:39 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 17:38:57 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 17:39:10 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 17:39:23 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 17:39:34 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 17:39:48 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 17:40:38 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 17:40:40 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 17:41:32 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 17:41:33 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 17:41:35 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 17:41:59 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 17:42:09 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 17:43:24 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 19:25:56 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Wed, 22 Jan 2020 19:26:13 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Wed, 22 Jan 2020 19:30:35 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Wed, 22 Jan 2020 19:31:43 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Wed, 22 Jan 2020 19:49:23 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 19:49:24 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 19:54:28 GMT - Info - Server is running on port: 3030
+Wed, 22 Jan 2020 19:55:07 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 07:47:56 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 07:48:11 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 07:50:44 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 07:52:27 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 07:52:30 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 07:53:32 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 07:58:22 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 07:58:23 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 08:03:30 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 08:04:23 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 08:04:25 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 08:20:49 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 08:40:33 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 09:30:19 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:30:28 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:30:29 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:30:42 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:30:43 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:31:04 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:31:06 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:32:04 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:32:11 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:32:25 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:32:27 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:32:39 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:32:50 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:33:18 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:33:22 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:33:45 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:34:15 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:34:34 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:34:51 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:34:51 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:35:02 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:35:16 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:35:20 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:35:31 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:35:34 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:35:35 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:35:38 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:35:39 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:35:44 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:36:27 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 09:37:28 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 09:40:21 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 09:42:48 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 09:46:18 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:46:22 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:46:53 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 09:47:43 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 10:03:32 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 10:06:45 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 10:11:37 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 10:13:40 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 10:14:07 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 10:21:18 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 10:22:01 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 10:22:19 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 10:24:13 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 10:24:19 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 10:24:39 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 10:24:58 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 10:34:49 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 10:37:49 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 10:46:17 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 10:47:22 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 10:47:29 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 10:49:26 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 10:49:32 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 10:49:33 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 10:49:58 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 10:50:11 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 10:50:37 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 10:50:45 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 10:52:00 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 11:04:27 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 11:04:49 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 11:06:14 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 11:07:11 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 11:09:53 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 11:13:47 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 11:19:07 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 11:19:36 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 11:21:04 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 11:21:16 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 11:21:27 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 11:21:35 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 11:23:27 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 11:23:54 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 11:24:04 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 11:26:02 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 11:27:27 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 11:34:17 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 11:35:54 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 11:36:15 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 12:09:14 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 12:09:21 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 12:09:36 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 12:10:50 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 12:16:56 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 12:21:30 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 12:27:32 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 12:31:07 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 13:42:42 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Thu, 23 Jan 2020 16:20:44 GMT - Error - ERROR: Cannot find board
+Thu, 23 Jan 2020 16:20:44 GMT - Error - Cannot get board
+Thu, 23 Jan 2020 16:20:46 GMT - Error - ERROR: Cannot find board
+Thu, 23 Jan 2020 16:20:46 GMT - Error - Cannot get board
+Thu, 23 Jan 2020 16:20:54 GMT - Error - ERROR: Cannot find boards
+Thu, 23 Jan 2020 16:20:54 GMT - Error - Cannot get boards
+Thu, 23 Jan 2020 16:20:54 GMT - Error - ERROR: Cannot find board
+Thu, 23 Jan 2020 16:20:54 GMT - Error - Cannot get board
+Thu, 23 Jan 2020 16:20:56 GMT - Error - ERROR: Cannot find board
+Thu, 23 Jan 2020 16:20:56 GMT - Error - Cannot get board
+Thu, 23 Jan 2020 16:21:02 GMT - Error - ERROR: Cannot find boards
+Thu, 23 Jan 2020 16:21:02 GMT - Error - Cannot get boards
+Thu, 23 Jan 2020 16:21:02 GMT - Error - ERROR: Cannot find board
+Thu, 23 Jan 2020 16:21:02 GMT - Error - Cannot get board
+Thu, 23 Jan 2020 16:21:10 GMT - Error - ERROR: Cannot find boards
+Thu, 23 Jan 2020 16:21:10 GMT - Error - Cannot get boards
+Thu, 23 Jan 2020 16:21:10 GMT - Error - ERROR: Cannot find board
+Thu, 23 Jan 2020 16:21:10 GMT - Error - Cannot get board
+Thu, 23 Jan 2020 17:37:30 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 17:40:14 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 17:40:15 GMT - Info - Server is running on port: 3030
+Thu, 23 Jan 2020 17:42:17 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Fri, 24 Jan 2020 09:08:47 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 09:10:01 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 09:10:18 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 09:10:59 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 09:11:17 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 09:12:53 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Fri, 24 Jan 2020 09:18:02 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:07:28 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:09:02 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:09:06 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:10:06 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:11:07 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:11:10 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:13:24 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:13:33 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:17:42 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:19:59 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:20:51 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:21:00 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:22:03 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:26:19 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:26:37 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:32:26 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 10:32:26 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 10:32:56 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:33:19 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:35:11 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:35:14 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:35:42 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:36:22 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:36:35 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:37:00 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:37:07 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:37:19 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:37:24 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:37:25 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:37:32 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:37:42 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 10:37:42 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 10:37:57 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:38:02 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:38:04 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 10:38:04 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 10:38:19 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:38:22 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:38:23 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:38:30 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:38:35 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:38:39 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:38:42 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:38:43 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:38:50 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:39:15 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:39:22 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:39:32 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:39:35 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:40:39 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:40:45 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:42:10 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:42:18 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 10:42:18 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 10:42:25 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 10:42:25 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 10:42:38 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:43:01 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:43:03 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 10:43:03 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 10:44:10 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:44:16 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:44:37 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:44:47 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:45:19 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:45:23 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:45:44 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:46:13 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:46:15 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:46:21 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:46:43 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:46:54 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:47:42 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:49:03 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:49:21 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:49:41 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:49:55 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:50:52 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:50:54 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:51:00 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:51:08 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:52:31 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:53:00 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:53:07 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 10:53:07 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 10:54:03 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:54:18 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:54:26 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:54:29 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:54:31 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:54:49 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:54:50 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:56:42 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:57:03 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:58:30 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 10:58:59 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:02:09 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:03:15 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:03:16 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:03:36 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:05:02 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:05:09 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:05:17 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:05:18 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:06:25 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:06:34 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:07:55 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:10:17 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:10:23 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:10:27 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:11:19 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:11:25 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 11:11:25 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 11:11:42 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:11:51 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:11:54 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:11:59 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 11:11:59 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 11:12:21 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:12:29 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 11:12:29 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 11:13:12 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:13:18 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 11:13:18 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 11:13:43 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:13:49 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 11:13:49 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 11:14:57 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:15:01 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:15:46 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:15:51 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 11:15:51 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 11:16:19 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:16:50 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 11:16:50 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 11:17:40 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:17:42 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:18:23 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:19:28 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:19:37 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:20:23 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:20:33 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:21:17 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:21:31 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:21:34 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:22:07 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:22:11 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:22:40 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:22:46 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:22:51 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 11:22:51 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 11:23:25 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:23:29 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 11:23:29 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 11:24:15 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:24:18 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:24:58 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:25:25 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:25:40 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:25:44 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:26:25 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:26:49 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:26:57 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 11:26:57 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 11:27:09 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:27:10 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 11:27:10 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 11:27:18 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:27:34 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:27:38 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 11:27:38 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 11:27:52 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:28:14 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:28:26 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:28:32 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:28:59 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:29:11 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:30:17 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:36:57 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:37:50 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:38:46 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:39:11 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:39:24 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:39:46 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:41:04 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:41:30 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:41:43 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:41:53 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:42:36 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:42:55 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:43:05 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:43:44 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:44:12 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:48:54 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:49:18 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:49:29 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:50:12 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:50:25 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:50:36 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:50:45 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:52:45 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:53:51 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:53:57 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:55:26 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:55:32 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 11:55:32 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 11:56:41 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:56:47 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 11:56:47 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 11:56:51 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:56:58 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:57:03 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 11:57:03 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 11:57:04 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 11:57:04 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 11:57:15 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:58:12 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:58:14 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:58:32 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 11:58:32 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 11:58:46 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:58:49 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:58:55 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 11:58:55 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 11:59:24 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:59:38 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 11:59:40 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 12:00:50 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 12:04:03 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 12:04:22 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 12:04:32 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 12:04:32 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 12:06:33 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 12:08:53 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 12:08:56 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 12:09:25 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 12:10:17 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 12:10:20 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 12:10:39 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 12:11:08 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 12:11:27 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 12:11:34 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 12:11:45 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 12:13:57 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 12:19:41 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 14:03:55 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Fri, 24 Jan 2020 15:37:13 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 15:45:35 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Fri, 24 Jan 2020 17:43:34 GMT - Debug - Puki,Ben David,pukibd@gmail.com, Puki Ben David, puki
+Fri, 24 Jan 2020 17:43:34 GMT - Debug - auth.service - signup with email: pukibd@gmail.com, username: Puki Ben David
+Fri, 24 Jan 2020 17:43:34 GMT - Debug - auth.route - new account created: {"firstName":"Puki","lastName":"Ben David","email":"pukibd@gmail.com","password":"$2b$10$4yP5y9mntVMCsS.zaJFZde2sTuGD5tzPWSnVdv3MnqciLYxynnZgK","username":"Puki Ben David","_id":"5e2b2cc6d51df45e10888914"}
+Fri, 24 Jan 2020 17:43:35 GMT - Debug - auth.service - login with email: pukibd@gmail.com
+Fri, 24 Jan 2020 17:47:54 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 17:48:01 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 17:51:06 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 17:51:57 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 17:53:20 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 17:53:25 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 17:53:30 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 17:53:57 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Fri, 24 Jan 2020 17:54:15 GMT - Debug - auth.service - login with email: pukibendavid@gmail.com
+Fri, 24 Jan 2020 17:54:37 GMT - Debug - auth.service - login with email: pukibd@gmail.com
+Fri, 24 Jan 2020 17:55:12 GMT - Debug - auth.service - login with email: pukibendavid@gmail.com
+Fri, 24 Jan 2020 17:55:55 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Fri, 24 Jan 2020 17:56:19 GMT - Debug - Puki,Ben David,pukibendavid@gmail.com, Puki Ben David, 1234
+Fri, 24 Jan 2020 17:56:19 GMT - Debug - auth.service - signup with email: pukibendavid@gmail.com, username: Puki Ben David
+Fri, 24 Jan 2020 17:56:19 GMT - Debug - auth.route - new account created: {"firstName":"Puki","lastName":"Ben David","email":"pukibendavid@gmail.com","password":"$2b$10$JY4Yk/cbpFGM0HmCiSwhzOtJtiLSMxnFAg9TI./yxaN96eOftVJ6.","username":"Puki Ben David","_id":"5e2b2fc30bb3ba3c58d98a1e"}
+Fri, 24 Jan 2020 17:56:19 GMT - Debug - auth.service - login with email: pukibendavid@gmail.com
+Fri, 24 Jan 2020 18:02:00 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 18:13:21 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 18:13:43 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 18:13:55 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 18:14:14 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Fri, 24 Jan 2020 18:14:28 GMT - Debug - auth.service - login with email: pukibendavid@gmail.com
+Fri, 24 Jan 2020 18:15:38 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 18:15:46 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 18:15:50 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 18:18:57 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Fri, 24 Jan 2020 18:19:22 GMT - Debug - auth.service - login with email: pukibendavid@gmail.com
+Fri, 24 Jan 2020 18:31:41 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 18:32:53 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Fri, 24 Jan 2020 18:33:03 GMT - Debug - auth.service - login with email: pukibenDavid@gmail.com
+Fri, 24 Jan 2020 18:33:26 GMT - Debug - auth.service - login with email: pukibendavid@gmail.com
+Fri, 24 Jan 2020 19:14:28 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 19:15:06 GMT - Debug - auth.service - login with email: pukibenDavid@gmail.com
+Fri, 24 Jan 2020 19:15:11 GMT - Debug - auth.service - login with email: pukibendavid@gmail.com
+Fri, 24 Jan 2020 19:15:49 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Fri, 24 Jan 2020 21:02:40 GMT - Info - Server is running on port: 3030
+Fri, 24 Jan 2020 21:26:16 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Fri, 24 Jan 2020 23:20:25 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 23:20:25 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 23:20:51 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Fri, 24 Jan 2020 23:22:44 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 23:22:44 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 23:22:50 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 23:22:50 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 23:23:01 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 23:23:01 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 23:24:07 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 23:24:07 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 23:24:15 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 23:24:15 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 23:24:31 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 23:24:31 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 23:25:16 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 23:25:17 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 23:25:55 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 23:25:55 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 23:26:10 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 23:26:10 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 23:26:21 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 23:26:21 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 23:26:33 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 23:26:33 GMT - Error - Cannot get board
+Fri, 24 Jan 2020 23:27:34 GMT - Error - ERROR: Cannot find board
+Fri, 24 Jan 2020 23:27:34 GMT - Error - Cannot get board
+Sat, 25 Jan 2020 00:08:40 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 10:44:03 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 10:44:56 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 10:45:08 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 10:45:52 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 10:45:58 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 10:47:04 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 10:47:17 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 11:20:28 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 11:21:10 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 11:21:39 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 11:21:47 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 11:22:14 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 12:36:14 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 12:36:50 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 12:36:51 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 12:36:54 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 12:37:41 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 13:01:39 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 13:05:27 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 13:05:30 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 13:05:51 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 13:21:01 GMT - Debug - Blabla,Blablabla,bla@bla.com, Blaaa Blabla, 1234
+Sat, 25 Jan 2020 13:21:01 GMT - Debug - auth.service - signup with email: bla@bla.com, username: Blaaa Blabla
+Sat, 25 Jan 2020 13:21:02 GMT - Debug - auth.route - new account created: {"firstName":"Blabla","lastName":"Blablabla","email":"bla@bla.com","password":"$2b$10$kLb1egZ9SRQuKJyPBntJWONspY6clVyW7YTAXl634h1IPX9sCGUsS","username":"Blaaa Blabla","_id":"5e2c40beb1e24b20eccf1bb6"}
+Sat, 25 Jan 2020 13:21:02 GMT - Debug - auth.service - login with email: bla@bla.com
+Sat, 25 Jan 2020 13:23:40 GMT - Debug - Will,Smith,will.smith@gmail.com, Fresh Prince, 1234
+Sat, 25 Jan 2020 13:23:40 GMT - Debug - auth.service - signup with email: will.smith@gmail.com, username: Fresh Prince
+Sat, 25 Jan 2020 13:23:40 GMT - Debug - auth.route - new account created: {"firstName":"Will","lastName":"Smith","email":"will.smith@gmail.com","password":"$2b$10$nNINXUBJDIXvk8VS6E6f1ekKhqcFmIhCkse2XmehutHik6bfvTbe.","username":"Fresh Prince","_id":"5e2c415cb1e24b20eccf1bb7"}
+Sat, 25 Jan 2020 13:23:40 GMT - Debug - auth.service - login with email: will.smith@gmail.com
+Sat, 25 Jan 2020 13:25:47 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 13:26:03 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 13:26:08 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 13:26:10 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 13:26:25 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 13:26:35 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 13:26:36 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 13:26:40 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 13:26:42 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 13:27:19 GMT - Debug - Will,Smith,will.smith@gmail.com, Fresh Prince, 1234,#2A3D51
+Sat, 25 Jan 2020 13:27:19 GMT - Debug - auth.service - signup with email: will.smith@gmail.com, username: Fresh Prince
+Sat, 25 Jan 2020 13:27:19 GMT - Debug - auth.route - new account created: {"firstName":"Will","lastName":"Smith","email":"will.smith@gmail.com","password":"$2b$10$FbvmHbnNFRJx1Shyx1HufOFfjh8nDju7ezcTlK1QG1obtNXF4wSLy","username":"Fresh Prince","color":"#2A3D51","_id":"5e2c4237945e7e2778850f98"}
+Sat, 25 Jan 2020 13:27:19 GMT - Debug - auth.service - login with email: will.smith@gmail.com
+Sat, 25 Jan 2020 14:41:32 GMT - Error - ERROR: Cannot find board
+Sat, 25 Jan 2020 14:41:32 GMT - Error - Cannot get board
+Sat, 25 Jan 2020 21:19:21 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 22:52:34 GMT - Info - Server is running on port: 3030
+Sat, 25 Jan 2020 22:57:50 GMT - Info - Server is running on port: 3030
+Sun, 26 Jan 2020 06:41:45 GMT - Info - Server is running on port: 3030
+Sun, 26 Jan 2020 11:42:51 GMT - Info - Server is running on port: 3030
+Sun, 26 Jan 2020 11:42:56 GMT - Info - Server is running on port: 3030
+Sun, 26 Jan 2020 11:43:02 GMT - Info - Server is running on port: 3030
+Sun, 26 Jan 2020 12:49:57 GMT - Info - Server is running on port: 3030
+Sun, 26 Jan 2020 12:49:59 GMT - Info - Server is running on port: 3030
+Sun, 26 Jan 2020 13:08:44 GMT - Info - Server is running on port: 3030
+Sun, 26 Jan 2020 20:16:14 GMT - Info - Server is running on port: 3030
+Sun, 26 Jan 2020 20:25:14 GMT - Info - Server is running on port: 3030
+Sun, 26 Jan 2020 20:25:15 GMT - Info - Server is running on port: 3030
+Sun, 26 Jan 2020 20:35:07 GMT - Info - Server is running on port: 3030
+Sun, 26 Jan 2020 22:40:52 GMT - Info - Server is running on port: 3030
+Sun, 26 Jan 2020 22:40:53 GMT - Info - Server is running on port: 3030
+Sun, 26 Jan 2020 22:46:33 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 06:37:22 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 08:33:11 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 08:33:32 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 08:33:36 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 08:34:38 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 08:34:45 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 08:35:06 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 08:35:55 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 08:36:38 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Mon, 27 Jan 2020 08:37:47 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 08:37:55 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 08:38:33 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 08:38:45 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 08:38:58 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 08:40:19 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 08:42:04 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 08:42:12 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 08:53:45 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 08:55:13 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 09:01:11 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 09:01:37 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 09:07:17 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 09:40:11 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 09:40:12 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 12:55:56 GMT - Info - Server is running on port: 3030
+Mon, 27 Jan 2020 14:14:29 GMT - Info - Server is running on port: 3030

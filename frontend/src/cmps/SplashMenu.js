@@ -36,10 +36,10 @@ export default class Sort extends Component {
     setBoardBackground = (ev) => {
         const newBoard = { ...this.props.board }
         newBoard.boardBgImage = ev.target.src;
-        this.props.updateBoard(newBoard);
-        let msg = `${this.props.user} changed background image`;
+        const msg = `${this.props.user} changed background image`;
+        const notificationType = 'success';
         this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
-        utils.emitNotification(msg, 'danger');
+        this.props.updateBoard(newBoard, msg, notificationType);
     }
 
     stopPropagation = (ev) => {

@@ -13,7 +13,7 @@ import Store from './store';
 ReactDOM.render(
   <Provider store={Store}>
     <ReactNotification />
-    <App />
+      <App />
   </Provider>,
   document.getElementById('root')
 )

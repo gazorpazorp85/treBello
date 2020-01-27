@@ -1,4 +1,5 @@
 import React from 'react';
+import CloseIcon from '@material-ui/icons/Close';
 import DatePicker from 'react-datepicker';
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -18,12 +19,13 @@ export default class DueDate extends React.Component {
         this.setState({ dueDate: this.props.task.dueDate ? new Date(this.props.task.dueDate) : new Date() })
     }
 
-    componentWillUnmount() {
-        this.saveTask();
-    }
+    // componentWillUnmount() {
+    //     this.saveTask();
+    // }
 
     handleChange = date => {
         this.setState({ dueDate: date });
+        this.saveTask();
     }
 
     saveTask = _ => {
@@ -36,23 +38,33 @@ export default class DueDate extends React.Component {
             }
         }
         const msg = `${this.props.user} changed the due date for task '${this.props.task.title}'`;
+        const notificationType = 'success';
         this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
-        utils.emitNotification(msg, 'success');
-        this.props.updateBoard(newBoard);
+        this.props.updateBoard(newBoard, msg, notificationType);
+        
+    }
+
+    onStopPropagation = (ev) => {
+        ev.stopPropagation();
     }
 
     render() {
 
         return (
-            <DatePicker
-                selected={this.state.dueDate}
-                onChange={this.handleChange}
-                showTimeSelect
-                timeFormat="HH:mm"
-                timeIntervals={15}
-                timeCaption="Time"
-                dateFormat="MMMM d, yyyy h:mm aa"
-            />
+            <div className="duedate-edit"
+                onClick={(ev) => this.onStopPropagation(ev)}>
+                <DatePicker
+                    selected={this.state.dueDate}
+                    onChange={this.handleChange}
+                    showTimeSelect
+                    timeFormat="HH:mm"
+                    timeIntervals={15}
+                    timeCaption="Time"
+                    dateFormat="MMMM d, yyyy h:mm aa"
+                />
+                <button onClick={this.saveTask}>Set</button>
+                <CloseIcon className="duedate-edit-close-btn" onClick={this.props.onToggle} />
+            </div>
         )
     }
 }

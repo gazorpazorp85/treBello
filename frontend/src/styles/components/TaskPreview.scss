@@ -1,79 +1,80 @@
 .task-container {
-    cursor: pointer !important;
-    position: relative;
-    margin-bottom: 5px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    white-space: normal;
-    background: white;
-    border-radius: 4px;
-    box-shadow: 0 1px 0 rgba(9, 30, 66, .25);
+  cursor: pointer !important;
+  position: relative;
+  margin-bottom: 5px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+
+  &:hover {
+    box-shadow: 1px 1px 4px 0px #00000059;
+    background: rgba(238, 238, 238, 0.808);
+  }
+
+  &-title {
+    padding: 5px 2px;
+    width: 100%;
+    font-family: sans-serif;
+    border-bottom: 1px solid rgba(163, 163, 163, 0.514);
+  }
+
+  &.isDragging {
+    background-color: rgba(253, 253, 253, 0.685);
+  }
+
+  .task-container-labels {
+    align-self: flex-start;
+  }
+
+  &-open-menu {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+
+    &.MuiSvgIcon-root {
+      width: 1rem;
+      height: 1rem;
+      color: rgb(48, 48, 48);
+      transition: 0.2s;
+    }
 
     &:hover {
-        box-shadow: 1px 1px 4px 0px #00000059;
-        background: rgba(238, 238, 238, 0.808);
+      background-color: rgba(2, 2, 2, 0.288);
+      color: rgb(255, 255, 255);
     }
+  }
 
-    &-title {
-        padding: 5px 2px;
-        width: 100%;
-        font-family: sans-serif;
-        border-bottom:1px solid rgba(163, 163, 163, 0.514);
+  .asign-member-to-task {
+    padding: 2px;
+  }
+
+  .team-member-icon-wrapper {
+    width: 25px;
+    height: 25px;
+    border: 1px solid;
+    border-radius: 50%;
+    margin: 4px 2px;
+
+    p {
+      font-size: rem(10px);
+      font-family: montserratExtraBold, sans-serif;
+      color: white;
     }
+  }
 
+  img {
+    align-self: center;
+    display: block;
+    max-width: 220px;
+    max-height: 220px;
+    width: auto;
+    height: auto;
+  }
 
-    &.isDragging {
-        background-color: rgba(253, 253, 253, 0.685);
-    }
-
-    .task-container-labels{
-        align-self: flex-start;
-    }
-
-    &-open-menu {
-        position: absolute;
-        top: 2px;
-        right: 2px;
-
-        &.MuiSvgIcon-root {
-            width: 1rem;
-            height: 1rem;
-            color: rgb(48, 48, 48);
-            transition: .2s;
-
-        }
-
-        &:hover {
-            background-color: rgba(2, 2, 2, 0.288);
-            color: rgb(255, 255, 255);
-        }
-
-    }
-
-    .asign-member-to-task{
-        padding: 2px;
-    }
-
-    .team-member-icon-wrapper {
-        width: 25px;
-        height: 25px;
-        border: 1px solid;
-        border-radius: 50%;
-        margin: 4px 2px;
-
-
-        p {
-            font-size: rem(10px);
-            font-family: montserratExtraBold, sans-serif;
-            color: white;
-        }
-    }
-
-    img{
-        align-self: center;
-    }
-
-    .row-reverse{
-        flex-direction: row-reverse;
-    }
+  .row-reverse {
+    flex-direction: row-reverse;
+  }
 }

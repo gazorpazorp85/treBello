@@ -32,27 +32,28 @@ export default class MiniTextDetails extends Component {
                 [newTask.id]: newTask
             }
         }
-        this.props.updateBoard(newBoard);
-        this.props.onToggle();
-        let msg = `${this.props.user} changed the title of the task '${this.props.miniTask.task.title}' to '${this.state.title}'`;
+        const msg = `${this.props.user} changed the title of the task '${this.props.miniTask.task.title}' to '${this.state.title}'`;
+        const notificationType = 'success';
         this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
-        utils.emitNotification(msg, 'success');
+        this.props.updateBoard(newBoard, msg, notificationType);
+        this.props.onToggle();
     }
 
     render() {
-        const { miniTask } = this.props;
-        const labelLen = miniTask.task.labels.length;
+        const { task } = this.props.miniTask;
+        const { boundingClientRect } = this.props.miniTask;
+        const labelLen = task.labels.length;
         return <div className="mini-details-container">
             <div
                 className="mini-details"
                 style={{
-                    left: miniTask.left + 'px',
-                    top: miniTask.top + 'px',
-                    height: miniTask.height + 'px'
+                    left: boundingClientRect.left + 'px',
+                    top: boundingClientRect.top + 'px',
+                    height: boundingClientRect.height + 'px'
                 }}
             >
                 <div className="task-container-labels flex">
-                    {miniTask.task.labels.map(label => {
+                    {task.labels.map(label => {
                         return <div key={label} className={label + ' small-label'}>
                         </div>
                     })
@@ -61,7 +62,7 @@ export default class MiniTextDetails extends Component {
                 <textarea
                     name="title"
                     className={"text-area" + (labelLen > 0 ? ' preview-label' : '')}
-                    defaultValue={miniTask.task.title}
+                    defaultValue={task.title}
                     ref="textarea"
                     onFocus={this.handleFocus}
                     onInput={this.emitChange}
@@ -72,8 +73,8 @@ export default class MiniTextDetails extends Component {
             <button
                 className="mini-details-save-btn"
                 style={{
-                    left: miniTask.left + 'px',
-                    top: (miniTask.top + miniTask.height + 10) + 'px'
+                    left: boundingClientRect.left + 'px',
+                    top: (boundingClientRect.top + boundingClientRect.height + 10) + 'px'
                 }}
                 onClick={this.onSave}
             >SAVE</button>
