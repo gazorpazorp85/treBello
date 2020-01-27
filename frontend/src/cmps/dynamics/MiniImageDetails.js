@@ -43,13 +43,23 @@ export default class MiniImageDetails extends Component {
         const { task } = this.props.miniTask;
         const { boundingClientRect } = this.props.miniTask;
         const labelLen = task.labels.length;
+        let height = boundingClientRect.height;
+        let top = boundingClientRect.top;
+
+        if (height + top > window.innerHeight) {
+            height = (window.innerHeight - top - 50) > 252 ? window.innerHeight - top - 50 : 252;
+        }
+        if (boundingClientRect.top > (window.innerHeight - (window.innerHeight / 4))) {
+            top = window.innerHeight - height - 50;
+        }
+
         return <div className="mini-details-container">
             <div
                 className="mini-details"
                 style={{
                     left: boundingClientRect.left + 'px',
-                    top: boundingClientRect.top + 'px',
-                    height: boundingClientRect.height + 'px'
+                    top: top + 'px',
+                    height: height + 'px'
                 }}
             >
                 <img title={task.id} alt="task" src={task.url} />
@@ -64,7 +74,7 @@ export default class MiniImageDetails extends Component {
                     name="title"
                     className={"text-area" + (labelLen > 0 ? ' preview-label' : '')}
                     style={{
-                        height: boundingClientRect.height - 220,
+                        height: height - 220 + 'px',
                         position: 'relative',
                     }}
                     defaultValue={task.title}
@@ -79,7 +89,7 @@ export default class MiniImageDetails extends Component {
                 className="mini-details-save-btn"
                 style={{
                     left: boundingClientRect.left + 'px',
-                    top: (boundingClientRect.top + boundingClientRect.height + (task.title ? 10 : 32)) + 'px'
+                    top: (top + height + (task.title ? 10 : 32)) + 'px'
                 }}
                 onClick={this.onSave}
             >SAVE</button>
