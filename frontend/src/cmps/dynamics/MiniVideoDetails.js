@@ -53,7 +53,6 @@ export default class MiniVideoDetails extends Component {
         if (boundingClientRect.top > (window.innerHeight - (window.innerHeight / 4))) {
             top = window.innerHeight - height - 50;
         }
-        console.log(boundingClientRect)
         return <div className="mini-details-container">
             <div
                 className="mini-details"
