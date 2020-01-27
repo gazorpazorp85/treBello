@@ -4,20 +4,17 @@ import ListAltIcon from '@material-ui/icons/ListAlt';
 import utils from '../../services/utils'
 
 export default class TaskPreview extends Component {
-
-    state = {
-        elTop: 0,
-        elLeft: 0,
-        elHeight: 0,
+    constructor(props) {
+        super(props);
+        this.taskContainer = React.createRef();
     }
+
 
     toggleMiniDetails = ev => {
         ev.stopPropagation();
         const miniTask = {
             task: this.props.task,
-            left: this.refs.ref.getBoundingClientRect().left,
-            top: this.refs.ref.getBoundingClientRect().top,
-            height: this.refs.ref.getBoundingClientRect().height,
+            boundingClientRect: this.taskContainer.current.getBoundingClientRect(),
             previewType: 'text',
             column: this.props.column
         };
@@ -27,7 +24,7 @@ export default class TaskPreview extends Component {
     render() {
         const { task, provided, innerRef, isDragging, style, showEditBtn, onTaskId } = this.props;
         return (
-            <section ref="ref">
+            <section ref={this.taskContainer}>
                 <div
                     className={"task-container" + (isDragging ? " isDragging" : "")}
                     {...provided.draggableProps}

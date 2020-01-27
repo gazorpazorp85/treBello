@@ -31,50 +31,40 @@
         align-self: flex-start;
     }
 
-    &-open-menu {
-        position: absolute;
-        top: 2px;
-        right: 2px;
-
-        &.MuiSvgIcon-root {
-            width: 1rem;
-            height: 1rem;
-            color: rgb(48, 48, 48);
-            transition: .2s;
-
-        }
-
-        &:hover {
-            background-color: rgba(2, 2, 2, 0.288);
-            color: rgb(255, 255, 255);
-        }
-
+    &:hover {
+      background-color: rgba(2, 2, 2, 0.288);
+      color: rgb(255, 255, 255);
     }
 
-    .asign-member-to-task{
-        padding: 2px;
+
+  .asign-member-to-task {
+    padding: 2px;
+  }
+
+  .team-member-icon-wrapper {
+    width: 25px;
+    height: 25px;
+    border: 1px solid;
+    border-radius: 50%;
+    margin: 4px 2px;
+
+    p {
+      font-size: rem(10px);
+      font-family: montserratExtraBold, sans-serif;
+      color: white;
     }
+  }
 
-    .team-member-icon-wrapper {
-        width: 25px;
-        height: 25px;
-        border: 1px solid;
-        border-radius: 50%;
-        margin: 4px 2px;
+  img {
+    align-self: center;
+    display: block;
+    max-width: 220px;
+    max-height: 220px;
+    width: auto;
+    height: auto;
+  }
 
-
-        p {
-            font-size: rem(10px);
-            font-family: montserratExtraBold, sans-serif;
-            color: white;
-        }
-    }
-
-    img{
-        align-self: center;
-    }
-
-    .row-reverse{
-        flex-direction: row-reverse;
-    }
+  .row-reverse {
+    flex-direction: row-reverse;
+  }
 }
