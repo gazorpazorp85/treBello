@@ -16,7 +16,7 @@ export default class TaskForm extends Component {
             description: '',
             type: 'text',
             labels: [],
-            checklist: [],
+            checkList: [],
             creator: {},
             taskTeamMembers: []
         },
@@ -47,7 +47,7 @@ export default class TaskForm extends Component {
                     description: this.props.description,
                     type: task.type,
                     labels: task.labels,
-                    checklist: task.checklist,
+                    checkList: task.checkList,
                     creator: task.creator,
                     taskTeamMembers: task.taskTeamMembers
                 },

@@ -12,21 +12,24 @@ import EventIcon from '@material-ui/icons/Event';
 import DueDate from './DueDate';
 import Labels from './Labels';
 import Members from './Members';
+import CheckList from './CheckList';
+
 
 import utils from '../services/utils'
 
 export default class TaskDetails extends Component {
     state = {
+        deuDate: null,
         description: '',
+        teamMembers: [],
+        choosenMembers: [],
+        choosenlabels: [],
         showActivity: false,
         showEditDescriptionForm: false,
-        teamMembers: [],
-        deuDate: null,
         toggleChooseLabels: false,
-        choosenlabels: [],
-        onToggleDueDate: false,
         toggleChooseMembers: false,
-        choosenMembers: []
+        toggleCheckList: false,
+        onToggleDueDate: false
 
     }
 
@@ -84,6 +87,12 @@ export default class TaskDetails extends Component {
     toggleChooseMembers = (ev) => {
         ev.stopPropagation();
         this.setState(prevState => ({ toggleChooseMembers: !prevState.toggleChooseMembers }))
+    }
+
+
+    toggleCheckList = (ev) => {
+        ev.stopPropagation();
+        this.setState(prevState => ({ toggleCheckList: !prevState.toggleCheckList }))
     }
 
     onDuplicateTask = (column, task) => {
@@ -148,6 +157,35 @@ export default class TaskDetails extends Component {
                                 }
                             </div>
                         </div>
+
+
+                        <div className="task-details-container-check-list-container">
+                            {this.state.toggleCheckList ?
+                                <CheckList
+                                    toggleCheckList={this.toggleCheckList}
+                                    board={this.props.board}
+                                    task={task}
+                                    updateBoard={this.props.updateBoard}
+                                /> : ''
+                            }
+                            <div className="flex align-center">
+                                <LabelIcon />
+                                <h2>Check List :</h2>
+                            </div>
+                            <div className="check-list-container flex">
+                                <ul className="todos-contaienr ">
+                                    {
+                                        task.checkList.map(todo => {
+                                            return <li key={todo.id} className="todo-item">
+                                                {todo.text}
+                                            </li>
+                                        })
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+
+
 
 
                         <div className="task-details-container-members-container">
@@ -246,11 +284,10 @@ export default class TaskDetails extends Component {
                         <div className="task-details-container-add-to-card-options-container">
                             <p className="text-center uppercase">add to card</p>
                             <div className="task-details-container-add-to-card-options flex column">
-
-                                <button className="task-details-container-add-to-card-options-btn btn" onClick={(ev) => this.toggleChooseLabels(ev)} >Labels</button>
-                                <button className="task-details-container-add-to-card-options-btn btn" onClick={(ev) => this.toggleChooseMembers(ev)} >Members</button>
-                                {/* <button className="task-details-container-add-to-card-options-btn btn" >Check List</button> */}
-                                <button className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.onToggleDueDate(ev)}>Due Date</button>
+                                <button className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.toggleChooseLabels(ev)} >Labels</button>
+                                <button className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.toggleChooseMembers(ev)} >Members</button>
+                                <button className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.toggleCheckList(ev)} >Check List</button>
+                                <button className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.onToggleDueDate(ev)}>Due date</button>
                                 {/* <button className="task-details-container-add-to-card-options-btn btn" >Image</button>
                                 <button className="task-details-container-add-to-card-options-btn btn" >Video</button> */}
                             </div>

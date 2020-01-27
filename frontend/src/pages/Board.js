@@ -202,7 +202,7 @@ class Board extends Component {
 
     return (
       <div className="screen" onClick={this.closeAllTabs}>
-        <div className="board-page fill-height flex column" style={{ backgroundImage: 'url(' + this.props.board.boardBgImage + ')' }}>
+        <div className="board-page fill-height flex column" style={{ backgroundImage: 'url(' + this.props.board.boardBgImage + ')' , backgroundAttachment : 'fixed' }}>
 
           <div className="board-page-nav-bar flex space-between">
             <div className="board-page-nav-bar-logo" onClick={this.goBack}> </div>
