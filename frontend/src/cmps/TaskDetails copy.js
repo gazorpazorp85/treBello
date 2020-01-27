@@ -36,7 +36,23 @@ export default class TaskDetails extends Component {
 
     componentDidMount() {
         let currTask = this.props.board.tasks[this.props.taskId]
-        this.setState({ description: currTask.description });
+        if (!currTask.todos) {
+            currTask.todos = []
+
+            const newBoard = {
+                ...this.props.board,
+                tasks: {
+                    ...this.props.board.tasks,
+                    [currTask.id]: currTask
+                }
+            }
+            this.props.updateBoard(newBoard);
+
+            this.updateProgressBar()
+        } else {
+            this.updateProgressBar()
+        }
+        this.setState({ description: this.props.board.tasks[this.props.taskId].description });
     }
 
     emitChange = (ev) => {
@@ -245,12 +261,11 @@ export default class TaskDetails extends Component {
                                 <LabelIcon />
                                 <h2>Check List :</h2>
                             </div>
-                            {task.todos &&
+                            {task.todos ?
                             
                                 <div className="check-list-container flex column">
                                     {
                                         task.todos.map(todo => {
-                                            {console.log('im here task todo: ', task.todos.length)}
                                             return <div key={todo.id} className="todo-item flex space-between" >
                                                 <div className="flex align-center">
                                                     {todo.isDone ?
@@ -274,13 +289,12 @@ export default class TaskDetails extends Component {
                                             </div>
                                         })
                                     }
-                                    {console.log('im here')}
                                     <div className="check-list-progress">
                                         <div className="progress fill-height flex align-center" style={{ width: this.state.progressWidth + "%" }} >
                                             <small className="fill-width text-center">{this.state.progressWidth + "%"}</small>
                                         </div>
                                     </div>
-                                </div>
+                                </div> : ''
                             }
                         </div>
 
