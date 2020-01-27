@@ -44,13 +44,22 @@ export default class MiniVideoDetails extends Component {
         const { boundingClientRect } = this.props.miniTask;
         const videoDimensions = { height: 140, width: 246 };
         const labelLen = task.labels.length;
+        let height = boundingClientRect.height;
+        let top = boundingClientRect.top;
+
+        if (height + top > window.innerHeight) {
+            height = (window.innerHeight - top - 50) > 248 ? window.innerHeight - top - 50 : 248;
+        }
+        if (boundingClientRect.top > (window.innerHeight - (window.innerHeight / 4))) {
+            top = window.innerHeight - height - 50;
+        }
         return <div className="mini-details-container">
             <div
                 className="mini-details"
                 style={{
                     left: boundingClientRect.left + 'px',
-                    top: boundingClientRect.top + 'px',
-                    height: boundingClientRect.height + 'px'
+                    top: top + 'px',
+                    height: height + 'px'
                 }}
             >
                 <iframe title={task.id}
@@ -69,7 +78,7 @@ export default class MiniVideoDetails extends Component {
                     name="title"
                     className={"text-area" + (labelLen > 0 ? ' preview-label' : '')}
                     style={{
-                        height: boundingClientRect.height - videoDimensions.height,
+                        height: height - videoDimensions.height,
                         position: 'relative',
                         bottom: 14 + 'px'
                     }}
@@ -85,7 +94,7 @@ export default class MiniVideoDetails extends Component {
                 className="mini-details-save-btn"
                 style={{
                     left: boundingClientRect.left + 'px',
-                    top: (boundingClientRect.top + boundingClientRect.height + (task.title ? 10 : 32)) + 'px'
+                    top: (top + height + (task.title ? 10 : 32)) + 'px'
                 }}
                 onClick={this.onSave}
             >SAVE</button>

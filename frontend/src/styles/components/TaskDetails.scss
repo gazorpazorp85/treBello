@@ -8,12 +8,28 @@
 
     h2 {
         margin-inline-start: 5px;
-        // font-family: ;
+        font-weight: 600;
     }
 
-    p {
-        // font-weight: 600;
-        margin-left: 30px;
+    .MuiSvgIcon-root {
+        height: 35px;
+        width: 36px;
+    }
+
+    &-header {
+        padding-bottom: 30px;
+        margin: 10px 0px;
+        border-bottom: 1px solid #a0a0a059;
+    }
+
+    &-labels-container {
+        padding-bottom: 30px;
+        border-bottom: 1px solid #a0a0a059;
+        margin: 10px 0px;
+
+        .labels-choosen-container {
+            padding-left: 39px;
+        }
     }
 
     .MuiSvgIcon-root {
@@ -37,35 +53,6 @@
         }
     }
 
-    &-check-list-container {
-        .todo-item {
-
-            margin:  0 30px;
-
-            p {
-                margin: 0px;
-            }
-        }
-
-        .check-list-progress {
-            height: 20px;
-            border: 1px solid;
-            margin: 10px 30px;
-            border-radius: 20px;
-
-            .progress {
-                border-radius: 20px;
-                background-color: #5aac44;
-                
-                small {
-                    font-family: montserratBold, 'sans-sarif';
-                    color: white;
-                    // margin-left: 3px;
-                }
-            }
-        }
-    }
-
     &-members-container {
         padding-bottom: 30px;
         border-bottom: 1px solid #a0a0a059;
@@ -75,34 +62,83 @@
             margin-top: 5px;
             margin-left: 40px;
 
-            p {
-                margin: 0;
-                padding-left: 5px;
+            .labels-choosen-container {
+                padding-left: 39px;
+            }
+        }
+
+        &-check-list-container {
+            .todo-item {
+
+                margin: 0 30px;
+
+                p {
+                    margin: 0px;
+                }
             }
 
-            .team-member {
-                cursor: pointer;
-                margin-bottom: 5px;
-                border-radius: 2px;
-                padding: 10px;
-                border-bottom: 1px solid rgba(92, 92, 92, 0.288);
+            .check-list-progress {
+                height: 20px;
+                border: 1px solid;
+                margin: 10px 30px;
+                border-radius: 20px;
 
-                &-icon {
-                    &-wrapper {
-                        width: 30px;
-                        height: 30px;
-                        margin-right: 5px;
-                        border: 1px solid;
-                        padding: 5px 7px;
-                        border-radius: 50%;
-                        text-transform: uppercase;
+                .progress {
+                    border-radius: 20px;
+                    background-color: #5aac44;
+
+                    small {
+                        font-family: montserratBold, 'sans-sarif';
+                        color: white;
+                        // margin-left: 3px;
                     }
+                }
+            }
+
+
+            &-members-container {
+                padding-bottom: 30px;
+                border-bottom: 1px solid #a0a0a059;
+                margin: 10px 0px;
+
+                .members-choosen-container {
+                    margin-top: 5px;
+                    margin-left: 40px;
 
                     p {
-                        font-family: montserratExtraBold, 'sans-sarif';
-                        color: white;
                         margin: 0;
-                        padding: 0;
+                        padding-left: 5px;
+                    }
+
+                    .team-member {
+                        cursor: pointer;
+                        margin-bottom: 5px;
+                        border-radius: 2px;
+                        padding: 10px;
+                        border-bottom: 1px solid rgba(92, 92, 92, 0.288);
+
+                        &-icon {
+                            &-wrapper {
+                                width: 30px;
+                                height: 30px;
+                                margin-right: 5px;
+                                border: 1px solid;
+                                padding: 5px 7px;
+                                border-radius: 50%;
+                                text-transform: uppercase;
+                            }
+
+                            p {
+                                font-family: montserratExtraBold, 'sans-sarif';
+                                color: white;
+                                margin: 0;
+                                padding: 0;
+                            }
+                        }
+                    }
+
+                    div:not(:first-child) {
+                        margin-top: 4px;
                     }
                 }
             }
@@ -117,11 +153,6 @@
         padding-bottom: 30px;
         border-bottom: 1px solid #a0a0a059;
         margin: 10px 0px;
-
-        .duedate-edit {
-            margin-top: 5px;
-            margin-left: 40px;
-        }
     }
 
     &-main {
@@ -135,8 +166,6 @@
         }
     }
 
-
-
     .text-area-wrapper {
         margin-left: 42px;
 
@@ -144,10 +173,15 @@
             min-height: 250px;
             margin-top: 7px;
             padding: 7px 5px;
-            background-color: rgba(9, 30, 66, .04);
+            background-color: rgba(9, 30, 66, 0.04);
             border: none;
             border-radius: 4px;
         }
+    }
+
+    p {
+        font-weight: 600;
+        margin-left: 41px;
     }
 
     .add-column-back-to-board {
@@ -167,7 +201,6 @@
             background: rgba(0, 0, 0, 0.562);
             color: white;
         }
-
     }
 
     &-overall-options {
@@ -185,12 +218,6 @@
     &-actions {
         &-options-container {
             padding-top: 50px;
-        }
-    }
-
-    .react-datepicker-wrapper {
-        input {
-            width: 200px;
         }
     }
 }

@@ -122,7 +122,7 @@ export default class TaskForm extends Component {
                         ref={(input) => { this.nameInput = input; }}
                         onChange={this.inputChange} value={this.state.task.title} />
                     <div className="flex align-center">
-                        <button className="task-form-save-btn">SAVE</button>
+                        <button className="task-form-save-btn save">save</button>
                         <CloseIcon className="task-form-back-btn" onClick={(ev) => { ev.stopPropagation(); this.props.closeUpdateForm() }} />
                     </div>
                 </div>

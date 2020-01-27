@@ -118,25 +118,26 @@ export default class BoardColumns extends Component {
     }
 
     handleCheck = (colId, title) => {
+        const columnTitle = this.props.board.columns[colId].title;
+        const msg = `${this.props.user} changed the name of '${columnTitle}' to $${title}`;
+        const notificationType = 'success';
         clearTimeout(this.state.timer);
         this.setState({
             timer: setTimeout(() => {
                 const updatedBoard = { ...this.props.board };
                 updatedBoard.columns[colId].title = title;
-                this.props.updateBoard(updatedBoard);
+                this.props.updateBoard(updatedBoard, msg, notificationType);
+                this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
             }, 1000)
         });
     }
 
     emitChange = (ev, colId) => {
+        console.log(ev);
         this.setState({ title: ev.target.innerText }, _ => {
             this.handleCheck(colId, this.state.title);
         });
     }
-
-
-
-
 
     render() {
         const { currColumnId, showTopMenuOptions, showAddForm } = this.props;

@@ -6,7 +6,7 @@ export default class BoardHistory extends Component {
         return (
             <div className={"boardhistory-container column"
                 + (this.props.showHistory ? ' translateLeft' : '')}>
-                <div className="members-container-colors-container flex column">
+                <div className="flex column">
                     <div className="uppercase text-center">
                         <h2>board history :</h2>
                     </div>

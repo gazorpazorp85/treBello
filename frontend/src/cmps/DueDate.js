@@ -41,7 +41,7 @@ export default class DueDate extends React.Component {
         const notificationType = 'success';
         this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
         this.props.updateBoard(newBoard, msg, notificationType);
-        
+
     }
 
     onStopPropagation = (ev) => {
@@ -51,19 +51,21 @@ export default class DueDate extends React.Component {
     render() {
 
         return (
-            <div className="duedate-edit"
+            <div className="duedate-edit flex column"
                 onClick={(ev) => this.onStopPropagation(ev)}>
-                <DatePicker
-                    selected={this.state.dueDate}
-                    onChange={this.handleChange}
-                    showTimeSelect
-                    timeFormat="HH:mm"
-                    timeIntervals={15}
-                    timeCaption="Time"
-                    dateFormat="MMMM d, yyyy h:mm aa"
-                />
-                <button onClick={this.saveTask}>Set</button>
                 <CloseIcon className="duedate-edit-close-btn" onClick={this.props.onToggle} />
+                <div className="flex space-between datepicker-container">
+                    <DatePicker
+                        selected={this.state.dueDate}
+                        onChange={this.handleChange}
+                        showTimeSelect
+                        timeFormat="HH:mm"
+                        timeIntervals={15}
+                        timeCaption="Time"
+                        dateFormat="MMMM d, yyyy h:mm aa"
+                    />
+                    <button onClick={this.saveTask}>Set</button>
+                </div>
             </div>
         )
     }
