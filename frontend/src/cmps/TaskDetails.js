@@ -274,7 +274,6 @@ export default class TaskDetails extends Component {
                                 </div> : ''
                             }
                         </div>
-
                         <div className="task-details-container-members-container">
                             {this.state.toggleChooseMembers ?
                                 <Members
@@ -289,7 +288,6 @@ export default class TaskDetails extends Component {
                                 <EmojiPeopleIcon />
                                 <h2>Team Members :</h2>
                             </div>
-
                             <div className="members-choosen-container flex column">
                                 {
                                     task.taskTeamMembers.map(member => {
@@ -309,7 +307,6 @@ export default class TaskDetails extends Component {
                                 }
                             </div>
                         </div>
-
                         <div className="task-details-container-duedate-container">
                             <div className="flex align-center">
                                 <EventIcon />

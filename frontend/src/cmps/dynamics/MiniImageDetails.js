@@ -6,12 +6,17 @@ import ScreenFilter from '../ScreenFilter';
 import utils from '../../services/utils';
 
 export default class MiniImageDetails extends Component {
+    constructor(props) {
+        super(props);
+        this.textArea = React.createRef();
+    }
+
     state = {
         title: '',
     }
 
     componentDidMount() {
-        this.refs.textarea.focus();
+        this.textArea.current.focus();
     }
 
     handleFocus = ev => {
@@ -78,7 +83,7 @@ export default class MiniImageDetails extends Component {
                         position: 'relative',
                     }}
                     defaultValue={task.title}
-                    ref="textarea"
+                    ref={this.textArea}
                     onFocus={this.handleFocus}
                     onInput={this.emitChange}
                     placeholder="Add a task title..."

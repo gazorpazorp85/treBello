@@ -28,7 +28,6 @@ class Board extends Component {
     showColAddForm: true,
     showTaskDetails: false,
     showMiniTaskDetails: false,
-    toggleUploadBgImg: false,
     toggleLogin: false,
     toggleSplashMenu: false,
     showHistory: false,
@@ -253,9 +252,9 @@ class Board extends Component {
             toggleSplashMenu={this.state.toggleSplashMenu}
             board={this.props.board}
             updateBoard={this.props.updateBoard}
-            toggleUploadBgImg={this.toggleUploadBgImg}
+            closeAllTabs={this.closeAllTabs}
             onAddImg={this.onAddImg}
-            showUploadBgImg={this.state.toggleUploadBgImg}
+            showUploadBgImg={this.state.closeAllTabs}
             user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'}
           />
 
