@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { store } from 'react-notifications-component';
 
-import pageLoading from '../cmps/LoadPage';
+import LoadPage from '../cmps/LoadPage';
 import BoardColumns from '../cmps/BoardColumns';
 import BoardHistory from '../cmps/BoardHistory';
 import BoardTeamMembers from '../cmps/BoardTeamMembers';
@@ -42,18 +42,29 @@ class Board extends Component {
     showTopMenuOptions: true,
     showAddForm: false,
     currColumnId: '',
+    isBoardLoaded: false
   }
 
   componentDidMount() {
+    const boardId = this.props.match.params.id;
+
     this.props.getUsers();
     this.props.getLoggedInUser();
     this.loadBoard();
-    const boardId = this.props.match.params.id;
+
     SocketService.setup();
     SocketService.emit('boardId', boardId);
     SocketService.on('updateBoard', (board) => this.props.setBoard(board));
     SocketService.on('getNotification', (notification) => store.addNotification(notification));
   }
+
+  componentDidUpdate() {
+    const boardId = this.props.match.params.id;
+    if (this.state.isBoardLoaded) {
+      return
+    } else if (boardId === this.props.board._id) this.setState({ isBoardLoaded: true });
+  }
+
 
   componentWillUnmount() {
     SocketService.off('updateBoard');
@@ -186,8 +197,8 @@ class Board extends Component {
 
 
   render() {
-    if (!this.props.board.columns) return pageLoading();
-
+    // if (!this.props.board.columns || this.props.match.params.id !== this.props.board._id) return <LoadPage />
+    if (!this.state.isBoardLoaded) return <LoadPage />
     let button;
     if (this.props.loggedInUser) {
       button = <button className="board-page-nav-bar nav-btn"
@@ -200,10 +211,9 @@ class Board extends Component {
         login
       </button>
     }
-
     return (
       <div className="screen" onClick={this.closeAllTabs}>
-        <div className="board-page fill-height flex column" style={{ backgroundImage: 'url(' + this.props.board.boardBgImage + ')' , backgroundAttachment : 'fixed' }}>
+        <div className="board-page fill-height flex column" style={{ backgroundImage: 'url(' + this.props.board.boardBgImage + ')', backgroundAttachment: 'fixed' }}>
 
           <div className="board-page-nav-bar flex space-between">
             <div className="board-page-nav-bar-logo" onClick={this.goBack}> </div>

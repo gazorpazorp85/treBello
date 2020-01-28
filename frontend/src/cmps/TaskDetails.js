@@ -244,24 +244,6 @@ export default class TaskDetails extends Component {
                                 <LabelIcon />
                                 <h2>Check List :</h2>
                             </div>
-<<<<<<< HEAD
-                            {task.todos &&
-                                <div className="check-list-container flex column">
-                                    {
-                                        task.todos.map(todo => {
-                                            { console.log('im here task todo: ', task.todos.length) }
-                                            return <div key={todo.id} className="todo-item flex space-between" >
-                                                <div className="flex align-center">
-                                                    <input type="checkbox" onChange={() => this.toggleTodoDone(todo)} {...todo.isDone ? 'checked' : ''}>
-                                                    </input>
-                                                    <p className={todo.isDone ? "text-decoration" : ""}>
-                                                        {todo.text}
-                                                    </p>
-                                                </div>
-                                                <DeleteOutlineIcon
-                                                    onClick={() => this.deleteTodo(todo.id)}
-                                                />
-=======
                             {task.todos ?
                                 <div className="check-list-container flex column">
                                     {task.todos.map(todo => {
@@ -284,7 +266,6 @@ export default class TaskDetails extends Component {
                                             <DeleteOutlineIcon
                                                 onClick={() => this.deleteTodo(todo.id)}
                                             />
->>>>>>> 38b9e9c8f1ae721a621aeff326f7b011ba528046
 
                                         </div>
                                     })
@@ -298,10 +279,6 @@ export default class TaskDetails extends Component {
                                 </div> : ''
                             }
                         </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 38b9e9c8f1ae721a621aeff326f7b011ba528046
                         <div className="task-details-container-members-container">
                             {this.state.toggleChooseMembers ?
                                 <Members

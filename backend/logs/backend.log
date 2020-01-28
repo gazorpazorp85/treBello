@@ -2042,4 +2042,12 @@ Tue, 28 Jan 2020 06:56:59 GMT - Error - Cannot get board
 Tue, 28 Jan 2020 09:03:01 GMT - Error - ERROR: Cannot find board
 Tue, 28 Jan 2020 09:03:01 GMT - Error - Cannot get board
 Tue, 28 Jan 2020 13:52:02 GMT - Info - Server is running on port: 3030
+<<<<<<< HEAD
 >>>>>>> 38b9e9c8f1ae721a621aeff326f7b011ba528046
+=======
+Tue, 28 Jan 2020 14:22:02 GMT - Info - Server is running on port: 3030
+Tue, 28 Jan 2020 14:22:45 GMT - Info - Server is running on port: 3030
+Tue, 28 Jan 2020 14:22:47 GMT - Info - Server is running on port: 3030
+Tue, 28 Jan 2020 14:25:58 GMT - Info - Server is running on port: 3030
+>>>>>>> 7fee86db90c74a3d00b4b2e7578a1ea01039e36e
+Tue, 28 Jan 2020 15:05:01 GMT - Info - Server is running on port: 3030
