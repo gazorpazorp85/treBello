@@ -9,6 +9,10 @@ import CloseIcon from '@material-ui/icons/Close';
 import LabelIcon from '@material-ui/icons/Label';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import EventIcon from '@material-ui/icons/Event';
+import Avatar from '@material-ui/core/Avatar';
+import DescriptionOutlinedIcon from '@material-ui/icons/DescriptionOutlined';
+import AssignmentTurnedInOutlinedIcon from '@material-ui/icons/AssignmentTurnedInOutlined';
+import EventOutlinedIcon from '@material-ui/icons/EventOutlined';
 
 import DueDate from './DueDate';
 import Labels from './Labels';
@@ -17,6 +21,7 @@ import Todos from './Todos';
 
 
 import utils from '../services/utils'
+import TaskList from './Todos';
 
 export default class TaskDetails extends Component {
     state = {
@@ -36,7 +41,7 @@ export default class TaskDetails extends Component {
 
     componentDidMount() {
         let currTask = this.props.board.tasks[this.props.taskId]
-        this.setState({ description: currTask.description });
+        this.setState({ description: currTask.description }, this.updateProgressBar);
     }
 
     emitChange = (ev) => {
@@ -194,17 +199,18 @@ export default class TaskDetails extends Component {
                         onClick={() => this.props.toggleTaskDetails()} />
                     <div className="task-details-container-main full">
                         <header className="task-details-container-header">
-                            <div className="flex align-center">
-                                <TitleIcon />
-                                <h2>{task.title}</h2>
-                            </div>
+                            <DescriptionOutlinedIcon style={{
+                                color: '#42526e', position: 'absolute',
+                                top: '22px',
+                                left: '12px'
+                            }} />
+                            <h2>{task.title}</h2>
                             <div className="task-details-container-in-list flex">
-                                <p className="flex">in list "{column.title}"</p>
+                                <p>in list <span style={{ textDecoration: "underline" }}>{column.title}</span></p>
                             </div>
                         </header>
 
-                        <div className="task-details-container-labels-container">
-
+                        <div className="chosen-labels-container">
                             {this.state.toggleChooseLabels ?
                                 <Labels
                                     toggleChooseLabels={this.toggleChooseLabels}
@@ -213,12 +219,12 @@ export default class TaskDetails extends Component {
                                     updateBoard={this.props.updateBoard}
                                 /> : ''
                             }
-                            <div className="flex align-center">
-                                <LabelIcon />
-                                <h2>Labels :</h2>
-                            </div>
+                            {task.labels.length !== 0 && <h3 className="uppercase" style={{
+                                fontSize: '.75rem',
+                                fontWeight: 500,
+                                letterSpacing: '.04em',
+                            }}>Labels</h3>}
                             <div className="labels-choosen-container flex">
-
                                 {
                                     task.labels.map(label => {
                                         return <div key={label} className={label + ' medium-label'}>
@@ -227,10 +233,43 @@ export default class TaskDetails extends Component {
                                 }
                             </div>
                         </div>
+                        <div className="task-details-container-members-container">
+                            {this.state.toggleChooseMembers ?
+                                <Members
+                                    toggleChooseMembers={this.toggleChooseMembers}
+                                    board={this.props.board}
+                                    task={task}
+                                    updateBoard={this.props.updateBoard}
+                                    users={this.props.users}
+                                /> : ''
+                            }
+                            {task.taskTeamMembers.length !== 0 && <h3 className="uppercase" style={{
+                                fontSize: '.75rem',
+                                fontWeight: 500,
+                                letterSpacing: '.04em'
+                            }}>members</h3>}
+                            <div className="flex">
+                                {
+                                    task.taskTeamMembers.map(member => {
+                                        return <Avatar key={member._id} style={{
+                                            backgroundColor: 'dfe1e6',
+                                            height: 28,
+                                            width: 28,
+                                            fontSize: '0.85rem',
+                                            margin: '4px 4px 4px 0',
+                                            color: '#172b4d',
+                                            fontWeight: 600,
+                                            textAlign: 'center'
+                                        }}>
+                                            {utils.createUserIcon(member.firstName,
+                                                member.lastName)}
+                                        </Avatar>
 
-
+                                    })
+                                }
+                            </div>
+                        </div>
                         <div className="task-details-container-check-list-container">
-
                             {this.state.toggleTodos ?
                                 <Todos
                                     toggleTodos={this.toggleTodos}
@@ -239,34 +278,28 @@ export default class TaskDetails extends Component {
                                     updateBoard={this.props.updateBoard}
                                 /> : ''
                             }
+                            <AssignmentTurnedInOutlinedIcon style={{
+                                color: '#42526e', position: 'relative',
+                                top: '35px',
+                                right: '44px'
+                            }} />
+                            <h2>Checklist</h2>
 
-                            <div className="flex align-center">
-                                <LabelIcon />
-                                <h2>Check List :</h2>
-                            </div>
                             {task.todos ?
                                 <div className="check-list-container flex column">
                                     {task.todos.map(todo => {
                                         console.log('im here task todo: ', task.todos.length)
                                         return <div key={todo.id} className="todo-item flex space-between" >
                                             <div className="flex align-center">
-                                                {todo.isDone ?
-                                                    <input type="checkbox" onChange={() => this.toggleTodoDone(todo)} checked>
-                                                    </input>
-                                                    :
-                                                    <input type="checkbox" onChange={() => this.toggleTodoDone(todo)}>
-                                                    </input>
-                                                }
+                                                <input type="checkbox" onChange={() => this.toggleTodoDone(todo)} {...todo.isDone ? 'checked' : ''}>
+                                                </input>
                                                 <p className={todo.isDone ? "text-decoration" : ""}>
                                                     {todo.text}
                                                 </p>
                                             </div>
-
-
                                             <DeleteOutlineIcon
                                                 onClick={() => this.deleteTodo(todo.id)}
                                             />
-
                                         </div>
                                     })
                                     }
@@ -279,50 +312,17 @@ export default class TaskDetails extends Component {
                                 </div> : ''
                             }
                         </div>
-                        <div className="task-details-container-members-container">
-                            {this.state.toggleChooseMembers ?
-                                <Members
-                                    toggleChooseMembers={this.toggleChooseMembers}
-                                    board={this.props.board}
-                                    task={task}
-                                    updateBoard={this.props.updateBoard}
-                                    users={this.props.users}
-                                /> : ''
-                            }
-                            <div className="flex align-center">
-                                <EmojiPeopleIcon />
-                                <h2>Team Members :</h2>
-                            </div>
-                            <div className="members-choosen-container flex column">
-                                {
-                                    task.taskTeamMembers.map(member => {
-                                        return <div key={member._id} className="flex">
-                                            <div className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: `${member.color}` }} >
-                                                <div className="team-member-icon flex align-center">
-                                                    <p>
-                                                        {utils.createUserIcon(member.firstName,
-                                                            member.lastName)}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <p className=" flex align-center">{member.firstName}</p>
-                                            <p className=" flex align-center"> {member.lastName}</p>
-                                        </div>
-                                    })
-                                }
-                            </div>
-                        </div>
                         <div className="task-details-container-duedate-container">
-                            <div className="flex align-center">
-                                <EventIcon />
-                                <h2>Due Date :</h2>
-                            </div>
-                            <div>
-                                {(task.dueDate) ?
-                                    <p>{moment(task.dueDate).calendar()}</p> :
-                                    <p>This task doesn't have a due date yet</p>
-                                }
-                            </div>
+                            <EventOutlinedIcon style={{
+                                color: '#42526e', position: 'relative',
+                                top: '35px',
+                                right: '44px'
+                            }} />
+                            <h2>Due Date</h2>
+                            {(task.dueDate) ?
+                                <p>{moment(task.dueDate).format("MMMM Do YYYY, hh:mm a")}</p> :
+                                <p>This task doesn't have a due date yet</p>
+                            }
                             {this.state.onToggleDueDate ? <DueDate
                                 task={task}
                                 onToggle={this.onToggleDueDate}
@@ -332,30 +332,30 @@ export default class TaskDetails extends Component {
                             /> : ''}
                         </div>
 
-                        <div className="task-details-container-main-description">
-                            <div className="flex align-center">
-                                <NotesIcon />
-                                <h2>Description</h2>
-                            </div>
-                            <div className="flex column text-area-wrapper" onClick={this.toggleUpdateDescriptionForm}>
-                                <form onSubmit={this.save}>
-                                    <textarea className="fill-width"
-                                        name="description"
-                                        rows="3"
-                                        cols="40"
-                                        onInput={this.emitChange}
-                                        defaultValue={task.description}
-                                        spellCheck="false"
-                                        placeholder="Add a more detailed description...">
-                                    </textarea>
-                                </form>
-                                {this.state.showEditDescriptionForm ?
-                                    <div className="flex align-center">
-                                        <button className="task-form-save-btn uppercase" onClick={() => this.onSaveDescription(task)}>save</button>
-                                        <CloseIcon className="task-form-back-btn" onClick={this.closeUpdateDescriptionForm} />
-                                    </div> : ''
-                                }
-                            </div>
+                        <div className="task-details-container-description">
+                            <NotesIcon style={{
+                                color: '#42526e', position: 'relative',
+                                top: '35px',
+                                right: '44px'
+                            }} />
+                            <h2>Description</h2>
+                            <form onSubmit={this.save} onClick={this.toggleUpdateDescriptionForm}>
+                                <textarea className="fill-width"
+                                    name="description"
+                                    rows="3"
+                                    cols="40"
+                                    onInput={this.emitChange}
+                                    defaultValue={task.description}
+                                    spellCheck="false"
+                                    placeholder="Add a more detailed description...">
+                                </textarea>
+                            </form>
+                            {this.state.showEditDescriptionForm ?
+                                <div className="flex align-center">
+                                    <button className="task-form-save-btn uppercase" onClick={() => this.onSaveDescription(task)}>save</button>
+                                    <CloseIcon className="task-form-back-btn" onClick={this.closeUpdateDescriptionForm} />
+                                </div> : ''
+                            }
                         </div>
 
                         {/* <div className="task-details-container-main-activity flex space-between">
@@ -370,22 +370,28 @@ export default class TaskDetails extends Component {
 
                     <div className="task-details-container-overall-options">
                         <div className="task-details-container-add-to-card-options-container">
-                            <p className="text-center uppercase">add to card</p>
+                            <h3 className="uppercase" style={{
+                                fontSize: '0.75rem',
+                                fontWeight: 500,
+                                letterSpacing: '0.04em'
+                            }}>add to card</h3>
                             <div className="task-details-container-add-to-card-options flex column">
-                                <button className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.toggleChooseLabels(ev)} >Labels</button>
-                                <button className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.toggleChooseMembers(ev)} >Members</button>
-                                <button className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.toggleTodos(ev)} >Check List</button>
-                                <button className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.onToggleDueDate(ev)}>Due date</button>
+                                <div className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.toggleChooseLabels(ev)} >Labels</div>
+                                <div className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.toggleChooseMembers(ev)} >Members</div>
+                                <div className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.toggleTodos(ev)} >Check List</div>
+                                <div className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.onToggleDueDate(ev)}>Due date</div>
                                 {/* <button className="task-details-container-add-to-card-options-btn btn" >Image</button>
                                 <button className="task-details-container-add-to-card-options-btn btn" >Video</button> */}
                             </div>
                         </div>
 
                         <div className="task-details-container-actions-options-container">
-                            <p className="text-center uppercase">actions</p>
-                            <div className="task-details-container-actions-options-actions flex column">
-                                <button className="task-details-container-actions-options-btn btn" onClick={() => this.onDuplicateTask(column, task)}>Duplicate</button>
-                            </div>
+                            <h3 className="uppercase" style={{
+                                fontSize: '0.75rem',
+                                fontWeight: 500,
+                                letterSpacing: '0.04em'
+                            }}>actions</h3>
+                            <div className="task-details-container-actions-options-btn btn" onClick={() => this.onDuplicateTask(column, task)}>Duplicate</div>
                         </div>
                     </div>
                 </div>
