@@ -250,13 +250,8 @@ export default class TaskDetails extends Component {
                                         console.log('im here task todo: ', task.todos.length)
                                         return <div key={todo.id} className="todo-item flex space-between" >
                                             <div className="flex align-center">
-                                                {todo.isDone ?
-                                                    <input type="checkbox" onChange={() => this.toggleTodoDone(todo)} checked>
+                                                    <input type="checkbox" onChange={() => this.toggleTodoDone(todo)} {...todo.isDone ? 'checked' : ''}>
                                                     </input>
-                                                    :
-                                                    <input type="checkbox" onChange={() => this.toggleTodoDone(todo)}>
-                                                    </input>
-                                                }
                                                 <p className={todo.isDone ? "text-decoration" : ""}>
                                                     {todo.text}
                                                 </p>
