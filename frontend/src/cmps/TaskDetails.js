@@ -133,37 +133,36 @@ export default class TaskDetails extends Component {
     updateProgressBar = () => {
         let start = this.state.progressWidth;
         const task = this.props.board.tasks[this.props.taskId];
-        let countDone = 0;
-        task.todos.forEach(todo => {
-            if (todo.isDone) countDone++;
-        })
-        let progressWidth;
-        (!task.todos.length) ? progressWidth = 0 :
-            progressWidth = ((countDone / task.todos.length) * 100);
+        let doneTodosCounter = task.todos.filter(todo => (todo.isDone)).length;
+        let interval;
+        let progressWidth = Math.round((doneTodosCounter / task.todos.length) * 100);
+        //     if (start <= progressWidth) {
+        //         clearInterval(interval);
+        //     } else {
+        //         interval = setInterval(() => {
+        //             start--;
+        //             this.setState({ progressWidth: start })
+        //         }, 10)
+        //     };
+        // }
         if (start < progressWidth) {
-            var upInterval = setInterval(() => {
+            interval = setInterval(() => {
                 if (start >= progressWidth) {
-                    clearInterval(upInterval);
+                    clearInterval(interval);
                 } else {
                     start++;
-                    this.setState({
-                        progressWidth: start
-                    })
+                    this.setState({ progressWidth: start })
                 }
-            }
-                , 10);
+            }, 10);
         } else {
-            var downInterval = setInterval(() => {
+            interval = setInterval(() => {
                 if (start <= progressWidth) {
-                    clearInterval(downInterval);
+                    clearInterval(interval);
                 } else {
                     start--;
-                    this.setState({
-                        progressWidth: start
-                    })
+                    this.setState({ progressWidth: start })
                 }
-            }
-                , 10);
+            }, 10);
         }
     }
 
@@ -245,6 +244,7 @@ export default class TaskDetails extends Component {
                                 <LabelIcon />
                                 <h2>Check List :</h2>
                             </div>
+<<<<<<< HEAD
                             {task.todos &&
                                 <div className="check-list-container flex column">
                                     {
@@ -261,9 +261,33 @@ export default class TaskDetails extends Component {
                                                 <DeleteOutlineIcon
                                                     onClick={() => this.deleteTodo(todo.id)}
                                                 />
-
+=======
+                            {task.todos ?
+                                <div className="check-list-container flex column">
+                                    {task.todos.map(todo => {
+                                        console.log('im here task todo: ', task.todos.length)
+                                        return <div key={todo.id} className="todo-item flex space-between" >
+                                            <div className="flex align-center">
+                                                {todo.isDone ?
+                                                    <input type="checkbox" onChange={() => this.toggleTodoDone(todo)} checked>
+                                                    </input>
+                                                    :
+                                                    <input type="checkbox" onChange={() => this.toggleTodoDone(todo)}>
+                                                    </input>
+                                                }
+                                                <p className={todo.isDone ? "text-decoration" : ""}>
+                                                    {todo.text}
+                                                </p>
                                             </div>
-                                        })
+
+
+                                            <DeleteOutlineIcon
+                                                onClick={() => this.deleteTodo(todo.id)}
+                                            />
+>>>>>>> 38b9e9c8f1ae721a621aeff326f7b011ba528046
+
+                                        </div>
+                                    })
                                     }
                                     {console.log('im here')}
                                     <div className="check-list-progress">
@@ -271,11 +295,14 @@ export default class TaskDetails extends Component {
                                             <small className="fill-width text-center">{this.state.progressWidth + "%"}</small>
                                         </div>
                                     </div>
-                                </div>
+                                </div> : ''
                             }
                         </div>
-                        <div className="task-details-container-members-container">
+<<<<<<< HEAD
+=======
 
+>>>>>>> 38b9e9c8f1ae721a621aeff326f7b011ba528046
+                        <div className="task-details-container-members-container">
                             {this.state.toggleChooseMembers ?
                                 <Members
                                     toggleChooseMembers={this.toggleChooseMembers}

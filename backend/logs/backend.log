@@ -2001,5 +2001,45 @@ Mon, 27 Jan 2020 21:23:41 GMT - Error - ERROR: Cannot find board
 Mon, 27 Jan 2020 21:23:41 GMT - Error - Cannot get board
 Mon, 27 Jan 2020 21:24:39 GMT - Error - ERROR: Cannot find board
 Mon, 27 Jan 2020 21:24:39 GMT - Error - Cannot get board
+<<<<<<< HEAD
 Tue, 28 Jan 2020 07:47:37 GMT - Debug - auth.service - login with email: vladbald@gmail.com
 Tue, 28 Jan 2020 14:59:19 GMT - Info - Server is running on port: 3030
+=======
+Mon, 27 Jan 2020 21:29:27 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 21:29:27 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 21:29:52 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 21:29:52 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 21:52:47 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 21:52:47 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 21:57:51 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 21:57:51 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 21:58:42 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 21:58:42 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 21:58:49 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 21:58:49 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 22:03:07 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 22:03:07 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 22:04:00 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 22:04:00 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 22:04:11 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 22:04:11 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 22:27:24 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 22:27:24 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 22:29:52 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 22:29:52 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 22:32:48 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 22:32:48 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 22:33:23 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 22:33:23 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 22:34:59 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 22:34:59 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 22:35:15 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 22:35:15 GMT - Error - Cannot get board
+Mon, 27 Jan 2020 22:35:43 GMT - Error - ERROR: Cannot find board
+Mon, 27 Jan 2020 22:35:43 GMT - Error - Cannot get board
+Tue, 28 Jan 2020 06:56:59 GMT - Error - ERROR: Cannot find board
+Tue, 28 Jan 2020 06:56:59 GMT - Error - Cannot get board
+Tue, 28 Jan 2020 09:03:01 GMT - Error - ERROR: Cannot find board
+Tue, 28 Jan 2020 09:03:01 GMT - Error - Cannot get board
+Tue, 28 Jan 2020 13:52:02 GMT - Info - Server is running on port: 3030
+>>>>>>> 38b9e9c8f1ae721a621aeff326f7b011ba528046
