@@ -4,7 +4,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 import utils from '../services/utils'
 
-export default class Sort extends Component {
+export default class SplashMenu extends Component {
 
     state = {
         splashImagesUrls: [],
@@ -18,24 +18,25 @@ export default class Sort extends Component {
     onSave = async () => {
         try {
             const splashImages = await utils.getImagesFromUnsplash(this.state.filterByName)
-            let splashImagesUrls = []
+            let splashImagesUrls = [];
             splashImages.forEach(image => {
-                const UrlIndx = splashImagesUrls.findIndex(currUrl => currUrl === image.urls.full);
+                const UrlIndx = splashImagesUrls.findIndex(currUrl => currUrl === image.urls);
                 if (UrlIndx >= 0) {
                     splashImagesUrls.splice(UrlIndx, 1)
                 } else {
-                    splashImagesUrls.push(image.urls.full);
+                    splashImagesUrls.push(image.urls);
                 }
             })
             this.setState({ splashImagesUrls })
         } catch (err) {
-            // res.status(401).send({ error: err })
+            // res.status(401).send({ error: err });
         }
     }
 
-    setBoardBackground = (ev) => {
+    setBoardBackground = (imageUrl) => {
         const newBoard = { ...this.props.board }
-        newBoard.boardBgImage = ev.target.src;
+        newBoard.boardBgImage = imageUrl.full;
+        newBoard.boardBgThumbnail = imageUrl.small;
         const msg = `${this.props.user} changed background image`;
         const notificationType = 'success';
         this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
@@ -70,8 +71,8 @@ export default class Sort extends Component {
             <div className="splash-images-container-wrapper">
                 <div className="splash-images-container flex wrap fill-width" >
                     {this.state.splashImagesUrls.map(imageUrl => {
-                        return <div key={imageUrl} className="splash-images-container-item flex wrap">
-                            <img src={imageUrl} alt="oops.. didn't found it" onClick={(ev) => this.setBoardBackground(ev)}></img>
+                        return <div key={imageUrl.small} className="splash-images-container-item flex wrap">
+                            <img src={imageUrl.small} alt="oops.. didn't found it" onClick={() => this.setBoardBackground(imageUrl)}></img>
                         </div>
                     })
                     }
