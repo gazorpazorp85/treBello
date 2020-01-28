@@ -36,7 +36,23 @@ export default class TaskDetails extends Component {
 
     componentDidMount() {
         let currTask = this.props.board.tasks[this.props.taskId]
-        this.setState({ description: currTask.description });
+        if (!currTask.todos) {
+            currTask.todos = []
+
+            const newBoard = {
+                ...this.props.board,
+                tasks: {
+                    ...this.props.board.tasks,
+                    [currTask.id]: currTask
+                }
+            }
+            this.props.updateBoard(newBoard);
+
+            this.updateProgressBar()
+        } else {
+            this.updateProgressBar()
+        }
+        this.setState({ description: this.props.board.tasks[this.props.taskId].description });
     }
 
     emitChange = (ev) => {
@@ -245,19 +261,27 @@ export default class TaskDetails extends Component {
                                 <LabelIcon />
                                 <h2>Check List :</h2>
                             </div>
-                            {task.todos &&
+                            {task.todos ?
+                            
                                 <div className="check-list-container flex column">
                                     {
                                         task.todos.map(todo => {
-                                            { console.log('im here task todo: ', task.todos.length) }
                                             return <div key={todo.id} className="todo-item flex space-between" >
                                                 <div className="flex align-center">
-                                                    <input type="checkbox" onChange={() => this.toggleTodoDone(todo)} {...todo.isDone ? 'checked' : ''}>
-                                                    </input>
+                                                    {todo.isDone ?
+                                                        <input type="checkbox" onChange={() => this.toggleTodoDone(todo)} checked>
+                                                        </input>
+                                                        :
+                                                        <input type="checkbox" onChange={() => this.toggleTodoDone(todo)}>
+                                                        </input>
+                                                    }
+
                                                     <p className={todo.isDone ? "text-decoration" : ""}>
                                                         {todo.text}
                                                     </p>
                                                 </div>
+
+
                                                 <DeleteOutlineIcon
                                                     onClick={() => this.deleteTodo(todo.id)}
                                                 />
@@ -265,15 +289,18 @@ export default class TaskDetails extends Component {
                                             </div>
                                         })
                                     }
-                                    {console.log('im here')}
                                     <div className="check-list-progress">
                                         <div className="progress fill-height flex align-center" style={{ width: this.state.progressWidth + "%" }} >
                                             <small className="fill-width text-center">{this.state.progressWidth + "%"}</small>
                                         </div>
                                     </div>
-                                </div>
+                                </div> : ''
                             }
                         </div>
+
+
+
+
                         <div className="task-details-container-members-container">
 
                             {this.state.toggleChooseMembers ?
@@ -289,6 +316,7 @@ export default class TaskDetails extends Component {
                                 <EmojiPeopleIcon />
                                 <h2>Team Members :</h2>
                             </div>
+
                             <div className="members-choosen-container flex column">
                                 {
                                     task.taskTeamMembers.map(member => {
@@ -308,6 +336,7 @@ export default class TaskDetails extends Component {
                                 }
                             </div>
                         </div>
+
                         <div className="task-details-container-duedate-container">
                             <div className="flex align-center">
                                 <EventIcon />

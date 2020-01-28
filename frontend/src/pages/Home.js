@@ -23,9 +23,9 @@ class Home extends Component {
 
   componentDidMount() {
     this.props.loadBoards();
-    const blankDefaultBoardId = '5e2581b51c9d44000081af2a';
-    const filterBy = { title: '' };
-    this.props.loadBoard(blankDefaultBoardId, filterBy);
+    // const blankDefaultBoardId = '5e2581b51c9d44000081af2a';
+    // const filterBy = { title: '' };
+    // this.props.loadBoard(blankDefaultBoardId, filterBy);
   }
 
   toggleLogin = (ev) => {

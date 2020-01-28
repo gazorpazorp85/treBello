@@ -37,7 +37,6 @@ export default class TopMenuOptions extends Component {
         return <div className="top-menu-options">
             <h2 className="text-center capitalize">options menu</h2>
             <div className="options-container flex column">
-                <p className="capitalize">rename list</p>
                 <p className="capitalize" onClick={this.onDuplicateColumn}>duplicate list</p>
                 <p className="capitalize" onClick={() => this.props.onDelete(this.props.column.id)}>delete list</p>
             </div>

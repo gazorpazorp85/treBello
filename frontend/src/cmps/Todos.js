@@ -4,9 +4,9 @@ import CloseIcon from '@material-ui/icons/Close';
 
 export default class TaskList extends Component {
     state = {
-        checkList: [],
+        todos: [],
         text: '',
-        toggleCheckListItem: false
+        toggleTodo: false
     }
 
     componentDidMount = () => {
@@ -14,31 +14,32 @@ export default class TaskList extends Component {
     }
 
     setNewState = () => {
-        this.setState({ checkList: this.props.task.checkList })
+        this.setState({ todos: this.props.task.todos })
     }
 
-    toggleCheckListItem = () => {
-        this.setState(prevState => ({ toggleCheckListItem: !prevState.toggleCheckListItem }))
+    toggleTodo = () => {
+        this.setState(prevState => ({ toggleTodo: !prevState.toggleTodo }))
     }
 
-    updateCheckListItem = (ev) => {
+    updateTodo = (ev) => {
         this.setState({ text: ev.target.value })
     }
 
 
-    onSaveCheckListItem = () => {
-        const checkListItem = {
+    onSaveTodo = () => {
+        const todo = {
             text: this.state.text,
+            isDone: false,
             id: utils.getRandomId()
         }
-        const checkList = this.state.checkList
-        checkList.push(checkListItem)
+        const todos = this.state.todos
+        todos.push(todo)
 
         this.setState({
-            checkList
+            todos
         })
 
-        const newTask = { ...this.props.task, checkList: this.state.checkList };
+        const newTask = { ...this.props.task, todos: this.state.todos };
         const newBoard = {
             ...this.props.board,
             tasks: {
@@ -46,10 +47,7 @@ export default class TaskList extends Component {
                 [newTask.id]: newTask
             }
         }
-
-        debugger
         this.props.updateBoard(newBoard);
-
     }
 
     onStopPropagation = (ev) => {
@@ -61,25 +59,25 @@ export default class TaskList extends Component {
             <div className="check-list-item-container text-center"
                 onClick={(ev) => this.onStopPropagation(ev)}
             >
-                <CloseIcon className="check-list-item-container-close-btn" onClick={this.props.toggleCheckList} />
+                <CloseIcon className="check-list-item-container-close-btn pointer" onClick={this.props.toggleTodos} />
                 <div className="add-check-list-item-wrapper">
-                    <button className="add-check-list-item uppercase fill-width" onClick={this.toggleCheckListItem}>add task</button>
+                    <button className="add-check-list-item uppercase fill-width" onClick={this.toggleTodo}>add task</button>
                 </div>
 
-                {this.state.toggleCheckListItem &&
+                {this.state.toggleTodo &&
                     <div className="input-container flex column justify-center align-center">
                         <input className="text-center" type="text" placeholder="add new todo"
                             value={this.state.text}
-                            onChange={this.updateCheckListItem} name="text">
+                            onChange={this.updateTodo} name="text">
                         </input>
-                        <button onClick={this.onSaveCheckListItem}>save</button>
+                        <button onClick={this.onSaveTodo}>save</button>
                     </div>
                 }
 
-                <ul className="todos-contaienr ">
+                <ul className="todos-contaienr clean-list">
                     {
-                        this.props.task.checkList.map(todo => {
-                            return <li key={todo.id} className="todo-item">
+                        this.props.task.todos.map(todo => {
+                            return <li key={todo.id} className="todo-item clean-list">
                                 {todo.text}
                             </li>
                         })

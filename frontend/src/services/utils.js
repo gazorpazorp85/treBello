@@ -2,12 +2,14 @@ import axios from 'axios'
 
 import SocketService from './SocketService';
 
-export default { getRandomId, 
-                 createUserIcon, 
-                 getRandomColor, 
-                 uploadImg, 
-                 getImagesFromUnsplash,
-                 emitNotification }
+export default {
+  getRandomId,
+  createUserIcon,
+  getRandomColor,
+  uploadImg,
+  getImagesFromUnsplash,
+  emitNotification
+}
 
 function getRandomId() {
   let letters = '1234567890poiiytreqwasdfghjklmnbvcxxssersgyushquiz';
