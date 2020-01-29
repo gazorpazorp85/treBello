@@ -76,7 +76,7 @@ export default class Members extends Component {
                     {this.props.task.taskTeamMembers.map(member => {
                         return <div key={member._id} className="team-member flex"
                             onClick={() => this.updateChoosenMembers(member)}>
-                            <div className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: `${member.color}` }} >
+                            <div className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: '#dfe1e6', color: '#172b4d' }} >
                                 <div className="team-member-icon">
                                     <p>
                                         {utils.createUserIcon(member.firstName,
