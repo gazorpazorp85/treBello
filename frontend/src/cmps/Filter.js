@@ -14,7 +14,6 @@ export default class Filter extends Component {
     inputChange = (ev) => {
         let fieldName = ev.target.name;
         let value = ev.target.value;
-        console.log(fieldName, value);
         this.setState(prevState => ({
             filterBy: {
                 ...prevState.filterBy,

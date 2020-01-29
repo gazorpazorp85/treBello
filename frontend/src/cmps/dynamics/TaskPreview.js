@@ -52,9 +52,9 @@ export default class TaskPreview extends Component {
 
                         <div className="flex">
                             {(task.taskTeamMembers.map(member => {
-                                return <div key={member._id} className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: `${member.color}` }} >
+                                return <div key={member._id} className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: '#dfe1e6' }} >
                                     <div className="team-member-icon">
-                                        <p className="flex align-center">
+                                        <p className="flex align-center" style={{color: '#172b4d'}}>
                                             {utils.createUserIcon(member.firstName,
                                                 member.lastName)}
                                         </p>

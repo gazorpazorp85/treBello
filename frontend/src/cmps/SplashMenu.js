@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 
 import SearchIcon from '@material-ui/icons/Search';
 
-import utils from '../services/utils'
+import utils from '../services/utils';
+
+import office from '../data/officequery';
 
 export default class SplashMenu extends Component {
 
     state = {
-        splashImagesUrls: [],
+        splashImagesUrls: office,
         filterByName: ''
     }
 
@@ -27,7 +29,7 @@ export default class SplashMenu extends Component {
                     splashImagesUrls.push(image.urls);
                 }
             })
-            this.setState({ splashImagesUrls })
+            this.setState({ splashImagesUrls });
         } catch (err) {
             // res.status(401).send({ error: err });
         }
@@ -50,8 +52,7 @@ export default class SplashMenu extends Component {
     render() {
         return <div className={"splash-menu flex column align-center" + (this.props.toggleSplashMenu ? ' translateLeft' : '')} 
         onClick={(ev) => this.stopPropagation(ev)}>
-
-            <div className="flex column fill-width">
+            <div className="flex column fill-width filter-container">
                 <div className="splash-menu-search-bar fill-width flex justify-center">
                     <input
                         type='text'
