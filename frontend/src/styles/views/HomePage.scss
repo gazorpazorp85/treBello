@@ -1,4 +1,5 @@
 .home-page {
+    position: relative;
 
     &-login {
         z-index: 2;
@@ -28,9 +29,10 @@
     }
 
     h2 {
+        margin: 0px 15px;
         font-size: 2.2rem;
         color: white;
-        
+
     }
 
     //header -----------------------
@@ -38,7 +40,7 @@
     &-header-container {
         background: #00000099;
         height: 85vh;
-        
+
         .header-image {
             width: 100%;
             height: 100%;
@@ -122,23 +124,32 @@
         padding: 50px 150px;
         background-image: linear-gradient(white, #00000040);
 
-        .home-page-boards-list-img-wrapper {
-            width: 60%;
+        @media (max-width: 1250px) {
+            padding: 50px;
+        }
+
+        @media (max-width: 1055px) {
+            padding: 50px 5px;
+        }
+
+        @media (max-width: 950px) {
+            padding: 20px;
         }
 
         .home-page-boards-list-img {
-            width: 100%;
-            height: 100%;
+            width: 600px;
+            height: 280px;
             background-image: url(../images/boardtmp.png);
             background-size: cover;
             background-position-x: center;
             background-position-y: center;
-            border-radius: 5px;
+            border-radius: 2px;
         }
 
         &-start-new-board {
-            width: 40%;
-            padding: 50px;
+            max-width: 350px;
+            padding-left: 20px;
+
 
             &-card {
                 cursor: pointer;
@@ -156,37 +167,42 @@
                 }
 
                 h2 {
-                    font-size: 1.2rem;
+                    font-size: 1.3rem;
                     color: rgb(0, 0, 0);
                 }
 
                 small {
                     color: rgb(0, 0, 0);
-
                 }
             }
 
             &-right-text {
                 text-align: justify;
-                // margin-left: 20px;
                 font-size: 1.25rem;
                 color: rgb(0, 0, 0);
                 font-weight: 700;
-                // width: 60%;
+                margin-right: 10px;
+                width: 300px;
+                padding-left: 20px;
+
+                @media (max-width: 1055px) {
+                    font-size: 1.1rem;
+                }
+
+                @media (max-width: 950px) {
+                    font-size: 1.1rem;
+                    width: 600px;
+                    margin: 0;
+                    padding: 0;
+                }
             }
         }
     }
 
-
-
-
     &-footer {
         padding-top: 50px;
         min-height: 100px;
-        // background: black;
         background: black;
-
-
         color: rgb(255, 255, 255);
 
         .MuiSvgIcon-root {
@@ -196,13 +212,15 @@
 
             &.faceBookIcon {
                 &:hover {
-                    color: rgb(14, 0, 102);
+                    color: white;
+                    background-color: rgb(59, 89, 152);
                 }
             }
 
             &.linkedInIcon {
                 &:hover {
-                    color: rgb(95, 75, 48);
+                    color: white;
+                    background-color: rgb(40, 103, 178);
                 }
             }
         }
