@@ -202,7 +202,7 @@ export default class TaskDetails extends Component {
                         <header className="task-details-container-header">
                             <DescriptionOutlinedIcon style={{
                                 color: '#42526e', position: 'absolute',
-                                top: '22px',
+                                top: '10px',
                                 left: '12px'
                             }} />
                             <h2>{task.title}</h2>
@@ -253,7 +253,7 @@ export default class TaskDetails extends Component {
                                 {
                                     task.taskTeamMembers.map(member => {
                                         return <Avatar key={member._id} style={{
-                                            backgroundColor: 'dfe1e6',
+                                            backgroundColor: '#dfe1e6',
                                             height: 28,
                                             width: 28,
                                             fontSize: '0.85rem',

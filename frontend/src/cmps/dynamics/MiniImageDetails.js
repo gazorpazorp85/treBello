@@ -9,14 +9,17 @@ export default class MiniImageDetails extends Component {
     constructor(props) {
         super(props);
         this.textArea = React.createRef();
+        this.imgContainer = React.createRef();
     }
 
     state = {
         title: '',
+        imgHeight: 220
     }
 
     componentDidMount() {
         this.textArea.current.focus();
+        this.setState({ imgHeight: this.imgContainer.current.getBoundingClientRect().height });
     }
 
     handleFocus = ev => {
@@ -50,7 +53,6 @@ export default class MiniImageDetails extends Component {
         const labelLen = task.labels.length;
         let height = boundingClientRect.height;
         let top = boundingClientRect.top;
-
         if (height + top > window.innerHeight) {
             height = (window.innerHeight - top - 50) > 252 ? window.innerHeight - top - 50 : 252;
         }
@@ -67,7 +69,7 @@ export default class MiniImageDetails extends Component {
                     height: height + 'px'
                 }}
             >
-                <img title={task.id} alt="task" src={task.url} />
+                <img ref={this.imgContainer} title={task.id} alt="task" src={task.url} />
                 <div className="task-container-labels flex">
                     {task.labels.map(label => {
                         return <div key={label} className={label + ' small-label'}>
@@ -79,7 +81,7 @@ export default class MiniImageDetails extends Component {
                     name="title"
                     className={"text-area" + (labelLen > 0 ? ' preview-label' : '')}
                     style={{
-                        height: height - 220 + 'px',
+                        height: height - this.state.imgHeight + 'px',
                         position: 'relative',
                     }}
                     defaultValue={task.title}

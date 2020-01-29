@@ -3,6 +3,9 @@
     padding: 2px 5px;
     border-radius: 4px;
 
+    &-container:not(:last-child) {
+        margin-bottom: 8px;
+    }
 
     &-footer {
         color: #5e6c84;

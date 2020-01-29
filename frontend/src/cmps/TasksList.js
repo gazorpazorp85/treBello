@@ -43,7 +43,7 @@ export default class TasksList extends Component {
                 ref={innerRef}
             >
                         {tasks.map((task, idx) => (
-                            <div key={task.id} className="task-container">
+                            <div key={task.id} className="task-list-container">
                                 <Draggable draggableId={task.id} index={idx}>
                                     {(provided, snapshot) => (
                                         <NaturalDragAnimation

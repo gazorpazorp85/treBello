@@ -9,14 +9,14 @@ export default class ImagePreview extends Component {
         super(props);
         this.imgContainer = React.createRef();
     }
-
+    
     toggleMiniDetails = ev => {
         ev.stopPropagation();
         const miniTask = {
             task: this.props.task,
             boundingClientRect: this.imgContainer.current.getBoundingClientRect(),
             previewType: 'image',
-            column: this.props.column
+            column: this.props.column,
         };
         this.props.toggleMiniDetails(miniTask);
     }
@@ -32,7 +32,7 @@ export default class ImagePreview extends Component {
                     ref={innerRef}
                     style={style}
                 >
-                    <img title={task.id} alt="task"  src={task.url} />
+                    <img title={task.id} alt="task" src={task.url} />
                     <div className="task-container-labels flex">
                         {task.labels.map(label => {
                             return <div key={label} className={label + ' small-label'}>
