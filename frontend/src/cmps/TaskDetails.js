@@ -202,7 +202,7 @@ export default class TaskDetails extends Component {
                         <header className="task-details-container-header">
                             <DescriptionOutlinedIcon style={{
                                 color: '#42526e', position: 'absolute',
-                                top: '22px',
+                                top: '10px',
                                 left: '12px'
                             }} />
                             <h2>{task.title}</h2>
