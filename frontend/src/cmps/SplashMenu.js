@@ -4,7 +4,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 import utils from '../services/utils';
 
-import office from '../data/officequery';
+import office from '../unsplashdefaultdata/officequery';
 
 export default class SplashMenu extends Component {
 
