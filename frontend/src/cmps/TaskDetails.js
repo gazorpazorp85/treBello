@@ -252,7 +252,7 @@ export default class TaskDetails extends Component {
                                 {
                                     task.taskTeamMembers.map(member => {
                                         return <Avatar key={member._id} style={{
-                                            backgroundColor: 'dfe1e6',
+                                            backgroundColor: '#dfe1e6',
                                             height: 28,
                                             width: 28,
                                             fontSize: '0.85rem',
@@ -279,7 +279,8 @@ export default class TaskDetails extends Component {
                                 /> : ''
                             }
                             <AssignmentTurnedInOutlinedIcon style={{
-                                color: '#42526e', position: 'relative',
+                                color: '#42526e', 
+                                position: 'relative',
                                 top: '35px',
                                 right: '44px'
                             }} />
@@ -291,7 +292,7 @@ export default class TaskDetails extends Component {
                                         console.log('im here task todo: ', task.todos.length)
                                         return <div key={todo.id} className="todo-item flex space-between" >
                                             <div className="flex align-center">
-                                                <input type="checkbox" onChange={() => this.toggleTodoDone(todo)} {...todo.isDone ? 'checked' : ''}>
+                                                <input type="checkbox" onChange={() => this.toggleTodoDone(todo)} {todo.isDone ? checked : ''}>
                                                 </input>
                                                 <p className={todo.isDone ? "text-decoration" : ""}>
                                                     {todo.text}
