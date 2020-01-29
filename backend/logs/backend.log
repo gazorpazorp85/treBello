@@ -2051,10 +2051,22 @@ Tue, 28 Jan 2020 14:22:47 GMT - Info - Server is running on port: 3030
 Tue, 28 Jan 2020 14:25:58 GMT - Info - Server is running on port: 3030
 >>>>>>> 7fee86db90c74a3d00b4b2e7578a1ea01039e36e
 Tue, 28 Jan 2020 15:05:01 GMT - Info - Server is running on port: 3030
+<<<<<<< HEAD
+Tue, 28 Jan 2020 18:49:24 GMT - Info - Server is running on port: 3030
+Tue, 28 Jan 2020 19:02:29 GMT - Info - Server is running on port: 3030
+Tue, 28 Jan 2020 19:03:31 GMT - Info - Server is running on port: 3030
+Tue, 28 Jan 2020 19:03:33 GMT - Info - Server is running on port: 3030
+=======
 Tue, 28 Jan 2020 16:19:56 GMT - Info - Server is running on port: 3030
 Tue, 28 Jan 2020 20:05:46 GMT - Debug - auth.service - login with email: vladbald@gmail.com
 Tue, 28 Jan 2020 22:22:44 GMT - Info - Server is running on port: 3030
 Tue, 28 Jan 2020 22:28:49 GMT - Info - Server is running on port: 3030
+<<<<<<< HEAD
 Tue, 28 Jan 2020 23:20:45 GMT - Info - Server is running on port: 3030
 Wed, 29 Jan 2020 07:48:06 GMT - Info - Server is running on port: 3030
 Wed, 29 Jan 2020 13:08:42 GMT - Info - Server is running on port: 3030
+=======
+>>>>>>> bee19cfb6ccfede1aacc7414cfba5051d39f0f2b
+Wed, 29 Jan 2020 08:38:02 GMT - Info - Server is running on port: 3030
+>>>>>>> f037a2c9d81f6731dad0b550cddeda8d41fd9ff0
+Wed, 29 Jan 2020 13:50:00 GMT - Info - Server is running on port: 3030

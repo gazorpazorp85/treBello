@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 
-import TitleIcon from '@material-ui/icons/Title';
 import NotesIcon from '@material-ui/icons/Notes';
 // import ListAltIcon from '@material-ui/icons/ListAlt';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import CloseIcon from '@material-ui/icons/Close';
-import LabelIcon from '@material-ui/icons/Label';
-import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
-import EventIcon from '@material-ui/icons/Event';
 import Avatar from '@material-ui/core/Avatar';
 import DescriptionOutlinedIcon from '@material-ui/icons/DescriptionOutlined';
 import AssignmentTurnedInOutlinedIcon from '@material-ui/icons/AssignmentTurnedInOutlined';
@@ -21,7 +17,6 @@ import Todos from './Todos';
 
 
 import utils from '../services/utils'
-import TaskList from './Todos';
 
 export default class TaskDetails extends Component {
     state = {
@@ -36,7 +31,9 @@ export default class TaskDetails extends Component {
         toggleChooseMembers: false,
         toggleTodos: false,
         onToggleDueDate: false,
-        progressWidth: 0
+        toggleDeleteTodo: false,
+        progressWidth: 0,
+        currTodoId: ''
     }
 
     componentDidMount() {
@@ -187,6 +184,10 @@ export default class TaskDetails extends Component {
         this.updateProgressBar()
     }
 
+    toggleDeleteTodo = (todoId) => {
+        this.setState(prevState => ({ toggleDeleteTodo: !prevState.toggleDeleteTodo, currTodoId: todoId }))
+    }
+
 
     render() {
         const task = this.props.board.tasks[this.props.taskId];
@@ -278,33 +279,36 @@ export default class TaskDetails extends Component {
                                     updateBoard={this.props.updateBoard}
                                 /> : ''
                             }
-                            <AssignmentTurnedInOutlinedIcon style={{
-                                color: '#42526e', 
-                                position: 'relative',
-                                top: '35px',
-                                right: '44px'
-                            }} />
+                            <AssignmentTurnedInOutlinedIcon
+                                style={{
+                                    color: '#42526e',
+                                    position: 'relative',
+                                    top: '35px',
+                                    right: '44px',
+                                }}
+                            />
                             <h2>Checklist</h2>
 
                             {task.todos ?
                                 <div className="check-list-container flex column">
                                     {task.todos.map(todo => {
-                                        console.log('im here task todo: ', task.todos.length)
-                                        return <div key={todo.id} className="todo-item flex space-between" >
+                                        return <div key={todo.id} className="todo-item flex space-between" onMouseEnter={() => this.toggleDeleteTodo(todo.id)}
+                                                onMouseLeave={() => this.toggleDeleteTodo(todo.id)}>
                                             <div className="flex align-center">
-                                                <input type="checkbox" onChange={() => this.toggleTodoDone(todo)} {todo.isDone ? checked : ''}>
+                                                <input type="checkbox" onChange={() => this.toggleTodoDone(todo)} checked={todo.isDone ? 'checked' : ''}>
                                                 </input>
                                                 <p className={todo.isDone ? "text-decoration" : ""}>
                                                     {todo.text}
                                                 </p>
                                             </div>
-                                            <DeleteOutlineIcon
-                                                onClick={() => this.deleteTodo(todo.id)}
-                                            />
+                                                <DeleteOutlineIcon
+                                                    onClick={() => this.deleteTodo(todo.id)}
+                                                    className="pointer"
+                                                    style={{ display: this.state.toggleDeleteTodo && this.state.currTodoId === todo.id ? 'block' : 'none' }}
+                                                />
                                         </div>
                                     })
                                     }
-                                    {console.log('im here')}
                                     <div className="check-list-progress">
                                         <div className="progress fill-height flex align-center" style={{ width: this.state.progressWidth + "%" }} >
                                             <small className="fill-width text-center">{this.state.progressWidth + "%"}</small>
@@ -380,7 +384,7 @@ export default class TaskDetails extends Component {
                                 <div className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.toggleChooseLabels(ev)} >Labels</div>
                                 <div className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.toggleChooseMembers(ev)} >Members</div>
                                 <div className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.toggleTodos(ev)} >Check List</div>
-                                <div className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.onToggleDueDate(ev)}>Due date</div>
+                                <div className="task-details-container-add-to-card-options-btn btn capitalize" onClick={ev => this.onToggleDueDate(ev)}>Due date</div>
                                 {/* <button className="task-details-container-add-to-card-options-btn btn" >Image</button>
                                 <button className="task-details-container-add-to-card-options-btn btn" >Video</button> */}
                             </div>
