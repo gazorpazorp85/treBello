@@ -253,7 +253,7 @@ export default class TaskDetails extends Component {
                                 {
                                     task.taskTeamMembers.map(member => {
                                         return <Avatar key={member._id} style={{
-                                            backgroundColor: 'dfe1e6',
+                                            backgroundColor: '#dfe1e6',
                                             height: 28,
                                             width: 28,
                                             fontSize: '0.85rem',

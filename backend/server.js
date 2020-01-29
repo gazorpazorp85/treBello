@@ -38,6 +38,9 @@ if (process.env.NODE_ENV === 'production') {
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api/board', boardRoutes)
+app.get('/*', function(req,res) {
+    res.sendFile(path.resolve(__dirname, 'public/index.html'))
+})
 connectSockets(io)
 
 const logger = require('./services/logger.service')
