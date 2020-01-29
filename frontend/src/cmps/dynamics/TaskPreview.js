@@ -32,7 +32,7 @@ export default class TaskPreview extends Component {
                     ref={innerRef}
                     style={style}
                 >
-                    <div className="task-container-labels flex">
+                    <div className="task-container-labels flex wrap">
                         {task.labels.map(label => {
                             return <div key={label} className={label + ' small-label'}>
                             </div>
@@ -41,7 +41,8 @@ export default class TaskPreview extends Component {
                     </div>
 
                     <p className="task-container-title">{task.title}</p>
-                    <div className={"flex align-center space-between" + (task.description === '' ? ' row-reverse' : '')}>
+
+                    <div className={"bottom-container flex align-center space-between" + (task.description === '' ? ' row-reverse' : '')}>
                         {(showEditBtn && (onTaskId === task.id)) ?
                             <CreateIcon className="task-container-open-menu"
                                 onClick={e => this.toggleMiniDetails(e)} />
