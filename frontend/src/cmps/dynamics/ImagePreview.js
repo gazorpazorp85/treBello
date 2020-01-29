@@ -26,7 +26,7 @@ export default class ImagePreview extends Component {
         return (
             <section ref={this.imgContainer}>
                 <div
-                    className={"task-container flex column align center" + (isDragging ? " isDragging" : "")}
+                    className={"task-container without-padding flex column align center" + (isDragging ? " isDragging" : "")}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     ref={innerRef}

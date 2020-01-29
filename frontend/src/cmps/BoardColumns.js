@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import NaturalDragAnimation from 'natural-drag-animation-rbdnd';
 
+import AddIcon from '@material-ui/icons/Add';
+
 import TopMenuOptions from './TopMenuOptions'
 import TasksList from './TasksList';
 import TaskForm from '../cmps/TaskForm'
@@ -33,7 +35,7 @@ export default class BoardColumns extends Component {
         const notificationType = 'danger';
         this.props.updateBoard(board, msg, notificationType);
         this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
-        
+
     }
 
     onDragEnd = result => {
@@ -186,13 +188,12 @@ export default class BoardColumns extends Component {
                                                             </h2>
                                                         </div>
 
-                                                        <div className="board-columns-item-header-menu-btn"
-                                                            onClick={(ev) => { ev.stopPropagation(); this.props.openEditColumn(column.id) }}
-                                                        >
-                                                            <h2 className="board-columns-item-header-menu-btn-icon"> ... </h2>
-                                                        </div>
 
+                                                        <div className="board-columns-item-header-menu-btn-icon"
+                                                            onClick={(ev) => { ev.stopPropagation(); this.props.openEditColumn(column.id) }}> ... </div>
                                                     </div>
+
+
 
                                                     {showTopMenuOptions && (currColumnId === column.id) ?
                                                         <TopMenuOptions
@@ -224,9 +225,12 @@ export default class BoardColumns extends Component {
 
                                                     <div className="task-list-footer">
                                                         {(!showAddForm || currColumnId !== column.id) &&
-                                                            <p className="task-list-footer-add-task"
-                                                                onClick={(ev) => { ev.stopPropagation(); this.props.openAddForm(column.id) }}>
-                                                                + Add a task</p>
+                                                            <div className="flex align-center">
+                                                                <AddIcon />
+                                                                <p className="task-list-footer-add-task"
+                                                                    onClick={(ev) => { ev.stopPropagation(); this.props.openAddForm(column.id) }}>
+                                                                    Add a task</p>
+                                                            </div>
                                                         }
                                                         {showAddForm && (currColumnId === column.id) ?
                                                             <TaskForm

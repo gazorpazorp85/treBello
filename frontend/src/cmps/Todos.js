@@ -83,9 +83,6 @@ export default class TaskList extends Component {
                         })
                     }
                 </ul>
-
-                <div className="task-list-container-colors-container flex column align-center ">
-                </div>
             </div>
         );
 
