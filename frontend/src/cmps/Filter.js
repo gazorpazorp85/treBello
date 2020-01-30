@@ -37,7 +37,7 @@ export default class Filter extends Component {
             </input>
             <div className="board-page-nav-bar-filters-divider"></div>
             <select name="teamMembers" onChange={this.inputChange}>
-                <option className="capitalize" value=''>all team members</option>
+                <option value=''>All Team Members</option>
                 {teamMembers.map(teamMember => (
                     <option className="capitalize" key={teamMember._id} value={`${teamMember.username}`}>{teamMember.firstName} {teamMember.lastName}</option>
                 ))}
