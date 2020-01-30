@@ -75,6 +75,7 @@ async function remove(boardId) {
 function _filterBoard(board, filterBy) {
 
     const tasks = board.tasks;
+    const columns = {...board.columns};
     const matchedIds = [];
     const unmatchedIds = [];
 
@@ -94,15 +95,15 @@ function _filterBoard(board, filterBy) {
             if (taskTeamMembers.length === 0) {
                 unmatchedIds.push(id);
             } else {
-                if (taskTeamMembers.every((taskTeamMember) => (taskTeamMember.username !== teamMember))) unmatchedIds.push(id) ;
+                if (taskTeamMembers.every((taskTeamMember) => (taskTeamMember.username !== teamMember))) unmatchedIds.push(id);
             }
         }
     }
 
-    for (const column in board.columns) {
+    for (const column in columns) {
         for (const unmatchedId of unmatchedIds) {
-            if (board.columns[column].taskIds.includes(unmatchedId))
-                board.columns[column].taskIds = board.columns[column].taskIds.filter(id => id !== unmatchedId);
+            if (columns[column].taskIds.includes(unmatchedId))
+                columns[column].taskIds = columns[column].taskIds.filter(id => id !== unmatchedId);
         }
     }
     return board;

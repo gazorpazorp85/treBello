@@ -1,43 +1,68 @@
 .check-list-item-container {
-    width: 200px;
-    height: 200px;
-    background-color: white;
+  width: 300px;
+  height: 130px;
+  background-color: white;
+  position: absolute;
+  right: 13px;
+  top: 224px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 2px #aeaeaeb5;
+  z-index: 1;
+
+  &-close-btn {
     position: absolute;
-    right: 20px;
-    top: 217px;
-    border-radius: 4px;
-    box-shadow: 0px 0px 13px -1px #0c0c0c2e;
+    top: 5px;
+    right: 5px;
+    height: 25px;
+    width: 25px;
+  }
 
-    &-close-btn {
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        height: 25px;
-        width: 25px;
+  .input-container {
+    margin-top: 10px;
+
+    input {
+      // background: #cacaca;
+      padding: 5px 0px;
+      width: 90%;
+      box-shadow: inset 0 0 0 2px #dfe1e6;
+      margin-bottom: 15px;
+      border-radius: 4px;
+    }
+  }
+
+  .add-check-list-item {
+    &-wrapper {
+      margin: 35px 10px 0px 10px;
     }
 
-    .input-container {
-        margin-top: 10px;
+    transition: 0.3s;
+    padding: 5px 0px;
 
-        input {
-            background: #cacaca;
-            padding: 5px 0px;
-        }
+    &:hover {
+      background: rgba(56, 56, 56, 0.199);
     }
-
-    .add-check-list-item {
-        &-wrapper {
-            margin: 35px 10px 0px 10px;
-        }
-
-        transition: 0.3s;
-        padding: 5px 0px;
-
-        &:hover {
-            background: rgba(56, 56, 56, 0.199);
-        }
-
-
-    }
+  }
 }
 
+.checklist-closebtn-container {
+  width: 100%;
+  height: 40px;
+  & > .MuiSvgIcon-root {
+    height: 18px;
+    width: 18px;
+  }
+}
+
+.save-todo-btn {
+  width: 48px;
+  font-size: 0.625rem;
+  padding: 6px 10px;
+  margin-top: 3px;
+  color: white;
+  font-weight: 600;
+  background-color: #5aac44;
+  transition: 0.3s;
+  &:hover {
+    background-color: #5bac44d5;
+  }
+}
