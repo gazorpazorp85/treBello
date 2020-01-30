@@ -41,7 +41,7 @@ export default class Filter extends Component {
                     <option key={teamMember._id} value={`${teamMember.username}`}>{teamMember.firstName} {teamMember.lastName}</option>
                 ))}
             </select>
-            <button className="board-page-nav-bar-filters nav-btn"
+            <button className="board-page-nav-bar-filters nav-btn search-btn"
                 onClick={this.onFilterClick}>
                 <SearchIcon className="flex" />
             </button>

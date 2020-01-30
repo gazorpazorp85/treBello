@@ -228,18 +228,31 @@ class Board extends Component {
               <button className="board-page-nav-bar-filters nav-btn flex">
                 <HomeIcon onClick={this.goBack} />
               </button>
+
+              <div className="board-page-nav-bar-filters-divider"></div>
+
               <Filter onFilter={this.onFilter} teamMembers={this.props.board.teamMembers} />
+
+              <div className="board-page-nav-bar-filters-divider"></div>
+
               <Sort onSort={this.onSort} />
             </div>
+
             <div className="flex">
               <div className="board-page-nav-bar-filters-item fill-height">
                 <button className="nav-btn fill-height"
                   onClick={this.toggleBoardTeamMembers}>Add Members</button>
               </div>
+
+              <div className="board-page-nav-bar-filters-divider"></div>
+
               <div className="board-page-nav-bar-filters-item fill-height">
                 <button className="nav-btn fill-height"
                   onClick={(ev) => this.toggleSplashMenu(ev)}>Change Background</button>
               </div>
+
+              <div className="board-page-nav-bar-filters-divider"></div>
+
               <div className="board-page-nav-bar-filters-item flex fill-height">
                 <button className="board-page-nav-bar-filters nav-btn"
                   onClick={this.toggleBoardHistory}>Show History</button>
