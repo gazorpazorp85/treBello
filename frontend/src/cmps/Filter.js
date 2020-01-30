@@ -35,10 +35,11 @@ export default class Filter extends Component {
                 value={this.state.filterBy.title}
                 onChange={this.inputChange} name="title">
             </input>
+            <div className="board-page-nav-bar-filters-divider"></div>
             <select name="teamMembers" onChange={this.inputChange}>
-                <option value=''>All Team Members</option>
+                <option className="capitalize" value=''>all team members</option>
                 {teamMembers.map(teamMember => (
-                    <option key={teamMember._id} value={`${teamMember.username}`}>{teamMember.firstName} {teamMember.lastName}</option>
+                    <option className="capitalize" key={teamMember._id} value={`${teamMember.username}`}>{teamMember.firstName} {teamMember.lastName}</option>
                 ))}
             </select>
             <button className="board-page-nav-bar-filters nav-btn search-btn"
