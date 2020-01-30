@@ -7,6 +7,7 @@
     top: 185px;
     right: 21px;
     padding-top: 25px;
+    z-index: 1;
 
     p {
         margin-inline-start: 0px;
@@ -38,8 +39,9 @@
                 width: 40px;
                 height: 40px;
                 margin-right: 5px;
-                border: 1px solid;
-                padding: 5px 7px;
+                // border: 1px solid;
+                // padding: 5px 7px;
+                padding: 2px 5px;
                 border-radius: 50%;
             }
 
