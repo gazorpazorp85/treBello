@@ -135,7 +135,6 @@ export default class BoardColumns extends Component {
     }
 
     emitChange = (ev, colId) => {
-        console.log(ev);
         this.setState({ title: ev.target.innerText }, _ => {
             this.handleCheck(colId, this.state.title);
         });

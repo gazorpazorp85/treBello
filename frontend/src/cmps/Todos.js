@@ -6,7 +6,7 @@ export default class TaskList extends Component {
     state = {
         todos: [],
         text: '',
-        toggleTodo: false
+        // toggleTodo: false
     }
 
     componentDidMount = () => {
@@ -17,9 +17,9 @@ export default class TaskList extends Component {
         this.setState({ todos: this.props.task.todos })
     }
 
-    toggleTodo = () => {
-        this.setState(prevState => ({ toggleTodo: !prevState.toggleTodo }))
-    }
+    // toggleTodo = () => {
+    //     this.setState(prevState => ({ toggleTodo: !prevState.toggleTodo }))
+    // }
 
     updateTodo = (ev) => {
         this.setState({ text: ev.target.value })
@@ -59,30 +59,18 @@ export default class TaskList extends Component {
             <div className="check-list-item-container text-center"
                 onClick={(ev) => this.onStopPropagation(ev)}
             >
-                <CloseIcon className="check-list-item-container-close-btn pointer" onClick={this.props.toggleTodos} />
-                <div className="add-check-list-item-wrapper">
-                    <button className="add-check-list-item uppercase fill-width" onClick={this.toggleTodo}>add task</button>
+                <div className="checklist-closebtn-container">
+                    <CloseIcon className="check-list-item-container-close-btn pointer" onClick={this.props.toggleTodos} />
                 </div>
 
-                {this.state.toggleTodo &&
-                    <div className="input-container flex column justify-center align-center">
-                        <input className="text-center" type="text" placeholder="add new todo"
-                            value={this.state.text}
-                            onChange={this.updateTodo} name="text">
-                        </input>
-                        <button onClick={this.onSaveTodo}>save</button>
-                    </div>
-                }
+                <div className="input-container flex column justify-center align-center">
+                    <input className="text-center" type="text" placeholder="add new todo"
+                        value={this.state.text}
+                        onChange={this.updateTodo} name="text">
+                    </input>
+                    <button className="save-todo-btn capitalize" onClick={this.onSaveTodo}>add</button>
+                </div>
 
-                <ul className="todos-contaienr clean-list">
-                    {
-                        this.props.task.todos.map(todo => {
-                            return <li key={todo.id} className="todo-item clean-list">
-                                {todo.text}
-                            </li>
-                        })
-                    }
-                </ul>
             </div>
         );
 

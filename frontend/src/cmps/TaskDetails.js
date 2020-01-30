@@ -114,6 +114,19 @@ export default class TaskDetails extends Component {
         this.props.toggleTaskDetails();
     }
 
+    onDeleteTask = (column, task) => {
+        const board = { ...this.props.board };
+        const taskIds = column.taskIds;
+        const idx = taskIds.findIndex(taskId => taskId === task.id);
+        taskIds.splice(idx, 1);
+        delete board.tasks[task.id];
+        const msg = `'${task.title}' was deleted by ${this.props.user}`;
+        const notificationType = 'danger'; 
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
+        this.props.updateBoard(board, msg, notificationType);
+        this.props.toggleTaskDetails();
+    }
+
     toggleTodoDone = (todo) => {
         todo.isDone = !todo.isDone;
         let newTask = { ...this.props.board.tasks[this.props.taskId] };
@@ -185,6 +198,7 @@ export default class TaskDetails extends Component {
         }
         this.props.updateBoard(newBoard);
         this.updateProgressBar()
+        this.toggleDeleteTodo(todos.id);
     }
 
     toggleDeleteTodo = (todoId) => {
@@ -295,7 +309,7 @@ export default class TaskDetails extends Component {
                             {task.todos ?
                                 <div className="check-list-container flex column">
                                     {task.todos.map(todo => {
-                                        return <div key={todo.id} className="todo-item flex aling-center space-between" onMouseEnter={() => this.toggleDeleteTodo(todo.id)}
+                                        return <div key={todo.id} className="todo-item flex align-center space-between" onMouseEnter={() => this.toggleDeleteTodo(todo.id)}
                                             onMouseLeave={() => this.toggleDeleteTodo(todo.id)}>
                                             <div className="flex align-center">
                                                 <input type="checkbox" onChange={() => this.toggleTodoDone(todo)} checked={todo.isDone ? 'checked' : ''}>
@@ -375,10 +389,10 @@ export default class TaskDetails extends Component {
                                 letterSpacing: '0.04em'
                             }}>add to card</h3>
                             <div className="task-details-container-add-to-card-options flex column">
-                                <div className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.toggleChooseLabels(ev)} >Labels</div>
-                                <div className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.toggleChooseMembers(ev)} >Members</div>
-                                <div className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.toggleTodos(ev)} >Check List</div>
-                                <div className="task-details-container-add-to-card-options-btn btn capitalize" onClick={ev => this.onToggleDueDate(ev)}>Due date</div>
+                                <div className="task-details-container-add-to-card-options-btn btn capitalize" onClick={ev => this.toggleChooseLabels(ev)} >labels</div>
+                                <div className="task-details-container-add-to-card-options-btn btn capitalize" onClick={ev => this.toggleChooseMembers(ev)} >members</div>
+                                <div className="task-details-container-add-to-card-options-btn btn capitalize" onClick={ev => this.toggleTodos(ev)} >check list</div>
+                                <div className="task-details-container-add-to-card-options-btn btn capitalize" onClick={ev => this.onToggleDueDate(ev)}>due date</div>
                             </div>
                         </div>
 
@@ -389,6 +403,7 @@ export default class TaskDetails extends Component {
                                 letterSpacing: '0.04em'
                             }}>actions</h3>
                             <div className="task-details-container-actions-options-btn btn" onClick={() => this.onDuplicateTask(column, task)}>Duplicate</div>
+                            <div className="task-details-container-actions-options-btn btn" onClick={() => this.onDeleteTask(column, task)}>Delete</div>
                         </div>
                     </div>
                 </div>
