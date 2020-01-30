@@ -136,7 +136,8 @@ class Board extends Component {
   }
 
   onFilter = (filterBy) => {
-    this.setState({ filterBy }, this.loadBoard);
+    console.log('board filter', filterBy);
+    this.setState(prevState => ({ filterBy: { ...prevState.filterBy, ...filterBy } }), this.loadBoard);
   }
 
   onSort = (sortBy, sortOrder) => {

@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-import SearchIcon from '@material-ui/icons/Search';
-
 export default class Filter extends Component {
 
     state = {
@@ -12,18 +10,10 @@ export default class Filter extends Component {
     }
 
     inputChange = (ev) => {
+
         let fieldName = ev.target.name;
         let value = ev.target.value;
-        this.setState(prevState => ({
-            filterBy: {
-                ...prevState.filterBy,
-                [fieldName]: value
-            }
-        }));
-    }
-
-    onFilterClick = () => {
-        this.props.onFilter(this.state.filterBy);
+        this.setState(({ filterBy: { [fieldName]: value } }), () => this.props.onFilter(this.state.filterBy));
     }
 
     render() {
@@ -42,10 +32,10 @@ export default class Filter extends Component {
                     <option className="capitalize" key={teamMember._id} value={`${teamMember.username}`}>{teamMember.firstName} {teamMember.lastName}</option>
                 ))}
             </select>
-            <button className="board-page-nav-bar-filters nav-btn search-btn"
+            {/* <button className="board-page-nav-bar-filters nav-btn search-btn"
                 onClick={this.onFilterClick}>
                 <SearchIcon className="flex" />
-            </button>
+            </button> */}
         </div>
     }
 }
