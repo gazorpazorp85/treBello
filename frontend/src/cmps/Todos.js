@@ -74,7 +74,7 @@ export default class TaskList extends Component {
                     </div>
                 }
 
-                <ul className="todos-contaienr clean-list">
+                {/* <ul className="todos-contaienr clean-list">
                     {
                         this.props.task.todos.map(todo => {
                             return <li key={todo.id} className="todo-item clean-list">
@@ -82,7 +82,7 @@ export default class TaskList extends Component {
                             </li>
                         })
                     }
-                </ul>
+                </ul> */}
             </div>
         );
 
