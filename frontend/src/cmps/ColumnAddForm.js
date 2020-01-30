@@ -67,13 +67,13 @@ export default class ColumnAddForm extends Component {
             <input
                 ref={(input) => { this.nameInput = input; }}
                 type='text'
-                placeholder='Column Name'
+                placeholder='Enter list title...'
                 name='title'
                 onChange={this.inputChange}
                 value={this.state.column.title} />
-            <div className="add-column flex">
-                <button className="add-column-save-btn uppercase"
-                    variant="contained">save</button>
+            <div className="save-btn-container flex">
+                <button className="add-column-save-btn capitalize"
+                    variant="contained">add list</button>
 
                 <CloseIcon className="add-column-back-to-board flex align-center"
                     onClick={this.props.toggleAddForm} />

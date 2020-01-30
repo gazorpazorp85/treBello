@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import NaturalDragAnimation from 'natural-drag-animation-rbdnd';
 
-import AddIcon from '@material-ui/icons/Add';
+// import AddIcon from '@material-ui/icons/Add';
 
 import TopMenuOptions from './TopMenuOptions'
 import TasksList from './TasksList';
@@ -140,6 +140,10 @@ export default class BoardColumns extends Component {
         });
     }
 
+    addCardText(column) {
+        return (column.taskIds.length === 0) ? 'Add a card' : 'Add another card';
+    }
+
     render() {
         const { currColumnId, showTopMenuOptions, showAddForm } = this.props;
         return (
@@ -222,16 +226,16 @@ export default class BoardColumns extends Component {
                                                         }}
                                                     </Droppable>
 
-                                                    <div className="task-list-footer">
-                                                        {(!showAddForm || currColumnId !== column.id) &&
-                                                            <div className="flex align-center">
-                                                                <AddIcon />
-                                                                <p className="task-list-footer-add-task fill-width"
-                                                                    onClick={(ev) => { ev.stopPropagation(); this.props.openAddForm(column.id) }}>
-                                                                    Add a task</p>
-                                                            </div>
-                                                        }
-                                                    </div>
+                                                    {/* <div className="task-list-footer"> */}
+                                                    {(!showAddForm || currColumnId !== column.id) &&
+                                                        <div className="task-list-footer flex align-center">
+                                                            {/* <AddIcon/> */}
+                                                            <div className="task-list-footer-add-task fill-width"
+                                                                onClick={(ev) => { ev.stopPropagation(); this.props.openAddForm(column.id) }}>
+                                                                <span className="add-icon">+</span>{this.addCardText(column)}</div>
+                                                        </div>
+                                                    }
+                                                    {/* </div> */}
                                                     {showAddForm && (currColumnId === column.id) ?
                                                         <TaskForm
                                                             user={this.props.user}

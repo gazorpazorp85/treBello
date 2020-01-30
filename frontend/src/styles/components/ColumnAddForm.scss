@@ -2,7 +2,7 @@
 
     .add-column {
         &-form-container {
-            margin: 0;
+            margin-top: 0;
             padding: 4px;
             min-width: 260px;
             min-height: 52px;
@@ -28,17 +28,17 @@
 
             &:hover {
                 border-radius: 4px;
-                background-color: rgba(255, 0, 0, 0.486);
+                // background-color: rgba(255, 0, 0, 0.486);
                 ;
             }
         }
 
         &-save-btn {
-            font-size: rem(10px);
+            min-height: 32px;
+            height: 32px;
             padding: 5px 10px;
-            margin-top: 3px;
             color: white;
-            font-weight: 600;
+            margin-right: 4px;
             background-color: #5aac44;
             transition: 0.3s;
 
@@ -48,10 +48,13 @@
         }
 
         &-back-btn {
-
             margin-top: 2px;
             font-family: montserratBold, 'sans-sarif';
         }
 
     }
+}
+
+.save-btn-container {
+    margin-top: 4px;
 }

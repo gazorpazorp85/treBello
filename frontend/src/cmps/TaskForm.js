@@ -117,12 +117,12 @@ export default class TaskForm extends Component {
 
                     <textarea type="text"
                         onKeyUp={this.textAreaAdjust}
-                        placeholder="Add a task title..."
+                        placeholder="Enter a title for this card..."
                         name="title"
                         ref={(input) => { this.nameInput = input; }}
                         onChange={this.inputChange} value={this.state.task.title} />
-                    <div className="flex align-center">
-                        <button className="task-form-save-btn save">save</button>
+                    <div className="save-btn-container flex align-center">
+                        <button className="task-form-save-btn save capitalize">add card</button>
                         <CloseIcon className="task-form-back-btn" onClick={(ev) => { ev.stopPropagation(); this.props.closeUpdateForm() }} />
                     </div>
                 </div>

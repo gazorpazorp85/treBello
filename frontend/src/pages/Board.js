@@ -15,6 +15,7 @@ import TaskDetails from '../cmps/TaskDetails';
 import DynamicMiniComponent from '../cmps/dynamics/DynamicMiniComponent';
 
 import HomeIcon from '@material-ui/icons/Home';
+// import AddIcon from '@material-ui/icons/Add';
 
 import utils from '../services/utils';
 import SocketService from '../services/SocketService';
@@ -296,7 +297,7 @@ class Board extends Component {
               <div className="flex column align-center">
                 {this.state.showColAddForm ?
                   <button className="board-page-add-another-column-btn" onClick={this.toggleAddColumn}>
-                    + Add another list..  </button> : ''}
+                  <span className="add-icon">+</span>Add another list  </button> : ''}
                 {!this.state.showColAddForm && <ColumnAddForm board={this.props.board} updateBoard={this.props.updateBoard}
                   toggleAddForm={this.toggleAddColumn} user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'} />}
               </div>
