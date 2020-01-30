@@ -227,22 +227,22 @@ export default class BoardColumns extends Component {
                                                         {(!showAddForm || currColumnId !== column.id) &&
                                                             <div className="flex align-center">
                                                                 <AddIcon />
-                                                                <p className="task-list-footer-add-task"
+                                                                <p className="task-list-footer-add-task fill-width"
                                                                     onClick={(ev) => { ev.stopPropagation(); this.props.openAddForm(column.id) }}>
                                                                     Add a task</p>
                                                             </div>
                                                         }
-                                                        {showAddForm && (currColumnId === column.id) ?
-                                                            <TaskForm
-                                                                user={this.props.user}
-                                                                board={this.props.board}
-                                                                column={column}
-                                                                closeUpdateForm={this.props.closeAddForm}
-                                                                updateBoard={this.props.updateBoard}
-                                                            />
-                                                            : ''
-                                                        }
                                                     </div>
+                                                    {showAddForm && (currColumnId === column.id) ?
+                                                        <TaskForm
+                                                            user={this.props.user}
+                                                            board={this.props.board}
+                                                            column={column}
+                                                            closeUpdateForm={this.props.closeAddForm}
+                                                            updateBoard={this.props.updateBoard}
+                                                        />
+                                                        : ''
+                                                    }
                                                 </div>
                                             )}
                                         </NaturalDragAnimation>

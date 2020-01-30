@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import moment from 'moment';
 
 import NotesIcon from '@material-ui/icons/Notes';
-// import ListAltIcon from '@material-ui/icons/ListAlt';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import CloseIcon from '@material-ui/icons/Close';
 import Avatar from '@material-ui/core/Avatar';
@@ -134,19 +133,23 @@ export default class TaskDetails extends Component {
 
     updateProgressBar = () => {
         let start = this.state.progressWidth;
-        const task = this.props.board.tasks[this.props.taskId];
+        let task = this.props.board.tasks[this.props.taskId];
         let doneTodosCounter = task.todos.filter(todo => (todo.isDone)).length;
+        
+        //plaster brodthers---------------------
+        task.todosDone = doneTodosCounter;
+        const newBoard = {
+            ...this.props.board,
+            tasks: {
+                ...this.props.board.tasks,
+                [task.id]: task
+            }
+        }
+        this.props.updateBoard(newBoard);
+        //----------------------------------
+
         let interval;
         let progressWidth = Math.round((doneTodosCounter / task.todos.length) * 100);
-        //     if (start <= progressWidth) {
-        //         clearInterval(interval);
-        //     } else {
-        //         interval = setInterval(() => {
-        //             start--;
-        //             this.setState({ progressWidth: start })
-        //         }, 10)
-        //     };
-        // }
         if (start < progressWidth) {
             interval = setInterval(() => {
                 if (start >= progressWidth) {
@@ -292,8 +295,8 @@ export default class TaskDetails extends Component {
                             {task.todos ?
                                 <div className="check-list-container flex column">
                                     {task.todos.map(todo => {
-                                        return <div key={todo.id} className="todo-item flex space-between" onMouseEnter={() => this.toggleDeleteTodo(todo.id)}
-                                                onMouseLeave={() => this.toggleDeleteTodo(todo.id)}>
+                                        return <div key={todo.id} className="todo-item flex aling-center space-between" onMouseEnter={() => this.toggleDeleteTodo(todo.id)}
+                                            onMouseLeave={() => this.toggleDeleteTodo(todo.id)}>
                                             <div className="flex align-center">
                                                 <input type="checkbox" onChange={() => this.toggleTodoDone(todo)} checked={todo.isDone ? 'checked' : ''}>
                                                 </input>
@@ -301,11 +304,11 @@ export default class TaskDetails extends Component {
                                                     {todo.text}
                                                 </p>
                                             </div>
-                                                <DeleteOutlineIcon
-                                                    onClick={() => this.deleteTodo(todo.id)}
-                                                    className="pointer"
-                                                    style={{ display: this.state.toggleDeleteTodo && this.state.currTodoId === todo.id ? 'block' : 'none' }}
-                                                />
+                                            <DeleteOutlineIcon
+                                                onClick={() => this.deleteTodo(todo.id)}
+                                                className="pointer delete-btn"
+                                                style={{ display: this.state.toggleDeleteTodo && this.state.currTodoId === todo.id ? 'block' : 'none' }}
+                                            />
                                         </div>
                                     })
                                     }
@@ -362,15 +365,6 @@ export default class TaskDetails extends Component {
                                 </div> : ''
                             }
                         </div>
-
-                        {/* <div className="task-details-container-main-activity flex space-between">
-                            <div className="flex align-center">
-                                <ListAltIcon />
-                                <h2>Activity</h2>
-
-                            </div>
-                            <button>{this.state.showActivity ? 'Show Activity' : 'Hide Activity'}</button>
-                        </div> */}
                     </div>
 
                     <div className="task-details-container-overall-options">
@@ -385,8 +379,6 @@ export default class TaskDetails extends Component {
                                 <div className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.toggleChooseMembers(ev)} >Members</div>
                                 <div className="task-details-container-add-to-card-options-btn btn" onClick={ev => this.toggleTodos(ev)} >Check List</div>
                                 <div className="task-details-container-add-to-card-options-btn btn capitalize" onClick={ev => this.onToggleDueDate(ev)}>Due date</div>
-                                {/* <button className="task-details-container-add-to-card-options-btn btn" >Image</button>
-                                <button className="task-details-container-add-to-card-options-btn btn" >Video</button> */}
                             </div>
                         </div>
 

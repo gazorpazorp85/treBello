@@ -97,7 +97,7 @@ export default class Members extends Component {
                             <div key={teamMember._id}
                                 className="team-member flex align-center"
                                 onClick={() => this.updateChoosenMembers(teamMember)}>
-                                <div className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: `${teamMember.color}` }} >
+                                <div className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: '#dfe1e6', color: '#172b4d' }} >
                                     <div className="team-member-icon">
                                         <p>
                                             {utils.createUserIcon(teamMember.firstName,

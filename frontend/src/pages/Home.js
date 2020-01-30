@@ -94,42 +94,15 @@ class Home extends Component {
                 </div>
               </div>
             </div>
-
-
-
           </div>
         </section>
 
-
-        {/* <div className="next-section flex align-center justify-center"> */}
-        {/* <h1 className="text-center"> MANAGE YOUR TEAM </h1> */}
-        {/* </div> */}
-
-
-
-        <section className="home-page-boards-list flex colum">
-          <div className="home-page-boards-list-img-wrapper">
-            <div className="home-page-boards-list-img"></div>
-          </div>
-          <div className="home-page-boards-list-start-new-board flex column align-center">
-            <p className="home-page-boards-list-start-new-board-right-text">
-              We, in Trebello, believe that simplicity and style must go together,
+        <section className="home-page-boards-list flex wrap colum justify-center">
+          <div className="home-page-boards-list-img"></div>
+          <p className="home-page-boards-list-start-new-board-right-text flex justify-center align-center">
+            We, in Trebello, believe that simplicity and style must go together,
             that's why we made our brand simple and easy to use for everyone.<br /> <br />
-              Organize your team and take them one step ahead.</p>
-
-            {/* <div className="home-page-boards-list-start-new-board-card flex align-center justify-center"
-              onClick={this.createBoard}>
-              <div className="flex column justify-center align-center">
-                <h2>+ ADD NEW LIST</h2>
-                <small> please sign up first</small>
-              </div>
-            </div> */}
-
-          </div>
-
-
-
-
+            Organize your team and take them one step ahead.</p>
         </section>
 
 
@@ -138,7 +111,7 @@ class Home extends Component {
 
         <section className="home-page-footer flex column align-center justify-center">
           <h2> OUR TEAM </h2>
-          <div className="home-pagge-footer-team-members-cards-container flex justify-center">
+          <div className="home-pagge-footer-team-members-cards-container flex wrap justify-center">
 
             <div className="home-page-footer-team-member-card flex column align-center justify-center">
               <div className="home-page-footer-team-member-card-member-img vlad"></div>
