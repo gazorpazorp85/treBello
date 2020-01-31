@@ -119,25 +119,27 @@ export default class BoardColumns extends Component {
         this.props.updateBoard(newBoard, msg, notificationType);
     }
 
-    handleCheck = (colId, title) => {
-        const columnTitle = this.props.board.columns[colId].title;
-        const msg = `${this.props.user} changed the name of '${columnTitle}' to $${title}`;
-        const notificationType = 'success';
-        clearTimeout(this.state.timer);
-        this.setState({
-            timer: setTimeout(() => {
-                const updatedBoard = { ...this.props.board };
-                updatedBoard.columns[colId].title = title;
-                this.props.updateBoard(updatedBoard, msg, notificationType);
-                this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
-            }, 1000)
-        });
+    setColumnName = (columnId) => {
+        const columnTitle = this.props.board.columns[columnId].title;
+        this.setState({title: columnTitle});
     }
 
-    emitChange = (ev, colId) => {
-        this.setState({ title: ev.target.innerText }, _ => {
-            this.handleCheck(colId, this.state.title);
-        });
+    emitChange = (ev) => {
+        this.setState({ title: ev.target.innerText });
+    }
+
+    saveColumnName = (columnId, title) => {
+        const columnTitle = this.props.board.columns[columnId].title;
+        if (columnTitle === title) return;
+
+        const updatedBoard = { ...this.props.board };
+        updatedBoard.columns[columnId].title = title;
+    
+        const msg = `${this.props.user} changed the name of '${columnTitle}' to '${title}'`;
+        const notificationType = 'success';
+        
+        this.props.updateBoard(updatedBoard, msg, notificationType);
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
     }
 
     addCardText(column) {
@@ -184,12 +186,15 @@ export default class BoardColumns extends Component {
                                                             <h2
                                                                 contentEditable='true'
                                                                 spellCheck="false"
-                                                                onInput={(ev) => this.emitChange(ev, column.id)}
+                                                                onFocus={() => this.setColumnName(column.id)}
+                                                                onInput={(ev) => this.emitChange(ev)}
+                                                                onBlur={() => this.saveColumnName(column.id, this.state.title)}
                                                                 suppressContentEditableWarning={true}
                                                             >
                                                                 {column.title}
                                                             </h2>
                                                         </div>
+                                                        
 
 
                                                         <div className="board-columns-item-header-menu-btn-icon"

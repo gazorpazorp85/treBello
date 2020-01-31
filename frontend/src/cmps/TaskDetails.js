@@ -32,7 +32,8 @@ export default class TaskDetails extends Component {
         onToggleDueDate: false,
         toggleDeleteTodo: false,
         progressWidth: 0,
-        currTodoId: ''
+        currTodoId: '',
+        taskTitle: ''
     }
 
     componentDidMount() {
@@ -121,7 +122,7 @@ export default class TaskDetails extends Component {
         taskIds.splice(idx, 1);
         delete board.tasks[task.id];
         const msg = `'${task.title}' was deleted by ${this.props.user}`;
-        const notificationType = 'danger'; 
+        const notificationType = 'danger';
         this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
         this.props.updateBoard(board, msg, notificationType);
         this.props.toggleTaskDetails();
@@ -148,7 +149,7 @@ export default class TaskDetails extends Component {
         let start = this.state.progressWidth;
         let task = this.props.board.tasks[this.props.taskId];
         let doneTodosCounter = task.todos.filter(todo => (todo.isDone)).length;
-        
+
         //plaster brodthers---------------------
         task.todosDone = doneTodosCounter;
         const newBoard = {
@@ -198,13 +199,34 @@ export default class TaskDetails extends Component {
         }
         this.props.updateBoard(newBoard);
         this.updateProgressBar()
-        this.toggleDeleteTodo(todos.id);
+        this.setState({ currTodoId: '' });
     }
 
     toggleDeleteTodo = (todoId) => {
-        this.setState(prevState => ({ toggleDeleteTodo: !prevState.toggleDeleteTodo, currTodoId: todoId }))
+        this.setState(prevState => ({ toggleDeleteTodo: !prevState.toggleDeleteTodo, currTodoId: todoId }));
     }
 
+    setTaskName = (taskId) => {
+        const taskTitle = this.props.board.tasks[taskId].title;
+        this.setState({taskTitle: taskTitle});
+    }
+
+    emitChange = (ev) => {
+        this.setState({ taskTitle: ev.target.innerText });
+    }
+
+    saveTaskName = (taskId, title) => {
+        const taskTitle = this.props.board.tasks[taskId].title;
+        if (taskTitle === title) return;
+
+        const updatedBoard = { ...this.props.board };
+        updatedBoard.tasks[taskId].title = title;
+    
+        const msg = `${this.props.user} changed the title of the task '${taskTitle}' to '${title}'`;
+        const notificationType = 'success';
+        this.props.updateBoard(updatedBoard, msg, notificationType);
+        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
+    }
 
     render() {
         const task = this.props.board.tasks[this.props.taskId];
@@ -222,9 +244,16 @@ export default class TaskDetails extends Component {
                                 top: '10px',
                                 left: '12px'
                             }} />
-                            <h2>{task.title}</h2>
+                            <h2
+                                contentEditable='true'
+                                spellCheck="false"
+                                onFocus={() => this.setTaskName(task.id)}
+                                onInput={(ev) => this.emitChange(ev)}
+                                onBlur={() => this.saveTaskName(task.id, this.state.taskTitle)}
+                                suppressContentEditableWarning={true}
+                            >{task.title}</h2>
                             <div className="task-details-container-in-list flex">
-                                <p>in list <span style={{ textDecoration: "underline" }}>{column.title}</span></p>
+                                <p>in list <span>{column.title}</span></p>
                             </div>
                         </header>
 
@@ -293,6 +322,7 @@ export default class TaskDetails extends Component {
                                     toggleTodos={this.toggleTodos}
                                     board={this.props.board}
                                     task={task}
+                                    user={this.props.user}
                                     updateBoard={this.props.updateBoard}
                                 /> : ''
                             }
