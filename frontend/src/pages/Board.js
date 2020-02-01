@@ -60,7 +60,6 @@ class Board extends Component {
     this.props.getUsers();
     this.props.getLoggedInUser();
     this.loadBoard();
-    // this.isDarkBackground();
 
     SocketService.setup();
     SocketService.emit('boardId', boardId);
