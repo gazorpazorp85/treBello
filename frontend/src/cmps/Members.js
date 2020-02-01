@@ -72,44 +72,51 @@ export default class Members extends Component {
                 <CloseIcon className="members-container-close-btn" onClick={this.props.toggleChooseMembers} />
                 <p className="uppercase">assigned members</p>
                 <hr />
-                <div className="members-container-colors-container flex column">
-                    {this.props.task.taskTeamMembers.map(member => {
-                        return <div key={member._id} className="team-member flex"
-                            onClick={() => this.updateChoosenMembers(member)}>
-                            <div className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: '#dfe1e6', color: '#172b4d' }} >
-                                <div className="team-member-icon">
-                                    <p>
-                                        {utils.createUserIcon(member.firstName,
-                                            member.lastName)}
-                                    </p>
-                                </div>
-                            </div>
-                            <p>{member.firstName} {member.lastName}</p>
-                        </div>
-                    })
-                    }
-                </div>
-                <div className="add-team-members flex column">
-                    <p className="uppercase"> add a team member </p>
-                    {this.state.availableMembers.map(teamMember => {
-                        return (
-                            <div key={teamMember._id}
-                                className="team-member flex align-center"
-                                onClick={() => this.updateChoosenMembers(teamMember)}>
+
+                <div className="members-container-asign-members-wrapper flex">
+                    <div className="members-container-asign-members flex column fill-width">
+
+                        {this.props.task.taskTeamMembers.map(member => {
+                            return <div key={member._id} className="team-member flex"
+                                onClick={() => this.updateChoosenMembers(member)}>
                                 <div className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: '#dfe1e6', color: '#172b4d' }} >
                                     <div className="team-member-icon">
                                         <p>
-                                            {utils.createUserIcon(teamMember.firstName,
-                                                teamMember.lastName)}
+                                            {utils.createUserIcon(member.firstName,
+                                                member.lastName)}
                                         </p>
                                     </div>
                                 </div>
-
-                                <p>{teamMember.firstName} {teamMember.lastName}</p>
+                                <p>{member.firstName} {member.lastName}</p>
                             </div>
-                        )
-                    })}
-                </div >
+                        })
+                        }
+                    </div>
+                </div>
+
+                <div className="add-team-members-wrapper flex column">
+                    <p className="uppercase"> add a team member </p>
+                    <div className="add-team-members flex column">
+                        {this.state.availableMembers.map(teamMember => {
+                            return (
+                                <div key={teamMember._id}
+                                    className="team-member flex align-center"
+                                    onClick={() => this.updateChoosenMembers(teamMember)}>
+                                    <div className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: '#dfe1e6', color: '#172b4d' }} >
+                                        <div className="team-member-icon">
+                                            <p>
+                                                {utils.createUserIcon(teamMember.firstName,
+                                                    teamMember.lastName)}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <p>{teamMember.firstName} {teamMember.lastName}</p>
+                                </div>
+                            )
+                        })}
+                    </div >
+                </div>
             </div >
         );
     }

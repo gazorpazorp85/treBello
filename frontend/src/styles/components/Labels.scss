@@ -4,8 +4,8 @@
     background: white;
     position: absolute;
     width: 200px;
-    top: 145px;
-    right: 13px;
+    top: 160px;
+    right: 21px;
 
     p {
         margin-inline-start: 0px;
@@ -27,7 +27,7 @@
         padding: 20px 10px;
     }
 
-    & > .MuiSvgIcon-root {
+    &>.MuiSvgIcon-root {
         height: 18px;
         width: 18px;
     }

@@ -1,12 +1,15 @@
 .task-details-container {
   position: relative;
   overflow-y: auto;
-  background-color: white;
-  margin: 40px 0 80px;
-  border-radius: 4px;
-  max-width: 768px;
-  height: 60vh;
-  max-height: 80vh;
+
+  &-wrapper {
+    padding: 5px;
+    background-color: white;
+    border-radius: 4px;
+    max-width: 768px;
+    min-height: 75vh;
+    max-height: 95vh;
+  }
 
   h2 {
     font-weight: 600;
@@ -39,6 +42,7 @@
         height: 17px;
         width: 17px;
       }
+
       &:hover {
         background-color: rgba(235, 235, 235, 0.452);
         cursor: pointer;
@@ -47,8 +51,9 @@
 
     .check-list-progress {
       height: 20px;
-      margin: 10px 30px;
+      margin-top: 10px;
       border-radius: 20px;
+      width: 200px;
 
       .progress {
         border-radius: 20px;
@@ -107,36 +112,49 @@
     height: 20px;
   }
 
-  .btn {
-    background-color: rgba(9, 30, 66, 0.068);
-    border-radius: 4px;
-    height: 2rem;
-    cursor: pointer;
-    padding: 6px 12px;
-    margin-top: 8px;
-    font-weight: 400;
-    line-height: 20px;
-    font-size: 0.875rem;
-    color: #172b4d;
-
-    &:hover {
-      background: rgba(0, 0, 0, 0.562);
-      color: white;
-    }
-  }
-
   &-overall-options {
     padding: 75px 10px 0;
-    width: 124px;
+
+    .container {
+      padding-top: 20px;
+    }
   }
 
   &-add-to-card {
     padding: 30px 10px;
   }
 
-  &-actions {
-    &-options-container {
-      padding-top: 50px;
+  &-actions,
+  &-add-to-card {
+    &-options {
+
+      &-btn {
+        cursor: pointer;
+        font-size: 0.875rem;
+        font-weight: 400;
+        color: #172b4d;
+        background-color: rgba(9, 30, 66, 0.068);
+        border-radius: 4px;
+        height: 2rem;
+        margin-top: 8px;
+        padding: 0px 15px 0px 5px;
+        transition: 0.3s;
+
+        p {
+          margin-left: 5px;
+        }
+
+
+        &:hover {
+          background-color: rgba(9, 30, 66, 0.322);
+          color: white;
+        }
+
+        .MuiSvgIcon-root {
+          height: 18px;
+          width: 18px;
+        }
+      }
     }
   }
 }

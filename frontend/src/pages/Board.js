@@ -199,8 +199,8 @@ class Board extends Component {
 
 
   render() {
-    // if (!this.props.board.columns || this.props.match.params.id !== this.props.board._id) return <LoadPage />
     if (!this.state.isBoardLoaded) return <LoadPage />
+    const { teamMembers } = { ...this.props.board }
     let button;
     if (this.props.loggedInUser) {
       button = <button className="board-page-nav-bar nav-btn"
@@ -217,10 +217,27 @@ class Board extends Component {
       <div className="screen" onClick={this.closeAllTabs}>
         <div className="board-page fill-height flex column" style={{ backgroundImage: 'url(' + this.props.board.boardBgImage + ')', backgroundAttachment: 'fixed' }}>
 
-          <div className="board-page-nav-bar flex space-between">
+          <div className="board-page-nav-bar flex align-center space-between">
             <div className="board-page-nav-bar-logo" onClick={this.goBack}> </div>
             <div className="flex align-center">
-              {this.props.loggedInUser && <p className="logged-in-user">Logged in as: {this.props.loggedInUser.username}</p>}
+              {this.props.loggedInUser &&
+                <div className="flex">
+                  <div className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: 'rgba(223, 225, 230, 0.8)', color: '#172b4d' }} >
+                    <div className="team-member-icon">
+                      <p>
+                        {utils.createUserIcon(this.props.loggedInUser.firstName,
+                          this.props.loggedInUser.lastName)}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="logged-in-user flex column">
+                    <small>Logged as:</small>
+                    <p> {this.props.loggedInUser.username}</p>
+                  </div>
+                </div>
+              }
+
               {button}
             </div>
           </div>
@@ -230,6 +247,21 @@ class Board extends Component {
               <button className="board-page-nav-bar-filters nav-btn flex">
                 <HomeIcon onClick={this.goBack} />
               </button>
+
+              {teamMembers.lengh > 0 &&
+                <div className="board-page-nav-bar-filters team-members-container flex">
+                  {
+                    teamMembers.map(member => {
+                      return <div key={member.username} className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: '#dfe1e6', color: '#172b4d' }} >
+                        <p className="team-member-icon">
+                          {utils.createUserIcon(member.firstName,
+                            member.lastName)}
+                        </p>
+                      </div>
+                    })
+                  }
+                </div>
+              }
 
               <div className="board-page-nav-bar-filters-divider"></div>
 
@@ -298,7 +330,7 @@ class Board extends Component {
               <div className="flex column align-center">
                 {this.state.showColAddForm ?
                   <button className="board-page-add-another-column-btn" onClick={this.toggleAddColumn}>
-                  <span className="add-icon">+</span>Add another list  </button> : ''}
+                    <span className="add-icon">+</span>Add another list  </button> : ''}
                 {!this.state.showColAddForm && <ColumnAddForm board={this.props.board} updateBoard={this.props.updateBoard}
                   toggleAddForm={this.toggleAddColumn} user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'} />}
               </div>
