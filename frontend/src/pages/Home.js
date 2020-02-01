@@ -19,6 +19,16 @@ class Home extends Component {
 
   state = {
     toggleLogin: false,
+    board: {
+      teamMembers: [],
+      tasks: {},
+      columns: {},
+      columnOrder: [],
+      style: {},
+      boardBgImage: 'https://images.unsplash.com/photo-1511649475669-e288648b2339?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjExMTc0M30',
+      history: [],
+      boardBgThumbnail: 'https://images.unsplash.com/photo-1511649475669-e288648b2339?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjExMTc0M30'
+    }
   }
 
   componentDidMount() {
@@ -36,12 +46,12 @@ class Home extends Component {
   }
 
   createBoard = async () => {
-    let board = this.props.board;
+    let board = this.state.board;
     const username = (this.props.loggedInUser) ? this.props.loggedInUser.username : 'Guest';
     let msg = `The Board was created by ${username}`;
     delete board._id;
     board.createdBy = this.props.loggedInUser;
-    board.history = [{ id: utils.getRandomId(), msg: msg, time: Date.now() }];
+    board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() });
     const newBoard = await this.props.createBoard(board);
     this.props.history.push(`/board/${newBoard._id}`);
   }

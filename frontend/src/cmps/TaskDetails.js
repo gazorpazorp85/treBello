@@ -23,7 +23,6 @@ import utils from '../services/utils'
 
 export default class TaskDetails extends Component {
     state = {
-        deuDate: null,
         description: '',
         teamMembers: [],
         choosenMembers: [],

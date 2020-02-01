@@ -63,6 +63,10 @@ export default class DueDate extends React.Component {
                         timeIntervals={15}
                         timeCaption="Time"
                         dateFormat="MMMM d, yyyy h:mm aa"
+                        popperModifiers={{
+                            flip: {behavior: ['bottom']},
+                            preventOverflow: { enabled: false }
+                        }}
                     />
                     <button className="add-duedate-btn capitalize" onClick={this.saveTask}>add</button>
                 </div>
