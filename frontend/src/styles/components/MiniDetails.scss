@@ -101,9 +101,12 @@
   img {
     margin: 0 auto;
     display: block;
-    width: 100%;
+    max-width: 252px;
     max-height: 220px;
     width: auto;
     height: auto;
+    position: relative;
+    right: 1px;
+    bottom: 1px;
   }
 }
