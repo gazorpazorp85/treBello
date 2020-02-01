@@ -28,6 +28,7 @@
       border-radius: 4px;
       transition: 0.3s;
 
+
       &:hover {
         background: #686868d3;
       }
@@ -63,6 +64,8 @@
 
       &-item {
         height: 37px;
+        font-weight: 600;
+        font-size: 0.75rem;
 
         input {
           min-width: 250px;
@@ -73,11 +76,14 @@
           height: 100%;
           display: flex;
           color: #172b4d;
-          font-size: rem(14px);
+          font-size: 0.75rem;
+          font-weight: 600;
         }
 
         select {
           cursor: pointer;
+          font-size: 0.75rem;
+          font-weight: 600;
           height: 100%;
           display: flex;
           padding: 0px 10px;
@@ -94,7 +100,13 @@
           background: #00000094;
           transition: 0.3s;
           height: 100%;
-          font-size: rem(14px);
+
+
+          &.nav-btn {
+            font-size: 0.75rem;
+            font-weight: 600;
+          }
+
 
           &.search-btn {
             border-radius: 0px;
@@ -130,9 +142,7 @@
     outline: none;
     cursor: pointer;
     height: 30px;
-    // background: #ffffff4f;
     min-width: 200px;
-    // color: #ffffffd4;
     text-align: inherit;
     border: 1px solid #0000000d;
     border-radius: 4px;
@@ -141,7 +151,6 @@
     margin-right: 8px;
     transition: 0.2s;
     font-size: rem(14px);
-    // mix-blend-mode: difference;
 
     &:hover {
       background: #ffffff69;
