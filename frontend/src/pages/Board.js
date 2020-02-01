@@ -17,7 +17,6 @@ import TaskDetails from '../cmps/TaskDetails';
 import DynamicMiniComponent from '../cmps/dynamics/DynamicMiniComponent';
 
 import HomeIcon from '@material-ui/icons/Home';
-// import AddIcon from '@material-ui/icons/Add';
 
 import utils from '../services/utils';
 import SocketService from '../services/SocketService';
@@ -238,7 +237,6 @@ class Board extends Component {
         login
       </button>
     }
-    // this.isDarkBackground();
     return (
       <div className="screen" onClick={this.closeAllTabs}>
         <div className="board-page fill-height flex column" style={{ backgroundImage: 'url(' + this.props.board.boardBgImage + ')', backgroundAttachment: 'fixed' }}>
@@ -277,7 +275,7 @@ class Board extends Component {
                 <HomeIcon />
               </button>
 
-              {teamMembers.lengh > 0 &&
+              {/* {this.props.board.teamMembers.length > 0 &&
                 <div className="board-page-nav-bar-filters team-members-container flex">
                   {
                     teamMembers.map(member => {
@@ -290,7 +288,7 @@ class Board extends Component {
                     })
                   }
                 </div>
-              }
+              } */}
 
               <div style={{ background: (this.state.isDarkBackground) ? 'white' : 'black' }} className="board-page-nav-bar-filters-divider"></div>
 
@@ -369,7 +367,7 @@ class Board extends Component {
                 {this.state.showColAddForm ?
                   <button className={`board-page-add-another-column-btn
                   ${(this.state.isDarkBackground) ? 'dark' : 'light'}`}
-                   onClick={this.toggleAddColumn}>
+                    onClick={this.toggleAddColumn}>
                     <span className="add-icon">+</span>Add another list</button> : ''}
                 {!this.state.showColAddForm && <ColumnAddForm board={this.props.board} updateBoard={this.props.updateBoard}
                   toggleAddForm={this.toggleAddColumn} user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'} />}

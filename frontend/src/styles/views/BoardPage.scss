@@ -44,8 +44,11 @@
       }
 
       &.team-members-container {
+        overflow-x: auto;
+        max-width: 100px;
+
         .team-member-icon-wrapper {
-          padding: 6px 8px;
+          padding: 7px 8px;
           border-radius: 50%;
 
           p {
@@ -108,7 +111,7 @@
           }
 
           &:hover {
-            background-color: #5a5a5aa1;
+            background-color: #9e9e9e7a;
           }
         }
       }
@@ -172,10 +175,10 @@
 
 .dark {
   color: white;
-  background-color: #00000094;
+  background-color: #0000006b;
 }
 
 .light {
   color: black;
-  background-color: #ffffff4f;
+  background-color: #ffffff8e;
 }
