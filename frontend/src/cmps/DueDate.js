@@ -4,8 +4,6 @@ import DatePicker from 'react-datepicker';
 
 import "react-datepicker/dist/react-datepicker.css";
 
-import utils from '../services/utils';
-
 export default class DueDate extends React.Component {
     state = {
         dueDate: null
@@ -39,7 +37,6 @@ export default class DueDate extends React.Component {
         }
         const msg = `${this.props.user} changed the due date for task '${this.props.task.title}'`;
         const notificationType = 'success';
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
         this.props.updateBoard(newBoard, msg, notificationType);
 
     }

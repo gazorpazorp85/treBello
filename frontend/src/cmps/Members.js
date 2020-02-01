@@ -31,7 +31,6 @@ export default class Members extends Component {
             msg = `${teamMember.username} was asigned to the task '${this.props.task.title}'`;
             notificationType = 'success';
         }
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
         this.setState({ choosenMembers }, this.setAvailableMembers(msg, notificationType));
     }
 

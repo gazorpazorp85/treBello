@@ -44,6 +44,7 @@
           height: 100%;
           display: flex;
           color: #172b4d;
+          font-size: rem(14px);
         }
 
         select {
@@ -63,6 +64,7 @@
           background: #00000094;
           transition: 0.3s;
           height: 100%;
+          font-size: rem(14px);
 
           &.search-btn {
             border-radius: 0px;
@@ -109,6 +111,7 @@
     margin: 0 4px;
     margin-right: 8px;
     transition: 0.2s;
+    font-size: rem(14px);
     // mix-blend-mode: difference;
 
     &:hover {

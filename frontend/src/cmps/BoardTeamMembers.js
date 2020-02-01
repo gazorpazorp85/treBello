@@ -27,7 +27,6 @@ export default class BoardTeamMembers extends Component {
             notificationType = 'success';
         }
         this.setState({ currentBoardMembers: teamMembers });
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
         this.props.updateBoard(board, msg, notificationType);
     }
 

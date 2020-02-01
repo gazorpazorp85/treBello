@@ -8,8 +8,6 @@ import TopMenuOptions from './TopMenuOptions'
 import TasksList from './TasksList';
 import TaskForm from '../cmps/TaskForm'
 
-import utils from '../services/utils';
-
 export default class BoardColumns extends Component {
 
     state = {
@@ -34,8 +32,6 @@ export default class BoardColumns extends Component {
         const msg = `'${column.title}' was deleted by ${this.props.user}`;
         const notificationType = 'danger';
         this.props.updateBoard(board, msg, notificationType);
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
-
     }
 
     onDragEnd = result => {
@@ -61,7 +57,6 @@ export default class BoardColumns extends Component {
             }
             const msg = `'${columnTitle}' was moved by ${this.props.user}`;
             const notificationType = 'success';
-            this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
             return this.props.updateBoard(newBoard, msg, notificationType);
         };
 
@@ -86,7 +81,6 @@ export default class BoardColumns extends Component {
             const taskTitle = this.props.board.tasks[draggableId].title;
             const msg = `${this.props.user} changed the position of the task '${taskTitle}'`;
             const notificationType = 'success';
-            this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
             return this.props.updateBoard(newBoard, msg, notificationType);
         };
 
@@ -115,13 +109,12 @@ export default class BoardColumns extends Component {
         const taskTitle = this.props.board.tasks[draggableId].title;
         const msg = `${this.props.user} moved the task '${taskTitle}' from '${newStart.title}' to '${newFinish.title}'`;
         const notificationType = 'success';
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
         this.props.updateBoard(newBoard, msg, notificationType);
     }
 
     setColumnName = (columnId) => {
         const columnTitle = this.props.board.columns[columnId].title;
-        this.setState({title: columnTitle});
+        this.setState({ title: columnTitle });
     }
 
     emitChange = (ev) => {
@@ -134,12 +127,11 @@ export default class BoardColumns extends Component {
 
         const updatedBoard = { ...this.props.board };
         updatedBoard.columns[columnId].title = title;
-    
+
         const msg = `${this.props.user} changed the name of '${columnTitle}' to '${title}'`;
         const notificationType = 'success';
-        
+
         this.props.updateBoard(updatedBoard, msg, notificationType);
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
     }
 
     addCardText(column) {
@@ -194,7 +186,7 @@ export default class BoardColumns extends Component {
                                                                 {column.title}
                                                             </h2>
                                                         </div>
-                                                        
+
 
 
                                                         <div className="board-columns-item-header-menu-btn-icon"

@@ -41,7 +41,7 @@ export default class SplashMenu extends Component {
         newBoard.boardBgThumbnail = imageUrl.small;
         const msg = `${this.props.user} changed background image`;
         const notificationType = 'success';
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
+        this.props.isDarkBackground(newBoard.boardBgImage);
         this.props.updateBoard(newBoard, msg, notificationType);
     }
 
@@ -50,8 +50,8 @@ export default class SplashMenu extends Component {
     }
 
     render() {
-        return <div className={"splash-menu flex column align-center" + (this.props.toggleSplashMenu ? ' translateLeft' : '')} 
-        onClick={(ev) => this.stopPropagation(ev)}>
+        return <div className={"splash-menu flex column align-center" + (this.props.toggleSplashMenu ? ' translateLeft' : '')}
+            onClick={(ev) => this.stopPropagation(ev)}>
             <div className="flex column fill-width filter-container">
                 <div className="splash-menu-search-bar fill-width flex justify-center">
                     <input
@@ -63,7 +63,7 @@ export default class SplashMenu extends Component {
                         <SearchIcon />
                     </button>
                 </div>
-                <button className="splash-menu-search-bar-save-btn upload-btn">
+                <button className="splash-menu-search-bar-save-btn upload-btn capitalize">
                     <input style={{ display: "none" }} type="file" id="upload-img" onChange={this.props.onAddImg}></input>
                     <label htmlFor="upload-img">upload image</label>
                 </button>

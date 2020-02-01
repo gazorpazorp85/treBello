@@ -36,8 +36,8 @@ export default class TaskList extends Component {
         const taskTitle = this.props.task.title;
         const msg = `${this.props.user} added a new todo to the task '${taskTitle}'`;
         const notificationType = 'success';
+        this.props.updateProgressBar();
         this.props.updateBoard(newBoard, msg, notificationType);
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
     }
 
     onStopPropagation = (ev) => {

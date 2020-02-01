@@ -84,7 +84,6 @@ export default class TaskDetails extends Component {
         }
         const msg = `The description of '${task.title}' was changed by ${this.props.user}`;
         const notificationType = 'success';
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
         this.props.updateBoard(newBoard, msg, notificationType);
     }
 
@@ -110,7 +109,6 @@ export default class TaskDetails extends Component {
         }
         const msg = `The task '${task.title}' was duplicated by ${this.props.user}`;
         const notificationType = 'success';
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
         this.props.updateBoard(newBoard, msg, notificationType);
         this.props.toggleTaskDetails();
     }
@@ -123,7 +121,6 @@ export default class TaskDetails extends Component {
         delete board.tasks[task.id];
         const msg = `'${task.title}' was deleted by ${this.props.user}`;
         const notificationType = 'danger';
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
         this.props.updateBoard(board, msg, notificationType);
         this.props.toggleTaskDetails();
     }
@@ -132,8 +129,10 @@ export default class TaskDetails extends Component {
         todo.isDone = !todo.isDone;
         let newTask = { ...this.props.board.tasks[this.props.taskId] };
         const todos = newTask.todos;
-        const idx = todos.findIndex(currTodo => (currTodo.id === todo.id))
+        const idx = todos.findIndex(currTodo => (currTodo.id === todo.id));
         todos[idx].isDone = todo.isDone;
+        let msg = '';
+        let notificationType = '';
         const newBoard = {
             ...this.props.board,
             tasks: {
@@ -141,7 +140,14 @@ export default class TaskDetails extends Component {
                 [newTask.id]: newTask
             }
         }
-        this.props.updateBoard(newBoard);
+        if (todo.isDone) {
+            msg = `The subtask '${todo.text}' in '${newTask.title}' was completed by ${this.props.user}`;
+            notificationType = 'success';
+        } else {
+            msg = `The subtask '${todo.text}' in '${newTask.title}' was remarked as uncompleted by ${this.props.user}`;
+            notificationType = 'danger';
+        }
+        this.props.updateBoard(newBoard, msg, notificationType);
         this.updateProgressBar()
     }
 
@@ -149,18 +155,7 @@ export default class TaskDetails extends Component {
         let start = this.state.progressWidth;
         let task = this.props.board.tasks[this.props.taskId];
         let doneTodosCounter = task.todos.filter(todo => (todo.isDone)).length;
-
-        //plaster brodthers---------------------
         task.todosDone = doneTodosCounter;
-        const newBoard = {
-            ...this.props.board,
-            tasks: {
-                ...this.props.board.tasks,
-                [task.id]: task
-            }
-        }
-        this.props.updateBoard(newBoard);
-        //----------------------------------
 
         let interval;
         let progressWidth = Math.round((doneTodosCounter / task.todos.length) * 100);
@@ -188,7 +183,8 @@ export default class TaskDetails extends Component {
     deleteTodo = (todoId) => {
         let task = this.props.board.tasks[this.props.taskId];
         let todos = task.todos;
-        const idx = todos.findIndex(currTodo => (currTodo.id === todoId))
+        const idx = todos.findIndex(currTodo => (currTodo.id === todoId));
+        const deletedTodo = todos[idx];
         todos.splice(idx, 1);
         const newBoard = {
             ...this.props.board,
@@ -197,8 +193,10 @@ export default class TaskDetails extends Component {
                 [task.id]: task
             }
         }
-        this.props.updateBoard(newBoard);
-        this.updateProgressBar()
+        const msg = `The subtask '${deletedTodo.text}' in '${task.title}' was deleted by ${this.props.user}`;
+        const notificationType = 'danger';
+        this.props.updateBoard(newBoard, msg, notificationType);
+        this.updateProgressBar();
         this.setState({ currTodoId: '' });
     }
 
@@ -208,7 +206,7 @@ export default class TaskDetails extends Component {
 
     setTaskName = (taskId) => {
         const taskTitle = this.props.board.tasks[taskId].title;
-        this.setState({taskTitle: taskTitle});
+        this.setState({ taskTitle: taskTitle });
     }
 
     emitChange = (ev) => {
@@ -221,11 +219,10 @@ export default class TaskDetails extends Component {
 
         const updatedBoard = { ...this.props.board };
         updatedBoard.tasks[taskId].title = title;
-    
+
         const msg = `${this.props.user} changed the title of the task '${taskTitle}' to '${title}'`;
         const notificationType = 'success';
         this.props.updateBoard(updatedBoard, msg, notificationType);
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
     }
 
     render() {
@@ -324,6 +321,7 @@ export default class TaskDetails extends Component {
                                     task={task}
                                     user={this.props.user}
                                     updateBoard={this.props.updateBoard}
+                                    updateProgressBar={this.updateProgressBar}
                                 /> : ''
                             }
                             <AssignmentTurnedInOutlinedIcon

@@ -98,7 +98,6 @@ export default class TaskForm extends Component {
             `The task '${this.state.task.title}' was added by ${this.props.user}` :
             `${this.props.user} edited the task '${this.state.task.title}'`;
         const notificationType = 'success';
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
         this.props.updateBoard(newBoard, msg, notificationType);
         this.props.closeUpdateForm();
         if (this.props.toggleUpdateForm) this.props.toggleUpdateForm();

@@ -20,7 +20,7 @@ export default class Sort extends Component {
     }
 
     toggleButtonName = () => {
-        return (this.state.sortOrder === 'asc') ? 'Newest Tasks' : 'Oldest Tasks';
+        return (this.state.sortOrder === 'asc') ? 'Newest Cards' : 'Oldest Cards';
     }
 
     render() {

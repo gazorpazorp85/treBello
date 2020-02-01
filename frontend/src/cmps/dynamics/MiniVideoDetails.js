@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 import MiniDetailsEditor from '../MiniDetailsEditor';
 import ScreenFilter from '../ScreenFilter';
 
-import utils from '../../services/utils'
-
 export default class MiniVideoDetails extends Component {
     constructor(props) {
         super(props);
@@ -39,7 +37,6 @@ export default class MiniVideoDetails extends Component {
         }
         const msg = `${this.props.user} updated the task '${this.props.miniTask.task.title}' to '${this.state.title}'`;
         const notificationType = 'success';
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
         this.props.updateBoard(newBoard, msg, notificationType);
         this.props.onToggle();
     }
