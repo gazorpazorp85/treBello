@@ -224,7 +224,7 @@ class Board extends Component {
 
   render() {
     if (!this.state.isBoardLoaded) return <LoadPage />
-    const { teamMembers } = { ...this.props.board }
+    // const { teamMembers } = { ...this.props.board }
     let button;
     if (this.props.loggedInUser) {
       button = <button className="board-page-nav-bar nav-btn"

@@ -11,10 +11,9 @@ import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
 import LabelOutlinedIcon from '@material-ui/icons/LabelOutlined';
 import AssignmentTurnedInOutlinedIcon from '@material-ui/icons/AssignmentTurnedInOutlined';
 import EventOutlinedIcon from '@material-ui/icons/EventOutlined';
-import FileCopyIcon from '@material-ui/icons/FileCopy';
-import DeleteIcon from '@material-ui/icons/Delete';
+import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined';
+import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import DescriptionOutlinedIcon from '@material-ui/icons/DescriptionOutlined';
-
 import DueDate from './DueDate';
 import Labels from './Labels';
 import Members from './Members';
@@ -184,7 +183,6 @@ export default class TaskDetails extends Component {
                 }
             }, 10);
         }
-        
     }
 
     deleteTodo = (todoId) => {
@@ -204,11 +202,15 @@ export default class TaskDetails extends Component {
         const notificationType = 'danger';
         this.props.updateBoard(newBoard, msg, notificationType);
         this.updateProgressBar();
-        this.setState({ currTodoId: '' });
+        this.hideDeleteTodoButton(todoId);
     }
 
-    toggleDeleteTodo = (todoId) => {
-        this.setState(prevState => ({ toggleDeleteTodo: !prevState.toggleDeleteTodo, currTodoId: todoId || '' }));
+    showDeleteTodoButton = (todoId) => {
+        this.setState({ toggleDeleteTodo: true, currTodoId: todoId });
+    }
+
+    hideDeleteTodoButton = (todoId) => {
+        this.setState({ toggleDeleteTodo: false, currTodoId: todoId });
     }
 
     setTaskName = (taskId) => {
@@ -257,7 +259,7 @@ export default class TaskDetails extends Component {
                                     suppressContentEditableWarning={true}
                                 >{task.title}</h2>
                                 <div className="task-details-container-in-list flex">
-                                    <p>in list <span style={{ textDecoration: "underline" }}>{column.title}</span></p>
+                                    <p>in list {column.title}</p>
                                 </div>
                             </header>
 
@@ -344,8 +346,8 @@ export default class TaskDetails extends Component {
                                 {task.todos ?
                                     <div className="check-list-container flex column">
                                         {task.todos.map(todo => {
-                                            return <div key={todo.id} className="todo-item flex align-center space-between" onMouseEnter={() => this.toggleDeleteTodo(todo.id)}
-                                                onMouseLeave={() => this.toggleDeleteTodo(todo.id)}>
+                                            return <div key={todo.id} className="todo-item flex align-center space-between" onMouseEnter={() => this.showDeleteTodoButton(todo.id)}
+                                                onMouseLeave={() => this.hideDeleteTodoButton(todo.id)}>
                                                 <div className="flex align-center">
                                                     <input type="checkbox" onChange={() => this.toggleTodoDone(todo)} checked={todo.isDone ? 'checked' : ''}>
                                                     </input>
@@ -452,11 +454,11 @@ export default class TaskDetails extends Component {
                                     letterSpacing: '0.04em'
                                 }}>actions</h3>
                                 <div className="task-details-container-actions-options-btn flex align-center" onClick={() => this.onDuplicateTask(column, task)}>
-                                    <FileCopyIcon />
+                                    <FileCopyOutlinedIcon />
                                     <p className="capitalize">duplicate</p>
                                 </div>
                                 <div className="task-details-container-actions-options-btn flex align-center" onClick={() => this.onDeleteTask(column, task)}>
-                                    <DeleteIcon />
+                                    <DeleteOutlineOutlinedIcon />
                                     <p className="capitalize">delete</p>
                                 </div>
                             </div>
