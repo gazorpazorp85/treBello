@@ -11,7 +11,7 @@
     "animate.css": "^3.7.2",
     "axios": "^0.19.1",
     "bootstrap": "^4.4.1",
-    "formik": "^2.1.2",
+    "fast-average-color": "^6.0.1",
     "moment": "^2.24.0",
     "natural-drag-animation-rbdnd": "^2.0.1",
     "node-sass": "^4.13.1",

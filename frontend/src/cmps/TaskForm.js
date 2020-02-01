@@ -98,7 +98,6 @@ export default class TaskForm extends Component {
             `The task '${this.state.task.title}' was added by ${this.props.user}` :
             `${this.props.user} edited the task '${this.state.task.title}'`;
         const notificationType = 'success';
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
         this.props.updateBoard(newBoard, msg, notificationType);
         this.props.closeUpdateForm();
         if (this.props.toggleUpdateForm) this.props.toggleUpdateForm();
@@ -117,12 +116,12 @@ export default class TaskForm extends Component {
 
                     <textarea type="text"
                         onKeyUp={this.textAreaAdjust}
-                        placeholder="Add a task title..."
+                        placeholder="Enter a title for this card..."
                         name="title"
                         ref={(input) => { this.nameInput = input; }}
                         onChange={this.inputChange} value={this.state.task.title} />
-                    <div className="flex align-center">
-                        <button className="task-form-save-btn save">save</button>
+                    <div className="save-btn-container flex align-center">
+                        <button className="task-form-save-btn save capitalize">add card</button>
                         <CloseIcon className="task-form-back-btn" onClick={(ev) => { ev.stopPropagation(); this.props.closeUpdateForm() }} />
                     </div>
                 </div>

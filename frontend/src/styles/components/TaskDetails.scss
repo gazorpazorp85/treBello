@@ -2,11 +2,10 @@
   position: relative;
   overflow-y: auto;
   background-color: white;
-  min-height: 50vh;
   margin: 40px 0 80px;
   border-radius: 4px;
   max-width: 768px;
-  height: fit-content;
+  height: 60vh;
   max-height: 80vh;
 
   h2 {
@@ -36,6 +35,10 @@
       .delete-btn {
         height: 17px;
         width: 17px;
+      }
+      &:hover {
+        background-color: rgba(235, 235, 235, 0.452);
+        cursor: pointer;
       }
     }
 

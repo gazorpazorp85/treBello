@@ -57,7 +57,6 @@ export default class ColumnAddForm extends Component {
         if (!columnOrder.includes(id)) columnOrder.push(id);
         const msg = `'${this.state.column.title}' was added by ` + this.props.user;
         const notificationType = 'success';
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
         this.props.updateBoard(newBoard, msg, notificationType);
         this.props.toggleAddForm();
     }
@@ -67,13 +66,13 @@ export default class ColumnAddForm extends Component {
             <input
                 ref={(input) => { this.nameInput = input; }}
                 type='text'
-                placeholder='Column Name'
+                placeholder='Enter list title...'
                 name='title'
                 onChange={this.inputChange}
                 value={this.state.column.title} />
-            <div className="add-column flex">
-                <button className="add-column-save-btn uppercase"
-                    variant="contained">save</button>
+            <div className="save-btn-container flex">
+                <button className="add-column-save-btn capitalize"
+                    variant="contained">add list</button>
 
                 <CloseIcon className="add-column-back-to-board flex align-center"
                     onClick={this.props.toggleAddForm} />

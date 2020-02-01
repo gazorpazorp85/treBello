@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-import SearchIcon from '@material-ui/icons/Search';
-
 export default class Filter extends Component {
 
     state = {
@@ -12,18 +10,10 @@ export default class Filter extends Component {
     }
 
     inputChange = (ev) => {
+
         let fieldName = ev.target.name;
         let value = ev.target.value;
-        this.setState(prevState => ({
-            filterBy: {
-                ...prevState.filterBy,
-                [fieldName]: value
-            }
-        }));
-    }
-
-    onFilterClick = () => {
-        this.props.onFilter(this.state.filterBy);
+        this.setState(({ filterBy: { [fieldName]: value } }), () => this.props.onFilter(this.state.filterBy));
     }
 
     render() {
@@ -31,20 +21,24 @@ export default class Filter extends Component {
         const teamMembers = this.props.teamMembers;
 
         return <div className="board-page-nav-bar-filters-item flex">
-            <input type="text" placeholder="Search task by name"
+            <input type="text" placeholder="Search card by name"
                 value={this.state.filterBy.title}
                 onChange={this.inputChange} name="title">
             </input>
-            <select name="teamMembers" onChange={this.inputChange}>
+            <div style={{background: (this.props.isDarkBackground) ? 'white' : 'black'}}className="board-page-nav-bar-filters-divider"></div>
+            <select name="teamMembers" style={{
+                    color: (this.props.isDarkBackground) ? 'white' : 'black',
+                    background: (this.props.isDarkBackground) ? '#00000094' : '#ffffff4f'
+                  }} onChange={this.inputChange}>
                 <option value=''>All Team Members</option>
                 {teamMembers.map(teamMember => (
-                    <option key={teamMember._id} value={`${teamMember.username}`}>{teamMember.firstName} {teamMember.lastName}</option>
+                    <option className="capitalize" key={teamMember._id} value={`${teamMember.username}`}>{teamMember.firstName} {teamMember.lastName}</option>
                 ))}
             </select>
-            <button className="board-page-nav-bar-filters nav-btn"
+            {/* <button className="board-page-nav-bar-filters nav-btn search-btn"
                 onClick={this.onFilterClick}>
                 <SearchIcon className="flex" />
-            </button>
+            </button> */}
         </div>
     }
 }

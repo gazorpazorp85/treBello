@@ -49,36 +49,42 @@ export default class TaskPreview extends Component {
                             onClick={e => this.toggleMiniDetails(e)} />
                         : ''}
 
-                    <div className={"bottom-container flex align-center " + (task.description === '' ? ' row-reverse' : '')}>
+                    <div className={"bottom-container grid-container flex" + (task.description === '' ? ' row-reverse' : '')}>
 
-                        <div className="flex">
-                            {(task.description !== '') ?
+
+                        {(task.description !== '') ?
+                            <div className="grid-item justify-self-center align-self-center">
                                 <SubjectIcon />
-                                : ''
-                            }
+                            </div>
+                            : <div className="grid-item"></div>
+                        }
 
-                            {(task.todos.length > 0) ?
-                                <div className="flex align-center">
+                        {(task.todos.length > 0) ?
+                            <div className="grid-item align-center flex">
+                                <div className="flex">
                                     <CheckBoxIcon />
                                     <p>{task.todosDone + '/' + task.todos.length}</p>
                                 </div>
-                                : ''
-                            }
-                        </div>
+                            </div>
+                            : <div className="grid-item"></div>
+                        }
 
 
-                        <div className="team-members-container flex">
-                            {(task.taskTeamMembers.map(member => {
-                                return <div key={member._id} className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: '#dfe1e6' }} >
-                                    <div className="team-member-icon">
-                                        <p className="flex align-center" style={{ color: '#172b4d' }}>
-                                            {utils.createUserIcon(member.firstName,
-                                                member.lastName)}
-                                        </p>
+
+                        <div className="team-members-container grid-item">
+                            <div className="flex justify-end">
+                                {(task.taskTeamMembers.map(member => {
+                                    return <div key={member._id} className="team-member-icon-wrapper flex align-center" style={{ backgroundColor: '#dfe1e6' }} >
+                                        <div className="team-member-icon">
+                                            <p className="flex align-center" style={{ color: '#172b4d' }}>
+                                                {utils.createUserIcon(member.firstName,
+                                                    member.lastName)}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            }))
-                            }
+                                }))
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>

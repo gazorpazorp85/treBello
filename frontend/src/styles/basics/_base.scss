@@ -22,7 +22,7 @@
 }
 
 html {
-    font-family: montserrat, sans-serif;
+    font-family: montserratRegular, sans-serif;
     line-height: 1.6;
 }
 
@@ -79,7 +79,7 @@ button {
     cursor: pointer;
     border: none;
     border-radius: 4px;
-    font-family: montserratBold, 'sans-sarif';
+    font-family: montserratRegular, 'sans-sarif';
 }
 
 textarea,
@@ -87,7 +87,7 @@ input {
     resize: none;
     border-radius: 2px;
     border: none;
-    font-size: rem(16px);
+    font-size: rem(14px);
     font-family: montserratLight, 'sans-sarif';
 }
 

@@ -2,13 +2,11 @@ import React, { Component } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import NaturalDragAnimation from 'natural-drag-animation-rbdnd';
 
-import AddIcon from '@material-ui/icons/Add';
+// import AddIcon from '@material-ui/icons/Add';
 
 import TopMenuOptions from './TopMenuOptions'
 import TasksList from './TasksList';
 import TaskForm from '../cmps/TaskForm'
-
-import utils from '../services/utils';
 
 export default class BoardColumns extends Component {
 
@@ -34,8 +32,6 @@ export default class BoardColumns extends Component {
         const msg = `'${column.title}' was deleted by ${this.props.user}`;
         const notificationType = 'danger';
         this.props.updateBoard(board, msg, notificationType);
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
-
     }
 
     onDragEnd = result => {
@@ -61,7 +57,6 @@ export default class BoardColumns extends Component {
             }
             const msg = `'${columnTitle}' was moved by ${this.props.user}`;
             const notificationType = 'success';
-            this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
             return this.props.updateBoard(newBoard, msg, notificationType);
         };
 
@@ -86,7 +81,6 @@ export default class BoardColumns extends Component {
             const taskTitle = this.props.board.tasks[draggableId].title;
             const msg = `${this.props.user} changed the position of the task '${taskTitle}'`;
             const notificationType = 'success';
-            this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
             return this.props.updateBoard(newBoard, msg, notificationType);
         };
 
@@ -115,30 +109,33 @@ export default class BoardColumns extends Component {
         const taskTitle = this.props.board.tasks[draggableId].title;
         const msg = `${this.props.user} moved the task '${taskTitle}' from '${newStart.title}' to '${newFinish.title}'`;
         const notificationType = 'success';
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
         this.props.updateBoard(newBoard, msg, notificationType);
     }
 
-    handleCheck = (colId, title) => {
-        const columnTitle = this.props.board.columns[colId].title;
-        const msg = `${this.props.user} changed the name of '${columnTitle}' to $${title}`;
-        const notificationType = 'success';
-        clearTimeout(this.state.timer);
-        this.setState({
-            timer: setTimeout(() => {
-                const updatedBoard = { ...this.props.board };
-                updatedBoard.columns[colId].title = title;
-                this.props.updateBoard(updatedBoard, msg, notificationType);
-                this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
-            }, 1000)
-        });
+    setColumnName = (columnId) => {
+        const columnTitle = this.props.board.columns[columnId].title;
+        this.setState({ title: columnTitle });
     }
 
-    emitChange = (ev, colId) => {
-        console.log(ev);
-        this.setState({ title: ev.target.innerText }, _ => {
-            this.handleCheck(colId, this.state.title);
-        });
+    emitChange = (ev) => {
+        this.setState({ title: ev.target.innerText });
+    }
+
+    saveColumnName = (columnId, title) => {
+        const columnTitle = this.props.board.columns[columnId].title;
+        if (columnTitle === title) return;
+
+        const updatedBoard = { ...this.props.board };
+        updatedBoard.columns[columnId].title = title;
+
+        const msg = `${this.props.user} changed the name of '${columnTitle}' to '${title}'`;
+        const notificationType = 'success';
+
+        this.props.updateBoard(updatedBoard, msg, notificationType);
+    }
+
+    addCardText(column) {
+        return (column.taskIds.length === 0) ? 'Add a card' : 'Add another card';
     }
 
     render() {
@@ -181,12 +178,15 @@ export default class BoardColumns extends Component {
                                                             <h2
                                                                 contentEditable='true'
                                                                 spellCheck="false"
-                                                                onInput={(ev) => this.emitChange(ev, column.id)}
+                                                                onFocus={() => this.setColumnName(column.id)}
+                                                                onInput={(ev) => this.emitChange(ev)}
+                                                                onBlur={() => this.saveColumnName(column.id, this.state.title)}
                                                                 suppressContentEditableWarning={true}
                                                             >
                                                                 {column.title}
                                                             </h2>
                                                         </div>
+
 
 
                                                         <div className="board-columns-item-header-menu-btn-icon"
@@ -223,16 +223,16 @@ export default class BoardColumns extends Component {
                                                         }}
                                                     </Droppable>
 
-                                                    <div className="task-list-footer">
-                                                        {(!showAddForm || currColumnId !== column.id) &&
-                                                            <div className="flex align-center">
-                                                                <AddIcon />
-                                                                <p className="task-list-footer-add-task fill-width"
-                                                                    onClick={(ev) => { ev.stopPropagation(); this.props.openAddForm(column.id) }}>
-                                                                    Add a task</p>
-                                                            </div>
-                                                        }
-                                                    </div>
+                                                    {/* <div className="task-list-footer"> */}
+                                                    {(!showAddForm || currColumnId !== column.id) &&
+                                                        <div className="task-list-footer flex align-center">
+                                                            {/* <AddIcon/> */}
+                                                            <div className="task-list-footer-add-task fill-width"
+                                                                onClick={(ev) => { ev.stopPropagation(); this.props.openAddForm(column.id) }}>
+                                                                <span className="add-icon">+</span>{this.addCardText(column)}</div>
+                                                        </div>
+                                                    }
+                                                    {/* </div> */}
                                                     {showAddForm && (currColumnId === column.id) ?
                                                         <TaskForm
                                                             user={this.props.user}

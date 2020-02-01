@@ -31,7 +31,6 @@ export default class Members extends Component {
             msg = `${teamMember.username} was asigned to the task '${this.props.task.title}'`;
             notificationType = 'success';
         }
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
         this.setState({ choosenMembers }, this.setAvailableMembers(msg, notificationType));
     }
 
@@ -84,8 +83,7 @@ export default class Members extends Component {
                                     </p>
                                 </div>
                             </div>
-                            <p>{member.firstName}</p>
-                            <p>{member.lastName}</p>
+                            <p>{member.firstName} {member.lastName}</p>
                         </div>
                     })
                     }
@@ -106,8 +104,7 @@ export default class Members extends Component {
                                     </div>
                                 </div>
 
-                                <p>{teamMember.firstName}</p>
-                                <p>{teamMember.lastName}</p>
+                                <p>{teamMember.firstName} {teamMember.lastName}</p>
                             </div>
                         )
                     })}

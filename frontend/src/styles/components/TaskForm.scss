@@ -1,36 +1,35 @@
 .task-form {
-    padding: 4px;
+  padding: 4px;
 
-    textarea {
-        resize: none;
-        overflow-x: hidden;
-        max-height: 120px;
-    }
+  textarea {
+    resize: none;
+    overflow-x: hidden;
+    max-height: 120px;
+  }
 
-    &-back-btn {
-        &.MuiSvgIcon-root {
-            height: 22px;
-            margin: 3px 0 0 3px;
-            cursor: pointer;
-            transition: 0.3s;
-            &:hover{
-                border-radius: 4px;
-                background-color: rgba(255, 0, 0, 0.486);;
-            }
-        }
+  &-back-btn {
+    &.MuiSvgIcon-root {
+      height: 22px;
+      margin: 3px 0 0 3px;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover {
+        border-radius: 4px;
+        // background-color: rgba(255, 0, 0, 0.486);
+      }
     }
+  }
 
-    &-save-btn {
-        width: 48px;
-        font-size: 0.625rem;
-        padding: 6px 10px;
-        margin-top: 3px;
-        color: white;
-        font-weight: 600;
-        background-color: #5aac44;
-        transition: 0.3s;
-        &:hover {
-            background-color: #5bac44d5;
-        }
+  &-save-btn {
+    min-height: 32px;
+    height: 32px;
+    padding: 5px 10px;
+    color: white;
+    margin-right: 4px;
+    background-color: #5aac44;
+    transition: 0.3s;
+    &:hover {
+      background-color: #5bac44d5;
     }
+  }
 }
