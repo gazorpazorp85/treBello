@@ -131,7 +131,6 @@ export default class TaskDetails extends Component {
     }
 
     toggleTodoDone = async (todo) => {
-        debugger
         todo.isDone = !todo.isDone;
         let newTask = { ...this.props.board.tasks[this.props.taskId] };
         const todos = newTask.todos;
@@ -158,7 +157,6 @@ export default class TaskDetails extends Component {
     }
 
     updateProgressBar = () => {
-        debugger
         let start = this.state.progressWidth;
         let task = this.props.board.tasks[this.props.taskId];
         let doneTodosCounter = task.todos.filter(todo => (todo.isDone)).length;
@@ -186,17 +184,6 @@ export default class TaskDetails extends Component {
                 }
             }, 10);
         }
-        //plaster brodthers---------------------
-        task.todosDone = doneTodosCounter;
-        const newBoard = {
-            ...this.props.board,
-            tasks: {
-                ...this.props.board.tasks,
-                [task.id]: task
-            }
-        }
-        this.props.updateBoard(newBoard);
-        //----------------------------------
     }
 
     deleteTodo = (todoId) => {
@@ -216,11 +203,15 @@ export default class TaskDetails extends Component {
         const notificationType = 'danger';
         this.props.updateBoard(newBoard, msg, notificationType);
         this.updateProgressBar();
-        this.setState({ currTodoId: '' });
+        this.hideDeleteTodoButton(todoId);
     }
 
-    toggleDeleteTodo = (todoId) => {
-        this.setState(prevState => ({ toggleDeleteTodo: !prevState.toggleDeleteTodo, currTodoId: todoId }));
+    showDeleteTodoButton = (todoId) => {
+        this.setState({ toggleDeleteTodo: true, currTodoId: todoId });
+    }
+
+    hideDeleteTodoButton = (todoId) => {
+        this.setState({ toggleDeleteTodo: false, currTodoId: todoId });
     }
 
     setTaskName = (taskId) => {
@@ -356,8 +347,8 @@ export default class TaskDetails extends Component {
                                 {task.todos ?
                                     <div className="check-list-container flex column">
                                         {task.todos.map(todo => {
-                                            return <div key={todo.id} className="todo-item flex align-center space-between" onMouseEnter={() => this.toggleDeleteTodo(todo.id)}
-                                                onMouseLeave={() => this.toggleDeleteTodo(todo.id)}>
+                                            return <div key={todo.id} className="todo-item flex align-center space-between" onMouseEnter={() => this.showDeleteTodoButton(todo.id)}
+                                                onMouseLeave={() => this.hideDeleteTodoButton(todo.id)}>
                                                 <div className="flex align-center">
                                                     <input type="checkbox" onChange={() => this.toggleTodoDone(todo)} checked={todo.isDone ? 'checked' : ''}>
                                                     </input>
