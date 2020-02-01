@@ -130,7 +130,8 @@ export default class TaskDetails extends Component {
         this.props.toggleTaskDetails();
     }
 
-    toggleTodoDone = (todo) => {
+    toggleTodoDone = async (todo) => {
+        debugger
         todo.isDone = !todo.isDone;
         let newTask = { ...this.props.board.tasks[this.props.taskId] };
         const todos = newTask.todos;
@@ -157,6 +158,7 @@ export default class TaskDetails extends Component {
     }
 
     updateProgressBar = () => {
+        debugger
         let start = this.state.progressWidth;
         let task = this.props.board.tasks[this.props.taskId];
         let doneTodosCounter = task.todos.filter(todo => (todo.isDone)).length;
@@ -164,6 +166,7 @@ export default class TaskDetails extends Component {
 
         let interval;
         let progressWidth = Math.round((doneTodosCounter / task.todos.length) * 100);
+        if (!progressWidth && !start) return;
         if (start < progressWidth) {
             interval = setInterval(() => {
                 if (start >= progressWidth) {
@@ -183,6 +186,17 @@ export default class TaskDetails extends Component {
                 }
             }, 10);
         }
+        //plaster brodthers---------------------
+        task.todosDone = doneTodosCounter;
+        const newBoard = {
+            ...this.props.board,
+            tasks: {
+                ...this.props.board.tasks,
+                [task.id]: task
+            }
+        }
+        this.props.updateBoard(newBoard);
+        //----------------------------------
     }
 
     deleteTodo = (todoId) => {

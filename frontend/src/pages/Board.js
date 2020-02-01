@@ -269,7 +269,7 @@ class Board extends Component {
           </div>
 
           <div className="board-page-nav-bar-filters flex align-center space-between">
-            <div className="board-page-nav-bar-filters-item flex align-center">
+            <div className="flex align-center">
               <button
                 className={`board-page-nav-bar-filters nav-btn flex 
                           ${(this.state.isDarkBackground) ? 'dark' : 'light'}`}
