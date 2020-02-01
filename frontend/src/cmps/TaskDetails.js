@@ -11,10 +11,9 @@ import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
 import LabelOutlinedIcon from '@material-ui/icons/LabelOutlined';
 import AssignmentTurnedInOutlinedIcon from '@material-ui/icons/AssignmentTurnedInOutlined';
 import EventOutlinedIcon from '@material-ui/icons/EventOutlined';
-import FileCopyIcon from '@material-ui/icons/FileCopy';
-import DeleteIcon from '@material-ui/icons/Delete';
+import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined';
+import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import DescriptionOutlinedIcon from '@material-ui/icons/DescriptionOutlined';
-
 import DueDate from './DueDate';
 import Labels from './Labels';
 import Members from './Members';
@@ -187,7 +186,7 @@ export default class TaskDetails extends Component {
     }
 
     deleteTodo = (todoId) => {
-        let task = this.props.board.tasks[this.props.taskId];
+        const task = this.props.board.tasks[this.props.taskId];
         let todos = task.todos;
         const idx = todos.findIndex(currTodo => (currTodo.id === todoId));
         const deletedTodo = todos[idx];
@@ -455,11 +454,11 @@ export default class TaskDetails extends Component {
                                     letterSpacing: '0.04em'
                                 }}>actions</h3>
                                 <div className="task-details-container-actions-options-btn flex align-center" onClick={() => this.onDuplicateTask(column, task)}>
-                                    <FileCopyIcon />
+                                    <FileCopyOutlinedIcon />
                                     <p className="capitalize">duplicate</p>
                                 </div>
                                 <div className="task-details-container-actions-options-btn flex align-center" onClick={() => this.onDeleteTask(column, task)}>
-                                    <DeleteIcon />
+                                    <DeleteOutlineOutlinedIcon />
                                     <p className="capitalize">delete</p>
                                 </div>
                             </div>

@@ -35,6 +35,10 @@ Fri, 31 Jan 2020 17:05:00 GMT - Info - Server is running on port: 3030
 Fri, 31 Jan 2020 22:27:04 GMT - Info - Server is running on port: 3030
 Fri, 31 Jan 2020 22:36:41 GMT - Info - Server is running on port: 3030
 Sat, 01 Feb 2020 15:05:31 GMT - Info - Server is running on port: 3030
+
+Sat, 01 Feb 2020 15:41:29 GMT - Info - Server is running on port: 3030
+Sat, 01 Feb 2020 16:32:36 GMT - Debug - auth.service - login with email: vladbald@gmail.com
+
 Sat, 01 Feb 2020 16:22:13 GMT - Debug - auth.service - login with email: batalinvlad@gmail.com
 Sat, 01 Feb 2020 16:32:12 GMT - Debug - auth.service - login with email: batalinvlad@gmail.com
 Sat, 01 Feb 2020 17:20:08 GMT - Info - Server is running on port: 3030

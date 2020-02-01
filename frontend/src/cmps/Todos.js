@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import utils from '../services/utils'
 import CloseIcon from '@material-ui/icons/Close';
 
-export default class TaskList extends Component {
+export default class Todo extends Component {
     state = {
         todos: [],
         text: '',
@@ -37,6 +37,7 @@ export default class TaskList extends Component {
         const msg = `${this.props.user} added a new todo to the task '${taskTitle}'`;
         const notificationType = 'success';
         this.props.updateBoard(newBoard, msg, notificationType);
+        // this.props.updateProgressBar();
     }
 
     onStopPropagation = (ev) => {

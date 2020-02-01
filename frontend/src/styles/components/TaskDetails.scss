@@ -32,12 +32,9 @@
     margin: 0 8px 8px 56px;
 
     .todo-item {
-      border-radius: 4px;
-
-      p {
-        margin: 0px;
+      &:hover{
+        background-color: rgba(235, 235, 235, 0.452);
       }
-
       .delete-btn {
         height: 17px;
         width: 17px;
