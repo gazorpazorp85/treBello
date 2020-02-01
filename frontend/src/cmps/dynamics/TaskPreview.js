@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CreateIcon from '@material-ui/icons/Create';
-import ListAltIcon from '@material-ui/icons/ListAlt';
+import SubjectIcon from '@material-ui/icons/Subject';
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import utils from '../../services/utils'
 
 export default class TaskPreview extends Component {
@@ -42,20 +43,35 @@ export default class TaskPreview extends Component {
 
                     <p className="task-container-title">{task.title}</p>
 
-                    <div className={"bottom-container flex align-center space-between" + (task.description === '' ? ' row-reverse' : '')}>
-                        {(showEditBtn && (onTaskId === task.id)) ?
-                            <CreateIcon className="task-container-open-menu"
-                                onClick={e => this.toggleMiniDetails(e)} />
-                            : ''}
-                        {(task.description !== '') ?
-                            <ListAltIcon /> : ''
-                        }
+
+                    {(showEditBtn && (onTaskId === task.id)) ?
+                        <CreateIcon className="task-container-open-menu"
+                            onClick={e => this.toggleMiniDetails(e)} />
+                        : ''}
+
+                    <div className={"bottom-container flex align-center " + (task.description === '' ? ' row-reverse' : '')}>
 
                         <div className="flex">
+                            {(task.description !== '') ?
+                                <SubjectIcon />
+                                : ''
+                            }
+
+                            {(task.todos.length > 0) ?
+                                <div className="flex align-center">
+                                    <CheckBoxIcon />
+                                    <p>{task.todosDone + '/' + task.todos.length}</p>
+                                </div>
+                                : ''
+                            }
+                        </div>
+
+
+                        <div className="team-members-container flex">
                             {(task.taskTeamMembers.map(member => {
                                 return <div key={member._id} className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: '#dfe1e6' }} >
                                     <div className="team-member-icon">
-                                        <p className="flex align-center" style={{color: '#172b4d'}}>
+                                        <p className="flex align-center" style={{ color: '#172b4d' }}>
                                             {utils.createUserIcon(member.firstName,
                                                 member.lastName)}
                                         </p>

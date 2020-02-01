@@ -33,7 +33,7 @@ export default class ImagePreview extends Component {
                     style={style}
                 >
                     <img title={task.id} alt="task" src={task.url} />
-                    <div className="task-container-labels flex">
+                    <div className="task-container-labels flex wrap">
                         {task.labels.map(label => {
                             return <div key={label} className={label + ' small-label'}>
                             </div>
