@@ -315,7 +315,7 @@ class Board extends Component {
               <Sort onSort={this.onSort} isDarkBackground={this.state.isDarkBackground} />
             </div>
 
-            <div className="flex">
+            <div className="board-page-nav-bar-filters-item flex align-center">
               <div className="board-page-nav-bar-filters-item fill-height">
                 <button
                   className={`nav-btn fill-height capitalize
