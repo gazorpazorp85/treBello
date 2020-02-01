@@ -10,6 +10,16 @@
     background-color: #0000005c;
     padding: 10px;
 
+    .team-member-icon-wrapper {
+      padding: 2px 11px;
+      margin-right: 5px;
+      border-radius: 50%;
+
+      p {
+        font-family: montserratBold;
+      }
+    }
+
     .nav-btn {
       padding: 10px 15px;
       background: #2020207e;
@@ -32,9 +42,24 @@
         margin: 8px 8px 12px 8px;
       }
 
+      &.team-members-container {
+        .team-member-icon-wrapper {
+          padding: 6px 8px;
+          border-radius: 50%;
+
+          p {
+            font-family: montserratBold;
+          }
+
+          &:not(:last-child) {
+            margin-right: 2px;
+          }
+        }
+      }
+
       &-item {
         height: 37px;
-
+        
         input {
           min-width: 250px;
           border-radius: 2px;
@@ -51,6 +76,7 @@
           cursor: pointer;
           height: 100%;
           display: flex;
+          padding: 0px 10px;
           border: none;
           outline: none;
           background: #00000094;
@@ -92,7 +118,6 @@
 
     &-filters {
       color: rgba(250, 250, 250, 0.932);
-      // background-color: #00000015;
       flex-basis: 0 0 55px;
     }
   }

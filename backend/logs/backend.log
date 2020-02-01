@@ -1,1 +1,43 @@
+<<<<<<< HEAD
 Sat, 01 Feb 2020 13:14:40 GMT - Info - Server is running on port: 3030
+=======
+Wed, 29 Jan 2020 15:26:08 GMT - Info - Server is running on port: 3030
+Wed, 29 Jan 2020 15:26:09 GMT - Info - Server is running on port: 3030
+Wed, 29 Jan 2020 15:35:27 GMT - Info - Server is running on port: 3030
+Wed, 29 Jan 2020 15:37:38 GMT - Info - Server is running on port: 3030
+Wed, 29 Jan 2020 15:37:46 GMT - Info - Server is running on port: 3030
+Wed, 29 Jan 2020 15:38:10 GMT - Info - Server is running on port: 3030
+Wed, 29 Jan 2020 15:40:00 GMT - Info - Server is running on port: 3030
+Wed, 29 Jan 2020 15:40:22 GMT - Info - Server is running on port: 3030
+Wed, 29 Jan 2020 15:40:30 GMT - Info - Server is running on port: 3030
+Wed, 29 Jan 2020 15:41:11 GMT - Info - Server is running on port: 3030
+Wed, 29 Jan 2020 15:44:39 GMT - Info - Server is running on port: 3030
+Wed, 29 Jan 2020 17:26:14 GMT - Info - Server is running on port: 3030
+Wed, 29 Jan 2020 17:26:15 GMT - Info - Server is running on port: 3030
+Thu, 30 Jan 2020 12:55:16 GMT - Info - Server is running on port: 3030
+Thu, 30 Jan 2020 14:05:58 GMT - Info - Server is running on port: 3030
+Thu, 30 Jan 2020 14:05:59 GMT - Info - Server is running on port: 3030
+Thu, 30 Jan 2020 14:06:17 GMT - Info - Server is running on port: 3030
+Thu, 30 Jan 2020 14:06:27 GMT - Info - Server is running on port: 3030
+Thu, 30 Jan 2020 14:06:30 GMT - Info - Server is running on port: 3030
+Thu, 30 Jan 2020 14:06:31 GMT - Info - Server is running on port: 3030
+Thu, 30 Jan 2020 14:06:32 GMT - Info - Server is running on port: 3030
+Thu, 30 Jan 2020 14:06:44 GMT - Error - ERROR: Cannot find board
+Thu, 30 Jan 2020 14:06:44 GMT - Error - Cannot get board
+Thu, 30 Jan 2020 14:06:51 GMT - Error - ERROR: Cannot find board
+Thu, 30 Jan 2020 14:06:51 GMT - Error - Cannot get board
+Thu, 30 Jan 2020 14:07:35 GMT - Info - Server is running on port: 3030
+Thu, 30 Jan 2020 17:36:25 GMT - Info - Server is running on port: 3030
+Thu, 30 Jan 2020 18:19:21 GMT - Info - Server is running on port: 3030
+Thu, 30 Jan 2020 18:19:23 GMT - Info - Server is running on port: 3030
+Thu, 30 Jan 2020 19:22:30 GMT - Info - Server is running on port: 3030
+Thu, 30 Jan 2020 22:12:35 GMT - Info - Server is running on port: 3030
+Thu, 30 Jan 2020 22:12:36 GMT - Info - Server is running on port: 3030
+Thu, 30 Jan 2020 22:25:34 GMT - Info - Server is running on port: 3030
+Fri, 31 Jan 2020 17:05:00 GMT - Info - Server is running on port: 3030
+Fri, 31 Jan 2020 22:27:04 GMT - Info - Server is running on port: 3030
+Fri, 31 Jan 2020 22:36:41 GMT - Info - Server is running on port: 3030
+Sat, 01 Feb 2020 15:05:31 GMT - Info - Server is running on port: 3030
+>>>>>>> 68a99d38de1260bb8f7eac450a7d7ea039994f56
+Sat, 01 Feb 2020 15:41:29 GMT - Info - Server is running on port: 3030
+Sat, 01 Feb 2020 16:32:36 GMT - Debug - auth.service - login with email: vladbald@gmail.com

@@ -36,8 +36,6 @@ export default class TasksList extends Component {
 
     render() {
         const { tasks, provided, innerRef, isDraggingOver } = this.props;
-        console.log(tasks);
-        
         return (
             <section
                 className={"task-list" + (isDraggingOver ? " isDraggingOver" : "")}
