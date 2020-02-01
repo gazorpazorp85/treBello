@@ -259,7 +259,7 @@ export default class TaskDetails extends Component {
                                     suppressContentEditableWarning={true}
                                 >{task.title}</h2>
                                 <div className="task-details-container-in-list flex">
-                                    <p>in list {column.title}</p>
+                                    <p>in list <span>{column.title}</span></p>
                                 </div>
                             </header>
 
@@ -470,5 +470,3 @@ export default class TaskDetails extends Component {
         )
     }
 }
-
-

@@ -28,7 +28,7 @@ export default class Filter extends Component {
             <div style={{background: (this.props.isDarkBackground) ? 'white' : 'black'}}className="board-page-nav-bar-filters-divider"></div>
             <select name="teamMembers" style={{
                     color: (this.props.isDarkBackground) ? 'white' : 'black',
-                    background: (this.props.isDarkBackground) ? '#00000094' : '#ffffff4f'
+                    background: (this.props.isDarkBackground) ? '#0000006b' : '#ffffff8e'
                   }} onChange={this.inputChange}>
                 <option value=''>All Team Members</option>
                 {teamMembers.map(teamMember => (
