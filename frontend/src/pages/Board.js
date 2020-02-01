@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { store } from 'react-notifications-component';
+import FastAverageColor from 'fast-average-color';
+
 
 import LoadPage from '../cmps/LoadPage';
 import BoardColumns from '../cmps/BoardColumns';
@@ -25,6 +27,11 @@ import { logout, getLoggedInUser, getUsers } from '../actions/UserActions';
 
 class Board extends Component {
 
+  constructor(props) {
+    super(props);
+    this.imgRef = React.createRef();
+  }
+
   state = {
     showColAddForm: true,
     showTaskDetails: false,
@@ -43,7 +50,8 @@ class Board extends Component {
     showTopMenuOptions: true,
     showAddForm: false,
     currColumnId: '',
-    isBoardLoaded: false
+    isBoardLoaded: false,
+    isDarkBackground: null
   }
 
   componentDidMount() {
@@ -52,6 +60,7 @@ class Board extends Component {
     this.props.getUsers();
     this.props.getLoggedInUser();
     this.loadBoard();
+    // this.isDarkBackground();
 
     SocketService.setup();
     SocketService.emit('boardId', boardId);
@@ -63,7 +72,10 @@ class Board extends Component {
     const boardId = this.props.match.params.id;
     if (this.state.isBoardLoaded) {
       return
-    } else if (boardId === this.props.board._id) this.setState({ isBoardLoaded: true });
+    } else if (boardId === this.props.board._id) {
+      this.setState({ isBoardLoaded: true });
+      this.isDarkBackground();
+    };
   }
 
 
@@ -130,13 +142,11 @@ class Board extends Component {
       newBoard.boardBgImage = res
       const msg = `${this.props.user} changed background image`;
       const notificationType = 'success';
-      this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
       this.props.updateBoard(newBoard, msg, notificationType);
     })
   }
 
   onFilter = (filterBy) => {
-    console.log('board filter', filterBy);
     this.setState(prevState => ({ filterBy: { ...prevState.filterBy, ...filterBy } }), this.loadBoard);
   }
 
@@ -197,6 +207,18 @@ class Board extends Component {
     this.setState({ showTopMenuOptions: false });
   }
 
+  isDarkBackground = async (img) => {
+    const fac = new FastAverageColor();
+    let backgroundImage = new Image();
+    backgroundImage.crossOrigin = 'anonymous';
+    backgroundImage.src = img || this.props.board.boardBgImage;
+    try {
+      const color = await fac.getColorAsync(backgroundImage, { algorithm: 'dominant' });
+      (color.isDark) ? this.setState({ isDarkBackground: true }) : this.setState({ isDarkBackground: false });
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   render() {
     if (!this.state.isBoardLoaded) return <LoadPage />
@@ -213,6 +235,7 @@ class Board extends Component {
         login
       </button>
     }
+
     return (
       <div className="screen" onClick={this.closeAllTabs}>
         <div className="board-page fill-height flex column" style={{ backgroundImage: 'url(' + this.props.board.boardBgImage + ')', backgroundAttachment: 'fixed' }}>
@@ -244,8 +267,14 @@ class Board extends Component {
 
           <div className="board-page-nav-bar-filters flex align-center space-between">
             <div className="board-page-nav-bar-filters-item flex align-center">
-              <button className="board-page-nav-bar-filters nav-btn flex">
-                <HomeIcon onClick={this.goBack} />
+              <button
+                style={{
+                  color: (this.state.isDarkBackground) ? 'white' : 'black',
+                  background: (this.state.isDarkBackground) ? '#00000094' : '#ffffff4f'
+                }}
+                className="board-page-nav-bar-filters nav-btn flex"
+                onClick={this.goBack} >
+                <HomeIcon />
               </button>
 
               {teamMembers.lengh > 0 &&
@@ -263,33 +292,50 @@ class Board extends Component {
                 </div>
               }
 
-              <div className="board-page-nav-bar-filters-divider"></div>
+              <div style={{ background: (this.state.isDarkBackground) ? 'white' : 'black' }} className="board-page-nav-bar-filters-divider"></div>
 
-              <Filter onFilter={this.onFilter} teamMembers={this.props.board.teamMembers} />
+              <Filter onFilter={this.onFilter}
+                teamMembers={this.props.board.teamMembers}
+                isDarkBackground={this.state.isDarkBackground} />
 
-              <div className="board-page-nav-bar-filters-divider"></div>
+              <div style={{ background: (this.state.isDarkBackground) ? 'white' : 'black' }} className="board-page-nav-bar-filters-divider"></div>
 
-              <Sort onSort={this.onSort} />
+              <Sort onSort={this.onSort} isDarkBackground={this.state.isDarkBackground} />
             </div>
 
             <div className="flex">
               <div className="board-page-nav-bar-filters-item fill-height">
-                <button className="nav-btn fill-height"
-                  onClick={this.toggleBoardTeamMembers}>Add Members</button>
+                <button
+                  style={{
+                    color: (this.state.isDarkBackground) ? 'white' : 'black',
+                    background: (this.state.isDarkBackground) ? '#00000094' : '#ffffff4f'
+                  }}
+                  className="nav-btn fill-height capitalize"
+                  onClick={this.toggleBoardTeamMembers}>add members</button>
               </div>
 
-              <div className="board-page-nav-bar-filters-divider"></div>
+              <div style={{ background: (this.state.isDarkBackground) ? 'white' : 'black' }} className="board-page-nav-bar-filters-divider"></div>
 
               <div className="board-page-nav-bar-filters-item fill-height">
-                <button className="nav-btn fill-height"
-                  onClick={(ev) => this.toggleSplashMenu(ev)}>Change Background</button>
+                <button
+                  style={{
+                    color: (this.state.isDarkBackground) ? 'white' : 'black',
+                    background: (this.state.isDarkBackground) ? '#00000094' : '#ffffff4f'
+                  }}
+                  className="nav-btn fill-height capitalize"
+                  onClick={(ev) => this.toggleSplashMenu(ev)}>change background</button>
               </div>
 
-              <div className="board-page-nav-bar-filters-divider"></div>
+              <div style={{ background: (this.state.isDarkBackground) ? 'white' : 'black' }} className="board-page-nav-bar-filters-divider"></div>
 
               <div className="board-page-nav-bar-filters-item flex fill-height">
-                <button className="board-page-nav-bar-filters nav-btn"
-                  onClick={this.toggleBoardHistory}>Show History</button>
+                <button
+                  style={{
+                    color: (this.state.isDarkBackground) ? 'white' : 'black',
+                    background: (this.state.isDarkBackground) ? '#00000094' : '#ffffff4f'
+                  }}
+                  className="board-page-nav-bar-filters nav-btn capitalize"
+                  onClick={this.toggleBoardHistory}>show history</button>
               </div>
             </div>
           </div>
@@ -302,6 +348,7 @@ class Board extends Component {
             closeAllTabs={this.closeAllTabs}
             onAddImg={this.onAddImg}
             showUploadBgImg={this.state.closeAllTabs}
+            isDarkBackground={this.isDarkBackground}
             user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'}
           />
 
@@ -329,8 +376,11 @@ class Board extends Component {
               />
               <div className="flex column align-center">
                 {this.state.showColAddForm ?
-                  <button className="board-page-add-another-column-btn" onClick={this.toggleAddColumn}>
-                    <span className="add-icon">+</span>Add another list  </button> : ''}
+                  <button style={{
+                    color: (this.state.isDarkBackground) ? 'white' : 'black',
+                    background: (this.state.isDarkBackground) ? '#00000094' : '#ffffff4f'
+                  }} className="board-page-add-another-column-btn" onClick={this.toggleAddColumn}>
+                    <span className="add-icon">+</span>Add another list</button> : ''}
                 {!this.state.showColAddForm && <ColumnAddForm board={this.props.board} updateBoard={this.props.updateBoard}
                   toggleAddForm={this.toggleAddColumn} user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'} />}
               </div>
@@ -361,7 +411,7 @@ class Board extends Component {
             updateBoard={this.props.updateBoard} />
         </div>
 
-      </div>
+      </div >
     )
   }
 }

@@ -6,7 +6,6 @@ export default class TaskList extends Component {
     state = {
         todos: [],
         text: '',
-        // toggleTodo: false
     }
 
     componentDidMount = () => {
@@ -16,10 +15,6 @@ export default class TaskList extends Component {
     setNewState = () => {
         this.setState({ todos: this.props.task.todos })
     }
-
-    // toggleTodo = () => {
-    //     this.setState(prevState => ({ toggleTodo: !prevState.toggleTodo }))
-    // }
 
     updateTodo = (ev) => {
         this.setState({ text: ev.target.value })
@@ -32,22 +27,17 @@ export default class TaskList extends Component {
             isDone: false,
             id: utils.getRandomId()
         }
-        const todos = this.state.todos
-        todos.push(todo)
 
-        this.setState({
-            todos
-        })
-
+        const todos = this.state.todos;
+        todos.push(todo);
+        this.setState({todos});
         const newTask = { ...this.props.task, todos: this.state.todos };
-        const newBoard = {
-            ...this.props.board,
-            tasks: {
-                ...this.props.board.tasks,
-                [newTask.id]: newTask
-            }
-        }
-        this.props.updateBoard(newBoard);
+        const newBoard = {...this.props.board, tasks: {...this.props.board.tasks,[newTask.id]: newTask}}
+        const taskTitle = this.props.task.title;
+        const msg = `${this.props.user} added a new todo to the task '${taskTitle}'`;
+        const notificationType = 'success';
+        this.props.updateProgressBar();
+        this.props.updateBoard(newBoard, msg, notificationType);
     }
 
     onStopPropagation = (ev) => {

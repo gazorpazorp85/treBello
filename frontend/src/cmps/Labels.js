@@ -18,15 +18,21 @@ export default class Labels extends Component {
         const label = ev.target.classList[0];
         const choosenLabels = this.state.choosenLabels;
         const labelIdx = choosenLabels.findIndex(currLabel => currLabel === label);
+        let msg = '';
+        let notificationType = '';
         if (labelIdx >= 0) {
             choosenLabels.splice(labelIdx, 1)
+            msg = `A label was removed from the task '${this.props.task.title}'`;
+            notificationType = 'danger';
         } else {
             choosenLabels.push(label);
+            msg = `A label was added to the task '${this.props.task.title}'`;
+            notificationType = 'success';
         }
-        this.setState({ choosenLabels }, this.onSave);
+        this.setState({ choosenLabels },() => this.onSave(msg, notificationType));
     }
 
-    onSave = () => {
+    onSave = (msg, notificationType) => {
         const newTask = { ...this.props.task, labels: this.state.choosenLabels };
         const newBoard = {
             ...this.props.board,
@@ -35,7 +41,7 @@ export default class Labels extends Component {
                 [newTask.id]: newTask
             }
         }
-        this.props.updateBoard(newBoard);
+        this.props.updateBoard(newBoard, msg, notificationType);
     }
 
     onStopPropagation = (ev) => {

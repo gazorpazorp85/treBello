@@ -57,7 +57,6 @@ export default class ColumnAddForm extends Component {
         if (!columnOrder.includes(id)) columnOrder.push(id);
         const msg = `'${this.state.column.title}' was added by ` + this.props.user;
         const notificationType = 'success';
-        this.props.board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() });
         this.props.updateBoard(newBoard, msg, notificationType);
         this.props.toggleAddForm();
     }

@@ -21,12 +21,15 @@ export default class Filter extends Component {
         const teamMembers = this.props.teamMembers;
 
         return <div className="board-page-nav-bar-filters-item flex">
-            <input type="text" placeholder="Search task by name"
+            <input type="text" placeholder="Search card by name"
                 value={this.state.filterBy.title}
                 onChange={this.inputChange} name="title">
             </input>
-            <div className="board-page-nav-bar-filters-divider"></div>
-            <select name="teamMembers" onChange={this.inputChange}>
+            <div style={{background: (this.props.isDarkBackground) ? 'white' : 'black'}}className="board-page-nav-bar-filters-divider"></div>
+            <select name="teamMembers" style={{
+                    color: (this.props.isDarkBackground) ? 'white' : 'black',
+                    background: (this.props.isDarkBackground) ? '#00000094' : '#ffffff4f'
+                  }} onChange={this.inputChange}>
                 <option value=''>All Team Members</option>
                 {teamMembers.map(teamMember => (
                     <option className="capitalize" key={teamMember._id} value={`${teamMember.username}`}>{teamMember.firstName} {teamMember.lastName}</option>

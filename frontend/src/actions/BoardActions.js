@@ -41,6 +41,7 @@ function _setBoard(board) {
 export function updateBoard(board, msg, notificationType) {
   return async dispatch => {
     try {
+      board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })
       dispatch(_boardUpdate(board));
       await BoardService.put(board);
       SocketService.emit('boardUpdate', board);

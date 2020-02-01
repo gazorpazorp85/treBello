@@ -73,6 +73,7 @@
           height: 100%;
           display: flex;
           color: #172b4d;
+          font-size: rem(14px);
         }
 
         select {
@@ -93,6 +94,7 @@
           background: #00000094;
           transition: 0.3s;
           height: 100%;
+          font-size: rem(14px);
 
           &.search-btn {
             border-radius: 0px;
@@ -128,9 +130,9 @@
     outline: none;
     cursor: pointer;
     height: 30px;
-    background: #ffffff4f;
+    // background: #ffffff4f;
     min-width: 200px;
-    color: #ffffffd4;
+    // color: #ffffffd4;
     text-align: inherit;
     border: 1px solid #0000000d;
     border-radius: 4px;
@@ -138,7 +140,8 @@
     margin: 0 4px;
     margin-right: 8px;
     transition: 0.2s;
-    mix-blend-mode: difference;
+    font-size: rem(14px);
+    // mix-blend-mode: difference;
 
     &:hover {
       background: #ffffff69;
