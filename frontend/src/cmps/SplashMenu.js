@@ -41,7 +41,7 @@ export default class SplashMenu extends Component {
         newBoard.boardBgThumbnail = imageUrl.small;
         const msg = `${this.props.user} changed background image`;
         const notificationType = 'success';
-        this.props.isDarkBackground(newBoard.boardBgImage);
+        // this.props.isDarkBackground(newBoard.boardBgImage);
         this.props.updateBoard(newBoard, msg, notificationType);
     }
 
