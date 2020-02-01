@@ -21,7 +21,7 @@ export default class Todo extends Component {
     }
 
 
-    onSaveTodo = () => {
+    onSaveTodo = async () => {
         const todo = {
             text: this.state.text,
             isDone: false,

@@ -130,7 +130,7 @@ export default class TaskDetails extends Component {
         this.props.toggleTaskDetails();
     }
 
-    toggleTodoDone = (todo) => {
+    toggleTodoDone = async (todo) => {
         todo.isDone = !todo.isDone;
         let newTask = { ...this.props.board.tasks[this.props.taskId] };
         const todos = newTask.todos;
@@ -164,6 +164,7 @@ export default class TaskDetails extends Component {
 
         let interval;
         let progressWidth = Math.round((doneTodosCounter / task.todos.length) * 100);
+        if (!progressWidth && !start) return;
         if (start < progressWidth) {
             interval = setInterval(() => {
                 if (start >= progressWidth) {
@@ -183,6 +184,7 @@ export default class TaskDetails extends Component {
                 }
             }, 10);
         }
+        
     }
 
     deleteTodo = (todoId) => {

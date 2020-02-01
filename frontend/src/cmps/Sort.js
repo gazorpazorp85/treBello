@@ -25,12 +25,9 @@ export default class Sort extends Component {
 
     render() {
         return <div  className="board-page-nav-bar-filters-item fill-height">
-            <button className="nav-btn fill-height"
+            <button className={`nav-btn fill-height
+            ${(this.props.isDarkBackground) ? 'dark' : 'light'}`}
                 onClick={this.onSortBy}
-                style={{
-                    color: (this.props.isDarkBackground) ? 'white' : 'black',
-                    background: (this.props.isDarkBackground) ? '#00000094' : '#ffffff4f'
-                  }}
                 name='createdAt'>{this.toggleButtonName()}</button>
 
         </div>

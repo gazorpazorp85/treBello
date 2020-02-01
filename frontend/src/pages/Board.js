@@ -17,7 +17,6 @@ import TaskDetails from '../cmps/TaskDetails';
 import DynamicMiniComponent from '../cmps/dynamics/DynamicMiniComponent';
 
 import HomeIcon from '@material-ui/icons/Home';
-// import AddIcon from '@material-ui/icons/Add';
 
 import utils from '../services/utils';
 import SocketService from '../services/SocketService';
@@ -60,7 +59,6 @@ class Board extends Component {
     this.props.getUsers();
     this.props.getLoggedInUser();
     this.loadBoard();
-    // this.isDarkBackground();
 
     SocketService.setup();
     SocketService.emit('boardId', boardId);
@@ -68,14 +66,18 @@ class Board extends Component {
     SocketService.on('getNotification', (notification) => store.addNotification(notification));
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     const boardId = this.props.match.params.id;
     if (this.state.isBoardLoaded) {
-      return
+      if (prevProps.board.boardBgImage !== this.props.board.boardBgImage) {
+        this.isDarkBackground();
+      };
+      return;
     } else if (boardId === this.props.board._id) {
       this.setState({ isBoardLoaded: true });
       this.isDarkBackground();
     };
+
   }
 
 
@@ -235,7 +237,6 @@ class Board extends Component {
         login
       </button>
     }
-
     return (
       <div className="screen" onClick={this.closeAllTabs}>
         <div className="board-page fill-height flex column" style={{ backgroundImage: 'url(' + this.props.board.boardBgImage + ')', backgroundAttachment: 'fixed' }}>
@@ -266,18 +267,15 @@ class Board extends Component {
           </div>
 
           <div className="board-page-nav-bar-filters flex align-center space-between">
-            <div className="board-page-nav-bar-filters-item flex align-center">
+            <div className="flex align-center">
               <button
-                style={{
-                  color: (this.state.isDarkBackground) ? 'white' : 'black',
-                  background: (this.state.isDarkBackground) ? '#00000094' : '#ffffff4f'
-                }}
-                className="board-page-nav-bar-filters nav-btn flex"
+                className={`board-page-nav-bar-filters nav-btn flex 
+                          ${(this.state.isDarkBackground) ? 'dark' : 'light'}`}
                 onClick={this.goBack} >
                 <HomeIcon />
               </button>
 
-              {teamMembers.lengh > 0 &&
+              {/* {this.props.board.teamMembers.length > 0 &&
                 <div className="board-page-nav-bar-filters team-members-container flex">
                   {
                     teamMembers.map(member => {
@@ -290,7 +288,7 @@ class Board extends Component {
                     })
                   }
                 </div>
-              }
+              } */}
 
               <div style={{ background: (this.state.isDarkBackground) ? 'white' : 'black' }} className="board-page-nav-bar-filters-divider"></div>
 
@@ -306,11 +304,8 @@ class Board extends Component {
             <div className="flex">
               <div className="board-page-nav-bar-filters-item fill-height">
                 <button
-                  style={{
-                    color: (this.state.isDarkBackground) ? 'white' : 'black',
-                    background: (this.state.isDarkBackground) ? '#00000094' : '#ffffff4f'
-                  }}
-                  className="nav-btn fill-height capitalize"
+                  className={`nav-btn fill-height capitalize
+                  ${(this.state.isDarkBackground) ? 'dark' : 'light'}`}
                   onClick={this.toggleBoardTeamMembers}>add members</button>
               </div>
 
@@ -318,11 +313,8 @@ class Board extends Component {
 
               <div className="board-page-nav-bar-filters-item fill-height">
                 <button
-                  style={{
-                    color: (this.state.isDarkBackground) ? 'white' : 'black',
-                    background: (this.state.isDarkBackground) ? '#00000094' : '#ffffff4f'
-                  }}
-                  className="nav-btn fill-height capitalize"
+                  className={`nav-btn fill-height capitalize
+                  ${(this.state.isDarkBackground) ? 'dark' : 'light'}`}
                   onClick={(ev) => this.toggleSplashMenu(ev)}>change background</button>
               </div>
 
@@ -330,11 +322,8 @@ class Board extends Component {
 
               <div className="board-page-nav-bar-filters-item flex fill-height">
                 <button
-                  style={{
-                    color: (this.state.isDarkBackground) ? 'white' : 'black',
-                    background: (this.state.isDarkBackground) ? '#00000094' : '#ffffff4f'
-                  }}
-                  className="board-page-nav-bar-filters nav-btn capitalize"
+                  className={`board-page-nav-bar-filters nav-btn capitalize 
+                  ${(this.state.isDarkBackground) ? 'dark' : 'light'}`}
                   onClick={this.toggleBoardHistory}>show history</button>
               </div>
             </div>
@@ -376,10 +365,9 @@ class Board extends Component {
               />
               <div className="flex column align-center">
                 {this.state.showColAddForm ?
-                  <button style={{
-                    color: (this.state.isDarkBackground) ? 'white' : 'black',
-                    background: (this.state.isDarkBackground) ? '#00000094' : '#ffffff4f'
-                  }} className="board-page-add-another-column-btn" onClick={this.toggleAddColumn}>
+                  <button className={`board-page-add-another-column-btn
+                  ${(this.state.isDarkBackground) ? 'dark' : 'light'}`}
+                    onClick={this.toggleAddColumn}>
                     <span className="add-icon">+</span>Add another list</button> : ''}
                 {!this.state.showColAddForm && <ColumnAddForm board={this.props.board} updateBoard={this.props.updateBoard}
                   toggleAddForm={this.toggleAddColumn} user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'} />}
