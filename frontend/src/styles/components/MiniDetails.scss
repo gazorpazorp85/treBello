@@ -1,110 +1,112 @@
-.mini-details-container{
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    bottom: 2px;
-    text-align: center;
+.mini-details-container {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  bottom: 2px;
+  text-align: center;
 
-    & .mini-details{
+  & .mini-details {
+    position: relative;
+    background-color: white;
+    width: 252px;
+    position: relative;
+    border-radius: 4px;
+    border: 1px solid #d5d5d5c9;
+    z-index: 1;
+
+    &-editor {
+      position: absolute;
+      z-index: 1;
+      &-button {
+        width: fit-content;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 3px;
+        margin: 0 0 4px 8px;
+        padding: 6px 12px 6px 8px;
+        cursor: pointer;
+        line-height: 20px;
+        font-weight: 400;
+        & p {
+          font-family: sans-serif;
+          color: white;
+        }
+        transition: 0.2s ease;
+      }
+
+      &-button:hover {
+        transform: translate(5px, 0);
+      }
+
+      .react-datepicker-wrapper {
         position: relative;
-        background-color: white;
-        width: 252px;
-        position: relative;
-        border-radius: 4px;
-        border: 1px solid #d5d5d5c9;
-        z-index: 1;
+        left: 8px;
+        bottom: 3px;
 
-        &-editor{
-            position: absolute;
-            z-index: 1;
-            &-button{
-                width: fit-content;
-                background: rgba(0,0,0,.6);
-                border-radius: 3px;
-                margin: 0 0 4px 8px;
-                padding: 6px 12px 6px 8px;
-                cursor: pointer;
-                line-height: 20px;
-                font-weight: 400;
-                & p{
-                    font-family: sans-serif;
-                    color: white;
-                }
-                transition: .2s ease;
-            }
-
-            &-button:hover{
-                transform: translate(5px,0);;
-            }
-
-            .react-datepicker-wrapper{
-                position: relative;
-                left: 8px;
-                bottom: 3px;
-
-                input{
-                    width: 175px;
-                }
-            }
-
-            .react-datepicker{
-                width: 328px;
-            }
-        } 
-
-        &-save-btn {
-            position: absolute;
-            z-index: 1;
-            width: 48px;
-            font-size: 0.625rem;
-            padding: 6px 10px;
-            margin-top: 3px;
-            color: white;
-            font-weight: 600;
-            background-color: #5aac44;
-            transition: 0.3s;
-            &:hover {
-                background-color: #5bac44d5;
-            }
+        input {
+          width: 175px;
         }
-        
-        & .text-area{
-            width: 252px;
-            min-height: 2rem;
-            font-family: sans-serif;
-            font-size: 0.875rem;
-            line-height: 1.6;
-            border: 1px solid transparent;
-            box-shadow: none;
-            padding-top: 0px;
-            position: relative;
-            right: 1px;
-            bottom: 1px;
-            outline: none;
-            height: 100%;
-        }
+      }
 
-        & .preview-label{
-            position: relative;
-            bottom: 14px;
-            padding-top: 20px;
-            padding-left: 3px;
-        }
-
-        .task-container-labels{
-            z-index: 2;
-            position: relative;
-            top:2px;
-        }
+      .react-datepicker {
+        width: 328px;
+      }
     }
 
-    img{
-        margin: 0 auto;
-        display: block;
-        max-width: 220px;
-        max-height: 220px;
-        width: auto;
-        height: auto;
+    &-save-btn {
+      position: absolute;
+      z-index: 1;
+      width: 48px;
+      font-size: 0.625rem;
+      padding: 6px 10px;
+      margin-top: 3px;
+      color: white;
+      font-weight: 600;
+      background-color: #5aac44;
+      transition: 0.3s;
+      &:hover {
+        background-color: #5bac44d5;
+      }
     }
+
+    & .text-area {
+      width: 252px;
+      min-height: 2rem;
+      font-family: sans-serif;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      border: 1px solid transparent;
+      box-shadow: none;
+      padding-top: 0px;
+      position: relative;
+      right: 1px;
+      bottom: 1px;
+      outline: none;
+      height: 100%;
+    }
+
+    & .preview-label {
+      position: relative;
+      bottom: 14px;
+      padding-top: 20px;
+      padding-left: 3px;
+    }
+
+    .task-container-labels {
+      z-index: 2;
+      position: relative;
+      top: 2px;
+    }
+  }
+
+  img {
+    margin: 0 auto;
+    display: block;
+    width: 252px;
+    max-height: 220px;
+    width: auto;
+    height: auto;
+    position: relative;
+    right: 1;
+    bottom: 1;
+  }
 }
-
