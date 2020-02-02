@@ -61,7 +61,7 @@ export default class TaskPreview extends Component {
 
                         {(task.todos.length > 0) ?
                             <div className="grid-item align-center flex">
-                                <div className="flex">
+                                <div className="flex align-center">
                                     <CheckBoxIcon />
                                     <p>{task.todosDone + '/' + task.todos.length}</p>
                                 </div>
