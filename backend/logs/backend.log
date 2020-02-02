@@ -79,6 +79,22 @@ Sun, 02 Feb 2020 08:24:21 GMT - Info - Server is running on port: 3030
 Sun, 02 Feb 2020 08:25:25 GMT - Info - Server is running on port: 3030
 Sun, 02 Feb 2020 09:06:41 GMT - Info - Server is running on port: 3030
 Sun, 02 Feb 2020 09:06:43 GMT - Info - Server is running on port: 3030
+<<<<<<< HEAD
 >>>>>>> 1c728254935362e676402d9a9097cc211572a083
 Sun, 02 Feb 2020 09:26:55 GMT - Info - Server is running on port: 3030
 Sun, 02 Feb 2020 09:32:42 GMT - Debug - auth.service - login with email: batalinvlad@gmail.com
+=======
+Sun, 02 Feb 2020 10:41:57 GMT - Info - Server is running on port: 3030
+Sun, 02 Feb 2020 10:49:03 GMT - Info - Server is running on port: 3030
+Sun, 02 Feb 2020 10:49:06 GMT - Info - Server is running on port: 3030
+Sun, 02 Feb 2020 11:59:07 GMT - Info - Server is running on port: 3030
+Sun, 02 Feb 2020 12:00:06 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 02 Feb 2020 12:01:19 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 02 Feb 2020 12:08:27 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 02 Feb 2020 12:09:59 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 02 Feb 2020 12:20:47 GMT - Info - Server is running on port: 3030
+Sun, 02 Feb 2020 12:21:10 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sun, 02 Feb 2020 13:00:00 GMT - Error - ERROR: Cannot find board
+Sun, 02 Feb 2020 13:00:00 GMT - Error - Cannot get board
+>>>>>>> 7ba8c3446b511601fb602d5d7641738d560fdc48
+Sun, 02 Feb 2020 13:10:14 GMT - Info - Server is running on port: 3030

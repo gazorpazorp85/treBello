@@ -9,7 +9,7 @@
         right: 0;
         overflow-y: hidden;
         transform: translate(100%, 0);
-        transition: 1.5s;
+        transition: 0.5s ease-out;
     
         &.translateLeft {
             transform: translate(0, 0);
