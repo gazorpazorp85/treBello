@@ -134,6 +134,8 @@ export default class TaskDetails extends Component {
         const todos = newTask.todos;
         const idx = todos.findIndex(currTodo => (currTodo.id === todo.id));
         todos[idx].isDone = todo.isDone;
+        let doneTodosCounter = newTask.todos.filter(todo => (todo.isDone)).length;
+        newTask.todosDone = doneTodosCounter;
         let msg = '';
         let notificationType = '';
         const newBoard = {

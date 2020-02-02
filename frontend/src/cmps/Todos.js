@@ -37,7 +37,7 @@ export default class Todo extends Component {
         const msg = `${this.props.user} added a new todo to the task '${taskTitle}'`;
         const notificationType = 'success';
         this.props.updateBoard(newBoard, msg, notificationType);
-        // this.props.updateProgressBar();
+        this.props.updateProgressBar();
     }
 
     onStopPropagation = (ev) => {
