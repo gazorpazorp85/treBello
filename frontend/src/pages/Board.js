@@ -149,6 +149,7 @@ class Board extends Component {
     utils.uploadImg(file).then(res => {
       const newBoard = { ...this.props.board }
       newBoard.boardBgImage = res
+      newBoard.boardBgThumbnail = res
       const msg = `${this.props.user} changed background image`;
       const notificationType = 'success';
       this.props.updateBoard(newBoard, msg, notificationType);
