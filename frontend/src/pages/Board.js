@@ -63,6 +63,7 @@ class Board extends Component {
     this.props.getUsers();
     this.props.getLoggedInUser();
     this.loadBoard();
+    this.resize();
     window.addEventListener('resize', this.resize);
 
     SocketService.setup();
