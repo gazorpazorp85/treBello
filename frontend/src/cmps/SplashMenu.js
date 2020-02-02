@@ -31,7 +31,7 @@ export default class SplashMenu extends Component {
             })
             this.setState({ splashImagesUrls });
         } catch (err) {
-            // res.status(401).send({ error: err });
+            // console.err(401).send({ error: err });
         }
     }
 
@@ -41,7 +41,6 @@ export default class SplashMenu extends Component {
         newBoard.boardBgThumbnail = imageUrl.small;
         const msg = `${this.props.user} changed background image`;
         const notificationType = 'success';
-        // this.props.isDarkBackground(newBoard.boardBgImage);
         this.props.updateBoard(newBoard, msg, notificationType);
     }
 

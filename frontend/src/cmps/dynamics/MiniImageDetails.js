@@ -85,7 +85,7 @@ export default class MiniImageDetails extends Component {
                     ref={this.textArea}
                     onFocus={this.handleFocus}
                     onInput={this.emitChange}
-                    placeholder="Add a task title..."
+                    placeholder="Add a card title..."
                 >
                 </textarea>
             </div>

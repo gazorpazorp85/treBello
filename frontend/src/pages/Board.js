@@ -15,8 +15,11 @@ import Sort from '../cmps/Sort';
 import SplashMenu from '../cmps/SplashMenu';
 import TaskDetails from '../cmps/TaskDetails';
 import DynamicMiniComponent from '../cmps/dynamics/DynamicMiniComponent';
-
+import Typography from '@material-ui/core/Typography';
 import HomeIcon from '@material-ui/icons/Home';
+import GroupAddOutlinedIcon from '@material-ui/icons/GroupAddOutlined';
+import ImageSearchOutlinedIcon from '@material-ui/icons/ImageSearchOutlined';
+import HistoryOutlinedIcon from '@material-ui/icons/HistoryOutlined';
 
 import utils from '../services/utils';
 import SocketService from '../services/SocketService';
@@ -25,12 +28,6 @@ import { loadBoard, updateBoard, setBoard } from '../actions/BoardActions';
 import { logout, getLoggedInUser, getUsers } from '../actions/UserActions';
 
 class Board extends Component {
-
-  constructor(props) {
-    super(props);
-    this.imgRef = React.createRef();
-  }
-
   state = {
     showColAddForm: true,
     showTaskDetails: false,
@@ -50,7 +47,8 @@ class Board extends Component {
     showAddForm: false,
     currColumnId: '',
     isBoardLoaded: false,
-    isDarkBackground: null
+    isDarkBackground: null,
+    filterIconMod: false
   }
 
   componentDidMount() {
@@ -59,6 +57,8 @@ class Board extends Component {
     this.props.getUsers();
     this.props.getLoggedInUser();
     this.loadBoard();
+    this.resize();
+    window.addEventListener('resize', this.resize);
 
     SocketService.setup();
     SocketService.emit('boardId', boardId);
@@ -82,6 +82,7 @@ class Board extends Component {
 
 
   componentWillUnmount() {
+    window.removeEventListener('resize', this.resize);
     SocketService.off('updateBoard');
     SocketService.off('getNotification');
     SocketService.terminate();
@@ -142,6 +143,7 @@ class Board extends Component {
     utils.uploadImg(file).then(res => {
       const newBoard = { ...this.props.board }
       newBoard.boardBgImage = res
+      newBoard.boardBgThumbnail = res
       const msg = `${this.props.user} changed background image`;
       const notificationType = 'success';
       this.props.updateBoard(newBoard, msg, notificationType);
@@ -220,6 +222,14 @@ class Board extends Component {
     } catch (err) {
       console.log(err);
     }
+  }
+
+  resize = _ => {
+    if (window.innerWidth < 900) {
+      this.setState({ filterIconMod: true });
+    } else {
+      this.setState({ filterIconMod: false })
+    };
   }
 
   render() {
@@ -306,7 +316,12 @@ class Board extends Component {
                 <button
                   className={`nav-btn fill-height capitalize
                   ${(this.state.isDarkBackground) ? 'dark' : 'light'}`}
-                  onClick={this.toggleBoardTeamMembers}>add members</button>
+                  onClick={this.toggleBoardTeamMembers}>
+                  {!this.state.filterIconMod ? <Typography component="p" className="flex align-center p-reset">
+                    <GroupAddOutlinedIcon style={{ marginRight: 5 }} />
+                    add members
+                    </Typography> : <GroupAddOutlinedIcon />}
+                </button>
               </div>
 
               <div style={{ background: (this.state.isDarkBackground) ? 'white' : 'black' }} className="board-page-nav-bar-filters-divider"></div>
@@ -315,7 +330,12 @@ class Board extends Component {
                 <button
                   className={`nav-btn fill-height capitalize
                   ${(this.state.isDarkBackground) ? 'dark' : 'light'}`}
-                  onClick={(ev) => this.toggleSplashMenu(ev)}>change background</button>
+                  onClick={(ev) => this.toggleSplashMenu(ev)}>
+                  {!this.state.filterIconMod ? <Typography component="p" className="flex align-center p-reset">
+                    <ImageSearchOutlinedIcon style={{ marginRight: 5 }} />
+                    change background
+                  </Typography> : <ImageSearchOutlinedIcon />}
+                </button>
               </div>
 
               <div style={{ background: (this.state.isDarkBackground) ? 'white' : 'black' }} className="board-page-nav-bar-filters-divider"></div>
@@ -324,7 +344,12 @@ class Board extends Component {
                 <button
                   className={`board-page-nav-bar-filters nav-btn capitalize 
                   ${(this.state.isDarkBackground) ? 'dark' : 'light'}`}
-                  onClick={this.toggleBoardHistory}>show history</button>
+                  onClick={this.toggleBoardHistory}>
+                  {!this.state.filterIconMod ? <Typography component="p" className="flex align-center p-reset">
+                    <HistoryOutlinedIcon style={{ marginRight: 5 }} />
+                    show history
+                  </Typography> : <HistoryOutlinedIcon />}
+                </button>
               </div>
             </div>
           </div>
