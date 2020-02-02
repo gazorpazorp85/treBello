@@ -28,11 +28,20 @@
   }
 }
 
+.react-datepicker {
+  display: "inline-flex";
+  position: relative;
+  height: 245px;
+  width: 328px;
+  bottom: 344px;
+  right: 51px;
+}
+
 .close-btn-container {
   width: 100%;
   height: 40px;
 
-  &>.MuiSvgIcon-root {
+  & > .MuiSvgIcon-root {
     height: 18px;
     width: 18px;
   }

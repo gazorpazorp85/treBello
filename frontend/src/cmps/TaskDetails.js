@@ -23,7 +23,6 @@ import utils from '../services/utils'
 
 export default class TaskDetails extends Component {
     state = {
-        deuDate: null,
         description: '',
         teamMembers: [],
         choosenMembers: [],
@@ -50,8 +49,8 @@ export default class TaskDetails extends Component {
         this.setState({ description: targetValue });
     }
 
-    toggleUpdateDescriptionForm = () => {
-        this.setState(prevState => ({ showEditDescriptionForm: !prevState.showEditDescriptionForm }))
+    openUpdateDescriptionForm = () => {
+        this.setState(prevState => ({ showEditDescriptionForm: true }))
     }
 
     onToggleDueDate = ev => {
@@ -61,7 +60,7 @@ export default class TaskDetails extends Component {
 
 
     closeUpdateDescriptionForm = () => {
-        this.setState({ toggleUpdateDescriptionForm: false })
+        this.setState({ showEditDescriptionForm: false })
     }
 
     onStopPropagationAndCloseOptions = (ev) => {
@@ -77,7 +76,8 @@ export default class TaskDetails extends Component {
         this.setState(prevState => ({ toggleChooseLabels: !prevState.toggleChooseLabels }))
     }
 
-    onSaveDescription = (task) => {
+    onSaveDescription = (ev, task) => {
+        ev.stopPropagation();
         const newTask = { ...task, description: this.state.description };
         const newBoard = {
             ...this.props.board,
@@ -89,6 +89,7 @@ export default class TaskDetails extends Component {
         const msg = `The description of '${task.title}' was changed by ${this.props.user}`;
         const notificationType = 'success';
         this.props.updateBoard(newBoard, msg, notificationType);
+        this.closeUpdateDescriptionForm();
     }
 
     toggleChooseMembers = (ev) => {
@@ -135,6 +136,8 @@ export default class TaskDetails extends Component {
         const todos = newTask.todos;
         const idx = todos.findIndex(currTodo => (currTodo.id === todo.id));
         todos[idx].isDone = todo.isDone;
+        let doneTodosCounter = newTask.todos.filter(todo => (todo.isDone)).length;
+        newTask.todosDone = doneTodosCounter;
         let msg = '';
         let notificationType = '';
         const newBoard = {
@@ -220,6 +223,10 @@ export default class TaskDetails extends Component {
 
     emitChange = (ev) => {
         this.setState({ taskTitle: ev.target.innerText });
+    }
+
+    changeDescription = (ev) => {
+        this.setState({ description: ev.target.value });
     }
 
     saveTaskName = (taskId, title) => {
@@ -400,20 +407,19 @@ export default class TaskDetails extends Component {
                                     right: '44px'
                                 }} />
                                 <h2>Description</h2>
-                                <form onSubmit={this.save} onClick={this.toggleUpdateDescriptionForm}>
                                     <textarea className="fill-width"
                                         name="description"
                                         rows="3"
                                         cols="40"
-                                        onInput={this.emitChange}
-                                        defaultValue={task.description}
+                                        onChange={this.changeDescription}
+                                        onClick={this.openUpdateDescriptionForm}
+                                        value={this.state.description}
                                         spellCheck="false"
                                         placeholder="Add a more detailed description...">
                                     </textarea>
-                                </form>
                                 {this.state.showEditDescriptionForm ?
                                     <div className="flex align-center">
-                                        <button className="task-form-save-btn uppercase" onClick={() => this.onSaveDescription(task)}>save</button>
+                                        <button className="task-form-save-btn uppercase" onClick={(ev) => this.onSaveDescription(ev, task)}>save</button>
                                         <CloseIcon className="task-form-back-btn" onClick={this.closeUpdateDescriptionForm} />
                                     </div> : ''
                                 }
