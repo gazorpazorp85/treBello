@@ -40,18 +40,13 @@ export default class TaskPreview extends Component {
                         })
                         }
                     </div>
-
                     <p className="task-container-title">{task.title}</p>
-
-
                     {(showEditBtn && (onTaskId === task.id)) ?
                         <CreateIcon className="task-container-open-menu"
                             onClick={e => this.toggleMiniDetails(e)} />
                         : ''}
 
                     <div className={"bottom-container grid-container flex" + (task.description === '' ? ' row-reverse' : '')}>
-
-
                         {(task.description !== '') ?
                             <div className="grid-item justify-self-center align-self-center">
                                 <SubjectIcon />
@@ -68,9 +63,6 @@ export default class TaskPreview extends Component {
                             </div>
                             : <div className="grid-item"></div>
                         }
-
-
-
                         <div className="team-members-container grid-item">
                             <div className="flex justify-end">
                                 {(task.taskTeamMembers.map(member => {
