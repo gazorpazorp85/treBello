@@ -249,20 +249,17 @@ export default class TaskDetails extends Component {
         const task = this.props.board.tasks[this.props.taskId];
         const file = ev.target.files[0];
         const imageUrl = await utils.uploadImg(file)
-        const newTask = { ...task }
-        newTask.type = 'image';
-        newTask.url = imageUrl;
+        const newTask = { ...task, type: 'image', url: imageUrl }
         const newBoard = {
             ...this.props.board,
             tasks: {
                 ...this.props.board.tasks,
-                [this.props.taskId]: newTask
+                [newTask.id]: newTask
             }
         }
 
         const msg = `${this.props.user} changed task ${this.props.board.tasks[this.props.taskId]}`;
         const notificationType = 'success';
-        console.log(newBoard);
         this.props.updateBoard(newBoard, msg, notificationType);
         this.props.toggleTaskDetails();
     }

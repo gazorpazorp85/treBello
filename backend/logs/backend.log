@@ -98,3 +98,6 @@ Sun, 02 Feb 2020 13:00:00 GMT - Error - ERROR: Cannot find board
 Sun, 02 Feb 2020 13:00:00 GMT - Error - Cannot get board
 >>>>>>> 7ba8c3446b511601fb602d5d7641738d560fdc48
 Sun, 02 Feb 2020 13:10:14 GMT - Info - Server is running on port: 3030
+Sun, 02 Feb 2020 13:21:54 GMT - Debug - auth.service - login with email: batalinvlad@gmail.com
+Sun, 02 Feb 2020 14:07:44 GMT - Debug - auth.service - login with email: batalinvlad@gmail.com
+Mon, 03 Feb 2020 12:48:50 GMT - Info - Server is running on port: 3030

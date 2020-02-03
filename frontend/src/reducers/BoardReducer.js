@@ -4,6 +4,7 @@ const initialState = {
 };
 
 export default function (state = initialState, action = {}) {
+  debugger
   switch (action.type) {
     case 'SET_BOARDS':
       return { ...state, boards: action.boards };
