@@ -14,6 +14,8 @@ import EventOutlinedIcon from '@material-ui/icons/EventOutlined';
 import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined';
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import DescriptionOutlinedIcon from '@material-ui/icons/DescriptionOutlined';
+import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
+
 import DueDate from './DueDate';
 import Labels from './Labels';
 import Members from './Members';
@@ -40,7 +42,7 @@ export default class TaskDetails extends Component {
     }
 
     componentDidMount() {
-        let currTask = this.props.board.tasks[this.props.taskId]
+        const currTask = this.props.board.tasks[this.props.taskId]
         this.setState({ description: currTask.description }, this.updateProgressBar);
     }
 
@@ -241,6 +243,30 @@ export default class TaskDetails extends Component {
         this.props.updateBoard(updatedBoard, msg, notificationType);
     }
 
+
+
+    uploadImage = async (ev) => {
+        const task = this.props.board.tasks[this.props.taskId];
+        const file = ev.target.files[0];
+        const imageUrl = await utils.uploadImg(file)
+        const newTask = { ...task }
+        newTask.type = 'image';
+        newTask.url = imageUrl;
+        const newBoard = {
+            ...this.props.board,
+            tasks: {
+                ...this.props.board.tasks,
+                [this.props.taskId]: newTask
+            }
+        }
+
+        const msg = `${this.props.user} changed task ${this.props.board.tasks[this.props.taskId]}`;
+        const notificationType = 'success';
+        this.props.updateBoard(newBoard, msg, notificationType);
+        this.props.toggleTaskDetails();
+    }
+
+
     render() {
         const task = this.props.board.tasks[this.props.taskId];
         const { column } = this.props;
@@ -324,7 +350,6 @@ export default class TaskDetails extends Component {
                                                 {utils.createUserIcon(member.firstName,
                                                     member.lastName)}
                                             </Avatar>
-
                                         })
                                     }
                                 </div>
@@ -407,16 +432,16 @@ export default class TaskDetails extends Component {
                                     right: '44px'
                                 }} />
                                 <h2>Description</h2>
-                                    <textarea className="fill-width"
-                                        name="description"
-                                        rows="3"
-                                        cols="40"
-                                        onChange={this.changeDescription}
-                                        onClick={this.openUpdateDescriptionForm}
-                                        value={this.state.description}
-                                        spellCheck="false"
-                                        placeholder="Add a more detailed description...">
-                                    </textarea>
+                                <textarea className="fill-width"
+                                    name="description"
+                                    rows="3"
+                                    cols="40"
+                                    onChange={this.changeDescription}
+                                    onClick={this.openUpdateDescriptionForm}
+                                    value={this.state.description}
+                                    spellCheck="false"
+                                    placeholder="Add a more detailed description...">
+                                </textarea>
                                 {this.state.showEditDescriptionForm ?
                                     <div className="flex align-center">
                                         <button className="task-form-save-btn uppercase" onClick={(ev) => this.onSaveDescription(ev, task)}>save</button>
@@ -450,6 +475,13 @@ export default class TaskDetails extends Component {
                                         <EventOutlinedIcon />
                                         <p className="capitalize">due date</p>
                                     </div>
+                                    <div className="task-details-container-add-to-card-options-btn flex align-center">
+                                        <ImageOutlinedIcon />
+                                        <input style={{ display: "none" }} type="file" id="upload-img-2" onChange={ev => this.uploadImage(ev)}></input>
+                                        <label htmlFor="upload-img-2"><p className="capitalize">
+                                            upload image
+                                            </p></label>
+                                    </div>
                                 </div>
                             </div>
 
@@ -471,7 +503,7 @@ export default class TaskDetails extends Component {
                         </div>
                     </div>
                 </div >
-            </div>
+            </div >
 
         )
     }

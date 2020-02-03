@@ -47,7 +47,7 @@ export default class VideoPreview extends Component {
                         <CreateIcon className="task-container-open-menu"
                             onClick={e => this.toggleMiniDetails(e)} />
                         : ''}
-
+Create Add Member Feature
                     <div className={"bottom-container grid-container flex" + (task.description === '' ? ' row-reverse' : '')}>
                         {(task.description !== '') ?
                             <div className="grid-item justify-self-center align-self-center">

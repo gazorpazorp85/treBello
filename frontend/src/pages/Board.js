@@ -28,12 +28,6 @@ import { loadBoard, updateBoard, setBoard } from '../actions/BoardActions';
 import { logout, getLoggedInUser, getUsers } from '../actions/UserActions';
 
 class Board extends Component {
-
-  constructor(props) {
-    super(props);
-    this.imgRef = React.createRef();
-  }
-
   state = {
     showColAddForm: true,
     showTaskDetails: false,
@@ -231,7 +225,7 @@ class Board extends Component {
   }
 
   resize = _ => {
-    if(window.innerWidth < 900) {
+    if (window.innerWidth < 900) {
       this.setState({ filterIconMod: true });
     } else {
       this.setState({ filterIconMod: false })

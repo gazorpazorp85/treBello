@@ -31,7 +31,7 @@ export default class SplashMenu extends Component {
             })
             this.setState({ splashImagesUrls });
         } catch (err) {
-            // res.status(401).send({ error: err });
+            // console.err(401).send({ error: err });
         }
     }
 

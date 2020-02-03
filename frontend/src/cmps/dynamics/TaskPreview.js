@@ -10,6 +10,13 @@ export default class TaskPreview extends Component {
         this.taskContainer = React.createRef();
     }
 
+    // need to see why it doesn't re-render tasklist
+    // componentDidUpdate(prevProps) {
+    //     if (prevProps.task.type !== this.props.task.type) {
+    //         console.log('inside')
+    //         this.props.toggleRender();
+    //     }
+    // }
 
     toggleMiniDetails = ev => {
         ev.stopPropagation();
@@ -33,6 +40,8 @@ export default class TaskPreview extends Component {
                     ref={innerRef}
                     style={style}
                 >
+                    {task.url && <img title={task.id} alt="task" src={task.url} />}
+
                     <div className="task-container-labels flex wrap">
                         {task.labels.map(label => {
                             return <div key={label} className={label + ' small-label'}>
@@ -56,7 +65,7 @@ export default class TaskPreview extends Component {
 
                         {(task.todos.length > 0) ?
                             <div className="grid-item align-center flex">
-                                <div className="flex">
+                                <div className="flex align-center">
                                     <CheckBoxIcon />
                                     <p>{task.todosDone + '/' + task.todos.length}</p>
                                 </div>
