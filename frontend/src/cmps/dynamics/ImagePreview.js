@@ -46,7 +46,6 @@ export default class ImagePreview extends Component {
                         <CreateIcon className="task-container-open-menu"
                             onClick={e => this.toggleMiniDetails(e)} />
                         : ''}
-
                     <div className={"bottom-container grid-container flex" + (task.description === '' ? ' row-reverse' : '')}>
                         {(task.description !== '') ?
                             <div className="grid-item justify-self-center align-self-center">
@@ -54,7 +53,6 @@ export default class ImagePreview extends Component {
                             </div>
                             : <div className="grid-item"></div>
                         }
-
                         {(task.todos.length > 0) ?
                             <div className="grid-item align-center flex">
                                 <div className="flex">
