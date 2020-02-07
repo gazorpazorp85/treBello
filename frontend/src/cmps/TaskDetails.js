@@ -42,7 +42,7 @@ export default class TaskDetails extends Component {
     }
 
     componentDidMount() {
-        let currTask = this.props.board.tasks[this.props.taskId]
+        const currTask = this.props.board.tasks[this.props.taskId]
         this.setState({ description: currTask.description }, this.updateProgressBar);
     }
 
@@ -262,7 +262,6 @@ export default class TaskDetails extends Component {
 
         const msg = `${this.props.user} changed task ${this.props.board.tasks[this.props.taskId]}`;
         const notificationType = 'success';
-        console.log(newBoard);
         this.props.updateBoard(newBoard, msg, notificationType);
         this.props.toggleTaskDetails();
     }

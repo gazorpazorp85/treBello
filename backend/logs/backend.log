@@ -46,9 +46,7 @@ Sat, 01 Feb 2020 17:32:37 GMT - Debug - auth.service - login with email: paolo.g
 Sat, 01 Feb 2020 17:32:55 GMT - Debug - auth.service - login with email: blabla@bla.com
 Sat, 01 Feb 2020 17:33:15 GMT - Debug - auth.service - login with email: blabla@bla.com
 Sat, 01 Feb 2020 17:33:39 GMT - Debug - auth.service - login with email: vladbald@gmail.com
-
 Sat, 01 Feb 2020 19:21:39 GMT - Debug - auth.service - login with email: batalinvlad@gmail.com
-=======
 Sat, 01 Feb 2020 18:39:21 GMT - Info - Server is running on port: 3030
 Sat, 01 Feb 2020 18:39:27 GMT - Info - Server is running on port: 3030
 Sat, 01 Feb 2020 18:47:49 GMT - Info - Server is running on port: 3030
@@ -75,12 +73,13 @@ Sun, 02 Feb 2020 08:24:21 GMT - Info - Server is running on port: 3030
 Sun, 02 Feb 2020 08:25:25 GMT - Info - Server is running on port: 3030
 Sun, 02 Feb 2020 09:06:41 GMT - Info - Server is running on port: 3030
 Sun, 02 Feb 2020 09:06:43 GMT - Info - Server is running on port: 3030
-
 Sun, 02 Feb 2020 09:26:55 GMT - Info - Server is running on port: 3030
 Sun, 02 Feb 2020 09:32:42 GMT - Debug - auth.service - login with email: batalinvlad@gmail.com
 Sun, 02 Feb 2020 10:41:57 GMT - Info - Server is running on port: 3030
 Sun, 02 Feb 2020 10:49:03 GMT - Info - Server is running on port: 3030
 Sun, 02 Feb 2020 10:49:06 GMT - Info - Server is running on port: 3030
+Sun, 02 Feb 2020 12:30:51 GMT - Info - Server is running on port: 3030
+Sun, 02 Feb 2020 12:31:08 GMT - Debug - auth.service - login with email: vladbald@gmail.com
 Sun, 02 Feb 2020 11:59:07 GMT - Info - Server is running on port: 3030
 Sun, 02 Feb 2020 12:00:06 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
 Sun, 02 Feb 2020 12:01:19 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
