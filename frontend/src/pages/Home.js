@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
 
 import Button from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Fab';
-
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import FacebookIcon from '@material-ui/icons/Facebook';
 
@@ -81,10 +81,17 @@ class Home extends Component {
             {button}
           </div>
 
-          <Login
-            className="home-page-login"
-            toggleLogin={this.toggleLogin}
-            toggleState={this.state.toggleLogin} />
+          <CSSTransition
+            in={this.state.toggleLogin}
+            timeout={700}
+            classNames="modal"
+            unmountOnExit
+          >
+            <Login
+              className="home-page-login"
+              toggleLogin={this.toggleLogin}
+            />
+          </CSSTransition>
 
           <div className="home-page-header-container flex">
             <div className="header-image flex align-center justify-center fill-width fill-height">
