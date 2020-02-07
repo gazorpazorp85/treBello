@@ -21,7 +21,8 @@ app.use(session({
     secret: 'sxjbijxixszaixsax76x87a6sxbash',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false }
+    cookie: { secure: false },
+    user: ''
 }))
 
 if (process.env.NODE_ENV === 'production') {
