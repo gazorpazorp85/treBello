@@ -42,7 +42,7 @@ async function update(id, board) {
         board._id = id;
         return board;
     } catch (err) {
-        logger.error(`ERROR: Cannot update board ${board._id}`);
+        logger.error('ERROR: Cannot update board');
         throw err;
     }
 }
@@ -67,7 +67,7 @@ async function remove(boardId) {
     try {
         await collection.deleteOne({ "_id": ObjectId(boardId) })
     } catch (err) {
-        logger.error(`ERROR: cannot remove board ${boardId}`)
+        logger.error('ERROR: cannot remove board')
         throw err;
     }
 }
