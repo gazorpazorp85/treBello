@@ -158,8 +158,7 @@ class Login extends Component {
 
       // <div className="screen" onClick={() => this.props.toggleLogin()} >
 
-      <div className={"login-container flex column align-center"
-        + (this.props.toggleState ? ' translateLeft' : '')}
+      <div className="login-container flex column align-center"        
         style={this.props.style}
         onClick={this.doStopPropagation}>
 

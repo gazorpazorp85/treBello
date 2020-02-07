@@ -108,6 +108,7 @@ Thu, 06 Feb 2020 11:51:25 GMT - Info - Server is running on port: 3030
 Thu, 06 Feb 2020 11:52:05 GMT - Info - Server is running on port: 3030
 Thu, 06 Feb 2020 11:52:15 GMT - Info - Server is running on port: 3030
 Thu, 06 Feb 2020 11:52:23 GMT - Info - Server is running on port: 3030
+<<<<<<< HEAD
 Fri, 07 Feb 2020 09:09:04 GMT - Info - Server is running on port: 3030
 Fri, 07 Feb 2020 09:10:09 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
 Fri, 07 Feb 2020 09:35:21 GMT - Info - Server is running on port: 3030
@@ -128,3 +129,7 @@ Fri, 07 Feb 2020 11:20:36 GMT - Info - Server is running on port: 3030
 Fri, 07 Feb 2020 11:20:53 GMT - Info - Server is running on port: 3030
 Fri, 07 Feb 2020 11:20:58 GMT - Info - Server is running on port: 3030
 Fri, 07 Feb 2020 18:11:08 GMT - Info - Server is running on port: 3030
+=======
+Fri, 07 Feb 2020 18:12:59 GMT - Info - Server is running on port: 3030
+>>>>>>> a928e405ebabc6aa60442cea080cf794561772b9
+Fri, 07 Feb 2020 18:32:54 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com

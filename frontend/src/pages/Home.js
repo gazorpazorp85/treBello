@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
 
 import Button from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Fab';
@@ -59,12 +60,12 @@ class Home extends Component {
   render() {
     let button;
     if (this.props.loggedInUser) {
-      button = <Button className="home-page-login-btn">
-        <div onClick={this.props.logout}>logout</div>
+      button = <Button className="home-page-login-btn"  onClick={this.props.logout}>
+        <div>logout</div>
       </Button>
     } else {
-      button = <Button className="home-page-login-btn">
-        <div onClick={this.toggleLogin}>login</div>
+      button = <Button className="home-page-login-btn" onClick={this.toggleLogin}>
+        <div>login</div>
       </Button>
     }
 
@@ -80,12 +81,17 @@ class Home extends Component {
             }
             {button}
           </div>
-
-          <Login
-            className="home-page-login"
-            toggleLogin={this.toggleLogin}
-            toggleState={this.state.toggleLogin} />
-
+          <CSSTransition
+            in={this.state.toggleLogin}
+            timeout={700}
+            classNames="modal"
+            unmountOnExit
+          >
+            <Login
+              className="home-page-login"
+              toggleLogin={this.toggleLogin}
+              toggleState={this.state.toggleLogin} />
+          </CSSTransition>
           <div className="home-page-header-container flex">
             <div className="header-image flex align-center justify-center fill-width fill-height">
               <div className="login-get-started-container flex align-center justify-center align-center">

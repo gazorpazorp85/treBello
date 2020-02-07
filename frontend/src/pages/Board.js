@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { store } from 'react-notifications-component';
 import FastAverageColor from 'fast-average-color';
+import { CSSTransition } from 'react-transition-group';
 
 import LoadPage from '../cmps/LoadPage';
 import BoardColumns from '../cmps/BoardColumns';
@@ -50,7 +51,7 @@ class Board extends Component {
     currColumnId: '',
     isBoardLoaded: false,
     isDarkBackground: null,
-    filterIconMod: false
+    filterIconMod: false,
   }
 
   componentDidMount() {
@@ -81,7 +82,6 @@ class Board extends Component {
     };
 
   }
-
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.resize);
@@ -357,25 +357,38 @@ class Board extends Component {
           </div>
 
 
-          <SplashMenu
-            toggleSplashMenu={this.state.toggleSplashMenu}
-            board={this.props.board}
-            updateBoard={this.props.updateBoard}
-            closeAllTabs={this.closeAllTabs}
-            onAddImg={this.onAddImg}
-            showUploadBgImg={this.state.closeAllTabs}
-            isDarkBackground={this.isDarkBackground}
-            user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'}
-          />
+          <CSSTransition
+            in={this.state.toggleSplashMenu}
+            timeout={700}
+            classNames="modal"
+            unmountOnExit
+          >
+            <SplashMenu
+              // toggleSplashMenu={this.state.toggleSplashMenu}
+              board={this.props.board}
+              updateBoard={this.props.updateBoard}
+              closeAllTabs={this.closeAllTabs}
+              onAddImg={this.onAddImg}
+              showUploadBgImg={this.state.closeAllTabs}
+              isDarkBackground={this.isDarkBackground}
+              user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'}
+            />
+          </CSSTransition>
 
-          {(this.state.toggleLogin) && <Login variant="outlined" className="home-page-login" toggleLogin={this.toggleLogin} />}
           <div className="board-page-columns-container">
             <div className="flex align-start fill-height">
-              <Login
-                variant="outlined"
-                className="home-page-login"
-                toggleLogin={this.toggleLogin}
-                toggleState={this.state.toggleLogin} />
+              <CSSTransition
+                in={this.state.toggleLogin}
+                timeout={700}
+                classNames="modal"
+                unmountOnExit
+              >
+                <Login
+                  variant="outlined"
+                  className="home-page-login"
+                  toggleLogin={this.toggleLogin}
+                  toggleState={this.state.toggleLogin} />
+              </CSSTransition>
               <BoardColumns
                 board={this.props.board}
                 updateBoard={this.props.updateBoard}
@@ -416,14 +429,25 @@ class Board extends Component {
             board={this.props.board}
             user={this.props.loggedInUser ? this.props.loggedInUser.username : 'Guest'}
           />}
-
-          <BoardHistory variant="outlined"
-            className="home-page-login" history={this.props.board.history} showHistory={this.state.showHistory}
-            toggleBoardHistory={this.toggleBoardHistory} />
-
-          <BoardTeamMembers board={this.props.board}
-            users={this.props.users} toggleBoardTeamMembers={this.state.toggleBoardTeamMembers}
-            updateBoard={this.props.updateBoard} />
+          <CSSTransition
+            in={this.state.showHistory}
+            timeout={700}
+            classNames="modal"
+            unmountOnExit
+          >
+            <BoardHistory variant="outlined"
+              className="home-page-login" history={this.props.board.history} />
+          </CSSTransition>
+          <CSSTransition
+            in={this.state.toggleBoardTeamMembers}
+            timeout={700}
+            classNames="modal"
+            unmountOnExit
+          >
+            <BoardTeamMembers board={this.props.board}
+              users={this.props.users} 
+              updateBoard={this.props.updateBoard} />
+          </CSSTransition>
         </div>
 
       </div >

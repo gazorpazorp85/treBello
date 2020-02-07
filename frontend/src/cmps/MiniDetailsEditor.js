@@ -28,7 +28,7 @@ export default class MiniDetailsEditor extends Component {
 
     onDuplicateTask = _ => {
         const { task } = this.props.miniTask
-        const newTask = { ...task, id: utils.getRandomId() };
+        const newTask = { ...task, id: utils.getRandomId(), labels: [...task.labels], todos: [...task.todos], taskTeamMembers: [...task.taskTeamMembers]};
         const newBoard = {
             ...this.props.board,
             tasks: {
