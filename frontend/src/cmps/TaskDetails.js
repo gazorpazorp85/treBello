@@ -247,6 +247,8 @@ export default class TaskDetails extends Component {
 
     uploadImage = async (ev) => {
         const task = this.props.board.tasks[this.props.taskId];
+        const newColumn = { ...this.props.column }
+        newColumn.taskIds = this.props.column.taskIds.slice();
         const file = ev.target.files[0];
         const imageUrl = await utils.uploadImg(file)
         const newTask = { ...task }
@@ -254,9 +256,13 @@ export default class TaskDetails extends Component {
         newTask.url = imageUrl;
         const newBoard = {
             ...this.props.board,
+            columns: {
+                ...this.props.board.columns,
+                [newColumn.id]: newColumn
+            },
             tasks: {
                 ...this.props.board.tasks,
-                [this.props.taskId]: newTask
+                [newTask.id]: newTask
             }
         }
 

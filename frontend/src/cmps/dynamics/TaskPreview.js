@@ -40,7 +40,7 @@ export default class TaskPreview extends Component {
                     ref={innerRef}
                     style={style}
                 >
-                    {task.url && <img title={task.id} alt="task" src={task.url} />}
+                    {/* {task.url && <img title={task.id} alt="task" src={task.url} />} */}
 
                     <div className="task-container-labels flex wrap">
                         {task.labels.map(label => {

@@ -8,8 +8,6 @@
     background: #050505e3;
     color: white;
     border-left: 3px solid rgba(207, 207, 207, 0.226);
-    transform: translate(100%, 0);
-    transition: 0.5s ease-out;
 
     p {
         font-weight: 600;
@@ -36,10 +34,6 @@
         &:hover {
             background-color: #5bac44d5;
         }
-    }
-
-    &.translateLeft {
-        transform: translate(0, 0);
     }
 
     &-form-container {
