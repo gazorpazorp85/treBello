@@ -16,7 +16,7 @@ export default class ImagePreview extends Component {
         const miniTask = {
             task: this.props.task,
             boundingClientRect: this.imgContainer.current.getBoundingClientRect(),
-            previewType: 'image',
+            previewType: this.props.task.type,
             column: this.props.column,
         };
         this.props.toggleMiniDetails(miniTask);

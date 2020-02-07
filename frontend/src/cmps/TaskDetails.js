@@ -254,6 +254,7 @@ export default class TaskDetails extends Component {
         const newTask = { ...task }
         newTask.type = 'image';
         newTask.url = imageUrl;
+        newTask.taskTeamMembers = [...task.taskTeamMembers];
         const newBoard = {
             ...this.props.board,
             columns: {

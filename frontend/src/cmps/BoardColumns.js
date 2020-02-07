@@ -9,7 +9,6 @@ import TasksList from './TasksList';
 import TaskForm from '../cmps/TaskForm'
 
 export default class BoardColumns extends Component {
-
     state = {
         timer: null,
         title: ''
@@ -208,6 +207,7 @@ export default class BoardColumns extends Component {
                                                         <Droppable droppableId={column.id} type="task">
                                                             {(provided, snapshot) => {
                                                                 return <TasksList
+                                                                reRender={this.reRender}
                                                                     board={this.props.board}
                                                                     innerRef={provided.innerRef}
                                                                     provided={provided}
