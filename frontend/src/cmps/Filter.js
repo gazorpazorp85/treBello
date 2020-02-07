@@ -12,7 +12,7 @@ export default class Filter extends Component {
     inputChange = (ev) => {
         let fieldName = ev.target.name;
         let value = ev.target.value;
-        this.setState(({ filterBy: { [fieldName]: value } }), () => this.props.onFilter(this.state.filterBy));
+        this.setState(prevState => ({ filterBy: { ...prevState.filterBy, [fieldName]: value } }), () => this.props.onFilter(this.state.filterBy));
     }
 
     render() {

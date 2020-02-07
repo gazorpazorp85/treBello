@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { store } from 'react-notifications-component';
 import FastAverageColor from 'fast-average-color';
 
-
 import LoadPage from '../cmps/LoadPage';
 import BoardColumns from '../cmps/BoardColumns';
 import BoardHistory from '../cmps/BoardHistory';
@@ -15,6 +14,7 @@ import Sort from '../cmps/Sort';
 import SplashMenu from '../cmps/SplashMenu';
 import TaskDetails from '../cmps/TaskDetails';
 import DynamicMiniComponent from '../cmps/dynamics/DynamicMiniComponent';
+
 import Typography from '@material-ui/core/Typography';
 import HomeIcon from '@material-ui/icons/Home';
 import GroupAddOutlinedIcon from '@material-ui/icons/GroupAddOutlined';
@@ -24,8 +24,10 @@ import HistoryOutlinedIcon from '@material-ui/icons/HistoryOutlined';
 import utils from '../services/utils';
 import SocketService from '../services/SocketService';
 
-import { loadBoard, updateBoard, setBoard } from '../actions/BoardActions';
+import { loadBoard, updateBoard, setBoard, updateFilter } from '../actions/BoardActions';
 import { logout, getLoggedInUser, getUsers } from '../actions/UserActions';
+
+import {filterBoard} from '../selectors/BoardSelector';
 
 class Board extends Component {
   state = {
@@ -37,10 +39,10 @@ class Board extends Component {
     showHistory: false,
     toggleBoardTeamMembers: false,
     miniTaskDetails: {},
-    filterBy: {
-      title: '',
-      teamMembers: ''
-    },
+    // filterBy: {
+    //   title: '',
+    //   teamMembers: ''
+    // },
     sortBy: '',
     sortOrder: '',
     showTopMenuOptions: true,
@@ -151,7 +153,7 @@ class Board extends Component {
   }
 
   onFilter = (filterBy) => {
-    this.setState(prevState => ({ filterBy: { ...prevState.filterBy, ...filterBy } }), this.loadBoard);
+    this.props.updateFilter(filterBy);
   }
 
   onSort = (sortBy, sortOrder) => {
@@ -429,9 +431,9 @@ class Board extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    board: state.boards.board,
+    board: filterBoard(state),
     loggedInUser: state.user.loggedInUser,
     users: state.user.users
   };
@@ -443,7 +445,8 @@ const mapDispatchToProps = {
   logout,
   getLoggedInUser,
   setBoard,
-  getUsers
+  getUsers,
+  updateFilter
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board);
