@@ -16,7 +16,7 @@ export default class VideoPreview extends Component {
         const miniTask = {
             task: this.props.task,
             boundingClientRect: this.videoContainer.current.getBoundingClientRect(),
-            previewType: 'video',
+            previewType: this.props.task.type,
             column: this.props.column
         };
         this.props.toggleMiniDetails(miniTask);
@@ -33,7 +33,10 @@ export default class VideoPreview extends Component {
                     ref={innerRef}
                     style={style}
                 >
-                    <iframe title={task.id} type='text/html' width="252" height="142" allowFullScreen="allowfullscreen" src={task.url} security="restricted"></iframe>
+                    {task.type === 'video' ?
+                        <iframe title={task.id} type='text/html' width="252" height="142" allowFullScreen="allowfullscreen" src={task.url} security="restricted"></iframe> :
+                        <img title={task.id} alt="task" src={task.url} />
+                    }
                     <div className="task-container-labels flex">
                         {task.labels.map(label => {
                             return <div key={label} className={label + ' small-label'}>

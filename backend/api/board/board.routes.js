@@ -8,7 +8,7 @@ const router = express.Router()
 
 router.get('/', getBoards)
 router.get('/:id', getBoard)
-router.post('/',  requireAuth, addBoard)
+router.post('/', addBoard)
 router.put('/:id', updateBoard)
 router.delete('/:id',  requireAuth, deleteBoard)
 

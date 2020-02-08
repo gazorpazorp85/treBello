@@ -1,6 +1,4 @@
 import UserService from '../services/UserService';
-// import { loading, doneLoading } from './SystemActions';
-// import history from './../history';
 
 export function login(userCreds) {
   return async dispatch => {
@@ -39,7 +37,6 @@ export function getLoggedInUser() {
   return async dispatch => {
     try {
       const user = await UserService.getLoggedInUser();
-      // localStorage.setItem('user', JSON.stringify(user));
       dispatch(_setUser(user));
     }  catch (err) {
       console.log('UserActions: err in logout', err);

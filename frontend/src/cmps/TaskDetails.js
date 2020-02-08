@@ -255,6 +255,7 @@ export default class TaskDetails extends Component {
         const newTask = { ...task }
         newTask.type = 'image';
         newTask.url = imageUrl;
+        newTask.taskTeamMembers = [...task.taskTeamMembers];
         const newBoard = {
             ...this.props.board,
             columns: {
@@ -441,7 +442,6 @@ export default class TaskDetails extends Component {
                                 <h2>Description</h2>
                                 <textarea className="fill-width"
                                     name="description"
-                                    rows="3"
                                     cols="40"
                                     onChange={this.changeDescription}
                                     onClick={this.openUpdateDescriptionForm}

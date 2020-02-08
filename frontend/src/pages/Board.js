@@ -25,10 +25,10 @@ import HistoryOutlinedIcon from '@material-ui/icons/HistoryOutlined';
 import utils from '../services/utils';
 import SocketService from '../services/SocketService';
 
-import { loadBoard, updateBoard, setBoard, updateFilter } from '../actions/BoardActions';
+import { loadBoard, updateBoard, setBoard } from '../actions/BoardActions';
 import { logout, getLoggedInUser, getUsers } from '../actions/UserActions';
 
-import {filterBoard} from '../selectors/BoardSelector';
+// import { filterBoard } from '../selectors/BoardSelector';
 
 class Board extends Component {
   state = {
@@ -40,10 +40,10 @@ class Board extends Component {
     showHistory: false,
     toggleBoardTeamMembers: false,
     miniTaskDetails: {},
-    // filterBy: {
-    //   title: '',
-    //   teamMembers: ''
-    // },
+    filterBy: {
+      title: '',
+      teamMembers: ''
+    },
     sortBy: '',
     sortOrder: '',
     showTopMenuOptions: true,
@@ -153,7 +153,8 @@ class Board extends Component {
   }
 
   onFilter = (filterBy) => {
-    this.props.updateFilter(filterBy);
+    this.setState(prevState => ({ filterBy: { ...prevState.filterBy, ...filterBy } }), this.loadBoard);
+    // this.props.updateFilter(filterBy);
   }
 
   onSort = (sortBy, sortOrder) => {
@@ -445,7 +446,7 @@ class Board extends Component {
             unmountOnExit
           >
             <BoardTeamMembers board={this.props.board}
-              users={this.props.users} 
+              users={this.props.users}
               updateBoard={this.props.updateBoard} />
           </CSSTransition>
         </div>
@@ -455,9 +456,9 @@ class Board extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    board: filterBoard(state),
+    board: state.boards.board,
     loggedInUser: state.user.loggedInUser,
     users: state.user.users
   };
@@ -470,7 +471,6 @@ const mapDispatchToProps = {
   getLoggedInUser,
   setBoard,
   getUsers,
-  updateFilter
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board);

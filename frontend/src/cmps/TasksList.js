@@ -29,15 +29,16 @@ export default class TasksList extends Component {
         this.setState({ showEditBtn: false })
     }
 
-    //is it re-render at all???
-    // toggleRender = _ => {
-    //     this.forceUpdate();
-    // }
+    //is it re-rendering at all???
+    toggleRender = _ => {
+        console.log('tasklist');
+
+    }
 
 
     render() {
         const { tasks, provided, innerRef, isDraggingOver } = this.props;
-        
+
         return (
             <section
                 className={"task-list" + (isDraggingOver ? " isDraggingOver" : "")}

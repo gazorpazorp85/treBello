@@ -4,7 +4,6 @@ module.exports = connectSockets
 function connectSockets(io) {
     io.on('connection', socket => {
             socket.on('boardUpdate', (board) => {
-                // io.to(socket.boardId).emit('updateBoard', board);
                 socket.broadcast.to(socket.boardId).emit('updateBoard', board);
             })
             socket.on('boardId', boardId => {
