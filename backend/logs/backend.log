@@ -178,3 +178,5 @@ Sat, 08 Feb 2020 18:11:22 GMT - Debug - auth.service - login with email: bla@bla
 Sat, 08 Feb 2020 18:24:34 GMT - Debug - auth.service - login with email: bla@bla.com
 Sat, 08 Feb 2020 18:27:27 GMT - Info - Server is running on port: 3030
 Sat, 08 Feb 2020 18:27:28 GMT - Info - Server is running on port: 3030
+Sat, 08 Feb 2020 18:43:46 GMT - Info - Server is running on port: 3030
+Sat, 08 Feb 2020 18:43:48 GMT - Info - Server is running on port: 3030

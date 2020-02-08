@@ -4,7 +4,6 @@ import { CSSTransition } from 'react-transition-group';
 
 import Button from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Fab';
-
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import FacebookIcon from '@material-ui/icons/Facebook';
 
@@ -101,8 +100,7 @@ class Home extends Component {
             in={this.state.toggleLogin}
             timeout={700}
             classNames="modal"
-            unmountOnExit
-          >
+            unmountOnExit>
             <Login
               className="home-page-login"
               toggleLogin={this.toggleLogin} />
