@@ -58,9 +58,14 @@ class Home extends Component {
     let duplicatedBoard = { ...board };
     delete duplicatedBoard._id;
     duplicatedBoard.history = [];
+    duplicatedBoard.teamMembers = [];
     duplicatedBoard.title = '';
     duplicatedBoard.isTemplate = false;
     duplicatedBoard.createdBy = this.props.loggedInUser;
+    for (const task in duplicatedBoard.tasks) {
+      duplicatedBoard.tasks[task].taskTeamMembers = [];
+      duplicatedBoard.tasks[task].createdAt = Date.now();
+    }
     this.createdBoardMessage(duplicatedBoard);
     const newBoard = await this.props.createBoard(duplicatedBoard);
     this.props.history.push(`/board/${newBoard._id}`);

@@ -180,3 +180,17 @@ Sat, 08 Feb 2020 18:27:27 GMT - Info - Server is running on port: 3030
 Sat, 08 Feb 2020 18:27:28 GMT - Info - Server is running on port: 3030
 Sat, 08 Feb 2020 18:43:46 GMT - Info - Server is running on port: 3030
 Sat, 08 Feb 2020 18:43:48 GMT - Info - Server is running on port: 3030
+Sat, 08 Feb 2020 21:02:10 GMT - Info - Server is running on port: 3030
+Sat, 08 Feb 2020 21:05:11 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sat, 08 Feb 2020 21:06:24 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sat, 08 Feb 2020 22:31:55 GMT - Debug - bla,bla,bla@bla.com, bla, 123456
+Sat, 08 Feb 2020 22:31:55 GMT - Debug - auth.service - signup with email: bla@bla.com, username: bla
+Sat, 08 Feb 2020 22:31:56 GMT - Debug - auth.route - new account created: {"firstName":"bla","lastName":"bla","email":"bla@bla.com","password":"$2b$10$Wzpz0RZlNsa1JdJecOh9NOU4kQZM21iUQIIufdh/AUeZ6J0qILbti","username":"bla","_id":"5e3f36dc0853983c8c9757d1"}
+Sat, 08 Feb 2020 22:31:56 GMT - Debug - auth.service - login with email: bla@bla.com
+Sat, 08 Feb 2020 22:32:25 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sat, 08 Feb 2020 22:33:32 GMT - Debug - auth.service - login with email: bla@bla.com
+Sat, 08 Feb 2020 22:35:31 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sat, 08 Feb 2020 22:38:18 GMT - Debug - auth.service - login with email: bla@bla.com
+Sat, 08 Feb 2020 22:48:29 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
+Sat, 08 Feb 2020 22:50:09 GMT - Info - Server is running on port: 3030
+Sat, 08 Feb 2020 22:50:10 GMT - Info - Server is running on port: 3030
