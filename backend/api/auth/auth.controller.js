@@ -4,9 +4,9 @@ const logger = require('../../services/logger.service')
 async function login(req, res) {
     const { email, password } = req.body
     try {
-        console.log('login');
         const user = await authService.login(email, password)
         req.session.user = user;
+        req.session.save();
         res.json(user)
     } catch (err) {
         res.status(401).send({ error: 'could not login, please try later' })
@@ -15,13 +15,13 @@ async function login(req, res) {
 
 async function signup(req, res) {
     try {
-        console.log('signup');
         const { firstName, lastName, email, password, username } = req.body
         logger.debug(firstName + "," + lastName + "," + email + ", " + username + ', ' + password)
         const account = await authService.signup(firstName, lastName, email, password, username)
         logger.debug(`auth.route - new account created: ` + JSON.stringify(account))
         const user = await authService.login(email, password)
         req.session.user = user
+        req.session.save();
         res.json(user)
     } catch (err) {
         logger.error('[SIGNUP] ' + err)
@@ -31,7 +31,6 @@ async function signup(req, res) {
 
 async function logout(req, res){
     try {
-        console.log('logout');
         req.session.destroy()
         res.send({ message: 'logged out successfully' })
     } catch (err) {
@@ -41,8 +40,13 @@ async function logout(req, res){
 
 async function getLoggedInUser(req, res) {
     try {
-        console.log('getLoggedInUser');
-        if (req.session.user) res.json(req.session.user);
+
+        if (req.session.user) {
+            req.session.save();
+            res.json(req.session.user);
+        } else {
+            res.json({});
+        }
         // (req.session.user) ? res.json(req.session.user) : res.json({"username": "Guest"})        
     } catch (err) {
         logger.error('no signedin users', err);
