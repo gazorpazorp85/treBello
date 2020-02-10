@@ -37,18 +37,18 @@ class Home extends Component {
   }
 
   toggleLogin = (ev) => {
-    if (ev) ev.stopPropagation();
+    ev.stopPropagation();
     this.setState((prevState) => ({ toggleLogin: !prevState.toggleLogin }))
   }
 
-  closeLogin = (ev) => {
-    ev.stopPropagation()
-    this.setState({ toggleLogin: false })
-  }
+  // closeLogin = (ev) => {
+  //   ev.stopPropagation()
+  //   this.setState({ toggleLogin: false })
+  // }
 
   createBoard = async () => {
     let board = this.state.board;
-    board.createdBy = this.props.loggedInUser || 'Guest';
+    board.createdBy = this.props.loggedInUser || { _id: 'guest', username: 'guest' };
     this.createdBoardMessage(board);
     const newBoard = await this.props.createBoard(board);
     this.props.history.push(`/board/${newBoard._id}`);
@@ -57,11 +57,12 @@ class Home extends Component {
   duplicateBoard = async (board) => {
     let duplicatedBoard = { ...board };
     delete duplicatedBoard._id;
+    delete duplicatedBoard.boardBgThumbnailTitleStyle;
     duplicatedBoard.history = [];
     duplicatedBoard.teamMembers = [];
     duplicatedBoard.title = '';
     duplicatedBoard.isTemplate = false;
-    duplicatedBoard.createdBy = this.props.loggedInUser;
+    duplicatedBoard.createdBy = this.props.loggedInUser || { _id: 'guest', username: 'guest' };
     for (const task in duplicatedBoard.tasks) {
       duplicatedBoard.tasks[task].taskTeamMembers = [];
       duplicatedBoard.tasks[task].createdAt = Date.now();
@@ -90,96 +91,95 @@ class Home extends Component {
     }
 
     return (
-      <div className="home-page" onClick={this.closeLogin}>
-        <section className="home-page-header">
-          <div className="home-page-login flex justify-end align-center">
-            {(this.props.loggedInUser) &&
-              <p className="flex column">
-                <small>welcome!</small>
-                {this.props.loggedInUser.username}
-              </p>
-            }
-            {button}
-          </div>
-          <CSSTransition
-            in={this.state.toggleLogin}
-            timeout={700}
-            classNames="modal"
-            unmountOnExit>
-            <Login
-              className="home-page-login"
-              toggleLogin={this.toggleLogin} />
-          </CSSTransition>
-          <div className="home-page-header-container flex">
-            <div className="header-image flex align-center justify-center fill-width fill-height">
-              <div className="login-get-started-container flex align-center justify-center align-center">
-                <div className="home-page-logo-get-started flex column align-center">
-                  <div className="home-page-header-container-logo-img fill-width fill-height"></div>
-                  <div className="text-center">
-                    <h2>Manage your tasks in a fun and easy way</h2>
-                  </div>
-                  <div className="get-started-btn">
-                    <Fab variant="extended">
-                      <p className="uppercase" onClick={this.createBoard}>
-                        get started
+        <div className="home-page">
+        {(this.state.toggleLogin) && <div className="home-page screen" onClick={this.toggleLogin}></div>}
+          <section className="home-page-header">
+            <div className="home-page-login flex justify-end align-center">
+              {(this.props.loggedInUser) &&
+                <p className="flex column">
+                  <small>welcome!</small>
+                  {this.props.loggedInUser.username}
+                </p>
+              }
+              {button}
+            </div>
+            <CSSTransition
+              in={this.state.toggleLogin}
+              timeout={700}
+              classNames="modal"
+              unmountOnExit>
+              <Login
+                className="home-page-login"
+                toggleLogin={this.toggleLogin} />
+            </CSSTransition>
+            <div className="home-page-header-container flex">
+              <div className="header-image flex align-center justify-center fill-width fill-height">
+                <div className="login-get-started-container flex align-center justify-center align-center">
+                  <div className="home-page-logo-get-started flex column align-center">
+                    <div className="home-page-header-container-logo-img fill-width fill-height"></div>
+                    <div className="text-center">
+                      <h2>Manage your tasks in a fun and easy way</h2>
+                    </div>
+                    <div className="get-started-btn">
+                      <Fab variant="extended">
+                        <p className="uppercase" onClick={this.createBoard}>
+                          get started
                     </p>
-                    </Fab>
+                      </Fab>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="home-page-boards-list flex wrap colum justify-center">
-          <div className="home-page-boards-list-img"></div>
-          <p className="home-page-boards-list-start-new-board-right-text flex">
-            We, in Trebello, believe that simplicity and style must go together,
+          <section className="home-page-boards-list flex wrap colum justify-center">
+            <div className="home-page-boards-list-img"></div>
+            <p className="home-page-boards-list-start-new-board-right-text flex">
+              We, in Trebello, believe that simplicity and style must go together,
             that's why we made our brand simple and easy to use for everyone.<br /> <br />
-            Maximize your team workflow and take them one step ahead.</p>
-        </section>
+              Maximize your team workflow and take them one step ahead.</p>
+          </section>
 
-        <BoardsList boards={this.props.boards} user={this.props.loggedInUser} duplicateBoard={this.duplicateBoard} />
+          <BoardsList boards={this.props.boards} user={this.props.loggedInUser} duplicateBoard={this.duplicateBoard} />
 
-        <section className="home-page-footer flex column align-center justify-center">
-          <h2 className="uppercase"> our team </h2>
-          <div className="home-pagge-footer-team-members-cards-container flex wrap justify-center">
+          <section className="home-page-footer flex column align-center justify-center">
+            <h2 className="uppercase"> our team </h2>
+            <div className="home-pagge-footer-team-members-cards-container flex wrap justify-center">
 
-            <div className="home-page-footer-team-member-card flex column align-center justify-center">
-              <div className="home-page-footer-team-member-card-member-img vlad"></div>
-              <p>Vlad Batalin</p>
-              <small>Front-End development and Design</small>
-              <div className="flex">
-                <LinkedInIcon className="linkedInIcon"></LinkedInIcon>
-                <FacebookIcon className="faceBookIcon"></FacebookIcon>
+              <div className="home-page-footer-team-member-card flex column align-center justify-center">
+                <div className="home-page-footer-team-member-card-member-img vlad"></div>
+                <p>Vlad Batalin</p>
+                <small>Front-End development and Design</small>
+                <div className="flex">
+                  <LinkedInIcon className="linkedInIcon"></LinkedInIcon>
+                  <FacebookIcon className="faceBookIcon"></FacebookIcon>
+                </div>
               </div>
-            </div>
 
-            <div className="home-page-footer-team-member-card flex column align-center justify-center">
-              <div className="home-page-footer-team-member-card-member-img margad"></div>
-              <p>Margad Taikhir</p>
-              <small>Front-End development with Back-End support</small>
-              <div className="flex">
-                <LinkedInIcon className="linkedInIcon"></LinkedInIcon>
-                <FacebookIcon className="faceBookIcon"></FacebookIcon>
+              <div className="home-page-footer-team-member-card flex column align-center justify-center">
+                <div className="home-page-footer-team-member-card-member-img margad"></div>
+                <p>Margad Taikhir</p>
+                <small>Front-End development with Back-End support</small>
+                <div className="flex">
+                  <LinkedInIcon className="linkedInIcon"></LinkedInIcon>
+                  <FacebookIcon className="faceBookIcon"></FacebookIcon>
+                </div>
               </div>
-            </div>
 
-            <div className="home-page-footer-team-member-card flex column align-center justify-center">
-              <div className="home-page-footer-team-member-card-member-img paolo"></div>
-              <p>Paolo Groppi</p>
-              <small>Full-Stack development</small>
-              <div className="flex">
-                <a href="https://www.linkedin.com/in/paolo-groppi-6ba84117b" target="blank"><LinkedInIcon className="linkedInIcon"></LinkedInIcon></a>
-                <a href="https://www.facebook.com/karma.tova" target="blank"><FacebookIcon className="faceBookIcon"></FacebookIcon></a>
+              <div className="home-page-footer-team-member-card flex column align-center justify-center">
+                <div className="home-page-footer-team-member-card-member-img paolo"></div>
+                <p>Paolo Groppi</p>
+                <small>Full-Stack development</small>
+                <div className="flex">
+                  <a href="https://www.linkedin.com/in/paolo-groppi-6ba84117b" target="blank"><LinkedInIcon className="linkedInIcon"></LinkedInIcon></a>
+                  <a href="https://www.facebook.com/karma.tova" target="blank"><FacebookIcon className="faceBookIcon"></FacebookIcon></a>
+                </div>
               </div>
+
             </div>
-
-          </div>
-        </section>
-
-
-      </div>
+          </section>
+        </div>
     )
   }
 }

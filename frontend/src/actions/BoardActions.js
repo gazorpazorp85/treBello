@@ -80,20 +80,3 @@ export function createBoard(board) {
     };
   }
 }
-
-// export function updateFilter(filterBy) {
-//   return async dispatch => {
-//     try {
-//       dispatch(_updateFilter(filterBy));
-//     } catch (err) {
-//       console.log('BoardActions: err in loadBoard', err);
-//     }
-//   };
-// }
-
-// function _updateFilter(filterBy) {
-//   return {
-//     type: 'UPDATE_FILTER',
-//     filterBy
-//   }
-// }
