@@ -8,13 +8,10 @@ function BoardsList({ boards, user, duplicateBoard }) {
 
     const templateBoards = boards.filter(board => board.isTemplate);
     const myBoards = (user) ? boards.filter(board => board.createdBy._id === user._id) : '';
-    const myCollaboratedBoards = (user) ?
-        boards.filter(board => {
-            for (const teamMember of board.teamMembers) {
-                return (user._id === teamMember._id && user._id !== board.createdBy._id)
-            }
-        }) : '';
-    
+    const myCollaboratedBoards = (user) ? boards.filter(board => {
+        return board.teamMembers.find(teamMember => user._id === teamMember._id && user._id !== board.createdBy._id);
+    }) : '';
+
 
     return (
         <section className="boards-list column">

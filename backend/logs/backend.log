@@ -194,3 +194,5 @@ Sat, 08 Feb 2020 22:38:18 GMT - Debug - auth.service - login with email: bla@bla
 Sat, 08 Feb 2020 22:48:29 GMT - Debug - auth.service - login with email: paolo.groppi@gmail.com
 Sat, 08 Feb 2020 22:50:09 GMT - Info - Server is running on port: 3030
 Sat, 08 Feb 2020 22:50:10 GMT - Info - Server is running on port: 3030
+Mon, 10 Feb 2020 14:48:09 GMT - Info - Server is running on port: 3030
+Mon, 10 Feb 2020 14:48:21 GMT - Debug - auth.service - login with email: vladbald@gmail.com
