@@ -8,15 +8,15 @@ async function login(req, res) {
         req.session.user = user;
         res.json(user)
     } catch (err) {
-        res.status(401).send({ error: err })
+        res.status(401).send({ error: 'could not login, please try later' })
     }
 }
 
 async function signup(req, res) {
     try {
-        const { firstName, lastName, email, password, username, color } = req.body
-        logger.debug(firstName + "," + lastName + "," + email + ", " + username + ', ' + password + ',' + color)
-        const account = await authService.signup(firstName, lastName, email, password, username, color)
+        const { firstName, lastName, email, password, username } = req.body
+        logger.debug(firstName + "," + lastName + "," + email + ", " + username + ', ' + password)
+        const account = await authService.signup(firstName, lastName, email, password, username)
         logger.debug(`auth.route - new account created: ` + JSON.stringify(account))
         const user = await authService.login(email, password)
         req.session.user = user
@@ -32,13 +32,12 @@ async function logout(req, res){
         req.session.destroy()
         res.send({ message: 'logged out successfully' })
     } catch (err) {
-        res.status(500).send({ error: err })
+        res.status(500).send({ error: 'could not signout, please try later' })
     }
 }
 
 async function getLoggedInUser(req, res) {
     try {
-        console.log(req.session.user);
         if (req.session.user) res.json(req.session.user);
         // (req.session.user) ? res.json(req.session.user) : res.json({"username": "Guest"})        
     } catch (err) {

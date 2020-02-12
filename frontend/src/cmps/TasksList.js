@@ -10,16 +10,11 @@ export default class TasksList extends Component {
         showAddForm: false,
         currTaskId: '',
         onTaskId: '',
-        showTaskDetails: false
+        showTaskDetails: false,
     }
 
     toggleTaskDetails = id => {
-        if (id) {
-            this.setState(prevState => ({ showTaskDetails: !prevState.showTaskDetails, currTaskId: id }));
-        } else {
-            this.setState(prevState => ({ showTaskDetails: !prevState.showTaskDetails }));
-        }
-
+        this.setState(prevState => ({ showTaskDetails: !prevState.showTaskDetails, currTaskId: id || prevState.currTaskId }));
     }
 
     canOpenTaskDetails = taskId => {
@@ -34,49 +29,58 @@ export default class TasksList extends Component {
         this.setState({ showEditBtn: false })
     }
 
+    //is it re-rendering at all???
+    toggleRender = _ => {
+        console.log('tasklist');
+
+    }
+
+
     render() {
         const { tasks, provided, innerRef, isDraggingOver } = this.props;
+
         return (
             <section
                 className={"task-list" + (isDraggingOver ? " isDraggingOver" : "")}
                 {...provided.droppableProps}
                 ref={innerRef}
             >
-                        {tasks.map((task, idx) => (
-                            <div key={task.id} className="task-list-container">
-                                <Draggable draggableId={task.id} index={idx}>
-                                    {(provided, snapshot) => (
-                                        <NaturalDragAnimation
-                                            style={provided.draggableProps.style}
-                                            snapshot={snapshot}
-                                            rotationMultiplier={1.3}
+                {tasks.map((task, idx) => (
+                    <div key={task.id} className="task-list-container">
+                        <Draggable draggableId={task.id} index={idx}>
+                            {(provided, snapshot) => (
+                                <NaturalDragAnimation
+                                    style={provided.draggableProps.style}
+                                    snapshot={snapshot}
+                                    rotationMultiplier={1.3}
+                                >
+                                    {style => (
+                                        <div onClick={_ => this.props.toggleTaskDetails({ id: task.id, column: this.props.column })}
+                                            onMouseEnter={() => this.showEditBtn(task.id)}
+                                            onMouseLeave={() => this.hideEditBtn()}
                                         >
-                                            {style => (
-                                                <div onClick={_ => this.props.toggleTaskDetails({ id: task.id, column: this.props.column })}
-                                                    onMouseEnter={() => this.showEditBtn(task.id)}
-                                                    onMouseLeave={() => this.hideEditBtn()}
-                                                >
-                                                    <DynamicComponent
-                                                        provided={provided}
-                                                        innerRef={provided.innerRef}
-                                                        task={task}
-                                                        column={this.props.column}
-                                                        isDragging={snapshot.isDragging}
-                                                        style={style}
-                                                        onTaskId={this.state.onTaskId}
-                                                        showEditBtn={this.state.showEditBtn}
-                                                        toggleMiniDetails = {this.props.toggleMiniDetails}
-                                                        user={this.props.user}
-                                                    >
-                                                    </DynamicComponent>
-                                                </div>
-                                            )}
-                                        </NaturalDragAnimation>
+                                            <DynamicComponent
+                                                toggleRender={this.toggleRender}
+                                                provided={provided}
+                                                innerRef={provided.innerRef}
+                                                task={task}
+                                                column={this.props.column}
+                                                isDragging={snapshot.isDragging}
+                                                style={style}
+                                                onTaskId={this.state.onTaskId}
+                                                showEditBtn={this.state.showEditBtn}
+                                                toggleMiniDetails={this.props.toggleMiniDetails}
+                                                user={this.props.user}
+                                            >
+                                            </DynamicComponent>
+                                        </div>
                                     )}
-                                </Draggable>
-                            </div>
-                        ))}
-                        {provided.placeholder}
+                                </NaturalDragAnimation>
+                            )}
+                        </Draggable>
+                    </div>
+                ))}
+                {provided.placeholder}
             </section>
         )
     }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CreateIcon from '@material-ui/icons/Create';
-import ListAltIcon from '@material-ui/icons/ListAlt';
+import SubjectIcon from '@material-ui/icons/Subject';
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import utils from '../../services/utils'
 
 
@@ -15,12 +16,11 @@ export default class VideoPreview extends Component {
         const miniTask = {
             task: this.props.task,
             boundingClientRect: this.videoContainer.current.getBoundingClientRect(),
-            previewType: 'video',
+            previewType: this.props.task.type,
             column: this.props.column
         };
         this.props.toggleMiniDetails(miniTask);
     }
-
 
     render() {
         const { task, provided, innerRef, isDragging, style, showEditBtn, onTaskId } = this.props;
@@ -33,7 +33,10 @@ export default class VideoPreview extends Component {
                     ref={innerRef}
                     style={style}
                 >
-                    <iframe title={task.id} type='text/html' width="252" height="142" allowFullScreen="allowfullscreen" src={task.url} security="restricted"></iframe>
+                    {task.type === 'video' ?
+                        <iframe title={task.id} type='text/html' width="252" height="142" allowFullScreen="allowfullscreen" src={task.url} security="restricted"></iframe> :
+                        <img title={task.id} alt="task" src={task.url} />
+                    }
                     <div className="task-container-labels flex">
                         {task.labels.map(label => {
                             return <div key={label} className={label + ' small-label'}>
@@ -42,20 +45,31 @@ export default class VideoPreview extends Component {
                         }
                     </div>
                     <p className="task-container-title">{task.title}</p>
-                    <div className={"flex align-center space-between" + (task.description === '' ? ' row-reverse' : '')}>
-                        {(showEditBtn && (onTaskId === task.id)) ?
-                            <CreateIcon className="task-container-open-menu"
-                                onClick={e => this.toggleMiniDetails(e)} />
-                            : ''}
-                        {(task.description !== '') ?
-                            <ListAltIcon /> : ''
-                        }
-
-                        <div className="flex">
+                    {(showEditBtn && (onTaskId === task.id)) ?
+                        <CreateIcon className="task-container-open-menu"
+                            onClick={e => this.toggleMiniDetails(e)} />
+                        : ''}
+                    {(task.description !== '') ?
+                        <div className="grid-item justify-self-center align-self-center">
+                            <SubjectIcon />
+                        </div>
+                        : <div className="grid-item"></div>
+                    }
+                    {(task.todos.length > 0) ?
+                        <div className="grid-item align-center flex">
+                            <div className="flex">
+                                <CheckBoxIcon />
+                                <p>{task.todosDone + '/' + task.todos.length}</p>
+                            </div>
+                        </div>
+                        : <div className="grid-item"></div>
+                    }
+                    <div className="team-members-container grid-item">
+                        <div className="flex justify-end">
                             {(task.taskTeamMembers.map(member => {
-                                return <div key={member._id} className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: `${member.color}` }} >
+                                return <div key={member._id} className="team-member-icon-wrapper flex align-center" style={{ backgroundColor: '#dfe1e6' }} >
                                     <div className="team-member-icon">
-                                        <p className="flex align-center">
+                                        <p className="flex align-center" style={{ color: '#172b4d' }}>
                                             {utils.createUserIcon(member.firstName,
                                                 member.lastName)}
                                         </p>

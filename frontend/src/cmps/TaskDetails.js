@@ -42,7 +42,7 @@ export default class TaskDetails extends Component {
     }
 
     componentDidMount() {
-        let currTask = this.props.board.tasks[this.props.taskId]
+        const currTask = this.props.board.tasks[this.props.taskId]
         this.setState({ description: currTask.description }, this.updateProgressBar);
     }
 
@@ -105,7 +105,8 @@ export default class TaskDetails extends Component {
     }
 
     onDuplicateTask = (column, task) => {
-        const newTask = { ...task, id: utils.getRandomId() };
+        debugger
+        const newTask = { ...task, id: utils.getRandomId(), labels: [...task.labels], todos: [...task.todos], taskTeamMembers: [...task.taskTeamMembers]};
         column.taskIds.push(newTask.id);
         const newBoard = {
             ...this.props.board,
@@ -247,11 +248,20 @@ export default class TaskDetails extends Component {
 
     uploadImage = async (ev) => {
         const task = this.props.board.tasks[this.props.taskId];
+        const newColumn = { ...this.props.column }
+        newColumn.taskIds = this.props.column.taskIds.slice();
         const file = ev.target.files[0];
         const imageUrl = await utils.uploadImg(file)
-        const newTask = { ...task, type: 'image', url: imageUrl }
+        const newTask = { ...task }
+        newTask.type = 'image';
+        newTask.url = imageUrl;
+        newTask.taskTeamMembers = [...task.taskTeamMembers];
         const newBoard = {
             ...this.props.board,
+            columns: {
+                ...this.props.board.columns,
+                [newColumn.id]: newColumn
+            },
             tasks: {
                 ...this.props.board.tasks,
                 [newTask.id]: newTask
@@ -432,7 +442,6 @@ export default class TaskDetails extends Component {
                                 <h2>Description</h2>
                                 <textarea className="fill-width"
                                     name="description"
-                                    rows="3"
                                     cols="40"
                                     onChange={this.changeDescription}
                                     onClick={this.openUpdateDescriptionForm}

@@ -1,39 +1,39 @@
 @import "./typography.scss";
 
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+  width: 8px;
+  height: 8px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.541);
-    border-radius: 4px;
+  background: rgba(255, 255, 255, 0.541);
+  border-radius: 4px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background: #98969669;
+  border-radius: 4px;
+  background: #98969669;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    font-family: montserratRegular, sans-serif;
-    line-height: 1.6;
+  font-family: montserratRegular, sans-serif;
+  line-height: 1.6;
 }
 
 body {
-    margin: 0;
-    width: 100vw;
-    overflow-x: hidden;
+  margin: 0;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 img {
-    border-radius: 4px;
+  border-radius: 4px;
 }
 
 h1,
@@ -42,64 +42,84 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0;
-    font-weight: normal;
+  margin: 0;
+  font-weight: normal;
 }
 
 h1 {
-    font-size: 2.2rem;
-    color: white;
-    font-family: montserratBold, 'sans-sarif';
+  font-size: 2.2rem;
+  color: white;
+  font-family: montserratBold, "sans-sarif";
 }
 
 h2,
 h3,
 h4 {
-    font-family: montserratRegular, 'sans-sarif';
+  font-family: montserratRegular, "sans-sarif";
 }
 
 h2 {
-    font-size: rem(18px);
+  font-size: rem(18px);
 }
 
 p {
-    font-size: rem(14px);
-    margin: 0;
-    font-family: montserratLight, 'sans-sarif';
+  font-size: rem(14px);
+  margin: 0;
+  font-family: montserratLight, "sans-sarif";
 }
 
 small {
-    margin: 0;
-    font-size: rem(12px);
-    font-family: montserratExtraLight, 'sans-sarif';
+  margin: 0;
+  font-size: rem(12px);
+  font-family: montserratExtraLight, "sans-sarif";
 }
 
-
 button {
-    cursor: pointer;
-    border: none;
-    border-radius: 4px;
-    font-family: montserratRegular, 'sans-sarif';
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  font-family: montserratRegular, "sans-sarif";
 }
 
 textarea,
 input {
-    resize: none;
-    border-radius: 2px;
-    border: none;
-    font-size: rem(14px);
-    font-family: montserratLight, 'sans-sarif';
+  resize: none;
+  border-radius: 2px;
+  border: none;
+  font-size: rem(14px);
+  font-family: montserratLight, "sans-sarif";
 
-    &:focus {
-        box-shadow: inset 0 0 0 2px #0079bf;
-    }
+  &:focus {
+    box-shadow: inset 0 0 0 2px #0079bf;
+  }
 }
 
 label {
-    cursor: pointer;
-    font-family: montserratBold, 'sans-sarif';
+  cursor: pointer;
+  font-family: montserratBold, "sans-sarif";
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
+}
+
+.modal-enter {
+  opacity: 0;
+  transform: translate(100%, 0);
+}
+
+.modal-enter-active {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition: 0.7s ease;
+}
+
+.modal-exit {
+  opacity: 1;
+}
+
+.modal-exit-active {
+  opacity: 0;
+  transform: translate(100%, 0);
+  transition: 0.7s ease;
 }

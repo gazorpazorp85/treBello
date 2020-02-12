@@ -10,13 +10,20 @@ export default class TaskPreview extends Component {
         this.taskContainer = React.createRef();
     }
 
+    // need to see why it doesn't re-render tasklist
+    componentDidUpdate(prevProps) {
+        if (prevProps.task.type !== this.props.task.type) {
+            console.log('inside')
+            this.props.toggleRender();
+        }
+    }
 
     toggleMiniDetails = ev => {
         ev.stopPropagation();
         const miniTask = {
             task: this.props.task,
             boundingClientRect: this.taskContainer.current.getBoundingClientRect(),
-            previewType: 'text',
+            previewType: this.props.task.type,
             column: this.props.column
         };
         this.props.toggleMiniDetails(miniTask);
@@ -33,6 +40,8 @@ export default class TaskPreview extends Component {
                     ref={innerRef}
                     style={style}
                 >
+                    {task.url && <img title={task.id} alt="task" src={task.url} />}
+
                     <div className="task-container-labels flex wrap">
                         {task.labels.map(label => {
                             return <div key={label} className={label + ' small-label'}>
@@ -40,18 +49,13 @@ export default class TaskPreview extends Component {
                         })
                         }
                     </div>
-
                     <p className="task-container-title">{task.title}</p>
-
-
                     {(showEditBtn && (onTaskId === task.id)) ?
                         <CreateIcon className="task-container-open-menu"
                             onClick={e => this.toggleMiniDetails(e)} />
                         : ''}
 
                     <div className={"bottom-container grid-container flex" + (task.description === '' ? ' row-reverse' : '')}>
-
-
                         {(task.description !== '') ?
                             <div className="grid-item justify-self-center align-self-center">
                                 <SubjectIcon />
@@ -68,9 +72,6 @@ export default class TaskPreview extends Component {
                             </div>
                             : <div className="grid-item"></div>
                         }
-
-
-
                         <div className="team-members-container grid-item">
                             <div className="flex justify-end">
                                 {(task.taskTeamMembers.map(member => {

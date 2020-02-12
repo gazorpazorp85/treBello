@@ -38,8 +38,8 @@ export default class BoardTeamMembers extends Component {
         const currentBoardMembers = this.state.currentBoardMembers;
         const users = this.props.users.filter(user => !currentBoardMembers.find(boardMember => user._id === boardMember._id));
         return (
-            <div className={"board-team-members-container text-center column"
-                + (this.props.toggleBoardTeamMembers ? ' translateLeft' : '')} onClick={(ev) => this.onStopPropagation(ev)}>
+            <div className="board-team-members-container text-center column"
+               onClick={(ev) => this.onStopPropagation(ev)}>
 
                 <div className="members-container-colors-container flex column">
                     <div className="pointer uppercase"><h2>board members :</h2></div>

@@ -19,6 +19,7 @@ export default class DynamicComponent extends Component {
         const Cmp = this.getComponent();
         return <React.Fragment>
             <Cmp
+                toggleRender={this.props.toggleRender}
                 column={this.props.column}
                 provided={this.props.provided}
                 innerRef={this.props.innerRef}
@@ -27,7 +28,7 @@ export default class DynamicComponent extends Component {
                 style={this.props.style}
                 onTaskId={this.props.onTaskId}
                 showEditBtn={this.props.showEditBtn}
-                toggleMiniDetails = {this.props.toggleMiniDetails}
+                toggleMiniDetails={this.props.toggleMiniDetails}
                 user={this.props.user}
             >
             </Cmp>

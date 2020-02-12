@@ -24,17 +24,20 @@ export function loadBoard(boardId, filterBy, sortBy, sortOrder) {
   return async dispatch => {
     try {
       const board = await BoardService.get(boardId, filterBy, sortBy, sortOrder);
-      dispatch(_setBoard(board));
+      dispatch(_boardUpdate(board));
     } catch (err) {
       console.log('BoardActions: err in loadBoard', err);
     }
   };
 }
 
-function _setBoard(board) {
-  return {
-    type: 'SET_BOARD',
-    board
+export function setBoard(board) {
+  return async dispatch => {
+    try {
+      dispatch(_boardUpdate(board));
+    } catch (err) {
+      console.log('BoardActions: err in setBoard', err);
+    }
   }
 }
 
@@ -60,17 +63,6 @@ function _boardUpdate(board) {
   }
 }
 
-export function updateBoardOffline(board) {
-  return async dispatch => {
-    try {
-      dispatch(_boardUpdate(board));
-      sessionStorage.setItem('board', JSON.stringify(board));
-    } catch (err) {
-      console.log('BoardActions: err in loadBoard', err);
-    }
-  };
-}
-
 export function createBoard(board) {
   return async dispatch => {
     try {
@@ -90,12 +82,19 @@ export function createBoard(board) {
   }
 }
 
-export function setBoard(board) {
-  return async dispatch => {
-    try {
-      dispatch(_setBoard(board));
-    } catch (err) {
-      console.log('BoardActions: err in setBoard', err);
-    }
-  }
-}
+// export function updateFilter(filterBy) {
+//   return async dispatch => {
+//     try {
+//       dispatch(_updateFilter(filterBy));
+//     } catch (err) {
+//       console.log('BoardActions: err in loadBoard', err);
+//     }
+//   };
+// }
+
+// function _updateFilter(filterBy) {
+//   return {
+//     type: 'UPDATE_FILTER',
+//     filterBy
+//   }
+// }

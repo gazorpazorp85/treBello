@@ -49,7 +49,7 @@ export default class SplashMenu extends Component {
     }
 
     render() {
-        return <div className={"splash-menu flex column align-center" + (this.props.toggleSplashMenu ? ' translateLeft' : '')}
+        return <div className="splash-menu flex column align-center translateLeft"
             onClick={(ev) => this.stopPropagation(ev)}>
             <div className="flex column fill-width filter-container">
                 <div className="splash-menu-search-bar fill-width flex justify-center">

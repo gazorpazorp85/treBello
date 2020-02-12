@@ -1,19 +1,15 @@
 
 const dbService = require('../../services/db.service')
-// const boardService = require('../board/board.service')
 const ObjectId = require('mongodb').ObjectId
 
 module.exports = {
     query,
-    // getById,
     getByEmail,
-    // remove,
     update,
     add
 }
 
 async function query() {
-    // const criteria = _buildCriteria(filterBy)
     const collection = await dbService.getCollection('user')
     try {
         const users = await collection.find().toArray();
@@ -34,20 +30,10 @@ async function getByEmail(email) {
         const user = await collection.findOne({ email })
         return user
     } catch (err) {
-        console.log(`ERROR: while finding user ${email}`)
+        console.log('ERROR: cannot find user')
         throw err;
     }
 }
-
-// async function remove(userId) {
-//     const collection = await dbService.getCollection('user')
-//     try {
-//         await collection.deleteOne({"_id":ObjectId(userId)})
-//     } catch (err) {
-//         console.log(`ERROR: cannot remove user ${userId}`)
-//         throw err;
-//     }
-// }
 
 async function update(user) {
     const collection = await dbService.getCollection('user')
@@ -57,7 +43,7 @@ async function update(user) {
         await collection.replaceOne({ "_id": user._id }, { $set: user })
         return user
     } catch (err) {
-        console.log(`ERROR: cannot update user ${user._id}`)
+        console.log('ERROR: cannot update user')
         throw err;
     }
 }
@@ -68,20 +54,7 @@ async function add(user) {
         await collection.insertOne(user);
         return user;
     } catch (err) {
-        console.log(`ERROR: cannot insert user`)
+        console.log('ERROR: cannot insert user')
         throw err;
     }
 }
-
-// function _buildCriteria(filterBy) {
-//     const criteria = {};
-//     if (filterBy.txt) {
-//         criteria.username = filterBy.txt
-//     }
-//     if (filterBy.minBalance) {
-//         criteria.balance = {$gte : +filterBy.minBalance}
-//     }
-//     return criteria;
-// }
-
-

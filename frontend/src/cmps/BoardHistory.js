@@ -4,8 +4,7 @@ import moment from 'moment';
 export default class BoardHistory extends Component {
     render() {
         return (
-            <div className={"boardhistory-container column"
-                + (this.props.showHistory ? ' translateLeft' : '')}>
+            <div className="boardhistory-container column">
                 <div className="flex column">
                     <div className="uppercase text-center">
                         <h2>board history :</h2>

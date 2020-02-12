@@ -17,7 +17,6 @@ export default class TaskForm extends Component {
             type: 'text',
             labels: [],
             todos: [],
-            creator: {},
             taskTeamMembers: []
         },
         edit: false
@@ -48,7 +47,6 @@ export default class TaskForm extends Component {
                     type: task.type,
                     labels: task.labels,
                     todos: task.todos,
-                    creator: task.creator,
                     taskTeamMembers: task.taskTeamMembers
                 },
                 edit: true

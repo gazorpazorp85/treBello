@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import utils from '../services/utils'
-
 import {
-  // loadUsers,
   getLoggedInUser,
   login,
   logout,
@@ -24,12 +21,7 @@ class Login extends Component {
       username: '',
       email: '',
       password: '',
-      color: utils.getRandomColor()
     },
-  }
-
-  componentDidMount() {
-    this.props.getLoggedInUser();
   }
 
   loginHandleChange = ev => {
@@ -61,16 +53,15 @@ class Login extends Component {
     const userCreds = { email, password };
     this.props.login(userCreds);
     this.setState({ loginCred: { email: '', password: '' } });
-    // this.props.toggleLogin();
   };
 
   doSignup = async ev => {
     ev.preventDefault();
-    const { firstName, lastName, username, email, password, color } = this.state.signupCred;
+    const { firstName, lastName, username, email, password } = this.state.signupCred;
     if (!firstName || !lastName || !email || !password || !username) {
       return this.setState({ msg: 'All inputs are required!' });
     }
-    const signupCreds = { firstName, lastName, username, email, password, color };
+    const signupCreds = { firstName, lastName, username, email, password };
     this.props.signup(signupCreds);
     this.setState({ signupCred: { firstName: '', lastName: '', username: '', email: '', password: '' } });
     this.props.toggleLogin();
@@ -156,10 +147,7 @@ class Login extends Component {
 
     return (
 
-      // <div className="screen" onClick={() => this.props.toggleLogin()} >
-
-      <div className={"login-container flex column align-center"
-        + (this.props.toggleState ? ' translateLeft' : '')}
+      <div className="login-container flex column align-center"
         style={this.props.style}
         onClick={this.doStopPropagation}>
 
@@ -182,9 +170,6 @@ class Login extends Component {
           {!this.props.loggedInUser && signupSection}
         </div>
       </div>
-
-      // </div>
-
     );
   }
 }
@@ -193,7 +178,6 @@ const mapStateToProps = state => {
   return {
     users: state.user.users,
     loggedInUser: state.user.loggedInUser,
-    isLoading: state.system.isLoading
   };
 };
 
@@ -202,7 +186,6 @@ const mapDispatchToProps = {
   logout,
   signup,
   getLoggedInUser
-  // loadUsers
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
