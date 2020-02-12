@@ -15,9 +15,11 @@ export default class Filter extends Component {
         this.setState(prevState => ({ filterBy: { ...prevState.filterBy, [fieldName]: value } }), () => this.props.onFilter(this.state.filterBy));
     }
 
+
     render() {
         const teamMembers = this.props.teamMembers;
-        return <div className="board-page-nav-bar-filters-item flex">
+        return <div className="board-page-nav-bar-filters-item all-filters flex">
+
 
             <input type="text" placeholder="Search card by name"
                 value={this.state.filterBy.title}
@@ -29,7 +31,7 @@ export default class Filter extends Component {
                 color: (this.props.isDarkBackground) ? 'white' : 'black',
                 background: (this.props.isDarkBackground) ? '#0000006b' : '#ffffff8e'
             }} onChange={this.inputChange}>
-                <option value=''>All Team Members</option>
+                <option value=''>all team</option>
                 {teamMembers.map(teamMember => (
                     <option className="capitalize" key={teamMember._id} value={`${teamMember.username}`}>{teamMember.firstName} {teamMember.lastName}</option>
                 ))}

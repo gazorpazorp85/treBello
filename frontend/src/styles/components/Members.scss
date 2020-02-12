@@ -10,6 +10,11 @@
   float: right;
   z-index: 1;
 
+  @media (max-width: 488px) {
+    top: 133px;
+    right: 12px
+  }
+
   &-asign-members {
     max-height: 200px;
     overflow-y: auto;

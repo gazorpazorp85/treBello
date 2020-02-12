@@ -8,6 +8,11 @@
     right: 21px;
     z-index: 1;
 
+    @media (max-width: 488px) {
+        top: 93px;
+        right: 12px
+    }
+
     p {
         margin-inline-start: 0px;
         padding: 7px 0px

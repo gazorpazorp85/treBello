@@ -146,12 +146,10 @@ class Login extends Component {
     const { loggedInUser } = this.props;
 
     return (
-
       <div className="login-container flex column align-center"
         style={this.props.style}
-        onClick={this.doStopPropagation}>
-
-
+        onClick={this.doStopPropagation}
+      >
         <div className="login-container-logo">
         </div>
         <h2>{this.state.msg}</h2>

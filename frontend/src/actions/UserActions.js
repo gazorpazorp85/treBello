@@ -37,6 +37,7 @@ export function getLoggedInUser() {
   return async dispatch => {
     try {
       const user = await UserService.getLoggedInUser();
+      if (Object.entries(user).length === 0) return;
       dispatch(_setUser(user));
     }  catch (err) {
       console.log('UserActions: err in logout', err);

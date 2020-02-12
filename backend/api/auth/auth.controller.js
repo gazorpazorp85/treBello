@@ -6,6 +6,7 @@ async function login(req, res) {
     try {
         const user = await authService.login(email, password)
         req.session.user = user;
+        req.session.save();
         res.json(user)
     } catch (err) {
         res.status(401).send({ error: 'could not login, please try later' })
@@ -20,6 +21,7 @@ async function signup(req, res) {
         logger.debug(`auth.route - new account created: ` + JSON.stringify(account))
         const user = await authService.login(email, password)
         req.session.user = user
+        req.session.save();
         res.json(user)
     } catch (err) {
         logger.error('[SIGNUP] ' + err)
@@ -38,7 +40,13 @@ async function logout(req, res){
 
 async function getLoggedInUser(req, res) {
     try {
-        if (req.session.user) res.json(req.session.user);
+
+        if (req.session.user) {
+            req.session.save();
+            res.json(req.session.user);
+        } else {
+            res.json({});
+        }
         // (req.session.user) ? res.json(req.session.user) : res.json({"username": "Guest"})        
     } catch (err) {
         logger.error('no signedin users', err);

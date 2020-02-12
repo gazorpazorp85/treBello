@@ -105,7 +105,6 @@ export default class TaskDetails extends Component {
     }
 
     onDuplicateTask = (column, task) => {
-        debugger
         const newTask = { ...task, id: utils.getRandomId(), labels: [...task.labels], todos: [...task.todos], taskTeamMembers: [...task.taskTeamMembers]};
         column.taskIds.push(newTask.id);
         const newBoard = {
@@ -492,7 +491,7 @@ export default class TaskDetails extends Component {
                                 </div>
                             </div>
 
-                            <div className="task-details-container-actions-options container">
+                            <div className="task-details-container-actions-options container flex column ">
                                 <h3 className="uppercase" style={{
                                     fontSize: '0.75rem',
                                     fontWeight: 500,
@@ -509,8 +508,8 @@ export default class TaskDetails extends Component {
                             </div>
                         </div>
                     </div>
-                </div >
-            </div >
+                </div>
+            </div>
 
         )
     }
