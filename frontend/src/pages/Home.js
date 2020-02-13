@@ -41,11 +41,6 @@ class Home extends Component {
     this.setState((prevState) => ({ toggleLogin: !prevState.toggleLogin }))
   }
 
-  // closeLogin = (ev) => {
-  //   ev.stopPropagation()
-  //   this.setState({ toggleLogin: false })
-  // }
-
   createBoard = async () => {
     let board = this.state.board;
     board.createdBy = this.props.loggedInUser || { _id: 'guest', username: 'guest' };
@@ -147,7 +142,7 @@ class Home extends Component {
             <h2 className="uppercase"> our team </h2>
             <div className="home-pagge-footer-team-members-cards-container flex wrap justify-center">
 
-              <div className="home-page-footer-team-member-card flex column align-center justify-center">
+              <div className="home-page-footer-team-member-card flex column align-center">
                 <div className="home-page-footer-team-member-card-member-img vlad"></div>
                 <p>Vlad Batalin</p>
                 <small>Front-End development and Design</small>
@@ -157,7 +152,7 @@ class Home extends Component {
                 </div>
               </div>
 
-              <div className="home-page-footer-team-member-card flex column align-center justify-center">
+              <div className="home-page-footer-team-member-card flex column align-center">
                 <div className="home-page-footer-team-member-card-member-img margad"></div>
                 <p>Margad Taikhir</p>
                 <small>Front-End development with Back-End support</small>

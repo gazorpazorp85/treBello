@@ -491,7 +491,7 @@ export default class TaskDetails extends Component {
                                 </div>
                             </div>
 
-                            <div className="task-details-container-actions-options container">
+                            <div className="task-details-container-actions-options container flex column ">
                                 <h3 className="uppercase" style={{
                                     fontSize: '0.75rem',
                                     fontWeight: 500,
