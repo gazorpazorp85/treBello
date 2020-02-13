@@ -29,7 +29,6 @@ export default class Sort extends Component {
             ${(this.props.isDarkBackground) ? 'dark' : 'light'}`}
                 onClick={this.onSortBy}
                 name='createdAt'>{this.toggleButtonName()}</button>
-
         </div>
     }
 }

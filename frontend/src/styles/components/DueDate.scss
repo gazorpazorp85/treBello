@@ -8,6 +8,10 @@
   top: 280px;
   position: absolute;
   z-index: 2;
+  @media (max-width: 488px) {
+    top: 213px;
+    right: 12px
+  }
 
   &-close-btn {
     cursor: pointer;

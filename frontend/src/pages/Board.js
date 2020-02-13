@@ -21,6 +21,8 @@ import HomeIcon from '@material-ui/icons/Home';
 import GroupAddOutlinedIcon from '@material-ui/icons/GroupAddOutlined';
 import ImageSearchOutlinedIcon from '@material-ui/icons/ImageSearchOutlined';
 import HistoryOutlinedIcon from '@material-ui/icons/HistoryOutlined';
+import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 import utils from '../services/utils';
 import SocketService from '../services/SocketService';
@@ -52,6 +54,7 @@ class Board extends Component {
     isBoardLoaded: false,
     isDarkBackground: null,
     filterIconMod: false,
+    mobileMod: false
   }
 
   componentDidMount() {
@@ -228,7 +231,10 @@ class Board extends Component {
   }
 
   resize = _ => {
-    this.setState({ filterIconMod: window.innerWidth < 900 ? true : false });
+    this.setState({
+      filterIconMod: window.innerWidth < 1075 ? true : false,
+      mobileMod: window.innerWidth < 550 ? true : false
+    });
   }
 
   render() {
@@ -236,16 +242,28 @@ class Board extends Component {
     // const { teamMembers } = { ...this.props.board }
     let button;
     if (this.props.loggedInUser) {
-      button = <button className="board-page-nav-bar nav-btn"
-        onClick={this.props.logout}>
-        logout
-      </button>
+      button = <ExitToAppIcon onClick={this.props.logout} />
     } else {
-      button = <button className="board-page-nav-bar nav-btn"
+      button = <div className="login-btn flex"
         onClick={ev => this.toggleLogin(ev)}>
-        login
-      </button>
+        <PersonOutlineIcon />
+        <p>login</p>
+      </div>
     }
+    /* {this.props.board.teamMembers.length > 0 &&
+      <div className="board-page-nav-bar-filters team-members-container flex">
+        {
+          teamMembers.map(member => {
+            return <div key={member.username} className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: '#dfe1e6', color: '#172b4d' }} >
+              <p className="team-member-icon">
+                {utils.createUserIcon(member.firstName,
+                  member.lastName)}
+              </p>
+            </div>
+          })
+        }
+      </div>
+    } */
     return (
       <div className="screen" onClick={this.closeAllTabs}>
         <div className="board-page fill-height flex column" style={{ backgroundImage: 'url(' + this.props.board.boardBgImage + ')', backgroundAttachment: 'fixed' }}>
@@ -264,53 +282,51 @@ class Board extends Component {
                     </div>
                   </div>
 
-                  <div className="logged-in-user flex column">
-                    <small>Logged as:</small>
-                    <p> {this.props.loggedInUser.username}</p>
-                  </div>
+                  {!this.state.mobileMod ?
+                    <div className="logged-in-user flex column">
+                      <small>Logged as:</small>
+                      <p> {this.props.loggedInUser.username}</p>
+                    </div> : ''}
                 </div>
               }
-
               {button}
             </div>
           </div>
 
-          <div className="board-page-nav-bar-filters flex align-center space-between">
-            <div className={`flex align-center`}>
-              <button
-                className={`board-page-nav-bar-filters nav-btn flex 
-                          ${(this.state.isDarkBackground) ? 'dark' : 'light'}`}
-                onClick={this.goBack} >
-                <HomeIcon />
-              </button>
+          <div className="board-page-nav-bar-filters flex wrap align-center space-between">
+            <div className="left-section flex align-center wrap" style={{ marginTop: 2 }}>
+              <div className="left-section-mobile-mode flex align-center">
+                <button
+                  className={`board-page-nav-bar-filters nav-btn flex 
+                ${(this.state.isDarkBackground) ? 'dark' : 'light'}`}
+                  onClick={this.goBack} >
+                  <HomeIcon />
+                </button>
 
-              {/* {this.props.board.teamMembers.length > 0 &&
-                <div className="board-page-nav-bar-filters team-members-container flex">
-                  {
-                    teamMembers.map(member => {
-                      return <div key={member.username} className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: '#dfe1e6', color: '#172b4d' }} >
-                        <p className="team-member-icon">
-                          {utils.createUserIcon(member.firstName,
-                            member.lastName)}
-                        </p>
-                      </div>
-                    })
-                  }
-                </div>
-              } */}
 
-              <div style={{ background: (this.state.isDarkBackground) ? 'white' : 'black' }} className="board-page-nav-bar-filters-divider"></div>
+                <div style={{ background: (this.state.isDarkBackground) ? 'white' : 'black' }} className="board-page-nav-bar-filters-divider"></div>
+
+                <Sort onSort={this.onSort} isDarkBackground={this.state.isDarkBackground} />
+                {window.innerWidth < 489 ? '' :
+                  <div style={{ background: (this.state.isDarkBackground) ? 'white' : 'black' }} className="board-page-nav-bar-filters-divider"></div>
+                }
+
+              </div>
 
               <Filter onFilter={this.onFilter}
                 teamMembers={this.props.board.teamMembers}
                 isDarkBackground={this.state.isDarkBackground} />
 
-              <div style={{ background: (this.state.isDarkBackground) ? 'white' : 'black' }} className="board-page-nav-bar-filters-divider"></div>
 
-              <Sort onSort={this.onSort} isDarkBackground={this.state.isDarkBackground} />
+
+              {!this.state.mobileMod ?
+                <div style={{ background: (this.state.isDarkBackground) ? 'white' : 'black' }} className="board-page-nav-bar-filters-divider"></div>
+                : ''
+              }
             </div>
 
-            <div className="board-page-nav-bar-filters-item flex align-center">
+
+            <div className="right-section flex align-center" style={{ marginTop: 2 }}>
               <div className="board-page-nav-bar-filters-item fill-height">
                 <button
                   className={`nav-btn fill-height capitalize
@@ -341,7 +357,7 @@ class Board extends Component {
 
               <div className="board-page-nav-bar-filters-item flex fill-height">
                 <button
-                  className={`board-page-nav-bar-filters nav-btn capitalize 
+                  className={`nav-btn fill-height capitalize 
                   ${(this.state.isDarkBackground) ? 'dark' : 'light'}`}
                   onClick={this.toggleBoardHistory}>
                   {!this.state.filterIconMod ? <Typography component="p" className="flex align-center p-reset">
