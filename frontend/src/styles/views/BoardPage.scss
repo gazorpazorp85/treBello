@@ -10,21 +10,6 @@
     background-color: #0000005c;
     padding: 10px;
 
-    .login-btn {
-      cursor: pointer;
-      transition: .2s;
-
-      &:hover {
-        border-radius: 4px;
-        padding: 2px 4px;
-        background-color: rgba(165, 165, 165, 0.829);
-      }
-
-      p {
-        color: white;
-      }
-    }
-
     .team-member-icon-wrapper {
       padding: 2px 11px;
       margin-right: 5px;

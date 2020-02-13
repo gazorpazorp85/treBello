@@ -123,3 +123,22 @@ a {
   transform: translate(100%, 0);
   transition: 0.7s ease;
 }
+
+.MuiSvgIcon-root{
+  cursor: pointer;
+}
+
+.login-btn {
+  cursor: pointer;
+  transition: .2s;
+
+  &:hover {
+    border-radius: 4px;
+    padding: 2px 4px;
+    background-color: rgba(165, 165, 165, 0.829);
+  }
+
+  p {
+    color: white;
+  }
+}

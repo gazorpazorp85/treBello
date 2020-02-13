@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 
-import Button from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Fab';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import FacebookIcon from '@material-ui/icons/Facebook';
+import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
+import EmailIcon from '@material-ui/icons/Email';
 
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import BoardsList from '../cmps/BoardsList';
 import Login from '../cmps/Login';
 
@@ -41,11 +42,6 @@ class Home extends Component {
     this.setState((prevState) => ({ toggleLogin: !prevState.toggleLogin }))
   }
 
-  // closeLogin = (ev) => {
-  //   ev.stopPropagation()
-  //   this.setState({ toggleLogin: false })
-  // }
-
   createBoard = async () => {
     let board = this.state.board;
     board.createdBy = this.props.loggedInUser || { _id: 'guest', username: 'guest' };
@@ -78,108 +74,128 @@ class Home extends Component {
     board.history.push({ id: utils.getRandomId(), msg: msg, time: Date.now() });
   }
 
+
+  sendMail = (mail) => {
+    window.open('mailto:' + mail)
+  }
+
   render() {
     let button;
     if (this.props.loggedInUser) {
-      button = <Button className="home-page-login-btn" onClick={this.props.logout}>
-        <div>logout</div>
-      </Button>
+      button = <ExitToAppIcon className="login-btn" onClick={this.props.logout} />
     } else {
-      button = <Button className="home-page-login-btn" onClick={this.toggleLogin}>
-        <div>login</div>
-      </Button>
+      button = <div className="login-btn cursor-pointer flex" onClick={this.toggleLogin}>
+        <PersonOutlineIcon />
+        <p>login</p>
+      </div>
     }
 
     return (
-        <div className="home-page">
+      <div className="home-page">
         {(this.state.toggleLogin) && <div className="home-page screen" onClick={this.toggleLogin}></div>}
-          <section className="home-page-header">
-            <div className="home-page-login flex justify-end align-center">
-              {(this.props.loggedInUser) &&
-                <p className="flex column">
+        <section className="home-page-header">
+          <div className="home-page-login flex justify-end align-center">
+            {(this.props.loggedInUser) &&
+              <div className="flex">
+                <div className="team-member-icon flex align-center">
+                  <p>
+                    {utils.createUserIcon(this.props.loggedInUser.firstName,
+                      this.props.loggedInUser.lastName)}
+                  </p>
+                </div>
+                <p className="flex column" style={{ paddingRight: 10 }}>
                   <small>welcome!</small>
                   {this.props.loggedInUser.username}
                 </p>
-              }
-              {button}
-            </div>
-            <CSSTransition
-              in={this.state.toggleLogin}
-              timeout={700}
-              classNames="modal"
-              unmountOnExit>
-              <Login
-                className="home-page-login"
-                toggleLogin={this.toggleLogin} />
-            </CSSTransition>
-            <div className="home-page-header-container flex">
-              <div className="header-image flex align-center justify-center fill-width fill-height">
-                <div className="login-get-started-container flex align-center justify-center align-center">
-                  <div className="home-page-logo-get-started flex column align-center">
-                    <div className="home-page-header-container-logo-img fill-width fill-height"></div>
-                    <div className="text-center">
-                      <h2>Manage your tasks in a fun and easy way</h2>
-                    </div>
-                    <div className="get-started-btn">
-                      <Fab variant="extended">
-                        <p className="uppercase" onClick={this.createBoard}>
-                          get started
+              </div>
+            }
+            {button}
+          </div>
+          <CSSTransition
+            in={this.state.toggleLogin}
+            timeout={700}
+            classNames="modal"
+            unmountOnExit>
+            <Login
+              className="home-page-login"
+              toggleLogin={this.toggleLogin} />
+          </CSSTransition>
+          <div className="home-page-header-container flex">
+            <div className="header-image flex align-center justify-center fill-width fill-height">
+              <div className="login-get-started-container flex align-center justify-center align-center">
+                <div className="home-page-logo-get-started flex column align-center">
+                  <div className="home-page-header-container-logo-img fill-width fill-height"></div>
+                  <div className="text-center">
+                    <h2>Manage your tasks in a fun and easy way</h2>
+                  </div>
+                  <div className="get-started-btn">
+                    <Fab variant="extended">
+                      <p className="uppercase" onClick={this.createBoard}>
+                        get started
                     </p>
-                      </Fab>
-                    </div>
+                    </Fab>
                   </div>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          <section className="home-page-boards-list flex wrap colum justify-center">
-            <div className="home-page-boards-list-img"></div>
-            <p className="home-page-boards-list-start-new-board-right-text flex">
+        <section className="home-page-boards-list flex wrap colum justify-center">
+          <div className="home-page-boards-list-img fill-width flex justify-center">
+            <h3>
               We, in Trebello, believe that simplicity and style must go together,
             that's why we made our brand simple and easy to use for everyone.<br /> <br />
-              Maximize your team workflow and take them one step ahead.</p>
-          </section>
+              Maximize your team workflow and take them one step ahead.</h3>
+          </div>
+        </section>
 
-          <BoardsList boards={this.props.boards} user={this.props.loggedInUser} duplicateBoard={this.duplicateBoard} />
+        <BoardsList boards={this.props.boards} user={this.props.loggedInUser} duplicateBoard={this.duplicateBoard} />
 
-          <section className="home-page-footer flex column align-center justify-center">
-            <h2 className="uppercase"> our team </h2>
-            <div className="home-pagge-footer-team-members-cards-container flex wrap justify-center">
-
-              <div className="home-page-footer-team-member-card flex column align-center justify-center">
-                <div className="home-page-footer-team-member-card-member-img vlad"></div>
+        <section className="home-page-footer flex column align-center justify-center">
+          <div className="fill-width">
+            <h2 className="text-center uppercase"> about us  </h2>
+          </div>
+          <div className="home-page-footer-team-members-cards-container flex wrap justify-center">
+            <div className="home-page-footer-team-member-card flex column align-center justify-center">
+              <div className="home-page-footer-team-member-card-member-img vlad"></div>
+              <div className="info fill-width flex space-between">
                 <p>Vlad Batalin</p>
-                <small>Front-End development and Design</small>
                 <div className="flex">
-                  <LinkedInIcon className="linkedInIcon"></LinkedInIcon>
-                  <FacebookIcon className="faceBookIcon"></FacebookIcon>
+                  <a href="https://www.linkedin.com/in/vlad-batalin-647725180/" target="blank"><LinkedInIcon className="linkedInIcon"></LinkedInIcon></a>
+                  <EmailIcon onClick={() => this.sendMail('batalinvlad@gmail.com')} className="mail" />
                 </div>
               </div>
+              <span className="text-center fill-width">Full-stack development</span>
+            </div>
 
-              <div className="home-page-footer-team-member-card flex column align-center justify-center">
-                <div className="home-page-footer-team-member-card-member-img margad"></div>
+            <div className="home-page-footer-team-member-card flex column align-center justify-center">
+              <div className="home-page-footer-team-member-card-member-img margad"></div>
+              <div className="info fill-width flex space-between">
                 <p>Margad Taikhir</p>
-                <small>Front-End development with Back-End support</small>
-                <div className="flex">
-                  <LinkedInIcon className="linkedInIcon"></LinkedInIcon>
-                  <FacebookIcon className="faceBookIcon"></FacebookIcon>
-                </div>
-              </div>
-
-              <div className="home-page-footer-team-member-card flex column align-center justify-center">
-                <div className="home-page-footer-team-member-card-member-img paolo"></div>
-                <p>Paolo Groppi</p>
-                <small>Full-Stack development</small>
                 <div className="flex">
                   <a href="https://www.linkedin.com/in/paolo-groppi-6ba84117b" target="blank"><LinkedInIcon className="linkedInIcon"></LinkedInIcon></a>
-                  <a href="https://www.facebook.com/karma.tova" target="blank"><FacebookIcon className="faceBookIcon"></FacebookIcon></a>
+                  <EmailIcon onClick={() => this.sendMail('mtaikhir@gmail.com')} className="mail" />
                 </div>
               </div>
-
+              <span className="text-center fill-width">Full-Stack development</span>
             </div>
-          </section>
-        </div>
+
+            <div className="home-page-footer-team-member-card flex column align-center justify-center">
+              <div className="home-page-footer-team-member-card-member-img paolo"></div>
+              <div className="info fill-width flex space-between">
+                <p>Paolo Groppi</p>
+                <div className="flex">
+                  <a href="https://www.linkedin.com/in/paolo-groppi-6ba84117b" target="blank"><LinkedInIcon className="linkedInIcon"></LinkedInIcon></a>
+                  <EmailIcon onClick={() => this.sendMail('paolo.groppi@gmail.com')} className="mail" />
+                </div>
+              </div>
+              <span className="text-center fill-width">Full-Stack development</span>
+            </div>
+
+          </div>
+        </section>
+      </div>
     )
   }
 }

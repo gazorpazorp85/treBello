@@ -246,7 +246,6 @@ class Board extends Component {
 
   render() {
     if (!this.state.isBoardLoaded) return <LoadPage />
-    // const { teamMembers } = { ...this.props.board }
     let button;
     if (this.props.loggedInUser) {
       button =  <ExitToAppIcon onClick={this.props.logout}/>
@@ -257,20 +256,7 @@ class Board extends Component {
         <p>login</p>
       </div>
     }
-    /* {this.props.board.teamMembers.length > 0 &&
-      <div className="board-page-nav-bar-filters team-members-container flex">
-        {
-          teamMembers.map(member => {
-            return <div key={member.username} className="team-member-icon-wrapper flex align-center justify-center" style={{ backgroundColor: '#dfe1e6', color: '#172b4d' }} >
-              <p className="team-member-icon">
-                {utils.createUserIcon(member.firstName,
-                  member.lastName)}
-              </p>
-            </div>
-          })
-        }
-      </div>
-    } */
+
     return (
       <div className="screen" onClick={this.closeAllTabs}>
         <div className="board-page fill-height flex column" style={{ backgroundImage: 'url(' + this.props.board.boardBgImage + ')', backgroundAttachment: 'fixed' }}>
