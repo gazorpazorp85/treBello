@@ -228,11 +228,7 @@ class Board extends Component {
   }
 
   resize = _ => {
-    if (window.innerWidth < 900) {
-      this.setState({ filterIconMod: true });
-    } else {
-      this.setState({ filterIconMod: false })
-    };
+    this.setState({ filterIconMod: window.innerWidth < 900 ? true : false });
   }
 
   render() {

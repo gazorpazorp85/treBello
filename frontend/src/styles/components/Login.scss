@@ -1,60 +1,57 @@
 .login-container {
-    z-index: 2;
-    position: fixed;
-    height: 100vh;
-    top: 0px;
-    right: 0px;
-    width: 270px;
-    background: #050505e3;
+  z-index: 2;
+  position: fixed;
+  height: 100vh;
+  top: 0px;
+  right: 0px;
+  width: 270px;
+  background: #050505e3;
+  color: white;
+  border-left: 3px solid rgba(207, 207, 207, 0.226);
+
+  p {
+    font-weight: 600;
+  }
+
+  &-logo {
+    margin: 20px 0px;
+    height: 50px;
+    width: 120px;
+    background-image: url("../images/logo-nav.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &-login-btn,
+  &-signup-btn {
+    padding: 5px 10px;
+    margin-top: 5px;
     color: white;
-    border-left: 3px solid rgba(207, 207, 207, 0.226);
+    font-weight: 600;
+    background-color: #5aac44;
+    transition: 0.3s;
 
-    p {
-        font-weight: 600;
+    &:hover {
+      background-color: #5bac44d5;
     }
+  }
 
-    &-logo {
-        margin: 20px 0px;
-        height: 50px;
-        width: 120px;
-        background-image: url('../images/logo-nav.png');
-        background-size: contain;
-        background-repeat: no-repeat;
+  &-form-container {
+    &-logout {
+      padding: 5px 10px;
+      margin-top: 5px;
+      color: white;
+      font-weight: 600;
+      background-color: #bb1c1cad;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: #bb1c1cd0;
+      }
     }
+  }
 
-    &-login-btn,
-    &-signup-btn {
-        padding: 5px 10px;
-        margin-top: 5px;
-        color: white;
-        font-weight: 600;
-        background-color: #5aac44;
-        transition: 0.3s;
-
-        &:hover {
-            background-color: #5bac44d5;
-        }
-    }
-
-    &-form-container {
-
-        &-logout {
-            padding: 5px 10px;
-            margin-top: 5px;
-            color: white;
-            font-weight: 600;
-            background-color: #bb1c1cad;
-            transition: 0.3s;
-
-            &:hover {
-                background-color: #bb1c1cd0;
-
-            }
-        }
-    }
-
-    hr {
-        margin: 20px 0px;
-    }
-
+  hr {
+    margin: 20px 0px;
+  }
 }
