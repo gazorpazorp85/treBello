@@ -42,7 +42,6 @@ export function setBoard(board) {
 }
 
 export function updateBoard(board, msg, notificationType) {
-  debugger
   return async dispatch => {
     try {
       board.history.unshift({ id: utils.getRandomId(), msg: msg, time: Date.now() })

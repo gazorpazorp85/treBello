@@ -7,12 +7,12 @@ import Board from './pages/Board.js';
 
 function App() {
   return (
-      <Router>
-        <Switch>
-          <Route path="/" component={Home} exact />
-          <Route path="/board/:id" component={Board} exact />
-        </Switch>
-      </Router>
+    <Router>
+      <Switch>
+        <Route path="/" component={Home} exact />
+        <Route path="/board/:id" component={Board} exact />
+      </Switch>
+    </Router>
   );
 }
 

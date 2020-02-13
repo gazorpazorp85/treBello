@@ -231,28 +231,21 @@ class Board extends Component {
   }
 
   resize = _ => {
-    if (window.innerWidth < 1075) {
-      this.setState({ filterIconMod: true });
-    } else {
-      this.setState({ filterIconMod: false })
-    };
-
-    if (window.innerWidth < 550) {
-      this.setState({ mobileMod: true })
-    } else {
-      this.setState({ mobileMod: false })
-    }
+    this.setState({
+      filterIconMod: window.innerWidth < 1075 ? true : false,
+      mobileMod: window.innerWidth < 550 ? true : false
+    });
   }
 
   render() {
     if (!this.state.isBoardLoaded) return <LoadPage />
     let button;
     if (this.props.loggedInUser) {
-      button =  <ExitToAppIcon onClick={this.props.logout}/>
+      button = <ExitToAppIcon onClick={this.props.logout} />
     } else {
       button = <div className="login-btn flex"
         onClick={ev => this.toggleLogin(ev)}>
-        <PersonOutlineIcon/>
+        <PersonOutlineIcon />
         <p>login</p>
       </div>
     }
