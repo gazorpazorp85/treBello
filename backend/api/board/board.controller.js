@@ -13,13 +13,8 @@ async function getBoards(req, res) {
 
 async function getBoard(req, res) {
     const id = req.params.id;
-    const filterBy = {title: req.query.title, 
-                      teamMembers: req.query.teamMembers};
-    const sortBy = req.query.sortby;
-    const sortOrder = req.query.sortorder;
-
     try {
-        const board = await boardService.getById(id, filterBy, sortBy, sortOrder);
+        const board = await boardService.getById(id);
         res.send(board);
     } catch (err) {
         logger.error('Cannot get board', err);
