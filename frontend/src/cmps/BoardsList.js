@@ -46,11 +46,11 @@ function BoardsList({ boards, user, duplicateBoard }) {
                     }
                     {(myCollaboratedBoards.length === 0) ?
                         <div className="capitalize flex justify-center noboards">
-                            you are not participate in any board.
+                            you're not collaborating on any boards yet
                     </div> :
                         <div className="boards-list-main-inner-container-wrapper">
                             <div className="boards-list-main-inner-container">
-                                <h3 className="capitalize"> participate </h3>
+                                <h3 className="capitalize"> boards you collaborate on </h3>
                                 <div className="boards-list-main-inner-container-grid flex justify-center column">
                                     {myCollaboratedBoards.map(myCollaboratedBoard => (
                                         <NavLink className="boards-list-main-inner-container-grid-item" key={myCollaboratedBoard._id} to={`/board/${myCollaboratedBoard._id}`}>
@@ -62,7 +62,7 @@ function BoardsList({ boards, user, duplicateBoard }) {
                         </div>
                     }
                 </div>}
-        </section >
+        </section>
     )
 }
 

@@ -138,7 +138,7 @@ export default class BoardColumns extends Component {
     }
 
     render() {
-        const { currColumnId, showTopMenuOptions, showAddForm } = this.props;
+        const { boardToShow, currColumnId, showTopMenuOptions, showAddForm } = this.props;
         return (
             <DragDropContext onDragEnd={this.onDragEnd}>
                 <Droppable droppableId="all-columns" direction="horizontal" type="column">
@@ -147,9 +147,9 @@ export default class BoardColumns extends Component {
                             className="board-columns flex"
                             {...provided.droppableProps}
                             ref={provided.innerRef}>
-                            {this.props.board.columnOrder.map((columnKey, idx) => {
+                            {boardToShow.columnOrder.map((columnKey, idx) => {
 
-                                const column = this.props.board.columns[columnKey];
+                                const column = boardToShow.columns[columnKey];
                                 const tasks = column.taskIds.map(currId => this.props.board.tasks[currId]);
 
                                 return (
@@ -247,7 +247,7 @@ export default class BoardColumns extends Component {
                                 )
                             })}
                             {provided.placeholder}
-                        </div >)}
+                        </div>)}
                 </Droppable>
             </DragDropContext>
         );

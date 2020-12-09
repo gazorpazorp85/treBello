@@ -51,7 +51,7 @@ class Home extends Component {
   }
 
   duplicateBoard = async (board) => {
-    let duplicatedBoard = { ...board };
+    let duplicatedBoard = JSON.parse(JSON.stringify(board));
     delete duplicatedBoard._id;
     delete duplicatedBoard.boardBgThumbnailTitleStyle;
     duplicatedBoard.history = [];
@@ -166,7 +166,7 @@ class Home extends Component {
                   <EmailIcon onClick={() => this.sendMail('batalinvlad@gmail.com')} className="mail" />
                 </div>
               </div>
-              <span className="text-center fill-width">Full-stack development</span>
+              <span className="text-center fill-width capitalize">Full-stack development</span>
             </div>
 
             <div className="home-page-footer-team-member-card flex column align-center justify-center">
@@ -174,11 +174,11 @@ class Home extends Component {
               <div className="info fill-width flex space-between">
                 <p>Margad Taikhir</p>
                 <div className="flex">
-                  <a href="https://www.linkedin.com/in/paolo-groppi-6ba84117b" target="blank"><LinkedInIcon className="linkedInIcon"></LinkedInIcon></a>
+                  {/* <a href="" target="blank"><LinkedInIcon className="linkedInIcon"></LinkedInIcon></a> */}
                   <EmailIcon onClick={() => this.sendMail('mtaikhir@gmail.com')} className="mail" />
                 </div>
               </div>
-              <span className="text-center fill-width">Full-Stack development</span>
+              <span className="text-center fill-width capitalize">Full-Stack development</span>
             </div>
 
             <div className="home-page-footer-team-member-card flex column align-center justify-center">
@@ -190,7 +190,7 @@ class Home extends Component {
                   <EmailIcon onClick={() => this.sendMail('paolo.groppi@gmail.com')} className="mail" />
                 </div>
               </div>
-              <span className="text-center fill-width">Full-Stack development</span>
+              <span className="text-center fill-width capitalize">Full-Stack development</span>
             </div>
 
           </div>

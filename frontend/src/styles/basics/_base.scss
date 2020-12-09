@@ -124,17 +124,20 @@ a {
   transition: 0.7s ease;
 }
 
-.MuiSvgIcon-root{
+.MuiSvgIcon-root {
   cursor: pointer;
 }
 
 .login-btn {
+  display: flex;
+  align-items: center;
   cursor: pointer;
-  transition: .2s;
+  transition: 0.2s;
+  padding: 2px 4px;
+  text-transform: capitalize;
 
   &:hover {
     border-radius: 4px;
-    padding: 2px 4px;
     background-color: rgba(165, 165, 165, 0.829);
   }
 

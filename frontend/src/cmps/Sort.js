@@ -4,31 +4,30 @@ export default class Sort extends Component {
 
     state = {
         sortBy: '',
-        sortOrder: 'asc'
-    }
-
-    inputChange = (ev) => {
-        let fieldName = ev.target.name;
-        let value = ev.target.value;
-        this.setState(prevState => ({ filterBy: { ...prevState.filterBy, [fieldName]: value } }));
+        sortOrder: ''
     }
 
     onSortBy = (ev) => {
         let fieldName = ev.target.name;
-        let sortOrder = (this.state.sortOrder === 'asc') ? 'desc' : 'asc';
-        this.setState({ sortBy: fieldName, sortOrder: sortOrder }, () => this.props.onSort(this.state.sortBy, this.state.sortOrder));
-    }
-
-    toggleButtonName = () => {
-        return (this.state.sortOrder === 'asc') ? 'Newest Cards' : 'Oldest Cards';
+        this.setState({ sortBy: fieldName, sortOrder: ev.target.value }, () => this.props.onSort(this.state.sortBy, this.state.sortOrder));
     }
 
     render() {
-        return <div  className="board-page-nav-bar-filters-item fill-height">
-            <button className={`nav-btn fill-height
-            ${(this.props.isDarkBackground) ? 'dark' : 'light'}`}
-                onClick={this.onSortBy}
-                name='createdAt'>{this.toggleButtonName()}</button>
-        </div>
+        return (
+            <div className="board-page-nav-bar-filters-item all-filters flex">
+                <select
+                    name="createdAt"
+                    style={{
+                        color: (this.props.isDarkBackground) ? 'white' : 'black',
+                        background: (this.props.isDarkBackground) ? '#0000006b' : '#ffffff8e'
+                    }}
+                    onChange={this.onSortBy}
+                >
+                    <option value="">Sort By</option>
+                    <option value="desc">Newest Cards</option>
+                    <option value="asc">Oldest Cards</option>
+                </select>
+            </div>
+        )
     }
 }

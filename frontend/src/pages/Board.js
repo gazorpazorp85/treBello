@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { store } from 'react-notifications-component';
 import FastAverageColor from 'fast-average-color';
 import { CSSTransition } from 'react-transition-group';
+import _ from 'lodash';
 
 import LoadPage from '../cmps/LoadPage';
 import BoardColumns from '../cmps/BoardColumns';
@@ -11,7 +12,7 @@ import BoardTeamMembers from '../cmps/BoardTeamMembers';
 import ColumnAddForm from '../cmps/ColumnAddForm';
 import Login from '../cmps/Login';
 import Filter from '../cmps/Filter';
-import Sort from '../cmps/Sort';
+// import Sort from '../cmps/Sort';
 import SplashMenu from '../cmps/SplashMenu';
 import TaskDetails from '../cmps/TaskDetails';
 import DynamicMiniComponent from '../cmps/dynamics/DynamicMiniComponent';
@@ -30,10 +31,9 @@ import SocketService from '../services/SocketService';
 import { loadBoard, updateBoard, setBoard } from '../actions/BoardActions';
 import { logout, getLoggedInUser, getUsers } from '../actions/UserActions';
 
-// import { filterBoard } from '../selectors/BoardSelector';
-
 class Board extends Component {
   state = {
+    filteredBoard: null,
     showColAddForm: true,
     showTaskDetails: false,
     showMiniTaskDetails: false,
@@ -42,12 +42,9 @@ class Board extends Component {
     showHistory: false,
     toggleBoardTeamMembers: false,
     miniTaskDetails: {},
-    filterBy: {
-      title: '',
-      teamMembers: ''
-    },
-    sortBy: '',
-    sortOrder: '',
+    filterBy: null,
+    sortBy: null,
+    sortOrder: null,
     showTopMenuOptions: true,
     showAddForm: false,
     currColumnId: '',
@@ -62,7 +59,7 @@ class Board extends Component {
 
     this.props.getUsers();
     this.props.getLoggedInUser();
-    this.loadBoard();
+    this.props.loadBoard(boardId);
     this.resize();
     window.addEventListener('resize', this.resize);
 
@@ -78,12 +75,16 @@ class Board extends Component {
       if (prevProps.board.boardBgImage !== this.props.board.boardBgImage) {
         this.isDarkBackground();
       };
-      return;
     } else if (boardId === this.props.board._id) {
       this.setState({ isBoardLoaded: true });
       this.isDarkBackground();
     };
-
+    if (prevProps.board !== this.props.board && this.state.filterBy) {
+      this.filterBoard(this.state.filterBy);
+    }
+    if (prevProps.board !== this.props.board && this.state.sortOrder) {
+      this.sortBoard();
+    }
   }
 
   componentWillUnmount() {
@@ -91,14 +92,6 @@ class Board extends Component {
     SocketService.off('updateBoard');
     SocketService.off('getNotification');
     SocketService.terminate();
-  }
-
-  loadBoard = () => {
-    const boardId = this.props.match.params.id;
-    const filterBy = this.state.filterBy;
-    const sortBy = this.state.sortBy;
-    const sortOrder = this.state.sortOrder;
-    this.props.loadBoard(boardId, filterBy, sortBy, sortOrder);
   }
 
   toggleAddColumn = () => {
@@ -134,7 +127,7 @@ class Board extends Component {
   }
 
   toggleTaskDetails = (currTask) => {
-    if (currTask === undefined) {
+    if (!currTask) {
       this.setState(prevState => ({ showTaskDetails: !prevState.showTaskDetails }));
     } else if (this.state.showTaskDetails && currTask.id !== this.state.currTask.id) {
       this.setState({ currTask });
@@ -155,13 +148,8 @@ class Board extends Component {
     })
   }
 
-  onFilter = (filterBy) => {
-    this.setState(prevState => ({ filterBy: { ...prevState.filterBy, ...filterBy } }), this.loadBoard);
-    // this.props.updateFilter(filterBy);
-  }
-
   onSort = (sortBy, sortOrder) => {
-    this.setState({ sortBy, sortOrder }, this.loadBoard);
+    this.setState({ sortBy, sortOrder }, this.sortBoard);
   }
 
   toggleMiniDetails = miniTask => {
@@ -205,7 +193,7 @@ class Board extends Component {
     this.setState({ showAddForm: true, currColumnId: colId }, this.closeEditColumn);
   }
 
-  closeAddForm = _ => {
+  closeAddForm = () => {
     this.setState({ showAddForm: false });
   }
 
@@ -213,7 +201,7 @@ class Board extends Component {
     this.setState({ showTopMenuOptions: true, currColumnId: colId }, this.closeAddForm());
   }
 
-  closeEditColumn = _ => {
+  closeEditColumn = () => {
     this.setState({ showTopMenuOptions: false });
   }
 
@@ -230,7 +218,77 @@ class Board extends Component {
     }
   }
 
-  resize = _ => {
+  filterBoard = (filterBy) => {
+    if (!filterBy.title && !filterBy.teamMembers) return this.setState({ filteredBoard: null });
+    this.setState({ filterBy });
+    const clonedBoard = _.cloneDeep(this.props.board);
+    const tasks = clonedBoard.tasks;
+    const columns = { ...clonedBoard.columns };
+    const matchedIds = [];
+    const unmatchedIds = [];
+
+    for (const taskKey in tasks) {
+
+      let task = tasks[taskKey];
+      let filterTitle = filterBy.title.toLowerCase();
+      let title = task.title.toLowerCase();
+
+      (title.includes(filterTitle)) ? matchedIds.push(taskKey) : unmatchedIds.push(taskKey);
+    }
+    if (filterBy.teamMembers) {
+      for (const id of matchedIds) {
+        let task = tasks[id];
+        let teamMember = filterBy.teamMembers;
+        let taskTeamMembers = task.taskTeamMembers;
+        if (taskTeamMembers.length === 0) {
+          unmatchedIds.push(id);
+        } else {
+          if (taskTeamMembers.every((taskTeamMember) => (taskTeamMember.username !== teamMember))) unmatchedIds.push(id);
+        }
+      }
+    }
+
+    for (const column in columns) {
+      for (const unmatchedId of unmatchedIds) {
+        if (columns[column].taskIds.includes(unmatchedId))
+          columns[column].taskIds = columns[column].taskIds.filter(id => id !== unmatchedId);
+      }
+    }
+    this.setState({ filteredBoard: clonedBoard });
+  }
+
+  // sortBoard = () => {
+  //   if (!this.state.sortOrder) return this.setState({ filteredBoard: null });
+  //   const board = this.state.filterBy ? this.state.filteredBoard : _.cloneDeep(this.props.board);
+  //   const { sortBy, sortOrder } = this.state;
+  //   let tasks = board.tasks;
+  //   let keys = Object.keys(tasks);
+  //   const tasksArray = Object.values(tasks);
+
+  //   if (sortBy === 'createdAt') {
+  //     tasksArray.sort((a, b) => a.createdAt - b.createdAt);
+  //     tasks = tasksArray.reduce((acc, task) => {
+  //       return { ...acc, [task.id]: task };
+  //     }, {});
+  //   }
+
+  //   for (const column in board.columns) {
+  //     let sortedTasks = [];
+  //     for (const key of keys) {
+  //       if (board.columns[column].taskIds.includes(key))
+  //         sortedTasks.push(key);
+  //     }
+  //     if (sortedTasks.length === 0) {
+  //       board.columns[column].taskIds = sortedTasks;
+  //     } else {
+  //       sortedTasks = ((sortOrder === 'asc') ? sortedTasks : sortedTasks.reverse());
+  //       board.columns[column].taskIds = sortedTasks;
+  //     };
+  //   }
+  //   this.setState({ filteredBoard: board });
+  // }
+
+  resize = () => {
     this.setState({
       filterIconMod: window.innerWidth < 1075 ? true : false,
       mobileMod: window.innerWidth < 550 ? true : false
@@ -249,7 +307,7 @@ class Board extends Component {
         <p>login</p>
       </div>
     }
-
+    const boardToShow = (this.state.filteredBoard) ? this.state.filteredBoard : this.props.board;
     return (
       <div className="screen" onClick={this.closeAllTabs}>
         <div className="board-page fill-height flex column" style={{ backgroundImage: 'url(' + this.props.board.boardBgImage + ')', backgroundAttachment: 'fixed' }}>
@@ -292,14 +350,14 @@ class Board extends Component {
 
                 <div style={{ background: (this.state.isDarkBackground) ? 'white' : 'black' }} className="board-page-nav-bar-filters-divider"></div>
 
-                <Sort onSort={this.onSort} isDarkBackground={this.state.isDarkBackground} />
+                {/* <Sort onSort={this.onSort} isDarkBackground={this.state.isDarkBackground} />
                 {window.innerWidth < 489 ? '' :
                   <div style={{ background: (this.state.isDarkBackground) ? 'white' : 'black' }} className="board-page-nav-bar-filters-divider"></div>
-                }
+                } */}
 
               </div>
 
-              <Filter onFilter={this.onFilter}
+              <Filter filterBoard={this.filterBoard}
                 teamMembers={this.props.board.teamMembers}
                 isDarkBackground={this.state.isDarkBackground} />
 
@@ -363,7 +421,6 @@ class Board extends Component {
             unmountOnExit
           >
             <SplashMenu
-              // toggleSplashMenu={this.state.toggleSplashMenu}
               board={this.props.board}
               updateBoard={this.props.updateBoard}
               closeAllTabs={this.closeAllTabs}
@@ -390,6 +447,7 @@ class Board extends Component {
               </CSSTransition>
               <BoardColumns
                 board={this.props.board}
+                boardToShow={boardToShow}
                 updateBoard={this.props.updateBoard}
                 toggleTaskDetails={this.toggleTaskDetails}
                 toggleMiniDetails={this.toggleMiniDetails}
@@ -448,8 +506,7 @@ class Board extends Component {
               updateBoard={this.props.updateBoard} />
           </CSSTransition>
         </div>
-
-      </div >
+      </div>
     )
   }
 }

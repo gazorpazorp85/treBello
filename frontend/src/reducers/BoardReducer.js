@@ -1,7 +1,6 @@
 const initialState = {
   boards: [],
   board: {},
-  filterBy: {title: '', teamMembers: ''}
 };
 
 export default function (state = initialState, action = {}) {
@@ -12,8 +11,6 @@ export default function (state = initialState, action = {}) {
       return { ...state, board: action.board };
     case 'ADD_BOARD':
       return { ...state, boards: [...state.boards, action.addedBoard] };
-    case 'UPDATE_FILTER':
-      return { ...state, filterBy: action.filterBy };
     default:
       return state;
   }
